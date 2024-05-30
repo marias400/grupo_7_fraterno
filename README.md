@@ -12,8 +12,8 @@ Público en general de la ciudad de La Rioja capital que aprecie un buen sánguc
 
 Desde la mañana al mediodía, la oferta esta más orientada a viandas (ensaladas). Por la noche, la carta tiende a orientarse más a sanguches en general, pero el horario no limita lo que uno puede pedir.
 
-# ¿Quiénes somos?:
-
-`Arias Simone Mariano`. Estudiante de Ing. en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
+# ¿Quiénes somos?
 
 `Padula Lugo Jorge`.
+
+`Arias Simone Mariano`. Estudiante de Ing. en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
