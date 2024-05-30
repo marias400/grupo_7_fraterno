@@ -1,18 +1,17 @@
+![Fraterno](https://i.ibb.co/1qCLprM/429556036-704082081603152-8948464961650998329-n.jpg)
+
 # ¿Qué productos o servicios brindará nuestro sitio?
 
-Es un sitio de venta de comida (sanguches),
-en el mismo puedes elegir items para agregar al carrito y eventualmente
-hacer un checkout y hacer la compra, la cual un delivery llevara a una direccion
-ya admisistrada.
+Es un sitio de venta de comida (sánguches). En el mismo se puede ver un catálogo con toda la oferta de comida, elegir items para agregar a un carrito y eventualmente hacer checkout y la compra, que será llevada por un delivery a la ubicación administrada.
 
 # ¿Quién será nuestra audiencia objetivo?
 
-Un publico en general (excluyendo celiacos ya que no cubrimos esa area),
-que aprecie un buen sanguche de fiambres de calidad
-que viva en la ciudad en la cual este la sucursal (La Rioja, Capital).
+Público en general de la ciudad de La Rioja capital que aprecie un buen sánguche de fiambres de calidad.
 
 # ¿Cómo ajustaremos nuestra oferta a ese público?
 
-Por la mañana - medio dia el negocio tiende a una orientacion de viandas (ensaladas),
-por la noche tiende a orientarse la carta mas a sanguches en general, pero
-el horario no limita lo que uno puede pedir de la carta.
+Desde la mañana al mediodía, la oferta esta más orientada a viandas (ensaladas). Por la noche, la carta tiende a orientarse más a sanguches en general, pero el horario no limita lo que uno puede pedir.
+
+# ¿Quiénes somos?:
+
+`Arias Simone Mariano`. Estudiante de Ing. en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
