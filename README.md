@@ -26,6 +26,9 @@ Estudiante de Ing. en Sistemas de Información en la UNLaR. Tengo formación en 
 ### Solorzano Garcia Jesus. 
 Estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. Actualmente estoy cursando la carrera de Licenciatura en Sistemas, donde voy adquirido conocimientos fundamentales en el  desarrollo y mantenimiento de sistemas informáticos. Además, he trabajado como soporte técnico, brindando asistencia y soluciones tecnológicas a los usuarios.
 
+### Barros Jorge Esteban. 
+Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que estoy ejerciendo actualmente pero desde hace un año atras comence a introducirme en la programacion. Tengo conocimientos basicos de Diseño Ux Ui, html y css por interes propio en distintas plataformas digitales.
+
 
 ### Cinco sitios usados de referencia:
 
