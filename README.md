@@ -16,3 +16,7 @@ que viva en la ciudad en la cual este la sucursal (La Rioja, Capital).
 Por la mañana - medio dia el negocio tiende a una orientacion de viandas (ensaladas),
 por la noche tiende a orientarse la carta mas a sanguches en general, pero
 el horario no limita lo que uno puede pedir de la carta.
+
+Presentando a los miembros del equipo #7:
+
+Padula Lugo Jorge
