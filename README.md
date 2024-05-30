@@ -15,3 +15,5 @@ Desde la mañana al mediodía, la oferta esta más orientada a viandas (ensalada
 # ¿Quiénes somos?:
 
 `Arias Simone Mariano`. Estudiante de Ing. en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
+
+`Padula Lugo Jorge`.
