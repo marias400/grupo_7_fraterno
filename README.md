@@ -24,6 +24,10 @@ Soy estudiante de Ingeniería en Sistemas de Información en la Universidad Naci
 
 Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
 
+### `Avila Braian Emanuel`
+
+Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Trabajo haciendo monitoreo en una empresa de seguridad. Tengo poca experiencia programando mas de la que me dan las clases de la facultad o viendo y aprendiendo por videos de youtube.
+
 ### `Solorzano Garcia Jesus`
 
 Soy estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. Actualmente estoy cursando la carrera de Licenciatura en Sistemas, donde voy adquiriendo conocimientos fundamentales en el desarrollo y mantenimiento de sistemas informáticos. Además, he trabajado como soporte técnico, brindando asistencia y soluciones tecnológicas a los usuarios.
