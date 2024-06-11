@@ -38,17 +38,17 @@ Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que 
 
 ## 🌐 Sitios Usados de Referencia
 
-- **• [PedidosYa](https://www.pedidosya.com/):** Elegimos esta página porque es de interés ya que ofrece los productos y servicios de todos los restaurantes y locales de comida de La Rioja capital con delivery, entregando los paquetes de comida con buenos diseños y en el menor tiempo posible.
-- **• [Parma](https://pedix.app/parmavelezsarsfield/):** Este negocio es el que más se acerca a la idea que tuvimos cuando hablamos de un e-commerce que se dedique a vender sánguches por una aplicación web, ya que se dedica exactamente a eso.
-- **• [McDonald's](https://www.mcdonalds.com.ar/pedidos):** Hemos seleccionado McDonald's porque es un ejemplo icónico de cómo una cadena de comida rápida ha integrado exitosamente un sistema de pedidos en línea, permitiendo a los clientes ordenar sus productos de manera eficiente a través de su plataforma web y aplicación móvil.
-- **• [Rappi](https://www.rappi.com.ar/restaurantes/category/sandwiches):** Elegimos Rappi por ser una aplicación latinoamericana nacida en Colombia, que conecta pequeños comercios y usuarios, ofreciendo una amplia gama de servicios como restaurantes, farmacias, supermercados y más, incluyendo la venta y delivery como deseamos planificar.
-- **• [La Argentina Panaderías](https://www.clargentina.com.ar/):** Si bien, como otros ejemplos, esta también vende otros productos además de sánguches, lo interesante es la funcionalidad a la hora de hacer pedidos en su web.
+- ** [PedidosYa](https://www.pedidosya.com/):** Elegimos esta página porque es de interés ya que ofrece los productos y servicios de todos los restaurantes y locales de comida de La Rioja capital con delivery, entregando los paquetes de comida con buenos diseños y en el menor tiempo posible.
+- ** [Parma](https://pedix.app/parmavelezsarsfield/):** Este negocio es el que más se acerca a la idea que tuvimos cuando hablamos de un e-commerce que se dedique a vender sánguches por una aplicación web, ya que se dedica exactamente a eso.
+- ** [McDonald's](https://www.mcdonalds.com.ar/pedidos):** Hemos seleccionado McDonald's porque es un ejemplo icónico de cómo una cadena de comida rápida ha integrado exitosamente un sistema de pedidos en línea, permitiendo a los clientes ordenar sus productos de manera eficiente a través de su plataforma web y aplicación móvil.
+- ** [Rappi](https://www.rappi.com.ar/restaurantes/category/sandwiches):** Elegimos Rappi por ser una aplicación latinoamericana nacida en Colombia, que conecta pequeños comercios y usuarios, ofreciendo una amplia gama de servicios como restaurantes, farmacias, supermercados y más, incluyendo la venta y delivery como deseamos planificar.
+- ** [La Argentina Panaderías](https://www.clargentina.com.ar/):** Si bien, como otros ejemplos, esta también vende otros productos además de sánguches, lo interesante es la funcionalidad a la hora de hacer pedidos en su web.
 
 ## 🔧 Herramientas Utilizadas
 
 Para desarrollar el sitio web en equipo, decidimos utilizar diferentes herramientas. Las más importantes son:
 
-- **• [Un tablero de Trello](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)** para administrar y organizar nuestras tareas.
-- **• [Wireframe.cc](https://wireframe.cc/pro/edit/741473)** para el diseño del wireframe del sitio.
-- **• [Una pizarra de FigJam](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para tener un borrador de ideas y compartirlas.
-- **• Un canal de Discord y un grupo de WhatsApp** para comunicarnos.
+- ** [Un tablero de Trello](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)** para administrar y organizar nuestras tareas.
+- ** [Wireframe.cc](https://wireframe.cc/pro/edit/741473)** para el diseño del wireframe del sitio.
+- ** [Una pizarra de FigJam](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para tener un borrador de ideas y compartirlas.
+- ** Un canal de Discord y un grupo de WhatsApp** para comunicarnos.
