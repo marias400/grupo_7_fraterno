@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../public/css/productCartStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" ctssorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=tboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Carrito de compras</title>
+</head>
+
+<body>
+    <header class="mainHeader">
+        <a href="../views/home.html" class="mainHeader__logo-box"><img src="../design/Logo_posible.jpg"
+                class="mainHeader__logo-box--image"></a>
+        <a href="#" class="mainHeader__burger-menu--link"><i class="mainHeader__burger-menu--icon fas fa-bars"></i></a>
+    </header>
+    <main>
+        <div class="cart">
+            <header class="cart__title">
+                <h2>Tu carrito</h2>
+            </header>
+            <article class="cart__product">
+                <img src="../public/images/milanesa.jpg" class="cart__product--image">
+                <div class="cart__product--middleblox">
+                    <h3 class="cart__product--middleblox-name">Milanesa</h3>
+                    <button class="cart__product--middleblox-quantityMinus">-</button>
+                    <span class="cart__product--middleblox-quantity">1</span>
+                    <button class="cart__product--middleblox-quantityPlus">+</button>
+                </div>
+                <p class="cart__product--price">$5.000,00</p>
+            </article>
+            <article class="cart__product">
+                <img src="../public/images/milanesa.jpg" class="cart__product--image">
+                <div class="cart__product--middleblox">
+                    <h3 class="cart__product--middleblox-name">Milanesa</h3>
+                    <button class="cart__product--middleblox-quantityMinus">-</button>
+                    <span class="cart__product--middleblox-quantity">1</span>
+                    <button class="cart__product--middleblox-quantityPlus">+</button>
+                </div>
+                <p class="cart__product--price">$5.000,00</p>
+            </article>
+            <footer class="cart__subtotal">
+                <span class="cart__subtotal--text">Subtotal</span>
+                <span class="cart__subtotal--price">$5.000,00</span>
+            </footer>
+        </div>
+    </main>
+    <footer class="mainFooter">
+        <a href="#" class="mainFooter__checkout-button">Finalizar compra</a>
+    </footer>
+</body>
+
+</html>

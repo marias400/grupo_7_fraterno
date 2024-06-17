@@ -1,18 +1,25 @@
 ![Fraterno](https://i.ibb.co/1qCLprM/429556036-704082081603152-8948464961650998329-n.jpg)
 
+***
 
 ## 🍽️ Productos y Servicios
 
 Nuestro sitio web de venta de comida ofrece una variedad de sánguches y viandas. Puedes navegar por nuestro catálogo, elegir tus favoritos y agregarlos al carrito de compras. Realiza tu pedido y recíbelo en la comodidad de tu hogar a través de nuestro servicio de delivery.
 
+***
+
 ## 🎯 Audiencia Objetivo
 
 Nos dirigimos al público en general de la ciudad de La Rioja capital que aprecia un buen sánguche de fiambres de calidad.
+
+***
 
 ## 🛍️ Oferta Personalizada
 
 - **Mañana y Mediodía:** Ofrecemos una selección de viandas y ensaladas frescas y saludables.
 - **Noche:** Nuestra carta se centra en una amplia variedad de sánguches, aunque puedes pedir cualquier ítem del menú a cualquier hora del día.
+
+***
 
 ## 👥 Quiénes Somos
 
@@ -36,6 +43,8 @@ Soy estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. 
 
 Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que estoy ejerciendo actualmente pero desde hace un año atras comence a introducirme en la programacion. Tengo conocimientos basicos de Diseño Ux Ui, html y css por interes propio en distintas plataformas digitales.
 
+***
+
 ## 🌐 Sitios Usados de Referencia
 
 - **[PedidosYa](https://www.pedidosya.com/):** Elegimos esta página porque es de interés ya que ofrece los productos y servicios de todos los restaurantes y locales de comida de La Rioja capital con delivery, entregando los paquetes de comida con buenos diseños y en el menor tiempo posible.
@@ -44,11 +53,13 @@ Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que 
 - **[Rappi](https://www.rappi.com.ar/restaurantes/category/sandwiches):** Elegimos Rappi por ser una aplicación latinoamericana nacida en Colombia, que conecta pequeños comercios y usuarios, ofreciendo una amplia gama de servicios como restaurantes, farmacias, supermercados y más, incluyendo la venta y delivery como deseamos planificar.
 - **[La Argentina Panaderías](https://www.clargentina.com.ar/):** Si bien, como otros ejemplos, esta también vende otros productos además de sánguches, lo interesante es la funcionalidad a la hora de hacer pedidos en su web.
 
+***
+
 ## 🔧 Herramientas Utilizadas
 
 Para desarrollar el sitio web en equipo, decidimos utilizar diferentes herramientas. Las más importantes son:
 
-- **[Un tablero de Trello](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)** para administrar y organizar nuestras tareas:
+- **[Un tablero de Trello](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)** para organizar las tareas del equipo:
     + **[Sprint 1](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)**
     + **[Sprint 2](https://trello.com/invite/b/iBOdHWnk/ATTIc2e0fc5ebc6b58e12e6d28d69eb3d3b09FEDB87D/sprint-2)**
 
