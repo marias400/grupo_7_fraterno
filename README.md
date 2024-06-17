@@ -48,7 +48,10 @@ Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que 
 
 Para desarrollar el sitio web en equipo, decidimos utilizar diferentes herramientas. Las más importantes son:
 
-- **[Un tablero de Trello](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)** para administrar y organizar nuestras tareas.
-- **[Wireframe.cc](https://wireframe.cc/pro/edit/741473)** para el diseño del wireframe del sitio.
-- **[Una pizarra de FigJam](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para tener un borrador de ideas y compartirlas.
+- **[Un tablero de Trello](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)** para administrar y organizar nuestras tareas:
+    + **[Sprint 1](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)**
+    + **[Sprint 2](https://trello.com/invite/b/iBOdHWnk/ATTIc2e0fc5ebc6b58e12e6d28d69eb3d3b09FEDB87D/sprint-2)**
+
+- **[Figma](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para el diseño de los wireframes del sitio.
+
 - **Un canal de Discord y un grupo de WhatsApp** para comunicarnos.
