@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/productDetailStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Detalle de producto</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-side">
+            <div class="top-side__logo">
+                <p>logo</p>
+            </div>
+            <div class="top-side__burguer-menu">
+                <i class="fa-solid fa-burger"></i>
+            </div>
+        </div>
+    </header>
+
+    <body>
+        <div class="product">
+            <div class="product__photo">
+                <img src="/public/images/milanesa.jpg" alt="">
+            </div>
+            <div class="product__info">
+                <div class="product__info--checkboxes">
+                    <input type="checkbox" id="check1">
+                    <input type="checkbox" id="check2">
+                    <input type="checkbox" id="check3">
+                </div>
+                <div class="product__info--name">
+                    <label for="check1">mila carne</label>
+                    <label for="check2">suprema</label>
+                    <label for="check3">pajarito</label>
+                </div>
+                <div class="product__info--amount">
+                    <section>
+                        <input type="submit" name="minus" id="minus" value="-">
+                        <label>1</label>
+                        <input type="submit" name="plus" id="plus" value="+">
+                    </section>
+                    <section>
+                        <input type="submit" name="minus" id="minus" value="-">
+                        <label>1</label>
+                        <input type="submit" name="plus" id="plus" value="+">
+                    </section>
+                    <section>
+                        <input type="submit" name="minus" id="minus" value="-">
+                        <label>1</label>
+                        <input type="submit" name="plus" id="plus" value="+">
+                    </section>
+                </div>
+                <div class="product__info--prices">
+                    <label>$5.000</label>
+                    <label>$4.000</label>
+                    <label>$1.000</label>
+                </div>
+            </div>
+            <div class="add-button">
+                <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar">
+                <label for="add-to-cart">$5.000</label>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="to-cart-button">
+            <input type="submit" name="cart-button" id="cart-button" value="Carrito">
+        </div>
+    </footer>
+</body>
+
+</html>
