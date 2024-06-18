@@ -1,1 +1,1 @@
-![Retrospectivas](https://ibb.co/pLxRXhW)
+![Retrospectivas](https://i.ibb.co/tJ4xCLZ/retros.png)
