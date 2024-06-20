@@ -18,7 +18,7 @@
     <header>
         <div class="top-side">
             <div class="top-side__logo">
-                <p>logo</p>
+                <img src="/public/images/logoG7.svg" alt="">
             </div>
             <div class="top-side__burguer-menu">
                 <i class="fa-solid fa-burger"></i>
@@ -28,46 +28,38 @@
 
     <body>
         <div class="product">
-            <div class="product__photo">
-                <img src="/public/images/milanesa.jpg" alt="">
-            </div>
             <div class="product__info">
-                <div class="product__info--checkboxes">
-                    <input type="checkbox" id="check1">
-                    <input type="checkbox" id="check2">
-                    <input type="checkbox" id="check3">
+                <div class="product__info--photo">
+                    <img src="/public/images/milanesa.jpg" alt="">
                 </div>
-                <div class="product__info--name">
-                    <label for="check1">mila carne</label>
-                    <label for="check2">suprema</label>
-                    <label for="check3">pajarito</label>
-                </div>
-                <div class="product__info--amount">
-                    <section>
-                        <input type="submit" name="minus" id="minus" value="-">
-                        <label>1</label>
-                        <input type="submit" name="plus" id="plus" value="+">
-                    </section>
-                    <section>
-                        <input type="submit" name="minus" id="minus" value="-">
-                        <label>1</label>
-                        <input type="submit" name="plus" id="plus" value="+">
-                    </section>
-                    <section>
-                        <input type="submit" name="minus" id="minus" value="-">
-                        <label>1</label>
-                        <input type="submit" name="plus" id="plus" value="+">
-                    </section>
-                </div>
-                <div class="product__info--prices">
-                    <label>$5.000</label>
-                    <label>$4.000</label>
-                    <label>$1.000</label>
-                </div>
-            </div>
-            <div class="add-button">
-                <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar">
-                <label for="add-to-cart">$5.000</label>
+                <p>Sanguchardo con de todo EPIC</p>
+                <form>
+                    <div class="product__info--option">
+                        <input type="checkbox" name="check1" id="check1">
+                        <label for="check1">Mila carne</label>
+                        <input type="button" name="minus" id="minus" value="-">
+                        <label>0</label>
+                        <input type="button" name="plus" id="plus" value="+">
+                    </div>
+                    <div class="product__info--option">
+                        <input type="checkbox" name="check2" id="check2">
+                        <label for="check2">Suprema</label>
+                        <input type="button" name="minus" id="minus" value="-">
+                        <label>0</label>
+                        <input type="button" name="plus" id="plus" value="+">
+                    </div>
+                    <div class="product__info--option">
+                        <input type="checkbox" name="check3" id="check3">
+                        <label for="check3">Pajarito</label>
+                        <input type="button" name="minus" id="minus" value="-">
+                        <label>0</label>
+                        <input type="button" name="plus" id="plus" value="+">
+                    </div>
+                    <div class="product__add-button">
+                        <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar">
+                        <label for="add-to-cart">$5.000</label>
+                    </div>
+                </form>
             </div>
         </div>
     </body>
