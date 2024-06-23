@@ -4,51 +4,82 @@ crema clarito: #F5E8B1
 crema: #F6D860
 crema oscuro: #F4D980
 verde claro: #79BA76
-verde oscuro: #096745 */
+verde oscuro: #096745 
+*/
 
 
+/*
+-------Nueva Paleta-------
+
+Mostaza: #f7a81b
+Naranja: #e85829
+Mayonesa: #f9d8b8 
+Azul Oscuro: #101923
+
+-------Nuevas Fuentes-------
+
+Verdana
+Vaytone (LOGO)
+*/
 
 * {
-    font-family: Roboto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/*generales*/
+/*body*/
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #F4D980;
-
+    background-color: #f9d8b8 ;
 }
 
-/*header*/
+/*inicio header*/
 
 header {
-    background-color: #79BA76;
+    height: 48px;
 }
 
-.img-logo {
-    
-
-
-}
-
-.mainHeader__burger-menu--icon {
-    background-color: #096745;
-    font-size: 2.5vh;
-    color: black;
-    padding: 1.7vh;
-}
-
-.mainHeader__burger-menu--link {
-    text-decoration: none;
+.top-side {
+    background-color: #101923;
     display: flex;
-    height: 50%;
-    justify-content:flex-end;
-    margin-right: 2vw;
+    justify-content: space-between;
+    height: 100%;
+}
 
+/*REEMPLAZAR POR IMAGEN DE LOGO*/
+.top-side__logo {
+    margin-left: 15px;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.top-side__logo img {
+    height: 60%;
+}
+
+.top-side__burguer-menu {
+    font-size: 26px;
+    margin-right: 15px;
+    display: flex;
+    /*alinea el div*/
+    justify-self: center;
+    align-self: center;
+    /*------------*/
+    /*alinea la imagen del burguer*/
+    align-items: center;
+    justify-content: center;
+    /*------------*/
+    color: #101923;
+    background-color: #f7a81b;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
 }
 
 /*main*/
@@ -60,14 +91,15 @@ main {
 }
 
 .form {
+    
     padding: 20px;
     margin: auto;
     width: 25vw;
-    background-color: #F4D980;
+    background-color: #f7a81b;
     text-align: center;
-    box-shadow: 0px 0px 31px 15px rgba(121, 186, 118, 0.8);
-    -webkit-box-shadow: 0px 0px 31px 15px rgba(121, 186, 118, 0.8);
-    -moz-box-shadow: 0px 0px 31px 15px rgba(121, 186, 118, 0.8);
+    box-shadow: 0px 0px 31px 15px #101923;
+    -webkit-box-shadow: 0px 0px 31px 15px #101923;
+    -moz-box-shadow: 0px 0px 31px 15px #101923;
 }
 
 
@@ -77,39 +109,15 @@ main {
 
 }
 
-.telefono {
+.campos-form {
     margin-top: 1%;
     margin-bottom: 1%;
 
 }
 
-.mail {
-    margin-top: 1%;
-    margin-bottom: 1%;
-
-}
-
-.direccion {
-    margin-top: 1%;
-    margin-bottom: 1%;
-
-}
-
-.referencia {
-    margin-top: 1%;
-    margin-bottom: 1%;
-
-}
-
-.contrasena {
-    margin-top: 1%;
-    margin-bottom: 1%;
-
-
-}
 
 .button {
-    background-color: #79BA76;
+    background-color:#e85829;
     border-radius: 10px;
     text-decoration: none;
     font-size: 15px;
@@ -125,6 +133,8 @@ main {
 
 }
 
+
 footer {
     background: #79BA76;
 }
+
