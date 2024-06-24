@@ -4,104 +4,146 @@ crema clarito: #F5E8B1
 crema: #F6D860
 crema oscuro: #F4D980
 verde claro: #79BA76
-verde oscuro: #096745 */
+verde oscuro: #096745 
+*/
+
+
+/*
+-------Nueva Paleta-------
+
+Mostaza: #f7a81b
+Naranja: #e85829
+Mayonesa: #f9d8b8 
+Azul Oscuro: #101923
+
+-------Nuevas Fuentes-------
+
+Verdana
+Vaytone (LOGO)
+*/
 
 * {
-    font-family: Roboto;
+    font-family: Verdana;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/*inicio header*/
+
 .mainHeader {
-    background-color: #79BA76;
+    background-color: #101923;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 10vh;
+    flex-wrap: wrap;
+    padding: 0 6vw;
 }
 
-.mainHeader__logo-box {
-    height: 8vh;
-    width: 200px;
-    margin-left: 10vw;
-    margin-right: 5vw;
+.mainHeader__logo {
+    height: 6vh;
 }
 
-.mainHeader__logo-box--image {
-    height: 100%;
-    width: 100%;
-}
-
-.mainHeader__burger-menu--icon {
-    background-color: #096745;
-    font-size: 2.5vh;
-    color: black;
-    padding: 1.7vh;
-}
-
-.mainHeader__burger-menu--link {
-    text-decoration: none;
+.mainHeader__burguer-menu {
+    background-color: #f7a81b;
+    color: #101923;
+    width: 5.6vh;
+    height: 5.6vh;
+    font-size: 3.5vh;
     display: flex;
+    /*alinea la imagen del burguer*/
     align-items: center;
     justify-content: center;
-    margin-right: 2vw;
+    /*------------*/
+    border-radius: 5px;
+    box-shadow:
+    0.4vh 0.4vh #946410, /* Genero un par de sombras para  */
+    0.2vh 0.2vh #946410; /* crear la ilusion 3D */
+    margin: 2vh 0;
+    cursor: pointer;
 }
 
+/*fin header*/
+
 main {
-    background-color: #F5E8B1;
+    background-color: #f9d8b8;
     width: 100vw;
     height: 80vh;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .cart {
-    background-color: #F6D860;
-    width: 100vw;
+    background-color: #f8c18a;
+    width: 94vw;
     height: 64vh;
+    border-radius: 15px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 7vh 2vw 2vh;
+    align-items: center;
+    padding: 7vh 3vw 3vh;
+    margin-top: 3.5vh;
 }
 
 .cart__title {
-    background-color: #79BA76;
+    background-color: #f8c18a;
     width: fit-content;
-    height: 7vh;
-    font-size: 3vh;
+    height: 7.5vh;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 6px;
-    top: -3.5vh;
-    padding: 2vh;
+    border-radius: 15px;
+    top: -5vh;
+    left: 0;
+    padding: 3.5vh;
 }
 
-.cart__product {
-    background-color: #F4D980;
+.cart__title--text {
+    font-size: 2.5vh;
+    color: black;
+    text-transform: uppercase;
+}
+
+.cart__title--icon {
+    font-size: 3.5vh;
+    color: #e85829;
+    margin-right: 1.5vw;
+}
+
+.cart__content {
+    width: 100%;
+    height: 56%;
+}
+
+.cart__content--product {
+    background-color: #f9d8b8;
+    box-shadow: 5px 4px 1px 1px #d49e67;
     font-size: 3vh;
     width: 100%;
-    height: 30%;
+    height: 50%;
+    border-radius: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 1vh 2.5vh;
+    padding: 2vh 2.5vh;
+    margin-bottom: 2.5vh;
 }
 
-.cart__product--image {
-    border: #eeba0e 3px solid;
+.cart__content--product-image {
+    flex-grow: 1;
+    max-width: 200px;
+    border: #f7a81b 3px solid;
     margin-left: 25px;
-    border-radius: 40%;
+    border-radius: 25px;
     height: 100%;
 }
 
-.cart__product--middleblox {
+.cart__content--product-middleblox {
+    height: 100%;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -109,53 +151,84 @@ main {
     align-items: center;
 }
 
-.cart__product--middleblox-name {
-    margin-bottom: 1.5vh;
+.cart__content--product-middleblox-name {
+    font-weight: bold;
     width: 100%;
 }
 
-.cart__product--middleblox-quantityMinus, .cart__product--middleblox-quantityPlus {
+.cart__content--product-middleblox-quantityMinus,
+.cart__content--product-middleblox-quantityPlus {
+    background-color: #e85829;
+    color: white;
+    width: 4vh;
+    height: 4vh;
     padding: 1vh;
-    border: 1px solid gray;
-    border-radius: 15%;
+    border: none;
+    border-radius: 8px;
     font-size: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+    0.2vh 0.2vh #6d2a14;
+    cursor: pointer;
 }
 
-.cart__product--middleblox-quantity {
+.cart__content--product-middleblox-quantity {
+    background-color: #e6bc92;
+    width: 5.5vh;
+    height: 5.5vh;
+    font-size: 2.7vh;
     padding: 0.7vh 1.5vh;
-    border: 1px solid gray;
-    border-radius: 15%;
-    margin: 0 0.5vw;
+    border-radius: 8px;
+    margin: 0 0.7vh 0 0.9vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart__subtotal {
-    background-color: #F4D980;
-    width: 96vw;
+    background-color: #e49c00;
+    width: 100%;
+    border-radius: 15px;
     display: flex;
-    justify-content: space-between;
-    font-family: Lato;
+    justify-content: space-around;
     font-size: 3vh;
     padding: 2.5vh;
-    bottom: 2vh;
+}
+
+.cart__subtotal--price {
+    font-weight: bold;
 }
 
 .mainFooter {
-    background-color: #79BA76;
+    background-color: #101923;
     width: 100vw;
     height: 10vh;
-    position: absolute;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 6vw;
 }
 
 .mainFooter__checkout-button {
-    background-color: #096745;
-    position: relative;
-    border: #096745;
-    border-radius: 10px;
+    background-color: #e85829;
     color: white;
-    margin: 2%;
-    font-size: 3vh;
-    padding: 1.8vh;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    font-size: 2vh;
+    padding: 2vh;
+    border: none;
+    border-radius: 1vh;
+    box-shadow:
+    0.4vh 0.4vh #6d2a14,
+    0.2vh 0.2vh #6d2a14;
+    cursor: pointer;
+}
+
+.mainFooter__copyright {
+    color: white;
+    font-size: 1.2vh;
 }
