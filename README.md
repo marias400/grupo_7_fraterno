@@ -1,4 +1,4 @@
-![Fraterno](https://i.ibb.co/1qCLprM/429556036-704082081603152-8948464961650998329-n.jpg)
+![Grupo Sie7e](https://i.ibb.co/vVHKNpv/logoG7.png)
 
 ***
 
