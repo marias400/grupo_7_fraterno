@@ -1,20 +1,101 @@
+/*
+-------Nueva Paleta-------
+
+Mostaza: #f7a81b
+Sombra mostaza: #946410
+
+Mostaza oscuro: #e49c00
+
+Naranja: #e85829
+Sombra naranja: #6d2a14
+
+Mayonesa: #f9d8b8
+Sombra mayonesa: #d49e67
+
+Mayonesa oscuro: #f8c18a
+Mayonesa mas oscuro: #e6bc92
+
+Azul Oscuro: #101923
+
+-------Nuevas Fuentes-------
+
+Verdana
+Vaytone (LOGO)
+*/
+
 * {
     margin: 0;
-    margin-top: 3px;
     padding: 0;
     box-sizing: border-box;
 }
+
+h2 {
+    color: #101923;
+}
+
+header {
+    height: 48px;
+
+}
+
+.top-side {
+    background-color: hsl(212, 37%, 10%);
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/*REEMPLAZAR POR IMAGEN DE LOGO*/
+.top-side__logo {
+    margin-left: 15px;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.top-side__logo img {
+    height: 60%;
+}
+
+.top-side__burguer-menu {
+    font-size: 26px;
+    margin-right: 15px;
+    display: flex;
+    /*alinea el div*/
+    justify-self: center;
+    align-self: center;
+    /*------------*/
+    /*alinea la imagen del burguer*/
+    align-items: center;
+    justify-content: center;
+    /*------------*/
+    color: #101923;
+    background-color: #f7a81b;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+/*fin header*/
 
 body {
     font-family: Roboto;
     display: flex;
     max-height: 100vw;
+    flex-direction: column;
 
 
 }
 
+main {
+    background-color: #f9d8b8;
+}
+
 .form {
-    background-color: white;
+    background-color: transparent;
     margin: auto;
     width: 90%;
     max-height: 85%;
@@ -47,6 +128,7 @@ body {
     margin-top: 3em;
     display: grid;
     gap: 1.5em;
+
 }
 
 .form_group {
@@ -56,6 +138,7 @@ body {
 .form_input {
     width: 100%;
     background: none;
+    background-color: #f7a81b;
     color: #a4977f;
     font-size: 1rem;
     padding: .6em .3em;
@@ -63,6 +146,12 @@ body {
     outline: none;
     border-bottom: 1px solid rgb(151, 141, 141);
     font-family: Roboto;
+    border-radius: .5em;
+    box-shadow:
+        0.4vh 0.4vh #946410,
+        /* Genero un par de sombras para  */
+        0.2vh 0.2vh #946410;
+    /* crear la ilusion 3D */
 }
 
 .form_submit {
@@ -74,5 +163,9 @@ body {
     padding: .8em 0;
     border-radius: .5em;
     border: none;
-    box-shadow: 10px 10px 6px -7px rgba(0, 0, 0, 0.75);
+    box-shadow:
+        0.4vh 0.4vh #6d2a14,
+        /* Genero un par de sombras para  */
+        0.2vh 0.2vh #6d2a14;
+    /* crear la ilusion 3D */
 }
