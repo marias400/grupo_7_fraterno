@@ -33,6 +33,9 @@ Vaytone (LOGO)
 
 header {
     height: 48px;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
 }
 
 .top-side {
@@ -74,6 +77,15 @@ header {
     width: 40px;
     height: 40px;
     border-radius: 5px;
+}
+
+.top-side nav {
+    display: none;
+}
+
+.top-side nav ul li{
+    list-style-type: none;
+    color: #f7a81b;
 }
 
 /*fin header*/
@@ -177,7 +189,10 @@ header {
 footer {
     background-color: #101923;
     height: 48px;
+    width: 100vw;
     border-top: 10vh;
+    position: fixed;
+    bottom: 0px;
 }
 
 .to-cart-button {
@@ -211,6 +226,28 @@ footer {
 @media (min-width: 768px) {
     header {
         height: 8vh;
+    }
+
+    .top-side nav {
+        display: flex;
+        width: 50%;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-right: 2vw;
+        margin-bottom: 2vh;
+    }
+
+    .top-side nav ul{
+        display: flex;
+        gap: 2vw;
+    }
+
+    .top-side__logo {
+        width: 50%;
+    }
+
+    .top-side__burguer-menu {
+        display: none;
     }
 
     .product__info {

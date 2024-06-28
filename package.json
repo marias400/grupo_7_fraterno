@@ -1,0 +1,16 @@
+{
+  "name": "trabajo_final",
+  "version": "1.0.0",
+  "description": "![Grupo Sie7e](https://i.ibb.co/vVHKNpv/logoG7.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}
