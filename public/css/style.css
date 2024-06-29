@@ -27,6 +27,7 @@ Vaytone (LOGO)
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h2 {
@@ -77,12 +78,17 @@ header {
     width: 40px;
     height: 40px;
     border-radius: 5px;
+    box-shadow:
+        0.4vh 0.4vh #946410,
+        /* Genero un par de sombras para  */
+        0.2vh 0.2vh #946410;
+    /* crear la ilusion 3D */
+    cursor: pointer;
 }
 
 /*fin header*/
 
 body {
-    font-family: Roboto;
     display: flex;
     max-height: 100vw;
     flex-direction: column;
@@ -98,7 +104,8 @@ main {
     background-color: transparent;
     margin: auto;
     width: 90%;
-    max-height: 85%;
+    height: 88vh;
+    max-height: 75%;
     max-width: 50%;
     min-width: 400px;
     padding: 4.5em 3em;
@@ -142,7 +149,7 @@ main {
     color: #a4977f;
     font-size: 1rem;
     padding: .6em .3em;
-    border: none;
+    border: solid 1px gray;
     outline: none;
     border-bottom: 1px solid rgb(151, 141, 141);
     font-family: Roboto;
@@ -168,4 +175,16 @@ main {
         /* Genero un par de sombras para  */
         0.2vh 0.2vh #6d2a14;
     /* crear la ilusion 3D */
+}
+
+.divFooter {
+    background-color: #101923;
+    height: 40px;
+    max-height: 25vh;
+}
+
+.textFooter {
+    color: white;
+    font-size: 1.2vh;
+
 }
