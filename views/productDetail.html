@@ -18,62 +18,116 @@
     <header>
         <div class="top-side">
             <div class="top-side__logo">
-                <img src="/images/logoG7.svg" alt="">
+                <a href="/views/home.html"><img src="/images/logoG7.svg" alt="logoG7"></a>
             </div>
             <div class="top-side__burguer-menu">
                 <i class="fa-solid fa-burger"></i>
             </div>
             <nav>
                 <ul>
-                    <li>Log in <i class="fa-solid fa-right-to-bracket"></i></li>
-                    <li>Carrito <i class="fa-solid fa-cart-shopping"></i></li>
+                    <li><a href="/views/log_in.html">Log in <i class="fa-solid fa-right-to-bracket"></i></a></li>
+                    <li><a href="/views/productCart.html">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <body>
-        <div class="product">
-            <div class="product__info">
-                <div class="product__info--photo">
-                    <img src="/images/milanesa.jpg" alt="">
+    <main>
+        <div class="stripe">
+            <div class="stripe__photo">
+                <img src="/images/milanesa.jpg" alt="">
+            </div>
+            <div class="stripe__tags">
+                <div class="stripe__tags--product-name">
+                    <p>Sanguchardo con de todo EPIC</p>
                 </div>
-                <p>Sanguchardo con de todo EPIC</p>
+                <div class="stripe__tags--product-description">
+                    <p>¡La más deliciosa combinación de Pan de lembas, mila, tomate, lechuga, cebolla, ajo, mortadela,
+                        queso, más queso, otra mila y mucho amor!</p>
+                </div>
+            </div>
+            <div class="stripe__info">
                 <form>
-                    <div class="product__info--option">
-                        <input type="checkbox" name="check1" id="check1">
+                    <div class="stripe__info--values">
+                        <input type="radio" name="meat" id="check1" checked>
                         <label for="check1">Mila carne</label>
                         <input type="button" name="minus" id="minus" value="-">
-                        <label>0</label>
+                        <label>2</label>
                         <input type="button" name="plus" id="plus" value="+">
                     </div>
-                    <div class="product__info--option">
-                        <input type="checkbox" name="check2" id="check2">
+                    <div class="stripe__info--values">
+                        <input type="radio" name="meat" id="check2">
                         <label for="check2">Suprema</label>
                         <input type="button" name="minus" id="minus" value="-">
                         <label>0</label>
                         <input type="button" name="plus" id="plus" value="+">
                     </div>
-                    <div class="product__info--option">
-                        <input type="checkbox" name="check3" id="check3">
+                    <div class="stripe__info--values">
+                        <input type="radio" name="meat" id="check3">
                         <label for="check3">Pajarito</label>
                         <input type="button" name="minus" id="minus" value="-">
                         <label>0</label>
                         <input type="button" name="plus" id="plus" value="+">
                     </div>
-                    <div class="product__add-button">
-                        <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar">
-                        <label for="add-to-cart">$5.000</label>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="tomato" id="check4" checked>
+                        <label for="check4">Tomate</label>
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="lettuce" id="check5" checked>
+                        <label for="check5">Lechuga</label>
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="onion" id="check6" checked>
+                        <label for="check6">Cebolla</label>
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="garlic" id="check7" checked>
+                        <label for="check7">Ajo</label>
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="mortadella" id="check8" checked>
+                        <label for="check8">Mortadela</label>
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="cheese" id="check9" checked>
+                        <label for="check9">Queso</label>
+                        <input type="button" name="minus" id="minus" value="-">
+                        <label>1</label>
+                        <input type="button" name="plus" id="plus" value="+">
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="more_cheese" id="check10" checked>
+                        <label for="check10">Más queso</label>
+                        <input type="button" name="minus" id="minus" value="-">
+                        <label>1</label>
+                        <input type="button" name="plus" id="plus" value="+">
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="another_mila" id="check11" checked>
+                        <label for="check11">Otra mila*</label>
+                    </div>
+                    <div class="stripe__info--values">
+                        <input type="checkbox" name="love" id="check12" checked>
+                        <label for="check12">Amor</label>
                     </div>
                 </form>
             </div>
+            <div class="stripe__button">
+                <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar">
+                <label for="add-to-cart">$5.000</label>
+            </div>
         </div>
-    </body>
+    </main>
     <footer>
         <div class="to-cart-button">
-            <input type="submit" name="cart-button" id="cart-button" value="Carrito">
+            <input type="button" value="Carrito" onclick="toCart()">
         </div>
     </footer>
+    <script>
+        function toCart() {
+            window.location.href = "/views/productCart.html";
+        }
+    </script>
 </body>
 
 </html>
