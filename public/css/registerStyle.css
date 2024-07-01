@@ -32,7 +32,7 @@ Vaytone (LOGO)
 /*body*/
 
 body {
-    background-color: #f9d8b8 ;
+    background-color: #f9d8b8;
 }
 
 /*inicio header*/
@@ -91,33 +91,35 @@ main {
 }
 
 .form {
-    
-    padding: 20px;
+
+    input[type="text"],
+    input[type="password"] {
+        border: none;
+        border-bottom: 1px solid #797777;
+        background-color: #f9d8b8;
+        padding: 20px;
     margin: auto;
     width: 25vw;
-    background-color: #f7a81b;
     text-align: center;
-    box-shadow: 0px 0px 31px 15px #101923;
-    -webkit-box-shadow: 0px 0px 31px 15px #101923;
-    -moz-box-shadow: 0px 0px 31px 15px #101923;
-}
-
-
-.nombre-apellido {
-    margin-top: 1%;
-    margin-bottom: 1%;
+    }
+    
 
 }
+
+
 
 .campos-form {
     margin-top: 1%;
     margin-bottom: 1%;
+    text-align: center;
 
 }
 
 
 .button {
-    background-color:#e85829;
+    display: flex;
+    flex-direction: center;
+    background-color: #e85829;
     border-radius: 10px;
     text-decoration: none;
     font-size: 15px;
@@ -128,13 +130,41 @@ main {
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    outline: none; 
-    border: none; 
+    outline: none;
+    border: none;
 
 }
 
 
-footer {
-    background: #79BA76;
-}
+footer  {
+        background-color: #101923;
+        height: 48px;
+        border-top: 10vh;
+        color: white;
+    font-size: 1.2vh;
+    }
+
+
+    /*media query*/
+
+
+    @media (max-width: 600px) {
+        
+        .form {
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .campos-form input[type="text"],
+        .campos-form input[type="password"] {
+            padding: 10px;
+            width: 80%;
+        }
+
+        .button {
+            font-size: 14px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
 
