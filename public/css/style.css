@@ -1,190 +1,226 @@
-/*
--------Nueva Paleta-------
-
-Mostaza: #f7a81b
-Sombra mostaza: #946410
-
-Mostaza oscuro: #e49c00
-
-Naranja: #e85829
-Sombra naranja: #6d2a14
-
-Mayonesa: #f9d8b8
-Sombra mayonesa: #d49e67
-
-Mayonesa oscuro: #f8c18a
-Mayonesa mas oscuro: #e6bc92
-
-Azul Oscuro: #101923
-
--------Nuevas Fuentes-------
-
-Verdana
-Vaytone (LOGO)
-*/
-
-* {
+/* Estilos generales */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f9d8b8; /* Fondo en color Mayonesa */
+    color: #101923; /* Texto en color Azul Oscuro */
 }
 
-h2 {
-    color: #101923;
+/* Logo */
+.logo {
+    padding: 5%;
+    width: 100%;
 }
 
+.logo img {
+    height: auto;
+    width: 100%;
+}
+
+/* Header */
 header {
-    height: 48px;
-
-}
-
-.top-side {
-    background-color: hsl(212, 37%, 10%);
     display: flex;
     justify-content: space-between;
-    height: 100%;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f7a81b; /* Fondo en color Mostaza */
+    box-shadow: 0px 2px 4px #946410; /* Sombra en color Sombra mostaza */
+    margin-top: 10px;
 }
 
-/*REEMPLAZAR POR IMAGEN DE LOGO*/
-.top-side__logo {
-    margin-left: 15px;
-    background-color: transparent;
-    height: 100%;
-    width: 100%;
+.buscador {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
 }
 
-.top-side__logo img {
-    height: 60%;
+.buscador input {
+    width: 250px; /* Ajusta el ancho según tus necesidades */
 }
 
-.top-side__burguer-menu {
-    font-size: 26px;
-    margin-right: 15px;
+.login {
     display: flex;
-    /*alinea el div*/
-    justify-self: center;
-    align-self: center;
-    /*------------*/
-    /*alinea la imagen del burguer*/
     align-items: center;
-    justify-content: center;
-    /*------------*/
-    color: #101923;
-    background-color: #f7a81b;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow:
-        0.4vh 0.4vh #946410,
-        /* Genero un par de sombras para  */
-        0.2vh 0.2vh #946410;
-    /* crear la ilusion 3D */
-    cursor: pointer;
+    
 }
 
-/*fin header*/
-
-body {
-    display: flex;
-    max-height: 100vw;
-    flex-direction: column;
-
-
+.login button {
+    background-color: #e85829; /* Cambia el color de fondo del botón a Naranja */
+    border-color: #e85829; /* Cambia el color del borde del botón a Naranja */
+    color: #fff; /* Cambia el color del texto del botón a blanco */
 }
 
+.login button:hover {
+    background-color: #6d2a14; /* Cambia el color de fondo del botón a Sombra Naranja en el hover */
+    border-color: #6d2a14; /* Cambia el color del borde del botón a Sombra Naranja en el hover */
+}
+
+/* Main Content */
 main {
-    background-color: #f9d8b8;
+    background-color: #fff; /* Fondo en color blanco */
+    padding: 20px;
 }
 
-.form {
-    background-color: transparent;
-    margin: auto;
-    width: 90%;
-    height: 88vh;
-    max-height: 75%;
-    max-width: 50%;
-    min-width: 400px;
-    padding: 4.5em 3em;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
-    text-align: center;
-    justify-content: center;
-
+/* Carrusel */
+.carrusel {
+    margin: 2vh auto;
+    padding: 0 20px; /* Espacio de 20px a los costados */
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
-.form_title {
-    font-size: 2rem;
-    margin-bottom: .5em;
+.carousel-inner, .carousel-item {
+    height: 250px; /* Altura fija para mantener el aspecto rectangular */
 }
 
-.form_paragraph {
-    font-weight: 300;
-
-}
-
-.form_link {
-    font-weight: 400;
-    color: black;
-}
-
-.form_container {
-    margin-top: 3em;
-    display: grid;
-    gap: 1.5em;
-
-}
-
-.form_group {
-    position: relative;
-}
-
-.form_input {
+.carousel-item img {
     width: 100%;
-    background: none;
-    background-color: #f7a81b;
-    color: #a4977f;
-    font-size: 1rem;
-    padding: .6em .3em;
-    border: solid 1px gray;
-    outline: none;
-    border-bottom: 1px solid rgb(151, 141, 141);
-    font-family: Roboto;
-    border-radius: .5em;
-    box-shadow:
-        0.4vh 0.4vh #946410,
-        /* Genero un par de sombras para  */
-        0.2vh 0.2vh #946410;
-    /* crear la ilusion 3D */
+    height: auto;
 }
 
-.form_submit {
-    background-color: #e85829;
-    color: white;
-    font-family: Roboto;
-    font-weight: 300;
-    font-size: 1rem;
-    padding: .8em 0;
-    border-radius: .5em;
-    border: none;
-    box-shadow:
-        0.4vh 0.4vh #6d2a14,
-        /* Genero un par de sombras para  */
-        0.2vh 0.2vh #6d2a14;
-    /* crear la ilusion 3D */
+
+/* Sección de Productos */
+.container-card {
+    /* Fondo en color Mayonesa */
+    padding: 20px;
+    margin-top: 20px;
+     /* Sombra en color Sombra mayonesa */
 }
 
-.divFooter {
-    background-color: #101923;
-    height: 40px;
-    max-height: 25vh;
+.container-card h2 {
+    margin-bottom: 20px;
+    color: #101923; /* Texto en color Azul Oscuro */
 }
 
-.textFooter {
-    color: white;
-    font-size: 1.2vh;
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+
+.products-cards {
+    flex: 1;
+    margin: 25px 10px 0px;
+    margin-bottom: 50px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px  #946410;
+    
+}
+
+.products-cards img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+.products-cards h3 {
+    margin: 10px 0;
+    color: #101923; /* Texto en color Azul Oscuro */
+}
+
+.products-cards p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #f7a81b; /* Fondo en color Mostaza */
+    color: #101923; /* Texto en color Azul Oscuro */
+    padding: 20px 0;
+}
+
+footer section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.epc, .epc3 {
+    padding: 10px;
+    text-align: center;
+    flex: 1 1 33%;
+
+}
+.epc:hover i{
+    color: #007bff;
+}
+
+.epc h4, .epc3 h4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* Estilos para los iconos de redes sociales y otras secciones */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 24px;
+    color: #101923; /* Texto en color Azul Oscuro */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+h1, h2, h3{
+    font-family: Merriweather;
+}
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header, .products {
+        flex-direction: column;
+    }
+
+    .products-cards {
+        width: 100%;
+    }
+
+    .carrusel {
+        margin: 2vh 5%;
+    }
+
+    .container-card {
+        padding: 20px 10px;
+    }
+
+    .buscador, .login {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .epc, .epc3 {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 430px) {
+    .products {
+        flex-direction: column;
+    }
+
+    .products-cards {
+        width: 100%;
+    }
+
+    .carrusel {
+        margin: 2vh 2%;
+    }
 }
