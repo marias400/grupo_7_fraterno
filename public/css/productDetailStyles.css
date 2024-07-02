@@ -97,12 +97,12 @@ footer {
     height: 40px;
     border-radius: 5px;
     box-shadow:
-    0.4vh 0.4vh #946410, /* Genero un par de sombras para  */
-    0.2vh 0.2vh #946410; /* crear una ilusion 3D */
+        0.4vh 0.4vh #946410,
+        0.2vh 0.2vh #946410;
     transition:
-    background-color 50ms,
-    transform 10ms,
-    box-shadow 50ms;
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
 }
 
 .top-side nav {
@@ -243,9 +243,9 @@ footer {
     color: white;
     width: 50%;
     transition:
-    background-color 50ms,
-    transform 10ms,
-    box-shadow 50ms;
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
     cursor: pointer;
 }
 
@@ -260,32 +260,53 @@ footer {
     align-items: center;
 }
 
-.to-cart-button {
+.mainFooter {
+    background-color: #101923;
+    width: 100vw;
+    height: 48px;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     align-items: center;
-    height: 100%;
-    margin-right: 30px;
-    transition:
-    background-color 50ms,
-    transform 10ms,
-    box-shadow 50ms;
+    padding: 0 6vw;
 }
 
-.to-cart-button input {
-    border: none;
+.mainFooter__checkout-button {
     background-color: #e85829;
-    box-shadow: 2px 2px 2px rgb(75, 75, 75);
     color: white;
-    font-size: 16px;
-    padding-right: 2vw;
-    padding-left: 2vw;
-    border-radius: 5px;
-    height: 40px;
+    height: calc(100% - 1vh);
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 2vh;
+    padding: 2vh;
+    border: none;
+    border-radius: 1vh;
+    box-shadow:
+        0.4vh 0.4vh #6d2a14,
+        0.2vh 0.2vh #6d2a14;
+    cursor: pointer;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
 }
 
+.mainFooter__checkout-button:active {
+    position: relative;
+    background-color: #ce4f24;
+    box-shadow: none;
+    transform: translate(0.4vh, 0.4vh);
+}
 
-.top-side__burguer-menu:active, body footer div input:active, .stripe__button:active {
+.mainFooter__copyright {
+    color: white;
+    font-size: 1.2vh;
+}
+
+.top-side__burguer-menu:active,
+body footer div input:active,
+.stripe__button:active {
     position: relative;
     background-color: #ce4f24;
     box-shadow: none;

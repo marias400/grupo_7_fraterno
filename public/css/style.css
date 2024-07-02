@@ -12,6 +12,7 @@ body {
     background-color: #101923;
     display: flex;
     height: 48px;
+    align-items: center;
 }
 
 .logo {
@@ -25,14 +26,32 @@ body {
 
 .logo img {
     display: flex;
-    height: 60%;
-    width: 63%;
+    height: 100%;
+    width: 76%;
 }
 
 .logo a {
     display: flex;
     flex-grow: 1;
-   justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.top-side__burguer-menu {
+    display: flex;
+    /*alinea la imagen del burguer*/
+    align-items: center;
+    justify-content: center;
+    /*------------*/
+    font-size: 26px;
+    margin-right: 15px;
+    color: #101923;
+    background-color: #f7a81b;
+    width: 20%;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    border-radius: 5px;
 }
 
 /* Header */

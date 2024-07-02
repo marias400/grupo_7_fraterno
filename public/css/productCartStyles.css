@@ -41,48 +41,83 @@ Vaytone (LOGO)
 }
 
 /*inicio header*/
-
-.mainHeader {
+.top-side {
     background-color: #101923;
-    height: 10vh;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0 6vw;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48px;
 }
 
-.mainHeader__logo {
-    height: 6vh;
+.top-side__logo {
+    display: flex;
+    flex-grow: 1;
+    height: 60%;
+    width: 100%;
 }
 
-.mainHeader__burguer-menu {
-    background-color: #f7a81b;
-    color: #101923;
-    width: 5.6vh;
-    height: 5.6vh;
-    font-size: 3.5vh;
+.top-side__logo a {
+    display: flex;
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.top-side__burguer-menu {
     display: flex;
     /*alinea la imagen del burguer*/
     align-items: center;
     justify-content: center;
     /*------------*/
+    font-size: 26px;
+    margin-right: 15px;
+    color: #101923;
+    background-color: #f7a81b;
+    width: 20%;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
     border-radius: 5px;
     box-shadow:
-    0.4vh 0.4vh #946410, /* Genero un par de sombras para  */
-    0.2vh 0.2vh #946410; /* crear una ilusion 3D */
-    margin: 2vh 0;
-    cursor: pointer;
+        0.4vh 0.4vh #946410,
+        /* Genero un par de sombras para  */
+        0.2vh 0.2vh #946410;
+    /* crear una ilusion 3D */
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
 }
 
-.mainHeader__burguer-menu:active {
+.top-side__burguer-menu:active {
     position: relative;
-    background-color: #dc9418;
+    background-color: #ce4f24;
     box-shadow: none;
     transform: translate(0.4vh, 0.4vh);
-    transition:
-    background-color 50ms,
-    transform 20ms,
-    box-shadow 50ms;
+}
+
+.top-side nav {
+    display: none;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 15px;
+}
+
+.top-side nav ul {
+    gap: 15px;
+}
+
+.top-side nav ul li {
+    list-style-type: none;
+    color: #f7a81b;
+    width: 80px;
+}
+
+.top-side nav ul li a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /*fin header*/
@@ -90,16 +125,18 @@ Vaytone (LOGO)
 main {
     background-color: #f9d8b8;
     width: 100vw;
-    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 100%;
 }
 
 .cart {
     background-color: #f8c18a;
     width: 94vw;
-    height: 64vh;
+    height: 100%;
     border-radius: 15px;
     position: relative;
     display: flex;
@@ -142,24 +179,50 @@ main {
 }
 
 .cart__content--product {
+    display: grid;
+    grid-template-columns: 150px;
+    grid-template-rows: 150px 70px 50px;
+    grid-template-areas:
+        "image"
+        "info"
+        "price";
+    justify-content: center;
+
     background-color: #f9d8b8;
     box-shadow: 5px 4px 1px 1px #d49e67;
     font-size: 3vh;
-    width: 100%;
-    height: 50%;
     border-radius: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     padding: 2vh 2.5vh;
     margin-bottom: 2.5vh;
+}
+
+.cart__content--product {
+    grid-column-start: image;
+    grid-row-end: price;
+}
+
+.cart__content--product-image {
+    grid-area: image;
+    justify-self: center;
+    align-self: center;
+}
+
+.cart__content--product-middleblox {
+    grid-area: info;
+    justify-self: center;
+    align-self: center;
+}
+
+.cart__content--product-price {
+    grid-area: price;
+    justify-self: center;
+    align-self: center;
 }
 
 .cart__content--product-image {
     flex-grow: 1;
     max-width: 200px;
     border: #f7a81b 3px solid;
-    margin-left: 25px;
     border-radius: 25px;
     height: 100%;
 }
@@ -192,12 +255,12 @@ main {
     align-items: center;
     justify-content: center;
     box-shadow:
-    0.2vh 0.2vh #6d2a14;
+        0.2vh 0.2vh #6d2a14;
     cursor: pointer;
     transition:
-    background-color 50ms,
-    transform 20ms,
-    box-shadow 20ms;
+        background-color 50ms,
+        transform 20ms,
+        box-shadow 20ms;
 }
 
 .cart__content--product-middleblox-quantityMinus:active,
@@ -238,7 +301,7 @@ main {
 .mainFooter {
     background-color: #101923;
     width: 100vw;
-    height: 10vh;
+    height: 48px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -249,7 +312,8 @@ main {
 .mainFooter__checkout-button {
     background-color: #e85829;
     color: white;
-    height: 6vh;
+    height: calc(100% - 1vh);
+    margin-right: 30px;
     display: flex;
     align-items: center;
     font-size: 2vh;
@@ -257,13 +321,13 @@ main {
     border: none;
     border-radius: 1vh;
     box-shadow:
-    0.4vh 0.4vh #6d2a14,
-    0.2vh 0.2vh #6d2a14;
+        0.4vh 0.4vh #6d2a14,
+        0.2vh 0.2vh #6d2a14;
     cursor: pointer;
     transition:
-    background-color 50ms,
-    transform 10ms,
-    box-shadow 50ms;
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
 }
 
 .mainFooter__checkout-button:active {
@@ -278,3 +342,44 @@ main {
     font-size: 1.2vh;
 }
 
+/*TABLETS +*/
+@media (min-width: 768px) {
+
+    main {
+        height: calc(100vh - 48px*2);
+    }
+
+    .top-side__burguer-menu {
+        display: none;
+    }
+
+    .top-side nav {
+        display: flex;
+    }
+
+    .top-side nav ul {
+        display: flex;
+    }
+
+    .stripe__photo img {
+        max-height: 30vw;
+    }
+
+    .cart__content--product {
+        background-color: #f9d8b8;
+        box-shadow: 5px 4px 1px 1px #d49e67;
+        font-size: 3vh;
+        width: 100%;
+        height: 50%;
+        border-radius: 15px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2vh 2.5vh;
+        margin-bottom: 2.5vh;
+    }
+
+    .cart__content--product-image {
+        margin-left: 25px;
+    }
+}
