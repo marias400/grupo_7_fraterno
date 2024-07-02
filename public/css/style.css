@@ -8,14 +8,31 @@ body {
 }
 
 /* Logo */
+.logo-container{
+    background-color: #101923;
+    display: flex;
+    height: 48px;
+}
+
 .logo {
-    padding: 5%;
     width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
 }
 
 .logo img {
-    height: auto;
-    width: 100%;
+    display: flex;
+    height: 60%;
+    width: 63%;
+}
+
+.logo a {
+    display: flex;
+    flex-grow: 1;
+   justify-content: center;
 }
 
 /* Header */
@@ -26,7 +43,7 @@ header {
     padding: 1rem;
     background-color: #f7a81b; /* Fondo en color Mostaza */
     box-shadow: 0px 2px 4px #946410; /* Sombra en color Sombra mostaza */
-    margin-top: 10px;
+    
 }
 
 .buscador {
@@ -37,6 +54,17 @@ header {
 .buscador input {
     width: 250px; /* Ajusta el ancho según tus necesidades */
 }
+
+.buscador button{
+    background-color: #e85829;
+    border-color: #e85829;
+}
+
+.buscador button:hover{
+    background-color: #f9d8b8;
+    border-color: #f9d8b8;
+}
+
 
 .login {
     display: flex;
@@ -51,14 +79,14 @@ header {
 }
 
 .login button:hover {
-    background-color: #6d2a14; /* Cambia el color de fondo del botón a Sombra Naranja en el hover */
-    border-color: #6d2a14; /* Cambia el color del borde del botón a Sombra Naranja en el hover */
+    background-color: #f9d8b8; /* Cambia el color de fondo del botón a Sombra Naranja en el hover */
+    border-color: #f9d8b8; /* Cambia el color del borde del botón a Sombra Naranja en el hover */
 }
 
 /* Main Content */
 main {
-    background-color: #fff; /* Fondo en color blanco */
-    padding: 20px;
+    background-color: #f9d8b8 ; /* Fondo en color blanco */
+    padding: 30px;
 }
 
 /* Carrusel */
@@ -67,6 +95,7 @@ main {
     padding: 0 20px; /* Espacio de 20px a los costados */
     max-width: 100%;
     box-sizing: border-box;
+ 
 }
 
 .carousel-inner, .carousel-item {
@@ -76,15 +105,15 @@ main {
 .carousel-item img {
     width: 100%;
     height: auto;
+    border-radius: 3%;
 }
 
 
 /* Sección de Productos */
 .container-card {
-    /* Fondo en color Mayonesa */
     padding: 20px;
     margin-top: 20px;
-     /* Sombra en color Sombra mayonesa */
+     
 }
 
 .container-card h2 {
@@ -107,8 +136,9 @@ main {
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 10px 15px  #946410;
-    
+    box-shadow: 0 10px 15px  #101923;
+    background-color: #f8c18a;
+   
 }
 
 .products-cards img {
@@ -148,7 +178,7 @@ footer section {
 
 }
 .epc:hover i{
-    color: #007bff;
+    color: #f9d8b8;
 }
 
 .epc h4, .epc3 h4 {
@@ -172,7 +202,7 @@ footer section {
 }
 
 .social-icon:hover {
-    color: #007bff;
+    color: #f9d8b8;
 }
 
 h1, h2, h3{
