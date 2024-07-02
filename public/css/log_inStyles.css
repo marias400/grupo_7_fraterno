@@ -47,7 +47,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 48px;
 }
 
 .top-side__logo {
@@ -79,6 +79,13 @@ header {
     max-width: 40px;
     height: 40px;
     border-radius: 5px;
+    box-shadow:
+        0.4vh 0.4vh #6d2a14,
+        0.2vh 0.2vh #6d2a14;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
 }
 
 .top-side nav {
@@ -116,7 +123,10 @@ body {
 
 main {
     background-color: #f9d8b8;
-    height: 85vh;
+    height: calc(100vh - (48px * 2));
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
 }
 
 .icon_log {
@@ -146,6 +156,8 @@ main {
     border-radius: .5em;
     text-align: center;
     cursor: pointer;
+    color: #101923;
+    background-color: #f7a81b;
 
 }
 
@@ -204,11 +216,11 @@ label {
     background-color: transparent;
     color: #a4977f;
     font-size: 1rem;
-
     border: none;
     outline: none;
     border-bottom: 1px solid rgb(151, 141, 141);
     font-family: Roboto;
+
 }
 
 .form_submit {
@@ -223,22 +235,53 @@ label {
     border-radius: .5em;
     border: none;
     box-shadow:
-        0.4vh 0.4vh #6d2a14,
-        /* Genero un par de sombras para  */
-        0.2vh 0.2vh #6d2a14;
-    /* crear la ilusion 3D */
+    0.4vh 0.4vh #6d2a14,
+    0.2vh 0.2vh #6d2a14;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
+}
+
+.form_submit:active,
+.top-side__burguer-menu:active {
+    position: relative;
+    background-color: #ce4f24;
+    box-shadow: none;
+    transform: translate(0.4vh, 0.4vh);
 }
 
 .divFooter {
+    display: flex;
     background-color: #101923;
-    height: 40px;
+    height: 48px;
     max-height: 25vh;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+    padding-left: 5px;
+
 }
 
 .textFooter {
     color: white;
     font-size: 1.2vh;
 
+}
+
+/*UN MEDIAQUERI SOLO PORQUE ME DA TOC EN UN PARTE XD*/
+
+@media (min-Width: 530px) {
+    .icon_log {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    main {
+        padding: 10%;
+    }
+    
 }
 
 /*TABLETS +*/
@@ -260,5 +303,9 @@ label {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+
+    main {
+        padding-top: 10%;
     }
 }
