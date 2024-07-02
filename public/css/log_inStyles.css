@@ -80,8 +80,8 @@ header {
     height: 40px;
     border-radius: 5px;
     box-shadow:
-        0.4vh 0.4vh #6d2a14,
-        0.2vh 0.2vh #6d2a14;
+        0.4vh 0.4vh #946410,
+        0.2vh 0.2vh #946410;
     transition:
         background-color 50ms,
         transform 10ms,
@@ -235,8 +235,8 @@ label {
     border-radius: .5em;
     border: none;
     box-shadow:
-    0.4vh 0.4vh #6d2a14,
-    0.2vh 0.2vh #6d2a14;
+        0.4vh 0.4vh #6d2a14,
+        0.2vh 0.2vh #6d2a14;
     transition:
         background-color 50ms,
         transform 10ms,
@@ -277,11 +277,11 @@ label {
         justify-content: center;
         align-items: center;
     }
-    
+
     main {
         padding: 10%;
     }
-    
+
 }
 
 /*TABLETS +*/
