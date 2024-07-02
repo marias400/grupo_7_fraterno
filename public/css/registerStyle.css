@@ -33,6 +33,7 @@ Vaytone (LOGO)
 
 body {
     background-color: #f9d8b8;
+    height: 100vh;
 }
 
 /*inicio header*/
@@ -48,7 +49,6 @@ header {
     height: 100%;
 }
 
-/*REEMPLAZAR POR IMAGEN DE LOGO*/
 .top-side__logo {
     margin-left: 15px;
     background-color: transparent;
@@ -67,14 +67,10 @@ header {
     font-size: 26px;
     margin-right: 15px;
     display: flex;
-    /*alinea el div*/
     justify-self: center;
     align-self: center;
-    /*------------*/
-    /*alinea la imagen del burguer*/
     align-items: center;
     justify-content: center;
-    /*------------*/
     color: #101923;
     background-color: #f7a81b;
     width: 40px;
@@ -82,12 +78,30 @@ header {
     border-radius: 5px;
 }
 
+.top-side nav ul {
+    gap: 15px;
+    display: flex; 
+}
+
+
+.top-side nav ul li {
+    list-style-type: none;
+}
+
+.top-side nav ul li a{
+    text-decoration: none;
+    color: #f7a81b;
+    width: 80px;
+}
+
+
 /*main*/
 
 
 main {
     margin-top: 10%;
     margin-bottom: 10%;
+    height: 100vh;
 }
 
 .form {
@@ -95,22 +109,26 @@ main {
     input[type="text"],
     input[type="password"] {
         border: none;
-        border-bottom: 1px solid #797777;
+        border-bottom: 1px solid  #101923;
         background-color: #f9d8b8;
-        padding: 20px;
+        padding: 5vh;
     margin: auto;
     width: 25vw;
     text-align: center;
     }
-    
+}
 
+input::placeholder {
+    color: #101923; 
+    font-weight: 400;
 }
 
 
 
+
 .campos-form {
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     text-align: center;
 
 }
@@ -137,22 +155,62 @@ main {
 
 
 footer  {
-        background-color: #101923;
-        height: 48px;
-        border-top: 10vh;
-        color: white;
+    height: 100%;
+    background-color: #101923;
+    height: 48px;
+    width: 100vw;
+    color: white;
     font-size: 1.2vh;
     }
 
 
-    /*media query*/
+/*media query header*/
+
+@media (max-width: 1024px) {
+    header {
+        height: 60px; /* Ajusta la altura para tabletas */
+    }
+
+    .top-side__logo img {
+        height: 50%; /* Tamaño del logotipo en tabletas */
+    }
+
+    .top-side__burguer-menu {
+        font-size: 24px; /* Tamaño del ícono del menú hamburguesa en tabletas */
+    }
+
+    .top-side nav ul li {
+        width: auto; /* Ajusta el ancho de los elementos de navegación */
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        height: 60px; /* Ajusta la altura para dispositivos móviles */
+    }
+
+    .top-side__logo img {
+        height: 50%; /* Tamaño del logotipo en móviles */
+    }
+
+    .top-side__burguer-menu {
+        font-size: 22px; /* Tamaño del ícono del menú hamburguesa en móviles */
+    }
+
+    .top-side nav ul li {
+        width: auto; /* Ajusta el ancho de los elementos de navegación */
+    }
+}
 
 
-    @media (max-width: 600px) {
+
+    /*media query main*/
+
+    @media (max-width: 1024px) {
         
         .form {
-            margin-top: 5%;
-            margin-bottom: 5%;
+            margin-top: 30%;
+            margin-bottom: 30%;
         }
 
         .campos-form input[type="text"],
@@ -168,3 +226,46 @@ footer  {
         }
     }
 
+
+
+    @media (max-width: 600px) {
+        
+        .form {
+            margin-top: 30%;
+            margin-bottom: 30%;
+        }
+
+        .campos-form input[type="text"],
+        .campos-form input[type="password"] {
+            padding: 10px;
+            width: 80%;
+        }
+
+        .button {
+            font-size: 14px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+
+    /*media query footer*/
+
+    @media (max-width: 1024px) {
+        .mainFooter {
+            height: auto; 
+            border-top: none; 
+            padding: 10px; 
+            text-align: center; 
+        }
+    }
+
+    @media (max-width: 600px) {
+        .mainFooter {
+            height: auto; 
+            border-top: none; 
+            padding: 10px; 
+            text-align: center; 
+        }
+    }
+    
