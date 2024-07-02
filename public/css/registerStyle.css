@@ -191,7 +191,7 @@ footer {
     }
 
     .top-side__burguer-menu {
-        display: block; /* Muestra el menú hamburguesa */
+        /*display: block; /* Muestra el menú hamburguesa */
         justify-content: center;
         align-items: center;
     }
