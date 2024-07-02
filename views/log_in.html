@@ -16,16 +16,40 @@
     <header>
         <div class="top-side">
             <div class="top-side__logo">
-                <img src="/images/logoG7.svg" alt="">
+                <a href="/"><img src="/images/logoG7.svg" alt="logoG7"></a>
             </div>
             <div class="top-side__burguer-menu">
                 <i class="fa-solid fa-burger"></i>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="/views/log_in.html">Log in <i class="fa-solid fa-right-to-bracket"></i></a></li>
+                    <li><a href="/views/productCart.html">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     <main>
+        <section class="title">
+            <h2>Iniciar Sesion</h2>
+            <span>con</span>
+        </section>
+        <section class="icon_log">
+            <div class="Log_externo">
+                <i class="fa-brands fa-apple"></i>
+                <span class="textlog">Apple ID</span>
+            </div>
+            <div class="Log_externo">
+                <i class="fa-brands fa-facebook-f"></i>
+                <span class="textlog">Facebook</span>
+            </div>
+            <div class="Log_externo">
+                <i class="fa-brands fa-google"></i>
+                <span class="textlog">Google</span>
+            </div>
+        </section>
         <form class="form">
-            <h2 class="form_title">Ingresar</h2>
+            <h2 class="form_title">o usa tu dirección de email</h2>
             <div class="form_container">
                 <label for="user" class="form_label">Usuario / Email*</label>
                 <input type="text" id="user" class="form_input" placeholder="Usuario / Email">
@@ -37,14 +61,14 @@
                 <span class="form_line"></span>
             </div>
             <div class="form_container">
-                <input type="submit" class="form_submit" value="Entrar">
+                <input type="button" class="form_submit" value="Entrar">
                 <p class="form_paragraph"><a href="/views/register.html" class="form_link">Registrate →</a></p>
             </div>
         </form>
     </main>
     <footer>
         <div class="divFooter">
-            <p class="textFooter">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
+            <span class="textFooter">© Grupo Sie7e y asociados. Todos los derechos reservados</span>
         </div>
     </footer>
 </body>

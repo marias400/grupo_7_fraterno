@@ -96,6 +96,13 @@ footer {
     max-width: 40px;
     height: 40px;
     border-radius: 5px;
+    box-shadow:
+    0.4vh 0.4vh #946410, /* Genero un par de sombras para  */
+    0.2vh 0.2vh #946410; /* crear una ilusion 3D */
+    transition:
+    background-color 50ms,
+    transform 10ms,
+    box-shadow 50ms;
 }
 
 .top-side nav {
@@ -235,6 +242,11 @@ footer {
     height: 40px;
     color: white;
     width: 50%;
+    transition:
+    background-color 50ms,
+    transform 10ms,
+    box-shadow 50ms;
+    cursor: pointer;
 }
 
 .stripe__button input {
@@ -254,6 +266,10 @@ footer {
     align-items: center;
     height: 100%;
     margin-right: 30px;
+    transition:
+    background-color 50ms,
+    transform 10ms,
+    box-shadow 50ms;
 }
 
 .to-cart-button input {
@@ -267,6 +283,15 @@ footer {
     border-radius: 5px;
     height: 40px;
 }
+
+
+.top-side__burguer-menu:active, body footer div input:active, .stripe__button:active {
+    position: relative;
+    background-color: #ce4f24;
+    box-shadow: none;
+    transform: translate(0.4vh, 0.4vh);
+}
+
 
 /*TELEFONOS*/
 @media (max-width: 375px) {
