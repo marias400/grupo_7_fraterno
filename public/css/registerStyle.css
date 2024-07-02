@@ -37,61 +37,75 @@ body {
 }
 
 /*inicio header*/
-
 header {
-    height: 48px;
+    height: 10%;
 }
 
 .top-side {
-    background-color: #101923;
     display: flex;
-    justify-content: space-between;
+    background-color: #101923;
+    align-items: center;
+    width: 100%;
     height: 100%;
+    justify-content: center;
 }
 
 .top-side__logo {
-    margin-left: 15px;
-    background-color: transparent;
-    height: 100%;
-    width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    height: 60%;
+    width: 100%;
 }
 
-.top-side__logo img {
-    height: 60%;
+.top-side__logo a {
+    display: flex;
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .top-side__burguer-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 26px;
     margin-right: 15px;
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
     color: #101923;
     background-color: #f7a81b;
-    width: 40px;
+    width: 20%;
+    min-width: 40px;
+    max-width: 40px;
     height: 40px;
     border-radius: 5px;
+    box-shadow:
+        0.4vh 0.4vh #946410,
+        0.2vh 0.2vh #946410;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
+}
+
+.top-side nav {
+    display: flex;
+    flex-grow: 1;
+    padding-right: 15px;
 }
 
 .top-side nav ul {
     gap: 15px;
-    display: flex; 
 }
-
 
 .top-side nav ul li {
     list-style-type: none;
+    color: #f7a81b;
+    width: auto;
+    display: inline-block; /* Muestra los elementos en una línea */
+    margin-right: 15px;
 }
 
-.top-side nav ul li a{
+.top-side nav ul li a {
+    color: inherit;
     text-decoration: none;
-    color: #f7a81b;
-    width: 80px;
 }
 
 
@@ -109,17 +123,17 @@ main {
     input[type="text"],
     input[type="password"] {
         border: none;
-        border-bottom: 1px solid  #101923;
+        border-bottom: 1px solid #101923;
         background-color: #f9d8b8;
         padding: 5vh;
-    margin: auto;
-    width: 25vw;
-    text-align: center;
+        margin: auto;
+        width: 25vw;
+        text-align: center;
     }
 }
 
 input::placeholder {
-    color: #101923; 
+    color: #101923;
     font-weight: 400;
 }
 
@@ -154,118 +168,120 @@ input::placeholder {
 }
 
 
-footer  {
+footer {
     height: 100%;
     background-color: #101923;
     height: 48px;
     width: 100vw;
     color: white;
     font-size: 1.2vh;
-    }
+}
+
 
 
 /*media query header*/
 
-@media (max-width: 1024px) {
-    header {
-        height: 60px; /* Ajusta la altura para tabletas */
-    }
-
-    .top-side__logo img {
-        height: 50%; /* Tamaño del logotipo en tabletas */
-    }
-
-    .top-side__burguer-menu {
-        font-size: 24px; /* Tamaño del ícono del menú hamburguesa en tabletas */
-    }
-
-    .top-side nav ul li {
-        width: auto; /* Ajusta el ancho de los elementos de navegación */
-    }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 699px) {
     header {
         height: 60px; /* Ajusta la altura para dispositivos móviles */
     }
 
-    .top-side__logo img {
-        height: 50%; /* Tamaño del logotipo en móviles */
+    .top-side nav ul {
+        display: none; /* Oculta los elementos <ul> */
     }
 
     .top-side__burguer-menu {
-        font-size: 22px; /* Tamaño del ícono del menú hamburguesa en móviles */
-    }
-
-    .top-side nav ul li {
-        width: auto; /* Ajusta el ancho de los elementos de navegación */
+        display: block; /* Muestra el menú hamburguesa */
+        justify-content: center;
+        align-items: center;
     }
 }
 
 
 
-    /*media query main*/
-
-    @media (max-width: 1024px) {
-        
-        .form {
-            margin-top: 30%;
-            margin-bottom: 30%;
-        }
-
-        .campos-form input[type="text"],
-        .campos-form input[type="password"] {
-            padding: 10px;
-            width: 80%;
-        }
-
-        .button {
-            font-size: 14px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+@media (min-width: 700px) {
+    header {
+        height: 60px; 
     }
 
-
-
-    @media (max-width: 600px) {
-        
-        .form {
-            margin-top: 30%;
-            margin-bottom: 30%;
-        }
-
-        .campos-form input[type="text"],
-        .campos-form input[type="password"] {
-            padding: 10px;
-            width: 80%;
-        }
-
-        .button {
-            font-size: 14px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+    .top-side__logo img {
+        height: 50%; 
     }
 
-
-    /*media query footer*/
-
-    @media (max-width: 1024px) {
-        .mainFooter {
-            height: auto; 
-            border-top: none; 
-            padding: 10px; 
-            text-align: center; 
-        }
+    .top-side__burguer-menu {
+    display: none; 
     }
 
-    @media (max-width: 600px) {
-        .mainFooter {
-            height: auto; 
-            border-top: none; 
-            padding: 10px; 
-            text-align: center; 
-        }
+    .top-side nav ul li {
+        width: auto; 
+        align-items: flex-end;
+        justify-content: flex-end;
     }
-    
+}
+
+
+
+/*media query main*/
+
+@media (max-width: 1024px) {
+
+    .form {
+        margin-top: 30%;
+        margin-bottom: 30%;
+    }
+
+    .campos-form input[type="text"],
+    .campos-form input[type="password"] {
+        padding: 10px;
+        width: 80%;
+    }
+
+    .button {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+
+    .form {
+        margin-top: 30%;
+        margin-bottom: 30%;
+    }
+
+    .campos-form input[type="text"],
+    .campos-form input[type="password"] {
+        padding: 10px;
+        width: 80%;
+    }
+
+    .button {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/*media query footer*/
+
+@media (max-width: 1024px) {
+    .mainFooter {
+        height: auto;
+        border-top: none;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .mainFooter {
+        height: auto;
+        border-top: none;
+        padding: 10px;
+        text-align: center;
+    }
+}

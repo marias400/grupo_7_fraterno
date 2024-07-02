@@ -69,9 +69,20 @@ Vaytone (LOGO)
     border-radius: 5px;
     box-shadow:
     0.4vh 0.4vh #946410, /* Genero un par de sombras para  */
-    0.2vh 0.2vh #946410; /* crear la ilusion 3D */
+    0.2vh 0.2vh #946410; /* crear una ilusion 3D */
     margin: 2vh 0;
     cursor: pointer;
+}
+
+.mainHeader__burguer-menu:active {
+    position: relative;
+    background-color: #dc9418;
+    box-shadow: none;
+    transform: translate(0.4vh, 0.4vh);
+    transition:
+    background-color 50ms,
+    transform 20ms,
+    box-shadow 50ms;
 }
 
 /*fin header*/
@@ -183,6 +194,18 @@ main {
     box-shadow:
     0.2vh 0.2vh #6d2a14;
     cursor: pointer;
+    transition:
+    background-color 50ms,
+    transform 20ms,
+    box-shadow 20ms;
+}
+
+.cart__content--product-middleblox-quantityMinus:active,
+.cart__content--product-middleblox-quantityPlus:active {
+    position: relative;
+    background-color: #ce4f24;
+    box-shadow: none;
+    transform: translate(0.2vh, 0.2vh);
 }
 
 .cart__content--product-middleblox-quantity {
@@ -237,9 +260,21 @@ main {
     0.4vh 0.4vh #6d2a14,
     0.2vh 0.2vh #6d2a14;
     cursor: pointer;
+    transition:
+    background-color 50ms,
+    transform 10ms,
+    box-shadow 50ms;
+}
+
+.mainFooter__checkout-button:active {
+    position: relative;
+    background-color: #ce4f24;
+    box-shadow: none;
+    transform: translate(0.4vh, 0.4vh);
 }
 
 .mainFooter__copyright {
     color: white;
     font-size: 1.2vh;
 }
+
