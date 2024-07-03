@@ -1,0 +1,404 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9d8b8;
+    /* Fondo en color Mayonesa */
+    color: #101923;
+    /* Texto en color Azul Oscuro */
+}
+
+/* Logo */
+.logo-container {
+    background-color: #101923;
+    display: flex;
+    height: 48px;
+    align-items: center;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+.logo img {
+    display: flex;
+    height: 100%;
+    width: 76%;
+}
+
+.logo a {
+    display: flex;
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/*------------------header with logo------------------*/
+.top-side {
+    background-color: #101923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+}
+
+.top-side__logo {
+    display: flex;
+    flex-grow: 1;
+    height: 60%;
+    width: 100%;
+}
+
+.top-side__logo a {
+    display: flex;
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.top-side__burguer-menu {
+    display: flex;
+    /*alinea la imagen del burguer*/
+    align-items: center;
+    justify-content: center;
+    /*------------*/
+    font-size: 26px;
+    margin-right: 15px;
+    color: #101923;
+    background-color: #f7a81b;
+    width: 20%;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow:
+        0.4vh 0.4vh #946410,
+        0.2vh 0.2vh #946410;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
+}
+
+.top-side__burguer-menu:active {
+    position: relative;
+    background-color: #ce4f24;
+    box-shadow: none;
+    transform: translate(0.4vh, 0.4vh);
+}
+
+.top-side nav {
+    display: none;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 15px;
+}
+
+.top-side nav ul {
+    gap: 15px;
+}
+
+.top-side nav ul li {
+    list-style-type: none;
+    color: #f7a81b;
+    width: 80px;
+}
+
+.top-side nav ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*------------------end header with logo------------------*/
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7a81b;
+    /* Fondo en color Mostaza */
+    box-shadow: 0px 2px 4px #946410;
+    /* Sombra en color Sombra mostaza */
+
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+}
+
+.buscador input {
+    width: 250px;
+    /* Ajusta el ancho según tus necesidades */
+}
+
+.buscador button {
+    background-color: #e85829;
+    color: white;
+    width: 4vh;
+    height: 4vh;
+    padding: 1vh;
+    border: none;
+    border-radius: 8px;
+    font-size: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e85829;
+    border-color: #e85829;
+    box-shadow:
+        0.4vh 0.4vh #946410,
+        0.2vh 0.2vh #946410;
+    position: relative;
+    bottom: 3px;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
+}
+
+.buscador button:active {
+    position: relative;
+    background-color: #ce4f24;
+    box-shadow: none;
+    transform: translate(0.4vh, 0.4vh);
+}
+
+.login {
+    display: flex;
+    align-items: center;
+
+}
+
+.login button {
+    background-color: #e85829;
+    /* Cambia el color de fondo del botón a Naranja */
+    border-color: #e85829;
+    /* Cambia el color del borde del botón a Naranja */
+    color: #fff;
+    /* Cambia el color del texto del botón a blanco */
+}
+
+.login button:hover {
+    background-color: #f9d8b8;
+    /* Cambia el color de fondo del botón a Sombra Naranja en el hover */
+    border-color: #f9d8b8;
+    /* Cambia el color del borde del botón a Sombra Naranja en el hover */
+}
+
+/* Main Content */
+main {
+    background-color: #f9d8b8;
+    /* Fondo en color blanco */
+    padding: 30px;
+}
+
+/* Carrusel */
+.carrusel {
+    margin: 2vh auto;
+    padding: 0 20px;
+    /* Espacio de 20px a los costados */
+    max-width: 100%;
+    box-sizing: border-box;
+
+}
+
+.carousel-inner,
+.carousel-item {
+    height: 250px;
+    /* Altura fija para mantener el aspecto rectangular */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 3%;
+}
+
+
+/* Sección de Productos */
+.container-card {
+    padding: 20px;
+    margin-top: 20px;
+
+}
+
+.container-card h2 {
+    margin-bottom: 20px;
+    color: #101923;
+    /* Texto en color Azul Oscuro */
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.products-cards {
+    flex: 1;
+    margin: 25px 10px 0px;
+    margin-bottom: 50px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px #101923;
+    background-color: #f8c18a;
+
+}
+
+.products-cards img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+.products-cards h3 {
+    margin: 10px 0;
+    color: #101923;
+    /* Texto en color Azul Oscuro */
+}
+
+.products-cards p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #f7a81b;
+    /* Fondo en color Mostaza */
+    color: #101923;
+    /* Texto en color Azul Oscuro */
+    padding: 20px 0;
+}
+
+footer section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.epc,
+.epc3 {
+    padding: 10px;
+    text-align: center;
+    flex: 1 1 33%;
+
+}
+
+.epc:hover i {
+    color: #f9d8b8;
+}
+
+.epc h4,
+.epc3 h4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* Estilos para los iconos de redes sociales y otras secciones */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 24px;
+    color: #101923;
+    /* Texto en color Azul Oscuro */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #f9d8b8;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Merriweather;
+}
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+
+    header,
+    .products {
+        flex-direction: column;
+    }
+
+    .products-cards {
+        width: 100%;
+    }
+
+    .carrusel {
+        margin: 2vh 5%;
+    }
+
+    .container-card {
+        padding: 20px 10px;
+    }
+
+    .buscador,
+    .login {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .epc,
+    .epc3 {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 430px) {
+    .products {
+        flex-direction: column;
+    }
+
+    .products-cards {
+        width: 100%;
+    }
+
+    .carrusel {
+        margin: 2vh 2%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .top-side__burguer-menu {
+        display: none;
+    }
+
+    .top-side nav {
+        display: flex;
+    }
+
+    .top-side nav ul {
+        display: flex;
+    }
+
+    .stripe__photo img {
+        max-height: 30vw;
+    }
+}
