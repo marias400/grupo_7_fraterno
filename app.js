@@ -2,29 +2,29 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
-let port = process.env.PORT || 42069;
+let port = process.env.PORT || 8000;
 
 const publicPath = path.resolve('./public');
 app.use(express.static(publicPath));
-
+ 
 app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/home.html"));
 });
 
-app.get("/views/productDetail.html", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/productDetail.html"));
+app.get("/producto", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/products/productDetail.html"));
 });
 
-app.get("/views/log_in.html", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/log_in.html"));
+app.get("/carrito", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/products/productCart.html"));
 });
 
-app.get("/views/productCart.html", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/productCart.html"));
+app.get("/ingresar", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/users/log_in.html"));
 });
 
-app.get("/views/register.html", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/register.html"));
+app.get("/registrar", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/users/register.html"));
 });
 
 app.get("/views/productAdmin", (req, res) => {
