@@ -7,24 +7,26 @@ let port = process.env.PORT || 8000;
 const publicPath = path.resolve('./public');
 app.use(express.static(publicPath));
 
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/home.html"));
+    res.render('home');
 });
 
 app.get("/producto", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/products/productDetail.html"));
+    res.render('products/product-detail');
 });
 
 app.get("/carrito", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/products/productCart.html"));
+    res.render('products/product-cart');
 });
 
 app.get("/ingresar", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/users/log_in.html"));
+    res.render('users/log-in');
 });
 
 app.get("/registrar", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/users/register.html"));
+    res.render('users/register');
 });
 
 app.listen(port, () => {
