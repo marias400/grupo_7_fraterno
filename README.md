@@ -62,6 +62,7 @@ Para desarrollar el sitio web en equipo, decidimos utilizar diferentes herramien
 - **[Un tablero de Trello](https://trello.com/invite/grupo7fraterno/ATTI11a8b99dfb6d72a884e7e984e224c261229A6DF9)** para organizar las tareas del equipo:
     + **[Sprint 1](https://trello.com/invite/b/6UOiX6C9/ATTI1b95dd1688033b327c9a5031375b27b25E38CFB6/sprint1)**
     + **[Sprint 2](https://trello.com/invite/b/iBOdHWnk/ATTIc2e0fc5ebc6b58e12e6d28d69eb3d3b09FEDB87D/sprint-2)**
+    + **[Sprint 3](https://trello.com/invite/b/h3RjzAnn/ATTI0bac942b14a5463d5a046397ec78be05489A3949/sprint-3)**
 
 - **[Figma](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para el diseño de los wireframes del sitio.
 

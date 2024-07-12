@@ -43,6 +43,7 @@ Vaytone (LOGO)
 /*inicio header*/
 .top-side {
     background-color: #101923;
+    padding: 0 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,42 +60,39 @@ Vaytone (LOGO)
 
 .top-side__logo a {
     display: flex;
-    flex-grow: 1;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: fit-content;
 }
 
 .top-side__burguer-menu {
     display: flex;
+    position: relative;
+    bottom: 2px;
     /*alinea la imagen del burguer*/
     align-items: center;
     justify-content: center;
     /*------------*/
-    font-size: 26px;
-    margin-right: 15px;
+    font-size: 18px;
     color: #101923;
     background-color: #f7a81b;
-    width: 20%;
-    min-width: 40px;
-    max-width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 5px;
     box-shadow:
-        0.4vh 0.4vh #946410,
-        /* Genero un par de sombras para  */
-        0.2vh 0.2vh #946410;
-    /* crear una ilusion 3D */
+        4px 4px #946410,
+        3px 3px #946410,
+        2px 2px #946410,
+        1px 1px #946410;
     transition:
         background-color 50ms,
         transform 10ms,
-        box-shadow 50ms;
+        box-shadow 10ms;
 }
 
 .top-side__burguer-menu:active {
     position: relative;
-    background-color: #ce4f24;
+    background-color: #df9920;
     box-shadow: none;
-    transform: translate(0.4vh, 0.4vh);
+    transform: translate(4px, 4px);
 }
 
 .top-side nav {
@@ -125,6 +123,7 @@ Vaytone (LOGO)
 main {
     background-color: #f9d8b8;
     width: 100vw;
+    height: calc(100vh- 48px*2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -306,35 +305,38 @@ main {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    padding: 0 6vw;
+    padding: 0 30px;
 }
 
 .mainFooter__checkout-button {
+    position: relative;
+    bottom: 2px;
     background-color: #e85829;
     color: white;
-    height: calc(100% - 1vh);
-    margin-right: 30px;
+    height: 32px;
     display: flex;
     align-items: center;
-    font-size: 2vh;
-    padding: 2vh;
+    font-size: 12px;
+    padding: 2px 8px;
     border: none;
     border-radius: 1vh;
     box-shadow:
-        0.4vh 0.4vh #6d2a14,
-        0.2vh 0.2vh #6d2a14;
+        4px 4px #6d2a14,
+        3px 3px #6d2a14,
+        2px 2px #6d2a14,
+        1px 1px #6d2a14;
     cursor: pointer;
     transition:
         background-color 50ms,
         transform 10ms,
-        box-shadow 50ms;
+        box-shadow 20ms;
 }
 
 .mainFooter__checkout-button:active {
     position: relative;
     background-color: #ce4f24;
     box-shadow: none;
-    transform: translate(0.4vh, 0.4vh);
+    transform: translate(4px, 4px);
 }
 
 .mainFooter__copyright {
@@ -359,10 +361,6 @@ main {
 
     .top-side nav ul {
         display: flex;
-    }
-
-    .stripe__photo img {
-        max-height: 30vw;
     }
 
     .cart__content--product {
