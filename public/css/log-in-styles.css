@@ -1,37 +1,5 @@
-/*
--------Nueva Paleta-------
-
-Mostaza: #f7a81b
-Sombra mostaza: #946410
-
-Mostaza oscuro: #e49c00
-
-Naranja: #e85829
-Sombra naranja: #6d2a14
-
-Mayonesa: #f9d8b8
-Sombra mayonesa: #d49e67
-
-Mayonesa oscuro: #f8c18a
-Mayonesa mas oscuro: #e6bc92
-
-Azul Oscuro: #101923
-
--------Nuevas Fuentes-------
-
-Verdana
-Vaytone (LOGO)
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 h2 {
-    color: #101923;
+    color: var(--dark-blue);
 }
 
 header {
@@ -39,79 +7,6 @@ header {
     background-color: #4c4eaf;
     height: 60%;
 }
-
-/*------------------header with logo------------------*/
-.top-side {
-    background-color: #101923;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 48px;
-}
-
-.top-side__logo {
-    display: flex;
-    flex-grow: 1;
-    height: 60%;
-    width: 100%;
-}
-
-.top-side__logo a {
-    display: flex;
-    flex-grow: 1;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.top-side__burguer-menu {
-    display: flex;
-    /*alinea la imagen del burguer*/
-    align-items: center;
-    justify-content: center;
-    /*------------*/
-    font-size: 26px;
-    margin-right: 15px;
-    color: #101923;
-    background-color: #f7a81b;
-    width: 20%;
-    min-width: 40px;
-    max-width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow:
-        0.4vh 0.4vh #946410,
-        0.2vh 0.2vh #946410;
-    transition:
-        background-color 50ms,
-        transform 10ms,
-        box-shadow 50ms;
-}
-
-.top-side nav {
-    display: none;
-    flex-grow: 1;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding-right: 15px;
-}
-
-.top-side nav ul {
-    gap: 15px;
-}
-
-.top-side nav ul li {
-    list-style-type: none;
-    color: #f7a81b;
-    width: 80px;
-}
-
-.top-side nav ul li a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/*------------------end header with logo------------------*/
 
 body {
     display: flex;
@@ -122,7 +17,7 @@ body {
 }
 
 main {
-    background-color: #f9d8b8;
+    background-color: var(--mayonnaise);
     height: calc(100vh - (48px * 2));
     justify-content: center;
     align-items: center;
@@ -156,17 +51,14 @@ main {
     border-radius: .5em;
     text-align: center;
     cursor: pointer;
-    color: #101923;
-    background-color: #f7a81b;
+    color: var(--dark-blue);
+    background-color: var(--mustard);
 
 }
 
 label {
     display: none;
 }
-
-
-
 
 .form {
     background-color: transparent;
@@ -224,7 +116,7 @@ label {
 }
 
 .form_submit {
-    background-color: #e85829;
+    background-color: var(--orange);
     color: white;
     font-family: Roboto;
     font-weight: 300;
@@ -235,8 +127,8 @@ label {
     border-radius: .5em;
     border: none;
     box-shadow:
-        0.4vh 0.4vh #6d2a14,
-        0.2vh 0.2vh #6d2a14;
+        0.4vh 0.4vh var(--orange-shadow),
+        0.2vh 0.2vh var(--orange-shadow);
     transition:
         background-color 50ms,
         transform 10ms,
@@ -253,7 +145,7 @@ label {
 
 .divFooter {
     display: flex;
-    background-color: #101923;
+    background-color: var(--dark-blue);
     height: 48px;
     max-height: 25vh;
     align-items: flex-end;
@@ -271,7 +163,7 @@ label {
 
 /*UN MEDIAQUERI SOLO PORQUE ME DA TOC EN UN PARTE XD*/
 
-@media (min-Width: 530px) {
+@media (min-width: 530px) {
     .icon_log {
         flex-direction: row;
         justify-content: center;
@@ -281,24 +173,10 @@ label {
     main {
         padding: 10%;
     }
-
 }
 
 /*TABLETS +*/
 @media (min-width: 768px) {
-
-    .top-side__burguer-menu {
-        display: none;
-    }
-
-    .top-side nav {
-        display: flex;
-    }
-
-    .top-side nav ul {
-        display: flex;
-    }
-
     .icon_log {
         flex-direction: row;
         justify-content: center;

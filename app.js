@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
-let port = process.env.PORT || 8000;
+let PORT = process.env.PORT || 8000;
 
 const publicPath = path.resolve('./public');
 app.use(express.static(publicPath));
@@ -29,6 +29,12 @@ app.get("/registrar", (req, res) => {
     res.render('users/register');
 });
 
-app.listen(port, () => {
-    console.log(`online en ${port}`);
+app.get("/admin", (req, res) => {
+    res.render('admin/products-editor');
+});
+
+app.listen(PORT, (err) => {
+    err
+    ? console.error("Server failed. ", err.message)
+    : console.log(`Server running on http://localhost:${PORT}`);
 });

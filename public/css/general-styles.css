@@ -1,0 +1,141 @@
+:root {
+    --mustard: #f7a81b;
+    --mustard-shadow: #946410;
+    --dark-mustard: #e49c00;
+
+    --orange: #e85829;
+    --orange-shadow: #6d2a14;
+
+    --mayonnaise: #f9d8b8;
+    --mayonnaise-shadow: #d49e67;
+
+    --dark-mayonnaise: #f8c18a;
+    --darker-mayonnaise: #e6bc92;
+
+    --dark-blue: #101923;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*inicio header*/
+.top-side {
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.top-side__logo {
+    display: flex;
+    height: 60%;
+    width: 100%;
+    margin-right: 15px;
+}
+
+.top-side__logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.top-side__burguer-menu {
+    position: relative;
+    top: -1.5px;
+    display: flex;
+    /*alinea la imagen del burguer*/
+    align-items: center;
+    justify-content: center;
+    /*------------*/
+    font-size: 26px;
+    color: var(--dark-blue);
+    background-color: var(--mustard);
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    border-radius: 5px;
+    box-shadow:
+        3px 3px var(--mustard-shadow), /* Genero un par de sombras   */
+        2px 2px var(--mustard-shadow), /* Genero un par de sombras   */
+        1px 1px var(--mustard-shadow); /* para crear una ilusion 3D */
+    transition:
+        transform 15ms,
+        box-shadow 50ms;
+}
+
+.top-side__burguer-menu:active {
+    position: relative;
+    background-color: #b67c00;
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.top-side nav {
+    display: none;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.top-side nav ul {
+    gap: 15px;
+}
+
+.top-side nav ul li {
+    list-style-type: none;
+    color: var(--mustard);
+}
+
+.login {
+    width: 130px;
+}
+
+.carrito {
+    width: 80px;
+}
+
+.top-side nav ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+/*fin header*/
+
+.mainFooter {
+    background-color: var(--dark-blue);
+    width: 100%;
+    height: 48px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.mainFooter__copyright {
+    color: white;
+    font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+    .top-side__burguer-menu {
+        display: none;
+    }
+
+    .top-side nav {
+        display: flex;
+    }
+
+    .top-side nav ul {
+        display: flex;
+    }
+
+    .top-side, .mainFooter {
+        padding: 0 100px;
+    }
+}
