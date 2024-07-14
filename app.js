@@ -8,6 +8,7 @@ const publicPath = path.resolve('./public');
 app.use(express.static(publicPath));
 
 app.set("view engine", "ejs");
+app.set("views", path.resolve(__dirname, "views"));
 
 app.get("/", (req, res) => {
     res.render('home');

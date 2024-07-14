@@ -171,26 +171,33 @@ main {
     font-weight: bold;
 }
 
-.mainFooter__checkout-button {
+.cart__checkout-button {
+    position: relative;
+    width: fit-content;
+    margin-right: 30px;
+    height: 50px;
+    top: 60px;
+    align-self: flex-end;
     background-color: var(--orange);
     color: white;
     display: flex;
     align-items: center;
-    font-size: 1rem;
-    padding: 8px;
+    font-size: 1.7rem;
+    padding: 20px;
     border: none;
     border-radius: 15px;
     box-shadow:
         4px 4px var(--orange-shadow),
-        2px 2px var(--orange-shadow);
+        3px 3px var(--orange-shadow),
+        2px 2px var(--orange-shadow),
+        1px 1px var(--orange-shadow);
     cursor: pointer;
     transition:
-        background-color 50ms,
         transform 10ms,
         box-shadow 50ms;
 }
 
-.mainFooter__checkout-button:active {
+.cart__checkout-button:active {
     position: relative;
     background-color: #ce4f24;
     box-shadow: none;
