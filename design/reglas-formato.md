@@ -117,7 +117,6 @@ footer {
 
    1. box-shadow
    2. text-shadow
-   3.
 
 1. **Propiedades de visualización**:
 
