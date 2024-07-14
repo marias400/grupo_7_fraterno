@@ -1,39 +1,32 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const routesProducs = require("./routes/products");
+const routesHome = require("./routes/home");
+const routesUser = require("./routes/user");
+const routesAdmin = require("./routes/admin");
 
+/*PUERTO (esta vez no es el 80) :D */
 let PORT = process.env.PORT || 8000;
 
+
 const publicPath = path.resolve('./public');
+
 app.use(express.static(publicPath));
 
+
+/*view engine*/
 app.set("view engine", "ejs");
-app.set("views", path.resolve(__dirname, "views"));
 
-app.get("/", (req, res) => {
-    res.render('home');
-});
 
-app.get("/producto", (req, res) => {
-    res.render('products/product-detail');
-});
+/*rutas de paginas*/
+app.use("/", routesHome);
+app.use("/", routesProducs);
+app.use("/", routesUser);
+app.use("/", routesAdmin);
 
-app.get("/carrito", (req, res) => {
-    res.render('products/product-cart');
-});
 
-app.get("/ingresar", (req, res) => {
-    res.render('users/log-in');
-});
-
-app.get("/registrar", (req, res) => {
-    res.render('users/register');
-});
-
-app.get("/admin", (req, res) => {
-    res.render('admin/products-editor');
-});
-
+/*iniciador del server + error*/
 app.listen(PORT, (err) => {
     err
     ? console.error("Server failed. ", err.message)
