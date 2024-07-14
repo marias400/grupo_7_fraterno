@@ -2,92 +2,67 @@
 <html lang="es-AR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/G7favicon.svg" type="image/x-icon">
+    <%- include("../partials/head.ejs") %>
+        <title>Registro | Grupo Sie7e</title>
 
-    <!--Hoja de estilos general del sitio-->
-    <link rel="stylesheet" href="/css/general-styles.css">
-
-    <!--Iconos-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!--Fuentes (de Google Fonts)-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <title>Registro | Grupo Sie7e</title>
-
-    <!--Hoja de estilos propia de esta página-->
-    <link rel="stylesheet" href="/css/register-styles.css">
+        <!--Hoja de estilos propia de esta página-->
+        <link rel="stylesheet" href="/css/register-styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="top-side">
-            <div class="top-side__logo">
-                <a href="/"><img src="/images/logoG7.svg" alt="logoG7"></a>
+    <%- include("../partials/header.ejs") %>
+        <main>
+            <div class="form">
+
+                <div class="form__text-above">
+                    <h3>Registrate en:</h3>
+                </div>
+
+                <div class="form__logo">
+                    <img src="/images/logoG7.svg" alt="">
+                </div>
+
+                <form>
+
+                    <label for="Nombre y Apellido"></label>
+                    <div class="campos-form">
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+                    </div>
+
+                    <label for="phone"></label>
+                    <div class="campos-form">
+                        <input type="text" id="phone" name="phone" placeholder="Telefono" required>
+                    </div>
+
+                    <label for="email"></label>
+                    <div class="campos-form">
+                        <input type="text" id="email" name="email" placeholder="Mail" required>
+                    </div>
+
+                    <label for="address"></label>
+                    <div class="campos-form">
+                        <input type="text" id="address" name="address" placeholder="Direccion" required>
+                    </div>
+
+                    <label for="Nombre de Usuario"></label>
+                    <div class="campos-form">
+                        <input type="text" id="name_user" name="name_user" placeholder="Nombre de Usuario" required>
+                    </div>
+
+                    <label for="contrasena"></label>
+                    <div class="campos-form">
+                        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                    </div>
+                </form>
+                <input type="submit" class="form_submit" value="Crear cuenta">
             </div>
-            <div class="top-side__burguer-menu">
-                <i class="fa-solid fa-burger"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li class="login"><a href="/ingresar">Iniciar sesión <i class="fa-solid fa-right-to-bracket"></i></a></li>
-                    <li class="carrito"><a href="/carrito">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <div class="form">
-
-            <form class="" action="">
-
-                <label for="Nombre y Apellido"></label>
-                <div class="campos-form">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
-                </div>
 
 
-                <label for="phone"></label>
-                <div class="campos-form">
-                    <input type="text" id="phone" name="phone" placeholder="Telefono" required>
-                </div>
+        </main>
 
-                <label for="email"></label>
-                <div class="campos-form">
-                    <input type="text" id="email" name="email" placeholder="Mail" required>
-                </div>
-
-
-                <label for="address"></label>
-                <div class="campos-form">
-                    <input type="text" id="address" name="address" placeholder="Direccion" required>
-                </div>
-
-
-                <label for="Nombre de Usuario"></label>
-                <div class="campos-form">
-                    <input type="text" id="name_user" name="name_user" placeholder="Nombre de Usuario" required>
-                </div>
-
-                <label for="contrasena"></label>
-                <div class="campos-form">
-                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
-                </div>
-            </form>
-            <input type="reset" class="button" value="Crear cuenta">
-        </div>
-
-
-    </main>
-
-    <footer class="mainFooter">
-        <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-    </footer>
+        <footer class="mainFooter">
+            <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
+        </footer>
 </body>
+
 </html>

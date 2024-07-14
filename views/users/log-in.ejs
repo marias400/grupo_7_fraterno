@@ -2,91 +2,61 @@
 <html lang="es-AR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/G7favicon.svg" type="image/x-icon">
+    <%- include("../partials/head.ejs") %>
 
-    <!--Hoja de estilos general del sitio-->
-    <link rel="stylesheet" href="/css/general-styles.css">
+        <title>Iniciar sesión | Grupo Sie7e</title>
 
-    <!--Iconos-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!--Fuentes (de Google Fonts)-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <title>Iniciar sesión | Grupo Sie7e</title>
-
-    <!--Hoja de estilos propia de esta página-->
-    <link rel="stylesheet" href="/css/log-in-styles.css">
+        <!--Hoja de estilos propia de esta página-->
+        <link rel="stylesheet" href="/css/log-in-styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="top-side">
-            <div class="top-side__logo">
-                <a href="/"><img src="/images/logoG7.svg" alt="logoG7"></a>
-            </div>
-            <div class="top-side__burguer-menu">
-                <i class="fa-solid fa-burger"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li class="login"><a href="/ingresar">Iniciar sesión <i class="fa-solid fa-right-to-bracket"></i></a></li>
-                    <li class="carrito"><a href="/carrito">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section class="title">
-            <h2>Iniciar Sesion</h2>
-            <span>con</span>
-        </section>
-        <section class="icon_log">
-            <div class="Log_externo">
-                <i class="fa-brands fa-apple"></i>
-                <span class="textlog">Apple ID</span>
-            </div>
-            <div class="Log_externo">
-                <i class="fa-brands fa-facebook-f"></i>
-                <span class="textlog">Facebook</span>
-            </div>
-            <div class="Log_externo">
-                <i class="fa-brands fa-google"></i>
-                <span class="textlog">Google</span>
-            </div>
-        </section>
-        <form class="form">
-            <h2 class="form_title">o usa tu dirección de email</h2>
-            <div class="form_container">
-                <label for="user" class="form_label">Usuario / Email*</label>
-                <input type="text" id="user" class="form_input" placeholder="Usuario / Email">
-                <span class="form_line"></span>
-            </div>
-            <div class="form_container">
-                <label for="pass" class="form_label">Contraseña*</label>
-                <input type="password" id="pass" class="form_input" placeholder="Contraseña">
-                <span class="form_line"></span>
-            </div>
-            <div class="form_container">
-                <input type="button" class="form_submit" value="Entrar" onclick="toHome()">
-                <p class="form_paragraph"><a href="/registrar" class="form_link">Registrate →</a></p>
-            </div>
-        </form>
-    </main>
-    <footer class="mainFooter">
-        <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-    </footer>
-    <script>
-        function toHome() {
-            window.location.href = "/";
-        }
-    </script>
+    <%- include("../partials/header.ejs") %>
+        <main>
+            <section class="title">
+                <h2>Iniciar Sesion</h2>
+                <span>con</span>
+            </section>
+            <section class="icon_log">
+                <div class="Log_externo">
+                    <i class="fa-brands fa-apple"></i>
+                    <span class="textlog">Apple ID</span>
+                </div>
+                <div class="Log_externo">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span class="textlog">Facebook</span>
+                </div>
+                <div class="Log_externo">
+                    <i class="fa-brands fa-google"></i>
+                    <span class="textlog">Google</span>
+                </div>
+            </section>
+            <form class="form">
+                <h2 class="form_title">o usa tu dirección de email</h2>
+                <div class="form_container">
+                    <label for="user" class="form_label">Usuario / Email*</label>
+                    <input type="text" id="user" class="form_input" placeholder="Usuario / Email">
+                    <span class="form_line"></span>
+                </div>
+                <div class="form_container">
+                    <label for="pass" class="form_label">Contraseña*</label>
+                    <input type="password" id="pass" class="form_input" placeholder="Contraseña">
+                    <span class="form_line"></span>
+                </div>
+                <div class="form_container">
+                    <input type="button" class="form_submit" value="Entrar" onclick="toHome()">
+                    <p class="form_paragraph"><a href="/registrar" class="form_link">Registrate →</a></p>
+                </div>
+            </form>
+        </main>
+        <footer class="mainFooter">
+            <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
+        </footer>
+        <script>
+            function toHome() {
+                window.location.href = "/";
+            }
+        </script>
 </body>
 
 </html>
