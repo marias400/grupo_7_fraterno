@@ -1,9 +1,6 @@
-/* Estilos generales */
 body {
     background-color: var(--mayonnaise);
-    /* Fondo en color Mayonesa */
     color: var(--dark-blue);
-    /* Texto en color Azul Oscuro */
     font-weight: normal !important;
     line-height: normal !important;
 }
@@ -11,8 +8,8 @@ body {
 /* Los !important son necesarios para pisar hojas
 de estilo de Bootstrap que comprometen la unifor-
 midad del header en todas las paginas */
-ul {
-    margin: 0 !important;
+p, ul {
+    margin-bottom: 0 !important;
     padding: 0 !important;
 }
 
@@ -50,42 +47,42 @@ ul {
     justify-content: space-between;
     align-items: center;
     background-color: var(--mustard);
-    /* Fondo en color Mostaza */
     box-shadow: 0px 2px 4px var(--mustard-shadow);
-    /* Sombra en color Sombra mostaza */
 }
 
 .buscador {
     display: flex;
     align-items: center;
+    margin-left: 80px;
 }
 
 .buscador input {
     width: 250px;
-    /* Ajusta el ancho según tus necesidades */
+    height: 35px;
 }
 
 .buscador button {
     background-color: var(--orange);
     color: white;
-    width: 4vh;
-    height: 4vh;
-    padding: 1vh;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
     border: none;
     border-radius: 8px;
-    font-size: 2.5vh;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--orange);
     border-color: var(--orange);
     box-shadow:
-        0.4vh 0.4vh var(--mustard-shadow),
-        0.2vh 0.2vh var(--mustard-shadow);
+        4px 4px var(--mustard-shadow),
+        3px 3px var(--mustard-shadow),
+        2px 2px var(--mustard-shadow),
+        1px 1px var(--mustard-shadow);
     position: relative;
     bottom: 3px;
     transition:
-        background-color 50ms,
         transform 10ms,
         box-shadow 50ms;
 }
@@ -94,13 +91,12 @@ ul {
     position: relative;
     background-color: #ce4f24;
     box-shadow: none;
-    transform: translate(0.4vh, 0.4vh);
+    transform: translate(4px, 4px);
 }
 
 /* Main Content */
 main {
     background-color: var(--mayonnaise);
-    /* Fondo en color blanco */
     padding: 30px;
 }
 
@@ -108,7 +104,6 @@ main {
 .carrusel {
     margin: 2vh auto;
     padding: 0 20px;
-    /* Espacio de 20px a los costados */
     max-width: 100%;
     box-sizing: border-box;
 }
@@ -116,7 +111,6 @@ main {
 .carousel-inner,
 .carousel-item {
     height: 250px;
-    /* Altura fija para mantener el aspecto rectangular */
 }
 
 .carousel-item img {
@@ -135,7 +129,6 @@ main {
 .container-card h2 {
     margin-bottom: 20px;
     color: var(--dark-blue);
-    /* Texto en color Azul Oscuro */
 }
 
 .products {
@@ -150,10 +143,15 @@ main {
     margin-bottom: 50px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #ccc;
+    border: 1.5px solid var(--darker-mayonnaise);
     border-radius: 10px;
-    box-shadow: 0 10px 15px var(--dark-blue);
     background-color: var(--dark-mayonnaise);
+    transition: all 0.3s ease;
+}
+
+.products-cards:hover {
+    cursor: pointer;
+    box-shadow: 0 10px 15px var(--dark-blue);
 }
 
 .products-cards img {
@@ -165,7 +163,6 @@ main {
 .products-cards h3 {
     margin: 10px 0;
     color: var(--dark-blue);
-    /* Texto en color Azul Oscuro */
 }
 
 .products-cards p {
@@ -174,56 +171,30 @@ main {
 }
 
 /* Footer */
-footer {
+.epc-container {
     background-color: var(--mustard);
-    /* Fondo en color Mostaza */
     color: var(--dark-blue);
-    /* Texto en color Azul Oscuro */
     padding: 20px 0;
 }
 
-footer section {
-    display: flex;
-    justify-content: center;
-}
-
-.epc, .epc3 {
+.epc {
     padding: 10px;
     text-align: center;
     flex: 1 1 33%;
 }
 
+.epc i {
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+
 .epc:hover i {
     color: var(--mayonnaise);
+    transform: rotateZ(-90deg);
 }
 
-.epc h4, .epc3 h4 {
+.epc p {
     margin-top: 10px;
-    margin-bottom: 0;
-}
-
-/* Estilos para los iconos de redes sociales y otras secciones */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.social-icon {
-    font-size: 24px;
-    color: var(--dark-blue);
-    /* Texto en color Azul Oscuro */
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.social-icon:hover {
-    color: var(--mayonnaise);
-}
-
-h1, h2,h3 {
-    font-family: Merriweather;
 }
 
 /* Estilos responsivos */
@@ -250,7 +221,7 @@ h1, h2,h3 {
         margin-bottom: 10px;
     }
 
-    .epc, .epc3 {
+    .epc {
         flex: 1 1 100%;
         margin-bottom: 20px;
     }

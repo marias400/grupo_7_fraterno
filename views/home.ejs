@@ -64,23 +64,23 @@
         <section class="container-card text-center">
             <h2>Algunos de nuestros productos</h2>
             <section class="products">
-                <div class="products-cards">
-                    <a href="/producto"> <img src="images/imagen2.png" alt="Producto 1" class="img-fluid"></a>
-                    <h3>Promocion 1</h3>
+                <div class="products-cards" onclick="toProductDetail()">
+                    <img src="images/imagen2.png" alt="Producto 1" class="img-fluid">
+                    <h3>Sanguche de Pollo</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, maxime. Provident dolor
                         suscipit cupiditate atque, quas saepe aut ullam officiis dicta vero culpa perferendis, quo
                         repellat repellendus exercitationem dolore labore.</p>
                 </div>
-                <div class="products-cards">
-                    <a href="/producto"><img src="images/imagen3.png" alt="Producto 2" class="img-fluid"></a>
-                    <h3>Promocion 2</h3>
+                <div class="products-cards" onclick="toProductDetail()">
+                    <img src="images/imagen3.png" alt="Producto 2" class="img-fluid">
+                    <h3>Sanguche J&Q</h3>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique non aliquam deleniti cum,
                         quisquam itaque explicabo blanditiis ea ab veniam voluptatum provident temporibus magni incidunt
                         eligendi quo minima fuga commodi!</p>
                 </div>
-                <div class="products-cards">
-                    <a href="/producto"><img src="images/imagen4.png" alt="Producto 3" class="img-fluid"></a>
-                    <h3>Promocion 3</h3>
+                <div class="products-cards" onclick="toProductDetail()">
+                    <img src="images/imagen4.png" alt="Producto 3" class="img-fluid">
+                    <h3>Sanguche Charcutero</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim deleniti ipsam soluta eligendi,
                         explicabo, dolor possimus quis molestias debitis minus tempore sunt incidunt molestiae illo
                         libero ducimus dignissimos nesciunt expedita.</p>
@@ -88,40 +88,28 @@
             </section>
         </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="text-center py-4">
-        <section class="d-flex justify-content-center">
-            <div class="epc mx-2">
-                <i class="fas fa-shipping-fast fa-3x"></i>
-                <h4>Envíos y Retiros</h4>
-            </div>
-            <div class="epc mx-2">
-                <i class="fas fa-credit-card fa-3x"></i>
-                <h4>Paga como quieras</h4>
-            </div>
-            <div class="epc mx-2">
-                <i class="fas fa-lock fa-3x"></i>
-                <h4>Compra con seguridad</h4>
-            </div>
-        </section>
-        <h1>Nuestras Redes Sociales</h1>
-        <div class="social-icons">
-            <a href="https://www.instagram.com" target="_blank" class="social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com" target="_blank" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.twitter.com" target="_blank" class="social-icon">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.youtube.com" target="_blank" class="social-icon">
-                <i class="fab fa-youtube"></i>
-            </a>
+    <section class="epc-container d-flex justify-content-center">
+        <div class="epc mx-2">
+            <i class="fas fa-shipping-fast fa-3x"></i>
+            <p>Envíos y Retiros</p>
         </div>
-    </footer>
+        <div class="epc mx-2">
+            <i class="fas fa-credit-card fa-3x"></i>
+            <p>Paga como quieras</p>
+        </div>
+        <div class="epc mx-2">
+            <i class="fas fa-lock fa-3x"></i>
+            <p>Compra con seguridad</p>
+        </div>
+    </section>
+    <!-- Footer -->
+     <%- include("partials/footer.ejs") %>
 
+     <script>
+        function toProductDetail() {
+            window.location.href = "/producto";
+        }
+    </script>
 </body>
 
 </html>
