@@ -72,7 +72,6 @@ label {
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
-
 }
 
 .form_title {
@@ -103,6 +102,7 @@ label {
 }
 
 .form_input {
+    text-align: center;
     width: 100%;
     background: none;
     background-color: transparent;
@@ -111,14 +111,11 @@ label {
     border: none;
     outline: none;
     border-bottom: 1px solid rgb(151, 141, 141);
-    font-family: Roboto;
-
 }
 
 .form_submit {
     background-color: var(--orange);
     color: white;
-    font-family: Roboto;
     font-weight: 300;
     font-size: 1rem;
     width: 60%;
