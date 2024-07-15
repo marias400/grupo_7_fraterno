@@ -12,45 +12,63 @@
 
 <body>
     <%- include("../partials/header.ejs") %>
-        <main>
-            <section class="cart">
-                <header class="cart__title">
-                    <p class="cart__title--text"><i class="cart__title--icon fa-solid fa-cart-shopping"></i>Tu carrito
-                        (2
-                        items)</i></p>
-                </header>
-                <div class="cart__content">
-                    <article class="cart__content--product">
-                        <img src="../images/milanesa.jpg" class="cart__content--product-image">
+    <main>
+        <div class="cart">
+            <header class="cart__header">
+                <p class="cart__header--title">
+                    <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
+                    Tu carrito (2 items)
+                </p>
+                <p class="cart__header--product">Producto</p>
+                <p class="cart__header--subtotal">Subtotal</p>
+            </header>
+            <div class="cart__content">
+                <article class="cart__content--product">
+                    <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+                    <img src="../images/milanesa.jpg" class="cart__content--product-image">
+                    <div class="cart__content--product-right-box">
                         <div class="cart__content--product-middleblox">
-                            <p class="cart__content--product-middleblox-name">Milanesa</p>
-                            <button class="cart__content--product-middleblox-quantityMinus">-</button>
-                            <span class="cart__content--product-middleblox-quantity">1</span>
-                            <button class="cart__content--product-middleblox-quantityPlus">+</button>
+                            <div class="cart__content--product-middleblox-top">
+                                <p class="cart__content--product-middleblox-name">Milanesa</p>
+                            </div>
+                            <div class="cart__content--product-middleblox-bottom">
+                                <button class="cart__content--product-middleblox-quantityMinus">-</button>
+                                <span class="cart__content--product-middleblox-quantity">1</span>
+                                <button class="cart__content--product-middleblox-quantityPlus">+</button>
+                            </div>
                         </div>
                         <p class="cart__content--product-price">$5.000,00</p>
-                    </article>
-                    <article class="cart__content--product">
-                        <img src="../images/milanesa.jpg" class="cart__content--product-image">
+                    </div>
+                </article>
+                <article class="cart__content--product">
+                    <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+                    <img src="../images/milanesa.jpg" class="cart__content--product-image">
+                    <div class="cart__content--product-right-box">
                         <div class="cart__content--product-middleblox">
-                            <p class="cart__content--product-middleblox-name">Pajarito</p>
-                            <button class="cart__content--product-middleblox-quantityMinus">-</button>
-                            <span class="cart__content--product-middleblox-quantity">1</span>
-                            <button class="cart__content--product-middleblox-quantityPlus">+</button>
+                            <div class="cart__content--product-middleblox-top">
+                                <p class="cart__content--product-middleblox-name">Pajarito</p>
+                            </div>
+                            <div class="cart__content--product-middleblox-bottom">
+                                <button class="cart__content--product-middleblox-quantityMinus">-</button>
+                                <span class="cart__content--product-middleblox-quantity">1</span>
+                                <button class="cart__content--product-middleblox-quantityPlus">+</button>
+                            </div>
                         </div>
-                        <p class="cart__content--product-price">$5.000,00</p>
-                    </article>
-                </div>
-                <footer class="cart__subtotal">
-                    <span class="cart__subtotal--text">Subtotal</span>
-                    <span class="cart__subtotal--price">$10.000,00</span>
-                </footer>
-                <button class="cart__checkout-button">Finalizar compra</button>
+                        <p class="cart__content--product-price">$4.500,00</p>
+                    </div>
+                </article>
+            </div>
+            <section class="cart__subtotal">
+                <p class="cart__subtotal--text">Subtotal</p>
+                <p class="cart__subtotal--price">$9.500,00</p>
             </section>
-        </main>
-        <footer class="mainFooter">
-            <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-        </footer>
+        </div>
+        <section class="checkout">
+            <button type="submit" class="checkout-button">Finalizar compra</button>
+            <a href="/">Volver a la tienda</a>
+        </section>
+    </main>
+    <%- include("../partials/footer.ejs") %>
 </body>
 
 </html>

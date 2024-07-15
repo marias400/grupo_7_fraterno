@@ -12,51 +12,49 @@
 
 <body>
     <%- include("../partials/header.ejs") %>
-        <main>
-            <section class="title">
-                <h2>Iniciar Sesion</h2>
-                <span>con</span>
-            </section>
-            <section class="icon_log">
-                <div class="Log_externo">
-                    <i class="fa-brands fa-apple"></i>
-                    <span class="textlog">Apple ID</span>
-                </div>
-                <div class="Log_externo">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <span class="textlog">Facebook</span>
-                </div>
-                <div class="Log_externo">
-                    <i class="fa-brands fa-google"></i>
-                    <span class="textlog">Google</span>
-                </div>
-            </section>
-            <form class="form">
-                <h2 class="form_title">o usa tu dirección de email</h2>
-                <div class="form_container">
-                    <label for="user" class="form_label">Usuario / Email*</label>
-                    <input type="text" id="user" class="form_input" placeholder="Usuario / Email">
-                    <span class="form_line"></span>
-                </div>
-                <div class="form_container">
-                    <label for="pass" class="form_label">Contraseña*</label>
-                    <input type="password" id="pass" class="form_input" placeholder="Contraseña">
-                    <span class="form_line"></span>
-                </div>
-                <div class="form_container">
-                    <input type="button" class="form_submit" value="Entrar" onclick="toHome()">
-                    <p class="form_paragraph"><a href="/registrar" class="form_link">Registrate →</a></p>
-                </div>
-            </form>
-        </main>
-        <footer class="mainFooter">
-            <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-        </footer>
-        <script>
-            function toHome() {
-                window.location.href = "/";
-            }
-        </script>
+    <main>
+        <section class="title">
+            <h2>Iniciar Sesion</h2>
+            <span>con</span>
+        </section>
+        <section class="icon_log">
+            <div class="Log_externo">
+                <i class="fa-brands fa-apple"></i>
+                <span class="textlog">Apple ID</span>
+            </div>
+            <div class="Log_externo">
+                <i class="fa-brands fa-facebook-f"></i>
+                <span class="textlog">Facebook</span>
+            </div>
+            <div class="Log_externo">
+                <i class="fa-brands fa-google"></i>
+                <span class="textlog">Google</span>
+            </div>
+        </section>
+        <form class="form">
+            <h2 class="form_title">o usa tu dirección de email</h2>
+            <div class="form_container">
+                <label for="user" class="form_label">Usuario / Email*</label>
+                <input type="text" id="user" class="form_input" placeholder="Usuario / Email">
+                <span class="form_line"></span>
+            </div>
+            <div class="form_container">
+                <label for="pass" class="form_label">Contraseña*</label>
+                <input type="password" id="pass" class="form_input" placeholder="Contraseña">
+                <span class="form_line"></span>
+            </div>
+            <div class="form_container">
+                <input type="button" class="form_submit" value="Entrar" onclick="toHome()">
+                <p class="form_paragraph"><a href="/registrar" class="form_link">Registrate →</a></p>
+            </div>
+        </form>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script>
+        function toHome() {
+            window.location.href = "/";
+        }
+    </script>
 </body>
 
 </html>

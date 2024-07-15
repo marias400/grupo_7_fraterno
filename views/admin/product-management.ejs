@@ -17,7 +17,7 @@
     <title>Administración de Productos | Grupo Sie7e</title>
 
     <!--Hoja de estilos propia de esta página-->
-    <link rel="stylesheet" href="/css/admin/product-admin-styles.css">
+    <link rel="stylesheet" href="/css/admin/product-management-styles.css">
 </head>
 
 <body>
@@ -26,6 +26,9 @@
             <div class="main-header__logo">
                 <img src="/images/logoG7-admin.svg" alt="logoG7">
             </div>
+            <span class="main-header__pipe">
+                <i class="fas fa-chevron-right"></i>
+            </span>
             <p class="main-header__title">Administración</p>
         </div>
     </header>
@@ -38,8 +41,8 @@
             <section class="product-selection">
                 <label for="search">Buscar Producto:</label>
                 <input type="text" id="search" name="search" placeholder="Buscar por nombre, SKU, categoría">
-                <button type="button" class="search-button">Buscar</button>
-                <button type="button" class="add-button">Agregar</button>
+                <button type="button" class="blue-button search-button">Buscar</button>
+                <button type="button" class="purple-button add-button">Agregar</button>
                 <select id=" product-list">
                     <option value="producto1">Sanguche de milanesa</option>
                     <option value="producto2">Sanguche de pajarito</option>
@@ -104,9 +107,9 @@
 
             <!-- Sección de Botones -->
             <section class="buttons-section">
-                <button type="submit">Guardar Cambios</button>
-                <button type="button">Cancelar</button>
-                <button type="button">Eliminar Producto</button>
+                <button type="submit" class="blue-button">Guardar Cambios</button>
+                <button type="button" class="blue-button">Cancelar</button>
+                <button type="button" class="purple-button">Eliminar Producto</button>
             </section>
         </form>
     </main>

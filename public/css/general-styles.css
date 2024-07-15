@@ -13,6 +13,8 @@
     --darker-mayonnaise: #e6bc92;
 
     --dark-blue: #101923;
+
+    --max-width-hf: 950px;
 }
 
 * {
@@ -20,6 +22,21 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.top-side-container,
+.main-footer-container
+ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-blue);
+    height: 48px;
+    width: 100%;
+}
+
+main {
+    height: calc(100vh - (48px * 2));
 }
 
 /*inicio header*/
@@ -30,7 +47,8 @@
     align-items: center;
     height: 48px;
     width: 100%;
-    padding: 0 30px;
+    max-width: var(--max-width-hf);
+    padding: 0 20px;
 }
 
 .top-side__logo {
@@ -46,6 +64,7 @@
 }
 
 .top-side__burguer-menu {
+    cursor: pointer;
     position: relative;
     top: -1.5px;
     display: flex;
@@ -64,9 +83,7 @@
         3px 3px var(--mustard-shadow), /* Genero un par de sombras   */
         2px 2px var(--mustard-shadow), /* Genero un par de sombras   */
         1px 1px var(--mustard-shadow); /* para crear una ilusion 3D */
-    transition:
-        transform 15ms,
-        box-shadow 50ms;
+    transition: all 37ms;
 }
 
 .top-side__burguer-menu:active {
@@ -106,31 +123,35 @@
 }
 /*fin header*/
 
+/*inicio footer*/
 .main-footer {
     background-color: var(--dark-blue);
     width: 100%;
     height: 48px;
+    max-width: var(--max-width-hf);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 20px;
+    gap: 20px;
 }
 
 .main-footer__copyright {
     color: var(--mayonnaise);
-    font-size: 0.72rem;
+    font-size: 0.5rem;
+    text-align: center;
 }
 
 .main-footer__social-icons {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .main-footer__social-icons i {
     color: var(--mayonnaise);
-    font-size: 20px;
+    font-size: 15px;
     transition: color 0.3s;
 }
 
@@ -149,6 +170,27 @@
 .social-icon-yt i:hover {
     color: #ff0000;
 }
+/*fin footer*/
+
+@media (min-width: 375px) {
+    .top-side {
+        padding: 0 60px;
+    }
+
+    .main-footer {
+        padding: 0 60px;
+        gap: 30px;
+    }
+
+    .main-footer__copyright{
+        font-size: 0.72rem;
+        text-align: left;
+    }
+
+    .main-footer__social-icons i {
+        font-size: 20px;
+    }
+}
 
 @media (min-width: 768px) {
     .top-side__burguer-menu {
@@ -161,9 +203,5 @@
 
     .top-side nav ul {
         display: flex;
-    }
-
-    .top-side, .main-footer {
-        padding: 0 100px;
     }
 }

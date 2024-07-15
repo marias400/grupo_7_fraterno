@@ -5,6 +5,10 @@ body {
     line-height: normal !important;
 }
 
+main {
+    height: auto !important;
+}
+
 /* Los !important son necesarios para pisar hojas
 de estilo de Bootstrap que comprometen la unifor-
 midad del header en todas las paginas */

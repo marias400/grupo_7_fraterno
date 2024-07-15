@@ -1,6 +1,6 @@
 const adminController = {
     adminPage: (req, res) => {
-        res.render('admin/products-editor');
+        res.render('admin/product-management');
     }
 }
 

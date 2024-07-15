@@ -36,24 +36,30 @@ body {
     width: 100%;
     height: 48px;
     background-color: var(--tono-claro-verde-azulado);
-    padding: 10px;
+    padding: 10px 100px;
     display: flex;
     align-items: center;
 }
 
 .main-header__logo, .main-header__logo img {
-    height: 100%;
+    height: 28px;
+}
+
+.main-header__pipe {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 7px 0 25px;
+    color: var(--azul-cobalto);
 }
 
 .main-header__title{
     color: var(--azul-cobalto);
-    margin-left: 20px;
     font-size: larger;
     font-weight: bolder;
 }
 
 main {
-    padding: 0 20px 20px;
+    padding: 0 60px 20px;
 }
 
 h1 {
@@ -130,11 +136,25 @@ button {
     padding: 10px 20px;
     margin-right: 10px;
     background-color: var(--tono-claro-violeta-oscuro);
-    color: #fff;
+    color: white;
+    cursor: pointer;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 1px 1px var(--sombra-violeta-oscuro);
+    transition: all 37ms;
+}
+
+button.blue-button {
+    background-color: var(--tono-claro-azul-cobalto);
+    box-shadow:
+        2px 2px var(--sombra-azul-cobalto),
+        1px 1px var(--sombra-azul-cobalto);
+}
+
+button.purple-button {
+    background-color: var(--tono-claro-violeta-oscuro);
+    box-shadow:
+        2px 2px var(--sombra-violeta-oscuro),
+        1px 1px var(--sombra-violeta-oscuro);
 }
 
 .buttons-section {
@@ -146,23 +166,16 @@ button {
     padding: 0;
 }
 
-button[type="button"] {
-    background-color: var(--tono-claro-azul-cobalto);
-    box-shadow: 1px 1px var(--sombra-azul-cobalto);
+button.blue-button:active {
+    box-shadow: none;
+    background-color: #4195d5;
+    transform: translate(2px, 2px);
 }
 
-button[type="submit"] {
-    background-color: var(--tono-claro-verde-azulado);
-    box-shadow: 1px 1px var(--sombra-verde-azulado);
-}
-
-button[type="button"]:last-of-type {
-    background-color: var(--tono-claro-violeta-oscuro);
-    box-shadow: 1px 1px var(--sombra-violeta-oscuro);
-}
-
-button:hover {
-    opacity: 0.9;
+button.purple-button:active {
+    box-shadow: none;
+    background-color: #70359e;
+    transform: translate(2px, 2px);
 }
 
 .main-footer {

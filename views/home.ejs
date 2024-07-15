@@ -29,7 +29,7 @@
                 <!-- Indicadores/dots -->
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                 </div>
                 <!-- Slideshow/carousel -->
@@ -75,13 +75,15 @@
                     <img src="images/imagen3.png" alt="Producto 2" class="img-fluid">
                     <h3>Sanguche J&Q</h3>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique non aliquam deleniti cum,
-                        quisquam itaque explicabo blanditiis ea ab veniam voluptatum provident temporibus magni incidunt
+                        quisquam itaque explicabo blanditiis ea ab veniam voluptatum provident temporibus magni
+                        incidunt
                         eligendi quo minima fuga commodi!</p>
                 </div>
                 <div class="products-cards" onclick="toProductDetail()">
                     <img src="images/imagen4.png" alt="Producto 3" class="img-fluid">
                     <h3>Sanguche Charcutero</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim deleniti ipsam soluta eligendi,
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim deleniti ipsam soluta
+                        eligendi,
                         explicabo, dolor possimus quis molestias debitis minus tempore sunt incidunt molestiae illo
                         libero ducimus dignissimos nesciunt expedita.</p>
                 </div>
@@ -102,10 +104,8 @@
             <p>Compra con seguridad</p>
         </div>
     </section>
-    <!-- Footer -->
-     <%- include("partials/footer.ejs") %>
-
-     <script>
+    <%- include("partials/footer.ejs") %>
+    <script>
         function toProductDetail() {
             window.location.href = "/producto";
         }

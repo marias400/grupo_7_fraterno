@@ -11,58 +11,55 @@
 
 <body>
     <%- include("../partials/header.ejs") %>
-        <main>
-            <div class="form">
+    <main>
+        <div class="form">
 
-                <div class="form__text-above">
-                    <h3>Registrate en:</h3>
-                </div>
-
-                <div class="form__logo">
-                    <img src="/images/logoG7.svg" alt="">
-                </div>
-
-                <form>
-
-                    <label for="Nombre y Apellido"></label>
-                    <div class="campos-form">
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
-                    </div>
-
-                    <label for="phone"></label>
-                    <div class="campos-form">
-                        <input type="text" id="phone" name="phone" placeholder="Telefono" required>
-                    </div>
-
-                    <label for="email"></label>
-                    <div class="campos-form">
-                        <input type="text" id="email" name="email" placeholder="Mail" required>
-                    </div>
-
-                    <label for="address"></label>
-                    <div class="campos-form">
-                        <input type="text" id="address" name="address" placeholder="Direccion" required>
-                    </div>
-
-                    <label for="Nombre de Usuario"></label>
-                    <div class="campos-form">
-                        <input type="text" id="name_user" name="name_user" placeholder="Nombre de Usuario" required>
-                    </div>
-
-                    <label for="contrasena"></label>
-                    <div class="campos-form">
-                        <input type="password" id="password" name="password" placeholder="Contraseña" required>
-                    </div>
-                </form>
-                <input type="submit" class="form_submit" value="Crear cuenta">
+            <div class="form__text-above">
+                <h3>Registrate en:</h3>
             </div>
 
+            <div class="form__logo">
+                <img src="/images/logoG7.svg" alt="">
+            </div>
 
-        </main>
+            <form>
 
-        <footer class="mainFooter">
-            <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-        </footer>
+                <label for="Nombre y Apellido"></label>
+                <div class="campos-form">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+                </div>
+
+                <label for="phone"></label>
+                <div class="campos-form">
+                    <input type="text" id="phone" name="phone" placeholder="Telefono" required>
+                </div>
+
+                <label for="email"></label>
+                <div class="campos-form">
+                    <input type="text" id="email" name="email" placeholder="Mail" required>
+                </div>
+
+                <label for="address"></label>
+                <div class="campos-form">
+                    <input type="text" id="address" name="address" placeholder="Direccion" required>
+                </div>
+
+                <label for="Nombre de Usuario"></label>
+                <div class="campos-form">
+                    <input type="text" id="name_user" name="name_user" placeholder="Nombre de Usuario" required>
+                </div>
+
+                <label for="contrasena"></label>
+                <div class="campos-form">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                </div>
+            </form>
+            <input type="submit" class="form_submit" value="Crear cuenta">
+        </div>
+
+
+    </main>
+    <%- include("../partials/footer.ejs") %>
 </body>
 
 </html>
