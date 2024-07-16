@@ -2,7 +2,10 @@
 
 Para facilitar la lectura y el mantenimiento del código de manera ordenada y continua, propongo seguir el siguiente formato:
 
-- **NOMENCLATURA**: que se utilice la nomenclatura **BEM** (**B**loque\_\_**E**lemento--**M**odificador) para el nombramiento de clases. Ejemplo:
+## **NOMENCLATURA DE CLASES**
+ Que se utilice la nomenclatura **BEM** (**B**loque\_\_**E**lemento--**M**odificador) para el nombramiento de clases.
+
+ Ejemplo:
 
 ```css
    .product-card {
@@ -36,7 +39,11 @@ Para facilitar la lectura y el mantenimiento del código de manera ordenada y co
   - **elementos**: `product-card__image`, `product-card__title`, `product-card__price` son los elementos que componen la tarjeta de producto.
   - **modificadores**: `product-card--featured`, `product-card--sale` modifican el estilo de la tarjeta de producto.
 
-- **SELECTORES**: que aparezcan en la hoja de estilos en el orden en que aparecen en el HTML. Ejemplo:
+## **SELECTORES**
+
+Que aparezcan en la hoja de estilos en el orden en que aparecen en el HTML.
+
+Ejemplo:
 
 ```css
 /* Estilos para el header */
@@ -60,94 +67,25 @@ footer {
 }
 ```
 
-- **PROPIEDADES**: que se ordenen las propiedades dentro de cada selector siguiendo el orden de aparición en la siguiente lista:
+## **PROPIEDADES**
 
-1. **Propiedades de tamaño y forma**:
+Que se ordenen las propiedades dentro de cada selector siguiendo el orden propuesto por la siguiente tabla:
 
-   1. width
-   2. height
-   3. max-width
-   4. max-height
-   5. min-width
-   6. min-height
+| **#** | **Categoría**                         | **Propiedades**                                                                                                              |
+|-------|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+|   1   | Propiedades de tamaño y forma         | width, height, max-width, max-height, min-width, min-height                                                                  |
+|   2   | Propiedades de fondo                  | background-color, background-image, background-repeat, background-position, background-size                                  |
+|   3   | Propiedades de color                  | color, opacity                                                                                                               |
+|   4   | Propiedades de relleno y margen       | padding, margin                                                                                                              |
+|   5   | Propiedades de fuente                 | font-family, font-size, font-weight, font-style, font-variant, line-height, text-align, text-transform, text-decoration      |
+|   6   | Propiedades de borde                  | border, border-width, border-style, border-color, border-top, border-right, border-bottom, border-left, border-radius        |
+|   7   | Propiedades de sombra                 | box-shadow, text-shadow                                                                                                      |
+|   8   | Propiedades de visualización          | display, visibility, overflow, position, top, right, bottom, left, z-index                                                   |
+|   9   | Propiedades de diseño de flexbox      | flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content, order, flex-grow, flex-shrink, flex-basis |
+|  10   | Propiedades de transición y animación | transition, animation                                                                                                        |
+|  11   | Propiedades misceláneas               | cursor, user-select, pointer-events, white-space, word-wrap, word-break, text-overflow, resize, outline, appearance          |
 
-1. **Propiedades de fondo**:
-
-   1. background-color
-   2. background-image
-   3. background-repeat
-   4. background-position
-   5. background-size
-
-1. **Propiedades de color**:
-
-   1. color
-   2. opacity
-
-1. **Propiedades de relleno y margen**:
-
-   1. padding
-   2. margin
-
-1. **Propiedades de fuente**:
-
-   1. font-family
-   2. font-size
-   3. font-weight
-   4. font-style
-   5. font-variant
-   6. line-height
-   7. text-align
-   8. text-transform
-   9. text-decoration
-
-1. **Propiedades de borde**:
-
-   1. border
-   2. border-width
-   3. border-style
-   4. border-color
-   5. border-top
-   6. border-right
-   7. border-bottom
-   8. border-left
-   9. border-radius
-
-1. **Propiedades de sombra**:
-
-   1. box-shadow
-   2. text-shadow
-
-1. **Propiedades de visualización**:
-
-   1. display
-   2. visibility
-   3. overflow
-   4. position
-   5. top
-   6. right
-   7. bottom
-   8. left
-   9. z-index
-
-1. **Propiedades de diseño de flexbox**:
-
-   1. flex-direction
-   2. flex-wrap
-   3. flex-flow
-   4. justify-content
-   5. align-items
-   6. align-content
-   7. order
-   8. flex-grow
-   9. flex-shrink
-   10. flex-basis
-
-1. **Propiedades de transición y animación**:
-   1. transition
-   2. animation
-
-NOTA: Las propiedades que no aparezcan en esta lista se ubicarán al final de la sección correspondiente (o una propia) siguiendo un orden según su importancia.
+Las propiedades que no aparezcan en esta tabla se ubicarán al final de la categoría correspondiente o una propia en caso de no estar listada, siguiendo un orden según su relevancia.
 
 Ejemplo:
 
@@ -201,10 +139,17 @@ Ejemplo:
   /* Transición y animación */
   transition: all 0.3s ease;
   animation: my-animation 2s linear infinite;
+
+  /* Propiedad que no aparece en la lista */
+  list-style-type: none;
 }
 ```
 
-- **VARIABLES**: que se definan al principio de la hoja de estilos, para que sean fáciles de encontrar y modificar. Ejemplo:
+## **VARIABLES**
+
+Que se definan al principio de la hoja de estilos, para que sean fáciles de encontrar y modificar.
+
+Ejemplo:
 
 ```css
 :root {
@@ -215,7 +160,11 @@ Ejemplo:
 }
 ```
 
-- **COMENTARIOS**: que se utilicen para explicar el código y facilitar su comprensión. Ejemplo:
+## **COMENTARIOS**
+
+Que se utilicen para explicar el código y facilitar su comprensión.
+
+Ejemplo:
 
 ```css
 /* Estilos para el header */
@@ -226,7 +175,11 @@ header {
 }
 ```
 
-- **MEDIA QUERIES**: que se definan al final de la hoja de estilos, para que no interfieran con el resto del código. Ejemplo:
+## **MEDIA QUERIES**
+
+Que se definan al final de la hoja de estilos, para que no interfieran con el resto del código.
+
+Ejemplo:
 
 ```css
 /* Estilos para pantallas pequeñas */

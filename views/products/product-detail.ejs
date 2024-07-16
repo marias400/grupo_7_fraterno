@@ -100,10 +100,7 @@
                 </div>
             </div>
         </main>
-        <footer class="mainFooter">
-            <button class="mainFooter__checkout-button" onclick="toCart()">Carrito</button>
-            <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-        </footer>
+        <%- include("../partials/footer.ejs") %>
         <script>
             function toCart() {
                 window.location.href = "/carrito";

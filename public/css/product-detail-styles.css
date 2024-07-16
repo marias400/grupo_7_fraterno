@@ -168,57 +168,12 @@ footer {
     align-items: center;
 }
 
-.mainFooter {
-    background-color: var(--dark-blue);
-    width: 100%;
-    height: 48px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 6vw;
-}
-
-.mainFooter__checkout-button {
-    background-color: var(--orange);
-    color: white;
-    height: calc(100% - 1vh);
-    display: flex;
-    align-items: center;
-    font-size: 2vh;
-    padding: 2vh;
-    border: none;
-    border-radius: 1vh;
-    box-shadow:
-        0.4vh 0.4vh var(--orange-shadow),
-        0.2vh 0.2vh var(--orange-shadow);
-    cursor: pointer;
-    transition:
-        background-color 50ms,
-        transform 10ms,
-        box-shadow 50ms;
-}
-
-.mainFooter__checkout-button:active {
-    position: relative;
-    background-color: #ce4f24;
-    box-shadow: none;
-    transform: translate(0.4vh, 0.4vh);
-}
-
-.mainFooter__copyright {
-    color: white;
-    font-size: 1.2vh;
-}
-
-body footer div input:active,
 .stripe__button:active {
     position: relative;
     background-color: #ce4f24;
     box-shadow: none;
     transform: translate(0.4vh, 0.4vh);
 }
-
 
 /*TELEFONOS*/
 @media (max-width: 375px) {
