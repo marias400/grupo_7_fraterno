@@ -150,6 +150,12 @@ main {
     text-align: center;
 }
 
+.main-footer a {
+    color: var(--mayonnaise);
+    font-size: 0.5rem;
+    text-align: right;
+}
+
 .main-footer__social-icons {
     display: flex;
     justify-content: center;
@@ -194,6 +200,10 @@ main {
     .main-footer__copyright {
         font-size: 0.72rem;
         text-align: left;
+    }
+
+    .main-footer a {
+        font-size: 0.72rem;
     }
 
     .main-footer__social-icons i {

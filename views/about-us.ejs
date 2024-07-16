@@ -1,65 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="/css/general-styles.css">
-    <link rel="stylesheet" href="/css/to/product-cart-styles.css">
-    <style>
-        .about {
-            background-color: var(--mayonnaise);
-            padding: 40px 20px;
-            max-width: var(--max-width-hf);
-            margin: 0 auto;
-            text-align: center;
-        }
-        .about h2 {
-            color: var(--orange);
-            margin-bottom: 20px;
-        }
-        .about p {
-            color: var(--dark-blue);
-            margin-bottom: 20px;
-        }
-    </style>
+    <%- include("partials/head.ejs") %>
+        <title>Nosotros | Grupo Sie7e</title>
+
+        <!--Hoja de estilos propia de esta página-->
+        <link rel="stylesheet" href="/css/general-styles.css">
+        <link rel="stylesheet" href="/css/product-cart-styles.css">
+
+        <!-- Bootstrap CSS solo para el carrusel -->
+        <style>
+            .about h2 {
+                color: var(--orange);
+                margin-bottom: 20px;
+            }
+
+            .about p {
+                color: var(--dark-blue);
+                margin-bottom: 20px;
+            }
+        </style>
 </head>
+
 <body>
-    <header class="top-side-container">
-        <div class="top-side">
-            <div class="top-side__logo">
-                <img src="path/to/logo.png" alt="Logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <%- include ('partials/header.ejs') %>
     <main>
-        <section class="about">
-            <h2>¿Quiénes Somos?</h2>
-            <p>Somos una empresa dedicada a...</p>
-            <p>Nuestra misión es...</p>
-            <p>Nuestros valores son...</p>
+        <h2>¿Quiénes Somos?</h2>
+
+        <p>Somos una empresa dedicada a ofrecer los mejores sánguches y viandas de calidad en la ciudad de La
+            Rioja capital. Nuestra pasión por la buena comida nos impulsa a crear experiencias gastronómicas
+            únicas que deleitan a nuestros clientes.</p>
+
+        <p>Nuestra misión es proporcionar a nuestros clientes productos frescos y deliciosos, combinados con un
+            servicio de entrega eficiente y amigable. Nos esforzamos por ser la opción preferida para aquellos
+            que buscan comodidad y calidad en cada bocado.</p>
+
+        <p>Nuestros valores son</p>
+        <ul>
+            <li><u>Calidad</u>: Utilizamos solo ingredientes frescos y de alta calidad para asegurar que cada
+                sánguche
+                sea una delicia.</li>
+            <li><u>Innovación</u>: Constantemente innovamos nuestro menú para ofrecer nuevas y emocionantes opciones
+                a
+                nuestros clientes.</li>
+            <li><u>Servicio al Cliente</u>: Nos comprometemos a brindar un servicio excepcional, asegurando que cada
+                cliente tenga una experiencia satisfactoria.</li>
+            <li><u>Comunidad</u>: Apoyamos y colaboramos con productores locales para contribuir al desarrollo de
+                nuestra comunidad.</li>
+        </ul>
+
+        <section>
+            <h1>Nuestro Equipo</h1>
+            <p>Conoce al equipo detrás de nuestros deliciosos sánguches:</p>
+            <section>
+                <h2>Padula Lugo Jorge</h2>
+                <p>Soy estudiante de Ingeniería en Sistemas de Información en la Universidad Nacional de La
+                    Rioja
+                    (UNLaR).
+                    A lo largo de mi carrera, he tenido la oportunidad de programar en una variedad de lenguajes
+                    y
+                    tecnologías, lo que me ha permitido adquirir una visión amplia y general del campo de la
+                    programación,
+                    aunque no me he especializado en un área específica.</p>
+            </section>
+            <section>
+                <h2>Arias Simone Mariano</h2>
+                <p>Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Tengo formación en física y
+                    docencia.
+                    Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de
+                    experiencia
+                    programando en algunos lenguajes populares.</p>
+            </section>
+            <section>
+                <h2>Avila Braian Emanuel</h2>
+                <p>Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Trabajo haciendo monitoreo
+                    en
+                    una
+                    empresa de seguridad. Tengo poca experiencia programando mas de la que me dan las clases de
+                    la
+                    facultad
+                    o viendo y aprendiendo por videos de youtube.</p>
+            </section>
+            <section>
+                <h2>Solorzano Garcia Jesus</h2>
+                <p>Soy estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. Actualmente
+                    estoy
+                    cursando la carrera de Licenciatura en Sistemas, donde voy adquiriendo conocimientos
+                    fundamentales
+                    en el
+                    desarrollo y mantenimiento de sistemas informáticos. Además, he trabajado como soporte
+                    técnico,
+                    brindando asistencia y soluciones tecnológicas a los usuarios.</p>
+            </section>
+            <section>
+                <h2>Barros Jorge Esteban</h2>
+                <p> Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que estoy
+                    ejerciendo
+                    actualmente pero desde hace un año atras comence a introducirme en la programacion. Tengo
+                    conocimientos
+                    basicos de Diseño Ux Ui, html y css por interes propio en distintas plataformas digitales.
+                </p>
+            </section>
         </section>
+        <p>Ven y disfruta de la mejor experiencia gastronómica en La Rioja capital con nuestros sánguches y
+            viandas. ¡Te esperamos!</p>
     </main>
-    <footer class="main-footer-container">
-        <div class="main-footer">
-            <div class="main-footer__copyright">
-                &copy; 2024 Tu Empresa
-            </div>
-            <div class="main-footer__social-icons">
-                <a href="#" class="social-icon-ig"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon-fb"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon-tw"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon-yt"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </footer>
+    <%- include ('partials/footer.ejs') %>
 </body>
+
 </html>
