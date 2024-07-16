@@ -16,94 +16,36 @@
             <div class="stripe">
                 <div class="stripe__tags">
                     <div class="stripe__tags--product-name">
-                        <p>Sanguchardo con de todo EPIC</p>
+                        <p>
+                            <%= inventory[id].nombre %> %>
+                        </p>
                     </div>
                     <div class="stripe__photo">
-                        <img src="/images/milanesa.jpg" alt="">
+                        <img src="<%= inventory[id].imagen %> %>" alt="">
                     </div>
                     <div class="stripe__tags--product-description">
-                        <p>¡La más deliciosa combinación de Pan de lembas, mila, tomate, lechuga, cebolla, ajo,
-                            mortadela,
-                            queso, más queso, otra mila y mucho amor!</p>
+                        <p>
+                            <%= inventory[id].descripcion %>
+                        </p>
                     </div>
                 </div>
                 <div class="stripe__info">
                     <form>
-                        <div class="stripe__info--values">
-                            <input type="radio" name="meat" id="check1" checked>
-                            <label for="check1">Mila carne</label>
-                            <input type="button" name="minus" id="minus" value="-">
-                            <label>2</label>
-                            <input type="button" name="plus" id="plus" value="+">
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="radio" name="meat" id="check2">
-                            <label for="check2">Suprema</label>
-                            <input type="button" name="minus" id="minus" value="-">
-                            <label>0</label>
-                            <input type="button" name="plus" id="plus" value="+">
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="radio" name="meat" id="check3">
-                            <label for="check3">Pajarito</label>
-                            <input type="button" name="minus" id="minus" value="-">
-                            <label>0</label>
-                            <input type="button" name="plus" id="plus" value="+">
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="tomato" id="check4" checked>
-                            <label for="check4">Tomate</label>
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="lettuce" id="check5" checked>
-                            <label for="check5">Lechuga</label>
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="onion" id="check6" checked>
-                            <label for="check6">Cebolla</label>
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="garlic" id="check7" checked>
-                            <label for="check7">Ajo</label>
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="mortadella" id="check8" checked>
-                            <label for="check8">Mortadela</label>
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="cheese" id="check9" checked>
-                            <label for="check9">Queso</label>
-                            <input type="button" name="minus" id="minus" value="-">
-                            <label>1</label>
-                            <input type="button" name="plus" id="plus" value="+">
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="more_cheese" id="check10" checked>
-                            <label for="check10">Más queso</label>
-                            <input type="button" name="minus" id="minus" value="-">
-                            <label>1</label>
-                            <input type="button" name="plus" id="plus" value="+">
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="another_mila" id="check11" checked>
-                            <label for="check11">Otra mila*</label>
-                        </div>
-                        <hr>
-                        <div class="stripe__info--values">
-                            <input type="checkbox" name="love" id="check12" checked>
-                            <label for="check12">Amor</label>
-                        </div>
-                        <hr>
+
+                        <% for(let i=0; i<inventory[id].ingredientes.length; i++){ %>
+                            <div class="stripe__info--values">
+                                <input type="checkbox" name="cheese" id="check<%= i %>" checked>
+                                <label for="check<%= i %>">
+                                    <%= inventory[id].ingredientes[i] %>
+                                </label>
+                                <input type="button" name="minus" id="minus" value="-">
+                                <label>1</label>
+                                <input type="button" name="plus" id="plus" value="+">
+                            </div>
+                            <hr>
+                            <% } %>
+
+                                
                     </form>
                 </div>
                 <div class="stripe__button">
@@ -116,11 +58,11 @@
             </div>
         </main>
         <%- include("../partials/footer.ejs") %>
-        <script>
-            function toCart() {
-                window.location.href = "/carrito";
-            }
-        </script>
+            <script>
+                function toCart() {
+                    window.location.href = "/carrito";
+                }
+            </script>
 </body>
 
 </html>
