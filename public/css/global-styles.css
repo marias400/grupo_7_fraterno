@@ -34,10 +34,6 @@
     width: 100%;
 }
 
-main {
-    height: calc(100vh - (48px * 2));
-}
-
 /*inicio header*/
 .top-side {
     background-color: var(--dark-blue);
