@@ -3,7 +3,6 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 40px 20px 20px;
 }
@@ -14,6 +13,8 @@ main {
     height: 100%;
     min-width: fit-content;
     max-width: 550px;
+    min-height: 470px;
+    max-height: 70%;
     border-radius: 15px;
     position: relative;
     display: flex;
@@ -271,7 +272,7 @@ main {
         align-self: center;
         border: 4px solid var(--mayonnaise);
         padding: 7px;
-        z-index: 100;
+        z-index: 10;
     }
 
     .cart__content--product-image {
