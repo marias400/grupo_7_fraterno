@@ -16,98 +16,97 @@
 
 <body>
     <%- include("partials/header.ejs") %>
-        <div class="buscador-container">
-            <div class="buscador">
-                <input type="text" class="form-control me-2" placeholder="Buscar">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+    <section class="search-box-container">
+        <div class="search-box">
+            <input type="search" class="search-box__input" placeholder="Buscar">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-        <main>
-            <!-- Carrusel usando Bootstrap -->
-            <section class="carrusel mb-4">
-                <div id="demo" class="carousel slide" data-bs-ride="carousel">
-                    <!-- Indicadores/dots -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                    </div>
-                    <!-- Slideshow/carousel -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="img-container">
-                                <img src="images/imagen1.png" alt="Imagen 1" class="d-block w-100">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="img-container">
-                                <img src="images/imagen3.png" alt="Imagen 2" class="d-block w-100">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="img-container">
-                                <img src="images/imagen4.png" alt="Imagen 3" class="d-block w-100">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Controles -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
+    </section>
+    <main>
+        <!-- Carrusel usando Bootstrap -->
+        <section class="carrusel mb-4">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                <!-- Indicadores/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                 </div>
-            </section>
+                <!-- Slideshow/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="img-container">
+                            <img src="images/imagen1.png" alt="Imagen 1" class="d-block w-100">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="img-container">
+                            <img src="images/imagen3.png" alt="Imagen 2" class="d-block w-100">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="img-container">
+                            <img src="images/imagen4.png" alt="Imagen 3" class="d-block w-100">
+                        </div>
+                    </div>
+                </div>
+                <!-- Controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </section>
 
-            <!-- Sección de productos -->
-            <section class="container-card text-center">
-                <h2>Algunos de nuestros productos</h2>
+        <!-- Sección de productos -->
+        <section class="container-card text-center">
+            <h2>Algunos de nuestros productos</h2>
+            <section class="products">
+
                 <section class="products">
 
-                    <section class="products">
+                    <% for(let i=0; i<inventory.length; i++){ %>
 
-                        <% for(let i=0; i<inventory.length; i++){ %>
-                    
-                            <div class="products-cards" onclick="toProductDetail(<%= i %>)">
-                                <img src="<%= inventory[i].imagen %>" alt="Producto 1" class="img-fluid">
-                                <h3>
-                                    <%= inventory[i].nombre %>
-                                </h3>
-                                <p>
-                                    <%= inventory[i].descripcion %>
-                                </p>
-                            </div>
-                    
-                        <% } %>
-                    
-                    </section>
-                    
-                    <script>
-                        function toProductDetail(index) {
-                            window.location.href = "/products/detail/" + index;
-                        }
-                    </script>
-                    
+                        <div class="products-cards" onclick="toProductDetail(<%= i %>)">
+                            <img src="<%= inventory[i].imagen %>" alt="Producto 1" class="img-fluid">
+                            <h3>
+                                <%= inventory[i].nombre %>
+                            </h3>
+                            <p>
+                                <%= inventory[i].descripcion %>
+                            </p>
+                        </div>
+
+                    <% } %>
 
                 </section>
             </section>
-        </main>
-        <section class="epc-container d-flex justify-content-center">
-            <div class="epc mx-2">
+        </section>
+    </main>
+    <section class="epc-box-container">
+        <div class="epc-box">
+            <div class="epc">
                 <i class="fas fa-shipping-fast fa-3x"></i>
                 <p>Envíos y Retiros</p>
             </div>
-            <div class="epc mx-2">
+            <div class="epc">
                 <i class="fas fa-credit-card fa-3x"></i>
                 <p>Paga como quieras</p>
             </div>
-            <div class="epc mx-2">
+            <div class="epc">
                 <i class="fas fa-lock fa-3x"></i>
                 <p>Compra con seguridad</p>
             </div>
-        </section>
-        <%- include("partials/footer.ejs") %>
+        </div>
+    </section>
+    <%- include("partials/footer.ejs") %>
+    <script>
+        function toProductDetail(index) {
+            window.location.href = "/products/detail/" + index;
+        }
+    </script>
 </body>
 
 </html>

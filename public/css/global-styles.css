@@ -12,16 +12,6 @@
     --max-width-hf: 1500px;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex-grow: 1;
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -29,8 +19,16 @@ main {
     box-sizing: border-box;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 main {
-    height: calc(100vh - (48px * 2));
+    padding: 40px 20px;
+    background-color: var(--mayonnaise);
+    flex-grow: 1;
 }
 
 .top-side-container,
@@ -168,11 +166,38 @@ main {
 
 /*fin header*/
 
+.floating-cart-button {
+    width: 50px;
+    height: 50px;
+    background-color: var(--mustard);
+    color: var(--dark-blue);
+    font-size: 25px;
+    line-height: 55px;
+    border: solid 2px var(--dark-mustard);
+    border-radius: 50px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    position: fixed;
+    right: 13px;
+    bottom: 60px;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-out;
+}
+
+.floating-cart-button:hover {
+    background-color: var(--dark-blue);
+    color: var(--mustard);
+    border: none;
+    cursor: pointer;
+}
+
 /*inicio footer*/
 .main-footer-container {
     position: fixed;
     bottom: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .main-footer {
@@ -182,32 +207,9 @@ main {
     background-color: var(--dark-blue);
     padding: 0 20px;
     display: flex;
-    z-index: 100;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-}
-
-.main-footer__cart-btn {
-    width: 50px;
-    height: 50px;
-    background-color: var(--mustard);
-    color: var(--dark-blue);
-    font-size: 25px;
-    line-height: 55px;
-    text-align: center;
-    border-radius: 50px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    right: 15px;
-    bottom: 60px;
-    z-index: 100;
-}
-
-.main-footer__cart-btn:hover {
-    background-color: var(--dark-blue);
-    color: var(--mustard);
-    cursor: pointer;
+    gap: 10px;
 }
 
 .main-footer__copyright {
@@ -216,20 +218,21 @@ main {
     text-align: center;
 }
 
-.main-footer a {
+.main-footer__about-us {
     color: var(--mayonnaise);
-    font-size: 0.5rem;
+    font-size: 0.72rem;
     text-align: right;
+    display: none;
 }
 
-.main-footer__social-icons {
+.main-footer__socials {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.main-footer__social-icons i {
+.main-footer__socials i {
     color: var(--mayonnaise);
     font-size: 15px;
     transition: color 0.3s;
@@ -258,18 +261,12 @@ main {
         padding: 0 60px;
     }
 
-    .top-side {
+    .main-footer {
         padding: 0 60px;
     }
 
-    .main-footer {
-        padding: 0 60px;
-        gap: 30px;
-    }
-
-    .main-footer {
-        padding: 0 60px;
-        gap: 30px;
+    .floating-cart-button {
+        right: 52px;
     }
 
     .main-footer__copyright {
@@ -277,24 +274,7 @@ main {
         text-align: left;
     }
 
-    .main-footer__copyright {
-        font-size: 0.72rem;
-        text-align: left;
-    }
-
-    .main-footer a {
-        font-size: 0.72rem;
-    }
-
-    .main-footer a {
-        font-size: 0.72rem;
-    }
-
-    .main-footer__social-icons i {
-        font-size: 20px;
-    }
-
-    .main-footer__social-icons i {
+    .main-footer__socials i {
         font-size: 20px;
     }
 }
@@ -304,14 +284,6 @@ main {
         display: none;
     }
 
-    .top-side__burguer-menu {
-        display: none;
-    }
-
-    .top-side nav {
-        display: flex;
-    }
-
     .top-side nav {
         display: flex;
     }
@@ -320,7 +292,11 @@ main {
         display: flex;
     }
 
-    .top-side nav ul {
-        display: flex;
+    .floating-cart-button {
+        right: 60px;
+    }
+
+    .main-footer__about-us {
+        display: block;
     }
 }

@@ -4,83 +4,81 @@ body {
 }
 
 main {
-    height: calc(100vh - (48px * 2));
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
 .form {
+    min-width: 375px;
+    text-align: center;
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    min-width: 375px;
-    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
-    text-align: center;
     justify-content: center;
+    gap: 20px;
 }
 
 .form__text-above {
-    font-size: 24px;
-    margin-bottom: .5em;
     color: var(--dark-blue);
+    font-size: 24px;
+    margin: 1em 0 .5em;
 }
 
 .form__logo {
-    min-width: 375px;
     background-color: var(--dark-blue);
     padding: 15px;
     border-radius: 50px 0 0 50px;
 }
 
-.form input{
-    text-align: center;
+.form input {
     width: 100%;
-    background: none;
     background-color: transparent;
     color: var (--dark-blue);
     font-size: 1rem;
+    text-align: center;
     border: none;
-    outline: none;
     border-bottom: 1px solid rgb(151, 141, 141);
+    outline: none;
+    background: none;
 }
 
 .form_submit {
+    width: 60%;
     background-color: var(--orange) !important;
     color: white !important;
-    font-weight: 300;
-    font-size: 1rem;
-    width: 60%;
-    justify-self: center;
     padding: .8em 0;
+    font-size: 1rem;
+    font-weight: 300;
+    border: none !important;
     border-radius: .5em;
-    border: none;
     box-shadow:
         4px 4px var(--orange-shadow),
-        2px 2px var(--orange-shadow);
+        3px 3px var(--orange-shadow),
+        2px 2px var(--orange-shadow),
+        1px 1px var(--orange-shadow);
     transition:
         background-color 50ms,
         transform 10ms,
         box-shadow 50ms;
+    cursor: pointer;
+    margin-bottom: 78px;
 }
 
 .form_submit:active,
 .top-side__burguer-menu:active {
-    position: relative;
     background-color: #ce4f24;
     box-shadow: none;
+    position: relative;
     transform: translate(4px, 4px);
 }
 
 .campos-form {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
     text-align: center;
-
+    margin: 35px 0;
 }
 
 @media (max-width: 375px) {
-    .form{
+    .form {
         min-width: 90vw;
     }
 }
