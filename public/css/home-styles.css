@@ -5,10 +5,6 @@ body {
     line-height: normal !important;
 }
 
-main {
-    height: auto !important;
-}
-
 /* Los !important son necesarios para pisar hojas
 de estilo de Bootstrap que comprometen la unifor-
 midad del header en todas las paginas */
@@ -177,7 +173,7 @@ main {
     background-color: var(--mustard);
     color: var(--dark-blue);
     padding: 20px 0;
-    position: absolute;
+    position: relative;
     bottom: 48px;
     width: 100%;
 }

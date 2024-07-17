@@ -24,7 +24,6 @@ main {
     grid-area: main;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
     background-color: var(--mayonnaise);
     height: 100%;
     width: 100%;
@@ -41,7 +40,6 @@ footer {
 .stripe {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     width: 60vw;
     min-width: 280px;
@@ -189,27 +187,6 @@ hr {
     background-color: #ce4f24;
     box-shadow: none;
     transform: translate(0.4vh, 0.4vh);
-}
-
-.cart__btn {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    line-height: 55px;
-    bottom: 50px;
-    right: 15px;
-    background-color: var(--mustard);
-    color: var(--dark-blue);
-    border-radius: 50px;
-    text-align: center;
-    font-size: 25px;
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
-    z-index: 100;
-}
-
-.cart__btn:hover {
-    background-color: var(--dark-blue);
-    color: var(--mustard);
 }
 
 

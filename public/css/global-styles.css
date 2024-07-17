@@ -1,4 +1,4 @@
-:root  {
+:root {
     --mustard: #f7a81b;
     --mustard-shadow: #946410;
     --dark-mustard: #e49c00;
@@ -12,19 +12,25 @@
     --max-width-hf: 1500px;
 }
 
-*  {
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+* {
     padding: 0;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
 }
 
-main  {
-    height: calc(100vh - (48px * 2));
-}
-
 .top-side-container,
-.main-footer-container  {
+.main-footer-container {
     width: 100%;
     height: 48px;
     background-color: var(--dark-blue);
@@ -34,7 +40,7 @@ main  {
 }
 
 /*inicio header*/
-.top-side  {
+.top-side {
     width: 100%;
     height: 48px;
     max-width: var(--max-width-hf);
@@ -45,19 +51,19 @@ main  {
     align-items: center;
 }
 
-.top-side__logo  {
+.top-side__logo {
     width: 100%;
     height: 60%;
     display: flex;
     margin-right: 15px;
 }
 
-.top-side__logo img  {
+.top-side__logo img {
     width: 100%;
     height: 100%;
 }
 
-.top-side__burguer-menu  {
+.top-side__burguer-menu {
     width: 38px;
     height: 38px;
     min-width: 38px;
@@ -83,38 +89,38 @@ main  {
     transition: all 37ms;
 }
 
-.top-side__burguer-menu:active  {
+.top-side__burguer-menu:active {
     background-color: #b67c00;
     box-shadow: none;
     position: relative;
     transform: translate(3px, 3px);
 }
 
-.top-side nav  {
+.top-side nav {
     display: none;
     justify-content: flex-end;
     align-items: flex-end;
     flex-grow: 1;
 }
 
-.top-side nav ul  {
+.top-side nav ul {
     gap: 15px;
 }
 
-.top-side nav ul li  {
+.top-side nav ul li {
     color: var(--mustard);
     list-style-type: none;
 }
 
-.login  {
+.login {
     width: 130px;
 }
 
-.carrito  {
+.carrito {
     width: 80px;
 }
 
-.top-side nav ul li a  {
+.top-side nav ul li a {
     color: inherit;
     text-decoration: none;
 }
@@ -122,13 +128,14 @@ main  {
 /*fin header*/
 
 /*inicio footer*/
-.main-footer-container  {
+
+.main-footer-container {
     position: fixed;
     bottom: 0;
     z-index: 100;
 }
 
-.main-footer  {
+.main-footer {
     width: 100%;
     height: 48px;
     max-width: var(--max-width-hf);
@@ -141,83 +148,105 @@ main  {
     gap: 20px;
 }
 
-.main-footer__copyright  {
+.main-footer__cart-btn {
+    width: 50px;
+    height: 50px;
+    background-color: var(--mustard);
+    color: var(--dark-blue);
+    font-size: 25px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    right: 15px;
+    bottom: 60px;
+    z-index: 100;
+}
+
+.main-footer__cart-btn:hover {
+    background-color: var(--dark-blue);
+    color: var(--mustard);
+    cursor: pointer;
+}
+
+.main-footer__copyright {
     color: var(--mayonnaise);
     font-size: 0.5rem;
     text-align: center;
 }
 
-.main-footer a  {
+.main-footer a {
     color: var(--mayonnaise);
     font-size: 0.5rem;
     text-align: right;
 }
 
-.main-footer__social-icons  {
+.main-footer__social-icons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.main-footer__social-icons i  {
+.main-footer__social-icons i {
     color: var(--mayonnaise);
     font-size: 15px;
     transition: color 0.3s;
 }
 
-.social-icon-ig i:hover  {
+.social-icon-ig i:hover {
     color: #c13584;
 }
 
-.social-icon-fb i:hover  {
+.social-icon-fb i:hover {
     color: #3b5998;
 }
 
-.social-icon-tw i:hover  {
+.social-icon-tw i:hover {
     color: #1da1f2;
 }
 
-.social-icon-yt i:hover  {
+.social-icon-yt i:hover {
     color: #ff0000;
 }
 
 /*fin footer*/
 
 @media (min-width: 375px) {
-    .top-side  {
-    padding: 0 60px;
-}
+    .top-side {
+        padding: 0 60px;
+    }
 
-    .main-footer  {
-    padding: 0 60px;
-    gap: 30px;
-}
+    .main-footer {
+        padding: 0 60px;
+        gap: 30px;
+    }
 
-    .main-footer__copyright  {
-    font-size: 0.72rem;
-    text-align: left;
-}
+    .main-footer__copyright {
+        font-size: 0.72rem;
+        text-align: left;
+    }
 
-    .main-footer a  {
-    font-size: 0.72rem;
-}
+    .main-footer a {
+        font-size: 0.72rem;
+    }
 
-    .main-footer__social-icons i  {
-    font-size: 20px;
-}
+    .main-footer__social-icons i {
+        font-size: 20px;
+    }
 }
 
 @media (min-width: 768px) {
-    .top-side__burguer-menu  {
-    display: none;
-}
+    .top-side__burguer-menu {
+        display: none;
+    }
 
-    .top-side nav  {
-    display: flex;
-}
+    .top-side nav {
+        display: flex;
+    }
 
-    .top-side nav ul  {
-    display: flex;
-}
+    .top-side nav ul {
+        display: flex;
+    }
 }

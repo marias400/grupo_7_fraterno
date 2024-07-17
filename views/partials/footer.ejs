@@ -1,4 +1,7 @@
 <footer class="main-footer-container">
+    <div class="main-footer__cart-btn" onclick="toCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
     <div class="main-footer">
         <p class="main-footer__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
         <div class="main-footer__social-icons">
@@ -17,4 +20,9 @@
             </a>
         </div>
     </div>
+    <script>
+        function toCart() {
+            window.location.href = "/products/cart";
+        }
+    </script>
 </footer>

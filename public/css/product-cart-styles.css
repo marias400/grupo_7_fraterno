@@ -229,6 +229,10 @@ main {
     transform: translate(4px, 4px);
 }
 
+.main-footer__cart-btn {
+    display: none;
+}
+
 
 /*TELEFONOS*/
 @media (min-width: 375px) {

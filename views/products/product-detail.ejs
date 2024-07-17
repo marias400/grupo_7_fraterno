@@ -49,20 +49,17 @@
                     </form>
                 </div>
                 <div class="stripe__button">
-                    <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar">
+                    <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar" onclick="toCart()"">
                     <label for="add-to-cart">$5.000</label>
                 </div>
             </div>
-            <div class="cart__btn">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
         </main>
         <%- include("../partials/footer.ejs") %>
-            <script>
-                function toCart() {
-                    window.location.href = "/carrito";
-                }
-            </script>
+        <script>
+            function toCart() {
+                window.location.href = "/products/cart";
+            }
+        </script>
 </body>
 
 </html>
