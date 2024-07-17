@@ -26,8 +26,8 @@ body {
 }
 
 main {
-    padding: 40px 20px;
     background-color: var(--mayonnaise);
+    padding: 40px 20px;
     flex-grow: 1;
 }
 

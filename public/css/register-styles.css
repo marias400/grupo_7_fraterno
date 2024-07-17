@@ -20,8 +20,8 @@ main {
 
 .form__text-above {
     color: var(--dark-blue);
-    font-size: 24px;
     margin: 1em 0 .5em;
+    font-size: 24px;
 }
 
 .form__logo {
@@ -73,8 +73,8 @@ main {
 }
 
 .campos-form {
-    text-align: center;
     margin: 35px 0;
+    text-align: center;
 }
 
 @media (max-width: 375px) {
