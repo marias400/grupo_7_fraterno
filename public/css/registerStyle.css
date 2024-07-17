@@ -86,20 +86,20 @@ header {
 }
 
 .top-side nav {
-    display: flex;
-    flex-grow: 1;
+    
     padding-right: 15px;
 }
 
 .top-side nav ul {
     gap: 15px;
+    display: flex;
 }
 
 .top-side nav ul li {
     list-style-type: none;
     color: #f7a81b;
     width: auto;
-    display: inline-block; /* Muestra los elementos en una línea */
+    display: inline-block; 
     margin-right: 15px;
 }
 
