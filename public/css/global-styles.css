@@ -35,7 +35,6 @@ main {
 
 .top-side-container,
 .main-footer-container {
-.main-footer-container {
     width: 100%;
     height: 48px;
     background-color: var(--dark-blue);
@@ -45,7 +44,6 @@ main {
 }
 
 /*inicio header*/
-.top-side {
 .top-side {
     width: 100%;
     height: 48px;
@@ -58,7 +56,6 @@ main {
 }
 
 .top-side__logo {
-.top-side__logo {
     width: 100%;
     height: 60%;
     display: flex;
@@ -66,12 +63,10 @@ main {
 }
 
 .top-side__logo img {
-.top-side__logo img {
     width: 100%;
     height: 100%;
 }
 
-.top-side__burguer-menu {
 .top-side__burguer-menu {
     width: 38px;
     height: 38px;
@@ -99,31 +94,36 @@ main {
 }
 
 .menu {
-    display: none;
     width: 100vw;
-    flex-wrap: wrap;
     background-color: var(--dark-blue);
     color: var(--mayonnaise);
-    list-style-type: none;
+    font-size: 16px;
+    display: none;
     position: absolute;
     top: 48px;
-    gap: 5px;
-    font-size: 16px;
+    z-index: 100;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-end;
-    padding-right: 10px;
-    z-index: 100;
     animation: burguer-menu-animation 0.2s;
+    list-style-type: none;
+    gap: 5px;
+    padding-right: 10px;
 }
 
 @keyframes burguer-menu-animation {
-    0% {top: 20px;}
-    100% {top: 48px;}
+    0% {
+        top: 20px;
+    }
+
+    100% {
+        top: 48px;
+    }
 }
 
 .menu li a {
-    text-decoration: none;
     color: var(--mayonnaise);
+    text-decoration: none;
 }
 
 .menu.show {
@@ -138,7 +138,6 @@ main {
 }
 
 .top-side nav {
-.top-side nav {
     display: none;
     justify-content: flex-end;
     align-items: flex-end;
@@ -146,27 +145,22 @@ main {
 }
 
 .top-side nav ul {
-.top-side nav ul {
     gap: 15px;
 }
 
-.top-side nav ul li {
 .top-side nav ul li {
     color: var(--mustard);
     list-style-type: none;
 }
 
 .login {
-.login {
     width: 130px;
 }
 
 .carrito {
-.carrito {
     width: 80px;
 }
 
-.top-side nav ul li a {
 .top-side nav ul li a {
     color: inherit;
     text-decoration: none;
@@ -181,7 +175,6 @@ main {
     z-index: 100;
 }
 
-.main-footer {
 .main-footer {
     width: 100%;
     height: 48px;
@@ -224,13 +217,11 @@ main {
 }
 
 .main-footer a {
-.main-footer a {
     color: var(--mayonnaise);
     font-size: 0.5rem;
     text-align: right;
 }
 
-.main-footer__social-icons {
 .main-footer__social-icons {
     display: flex;
     justify-content: center;
@@ -239,28 +230,23 @@ main {
 }
 
 .main-footer__social-icons i {
-.main-footer__social-icons i {
     color: var(--mayonnaise);
     font-size: 15px;
     transition: color 0.3s;
 }
 
 .social-icon-ig i:hover {
-.social-icon-ig i:hover {
     color: #c13584;
 }
 
-.social-icon-fb i:hover {
 .social-icon-fb i:hover {
     color: #3b5998;
 }
 
 .social-icon-tw i:hover {
-.social-icon-tw i:hover {
     color: #1da1f2;
 }
 
-.social-icon-yt i:hover {
 .social-icon-yt i:hover {
     color: #ff0000;
 }
@@ -271,6 +257,7 @@ main {
     .top-side {
         padding: 0 60px;
     }
+
     .top-side {
         padding: 0 60px;
     }
@@ -279,6 +266,7 @@ main {
         padding: 0 60px;
         gap: 30px;
     }
+
     .main-footer {
         padding: 0 60px;
         gap: 30px;
@@ -288,6 +276,7 @@ main {
         font-size: 0.72rem;
         text-align: left;
     }
+
     .main-footer__copyright {
         font-size: 0.72rem;
         text-align: left;
@@ -296,6 +285,7 @@ main {
     .main-footer a {
         font-size: 0.72rem;
     }
+
     .main-footer a {
         font-size: 0.72rem;
     }
@@ -303,6 +293,7 @@ main {
     .main-footer__social-icons i {
         font-size: 20px;
     }
+
     .main-footer__social-icons i {
         font-size: 20px;
     }
@@ -312,6 +303,7 @@ main {
     .top-side__burguer-menu {
         display: none;
     }
+
     .top-side__burguer-menu {
         display: none;
     }
@@ -319,6 +311,7 @@ main {
     .top-side nav {
         display: flex;
     }
+
     .top-side nav {
         display: flex;
     }
@@ -326,6 +319,7 @@ main {
     .top-side nav ul {
         display: flex;
     }
+
     .top-side nav ul {
         display: flex;
     }
