@@ -16,24 +16,34 @@
 
 <body>
     <%- include("partials/header.ejs") %>
-    <section class="search-box-container">
-        <div class="search-box">
-            <input type="search" class="search-box__input" placeholder="Buscar">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </section>
-    <main>
-        <!-- Carrusel usando Bootstrap -->
-        <section class="carrusel mb-4">
+        <section class="search-box-container">
+            <div class="search-box">
+                <input type="search" class="search-box__input" placeholder="Buscar">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </section>
+        <main>
+            <div class="div__gallery">
+                <section class="gallery">
+                    <img src="/images/imagen1.png" alt="">
+                    <img src="/images/imagen2.png" alt="">
+                    <img src="/images/imagen3.png" alt="">
+                    <img src="/images/imagen4.png" alt="">
+                    <img src="/images/imagen5.png" alt="">
+                    <img src="/images/milanesa.jpg" alt="">
+                </section>
+            </div>
+            <!-- Carrusel usando Bootstrap -->
+            <!-- <section class="carrusel mb-4">
             <div id="demo" class="carousel slide" data-bs-ride="carousel">
                 <!-- Indicadores/dots -->
-                <div class="carousel-indicators">
+            <!--  <div class="carousel-indicators">
                     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
                     <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                 </div>
                 <!-- Slideshow/carousel -->
-                <div class="carousel-inner">
+            <!-- <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="img-container">
                             <img src="images/imagen1.png" alt="Imagen 1" class="d-block w-100">
@@ -51,7 +61,7 @@
                     </div>
                 </div>
                 <!-- Controles -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <!--<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
@@ -61,52 +71,52 @@
         </section>
 
         <!-- Sección de productos -->
-        <section class="container-card text-center">
-            <h2>Algunos de nuestros productos</h2>
-            <section class="products">
-
+            <section class="container-card text-center">
+                <h2>Algunos de nuestros productos</h2>
                 <section class="products">
 
-                    <% for(let i=0; i<inventory.length; i++){ %>
+                    <section class="products">
 
-                        <div class="products-cards" onclick="toProductDetail(<%= i %>)">
-                            <img src="<%= inventory[i].imagen %>" alt="Producto 1" class="img-fluid">
-                            <h3>
-                                <%= inventory[i].nombre %>
-                            </h3>
-                            <p>
-                                <%= inventory[i].descripcion %>
-                            </p>
-                        </div>
+                        <% for(let i=0; i<inventory.length; i++){ %>
 
-                    <% } %>
+                            <div class="products-cards" onclick="toProductDetail(<%= i %>)">
+                                <img src="<%= inventory[i].imagen %>" alt="Producto 1" class="img-fluid">
+                                <h3>
+                                    <%= inventory[i].nombre %>
+                                </h3>
+                                <p>
+                                    <%= inventory[i].descripcion %>
+                                </p>
+                            </div>
 
+                            <% } %>
+
+                    </section>
                 </section>
             </section>
+        </main>
+        <section class="epc-box-container">
+            <div class="epc-box">
+                <div class="epc">
+                    <i class="fas fa-shipping-fast fa-3x"></i>
+                    <p>Envíos y Retiros</p>
+                </div>
+                <div class="epc">
+                    <i class="fas fa-credit-card fa-3x"></i>
+                    <p>Paga como quieras</p>
+                </div>
+                <div class="epc">
+                    <i class="fas fa-lock fa-3x"></i>
+                    <p>Compra con seguridad</p>
+                </div>
+            </div>
         </section>
-    </main>
-    <section class="epc-box-container">
-        <div class="epc-box">
-            <div class="epc">
-                <i class="fas fa-shipping-fast fa-3x"></i>
-                <p>Envíos y Retiros</p>
-            </div>
-            <div class="epc">
-                <i class="fas fa-credit-card fa-3x"></i>
-                <p>Paga como quieras</p>
-            </div>
-            <div class="epc">
-                <i class="fas fa-lock fa-3x"></i>
-                <p>Compra con seguridad</p>
-            </div>
-        </div>
-    </section>
-    <%- include("partials/footer.ejs") %>
-    <script>
-        function toProductDetail(index) {
-            window.location.href = "/products/detail/" + index;
-        }
-    </script>
+        <%- include("partials/footer.ejs") %>
+            <script>
+                function toProductDetail(index) {
+                    window.location.href = "/products/detail/" + index;
+                }
+            </script>
 </body>
 
 </html>

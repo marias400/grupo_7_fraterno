@@ -14,6 +14,32 @@ ul {
     margin-bottom: 0 !important;
 }
 
+.div__gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    display: flex;
+    width: 90vw;
+    height: 430px;
+}
+
+.gallery img {
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+.gallery img:hover {
+    cursor: pointer;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%)
+}
+
 /* Logo */
 .logo-container {
     height: 48px;
@@ -241,6 +267,10 @@ ul {
         flex: 1 1 100%;
         margin-bottom: 20px;
     }
+
+    .gallery {
+        height: 350px;
+    }
 }
 
 @media (max-width: 430px) {
@@ -254,5 +284,9 @@ ul {
 
     .carrusel {
         margin: 2vh 2%;
+    }
+
+    .gallery {
+        height: 250px;
     }
 }
