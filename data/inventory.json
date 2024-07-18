@@ -9,7 +9,8 @@
             "tomate",
             "lechuga",
             "queso",
-            "mayonesa casera"
+            "mayonesa casera",
+            "amor"
         ],
         "imagen": "/images/imagen2.png",
         "categoria": "Sanguchito",
@@ -26,8 +27,11 @@
             "jamon",
             "tomate",
             "lechuga",
+            "cebolla",
             "queso",
-            "mayonesa casera"
+            "mayonesa casera",
+            "ketchup",
+            "amor"
         ],
         "imagen": "/images/imagen3.png",
         "categoria": "Sanguchito",
@@ -48,7 +52,8 @@
             "tomate",
             "lechuga",
             "queso",
-            "mayonesa casera"
+            "mayonesa casera",
+            "amor"
         ],
         "imagen": "/images/imagen4.png",
         "categoria": "Sanguchito",
@@ -67,7 +72,8 @@
             "tomate",
             "lechuga",
             "queso",
-            "mayonesa casera"
+            "mayonesa casera",
+            "amor"
         ],
         "imagen": "/images/imagen5.png",
         "categoria": "Sanguchito",

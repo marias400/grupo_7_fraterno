@@ -198,14 +198,11 @@ ul {
 .epc-box-container,
 .epc-box {
     width: 100%;
-    height: 80px;
     background-color: var(--mustard);
 }
 
 .epc-box-container {
     display: flex;
-    position: relative;
-    bottom: 48px;
     z-index: 500;
     justify-content: center;
 }

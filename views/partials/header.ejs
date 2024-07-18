@@ -1,9 +1,9 @@
-<header class="top-side-container">
-    <div class="top-side">
-        <div class="top-side__logo">
+<header class="main-header-container">
+    <div class="main-header">
+        <div class="main-header__logo">
             <a href="/"><img src="/images/logoG7.svg" alt="logoG7"></a>
         </div>
-        <div class="top-side__burguer-menu" id="menu-trigger">
+        <div class="main-header__burguer-menu" id="menu-trigger">
             <i class="fa-solid fa-burger"></i>
         </div>
         <ul id="menu" class="menu">
@@ -42,11 +42,10 @@
             });
         </script>
         <nav>
-            <ul>
-                <li class="login"><a href="/users/login">Iniciar sesión <i class="fa-solid fa-right-to-bracket"></i></a>
-                </li>
-                <li class="carrito"><a href="/products/cart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
-            </ul>
+            <span class="main-header__admin"><a href="/admin/products">Admin</a></span>
+            <span class="main-header__products"><a href="/products/detail/0">Productos</a></span>
+            <span class="main-header__login"><a href="/users/login">Iniciar sesión</a></span>
+            <span class="main-header__register"><a href="/users/register">Registro</a></span>
         </nav>
     </div>
 </header>

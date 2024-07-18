@@ -9,10 +9,6 @@ const productController = {
     cartPage: (req, res) => {
         res.render('products/product-cart');
     },
-
-    adminPage: (req, res) => {
-        res.render('products/product-management');
-    },
 };
 
 module.exports = productController;

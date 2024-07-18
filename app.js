@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
-const routesProducts = require("./routes/productsRoutes");
 const routesHome = require("./routes/homeRoutes");
+const routesAdmin = require("./routes/adminRoutes");
 const routesUsers = require("./routes/usersRoutes");
+const routesProducts = require("./routes/productsRoutes");
 
 
 /*PUERTO (esta vez no es el 80 :D) */
@@ -22,8 +23,9 @@ app.set("view engine", "ejs");
 
 /*rutas de paginas*/
 app.use("/", routesHome);
-app.use("/products", routesProducts);
+app.use("/admin", routesAdmin);
 app.use("/users", routesUsers);
+app.use("/products", routesProducts);
 
 
 /*iniciador del server + error*/

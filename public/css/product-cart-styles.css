@@ -40,11 +40,6 @@ main {
     align-items: center;
 }
 
-.cart__header--product,
-.cart__header--subtotal {
-    display: none;
-}
-
 .cart__header--icon {
     color: var(--orange);
     font-size: 0.9rem;
@@ -183,7 +178,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    justify-self: end;
     margin-top: auto;
 }
 
