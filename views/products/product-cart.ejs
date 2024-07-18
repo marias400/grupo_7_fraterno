@@ -12,27 +12,31 @@
 
 <body>
     <%- include("../partials/header.ejs") %>
-    <main>
-        <div class="cart">
-            <header class="cart__header">
-                <p class="cart__header--title">
-                    <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
-                    Tu carrito (2 items)
-                </p>
-            </header>
-            <div class="cart__content">
-                <article class="cart__content--product">
-                    <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
-                    <img src="../images/milanesa.jpg" class="cart__content--product-image">
-                    <div class="cart__content--product-right-box">
-                        <div class="cart__content--product-middleblox">
-                            <div class="cart__content--product-middleblox-top">
-                                <p class="cart__content--product-middleblox-name">Milanesa</p>
-                            </div>
-                            <div class="cart__content--product-middleblox-bottom">
-                                <button class="cart__content--product-middleblox-quantityMinus">-</button>
-                                <span class="cart__content--product-middleblox-quantity">1</span>
-                                <button class="cart__content--product-middleblox-quantityPlus">+</button>
+        <main>
+            <div class="cart">
+                <header class="cart__header">
+                    <p class="cart__header--title">
+                        <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
+                        Tu carrito (2 items)
+                    </p>
+                </header>
+                <div class="cart__content">
+                    <article class="cart__content--product">
+                        <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+                        <img src="../images/milanesa.jpg" class="cart__content--product-image">
+                        <div class="cart__content--product-right-box">
+                            <div class="cart__content--product-middleblox">
+                                <div class="cart__content--product-middleblox-top">
+                                    <p class="cart__content--product-middleblox-name">Milanesa</p>
+                                </div>
+                                <div class="cart__content--product-middleblox-bottom">
+                                    <button onclick="decrementar(<%= 1 %>)"
+                                        class="cart__content--product-middleblox-quantityMinus">-</button>
+                                    <span id="valor-<%= 1 %>"
+                                        class="cart__content--product-middleblox-quantity">1</span>
+                                    <button onclick="incrementar(<%= 1 %>)"
+                                        class="cart__content--product-middleblox-quantityPlus">+</button>
+                                </div>
                             </div>
                             <p class="cart__content--product-price">$5.000,00</p>
                         </div>
@@ -46,9 +50,12 @@
                                     <p class="cart__content--product-middleblox-name">Pajarito</p>
                                 </div>
                                 <div class="cart__content--product-middleblox-bottom">
-                                    <button onclick="decrementar(<%= 1 %>)" class="cart__content--product-middleblox-quantityMinus">-</button>
-                                    <span id="valor-<%= 1 %>" class="cart__content--product-middleblox-quantity">1</span>
-                                    <button onclick="incrementar(<%= 1 %>)" class="cart__content--product-middleblox-quantityPlus">+</button>
+                                    <button onclick="decrementar(<%= 1 %>)"
+                                        class="cart__content--product-middleblox-quantityMinus">-</button>
+                                    <span id="valor-<%= 1 %>"
+                                        class="cart__content--product-middleblox-quantity">1</span>
+                                    <button onclick="incrementar(<%= 1 %>)"
+                                        class="cart__content--product-middleblox-quantityPlus">+</button>
                                 </div>
                             </div>
                             <p class="cart__content--product-price">$4.500,00</p>
