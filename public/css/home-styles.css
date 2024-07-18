@@ -1,8 +1,6 @@
 body {
     background-color: var(--mayonnaise);
     color: var(--dark-blue);
-    font-weight: normal !important;
-    line-height: normal !important;
 }
 
 /* Los !important son necesarios para pisar hojas
@@ -12,6 +10,24 @@ p,
 ul {
     padding: 0 !important;
     margin-bottom: 0 !important;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 0;
+    font-weight: 900;
+    font-optical-sizing: auto;
+    padding-top: 15px;
+    font-weight: 900;
+    border-top: solid 1px var(--mustard);
+ 
+}
+
+.h__Title {
+    font-family: "Playwrite CU", cursive;
+    border-bottom: solid 1px var(--mustard);
+    margin-bottom: 10px;
+   
 }
 
 .div__gallery {
@@ -124,34 +140,22 @@ ul {
     background-color: var(--mustard-shadow);
 }
 
-/* Carrusel */
-.carrusel {
-    max-width: 100%;
-    padding: 0 20px;
-    margin: 2vh auto;
-    box-sizing: border-box;
-}
-
-.carousel-inner,
-.carousel-item {
-    height: 250px;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 3%;
-}
 
 /* Sección de Productos */
 .container-card {
     padding: 20px;
-    margin-top: 20px;
 }
 
+h2 {
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-family: "Playwrite CU", cursive;
+}
 .container-card h2 {
     color: var(--dark-blue);
-    margin-bottom: 20px;
+    border-bottom: solid 1px var(--mustard);
+    border-top: solid 1px var(--mustard);
 }
 
 .products {
