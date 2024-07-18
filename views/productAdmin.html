@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/productAdminStyles.css">
+
+    <!--Iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!--Fuentes (de Google Fonts)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+
+    <title>Administración de Productos</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-side">
+            <div class="top-side__logo">
+                <a href="/"><img src="/images/logoG7.svg" alt="logoG7"></a>
+            </div>
+            <div class="top-side__burguer-menu">
+                <i class="fa-solid fa-burger"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/views/log_in.html">Log in <i class="fa-solid fa-right-to-bracket"></i></a></li>
+                    <li><a href="/views/productCart.html">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h1>Administración de Productos</h1>
+        <h2>Agregar y Editar Productos</h2>
+
+        <form id="product-form">
+            <!-- Sección de Selección de Producto -->
+            <div>
+                <label for="search">Buscar Producto:</label>
+                <input type="text" id="search" name="search" placeholder="Buscar por nombre, SKU, categoría">
+                <button type="button">Buscar</button>
+                <select id="product-list">
+                    <!-- Resultados de búsqueda -->
+                </select>
+            </div>
+
+            <!-- Sección de Datos del Producto -->
+            <div>
+                <label for="name">Nombre del Producto:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="image">Imagen del Producto:</label>
+                <input type="file" id="image" name="image">
+
+                <label for="category">Categoría:</label>
+                <select id="category" name="category" required>
+                    <!-- Opciones de categoría -->
+                </select>
+
+                <label for="colors">Colores (o tamaños, talles, etc):</label>
+                <input type="text" id="colors" name="colors" required>
+
+                <label for="price">Precio:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+
+            <!-- Sección de Gestión -->
+            <div>
+                <button type="submit">Guardar Cambios</button>
+                <button type="button">Cancelar</button>
+                <button type="button">Eliminar Producto</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="mainFooter">
+        <button class="mainFooter__checkout-button">Finalizar compra</button>
+        <p class="mainFooter__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        document.querySelector('.top-side__burguer-menu').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

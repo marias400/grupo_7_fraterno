@@ -1,0 +1,287 @@
+/* PALETA
+
+crema clarito: #F5E8B1
+crema: #F6D860
+crema oscuro: #F4D980
+verde claro: #79BA76
+verde oscuro: #096745 
+*/
+
+
+/*
+-------Nueva Paleta-------
+
+Mostaza: #f7a81b
+Naranja: #e85829
+Mayonesa: #f9d8b8 
+Azul Oscuro: #101923
+
+-------Nuevas Fuentes-------
+
+Verdana
+Vaytone (LOGO)
+*/
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*body*/
+
+body {
+    background-color: #f9d8b8;
+    height: 100vh;
+}
+
+/*inicio header*/
+header {
+    height: 10%;
+}
+
+.top-side {
+    display: flex;
+    background-color: #101923;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.top-side__logo {
+    display: flex;
+    height: 60%;
+    width: 100%;
+}
+
+.top-side__logo a {
+    display: flex;
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.top-side__burguer-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    margin-right: 15px;
+    color: #101923;
+    background-color: #f7a81b;
+    width: 20%;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow:
+        0.4vh 0.4vh #946410,
+        0.2vh 0.2vh #946410;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
+}
+
+.top-side nav {
+    
+    padding-right: 15px;
+}
+
+.top-side nav ul {
+    gap: 15px;
+    display: flex;
+}
+
+.top-side nav ul li {
+    list-style-type: none;
+    color: #f7a81b;
+    width: auto;
+    display: inline-block; 
+    margin-right: 15px;
+}
+
+.top-side nav ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/*main*/
+
+
+main {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 100vh;
+}
+
+.form {
+
+    input[type="text"],
+    input[type="password"] {
+        border: none;
+        border-bottom: 1px solid #101923;
+        background-color: #f9d8b8;
+        padding: 5vh;
+        margin: auto;
+        width: 25vw;
+        text-align: center;
+    }
+}
+
+input::placeholder {
+    color: #101923;
+    font-weight: 400;
+}
+
+
+
+
+.campos-form {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    text-align: center;
+
+}
+
+
+.button {
+    display: flex;
+    flex-direction: center;
+    background-color: #e85829;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    outline: none;
+    border: none;
+
+}
+
+
+footer {
+    height: 100%;
+    background-color: #101923;
+    height: 48px;
+    width: 100vw;
+    color: white;
+    font-size: 1.2vh;
+}
+
+
+
+/*media query header*/
+
+@media (max-width: 699px) {
+    header {
+        height: 60px; /* Ajusta la altura para dispositivos móviles */
+    }
+
+    .top-side nav ul {
+        display: none; /* Oculta los elementos <ul> */
+    }
+
+    .top-side__burguer-menu {
+        /*display: block; /* Muestra el menú hamburguesa */
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+@media (min-width: 700px) {
+    header {
+        height: 60px; 
+    }
+
+    .top-side__logo img {
+        height: 50%; 
+    }
+
+    .top-side__burguer-menu {
+    display: none; 
+    }
+
+    .top-side nav ul li {
+        width: auto; 
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+}
+
+
+
+/*media query main*/
+
+@media (max-width: 1024px) {
+
+    .form {
+        margin-top: 30%;
+        margin-bottom: 30%;
+    }
+
+    .campos-form input[type="text"],
+    .campos-form input[type="password"] {
+        padding: 10px;
+        width: 80%;
+    }
+
+    .button {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+
+    .form {
+        margin-top: 30%;
+        margin-bottom: 30%;
+    }
+
+    .campos-form input[type="text"],
+    .campos-form input[type="password"] {
+        padding: 10px;
+        width: 80%;
+    }
+
+    .button {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/*media query footer*/
+
+@media (max-width: 1024px) {
+    .mainFooter {
+        height: auto;
+        border-top: none;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .mainFooter {
+        height: auto;
+        border-top: none;
+        padding: 10px;
+        text-align: center;
+    }
+}
