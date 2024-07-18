@@ -12,63 +12,80 @@
 
 <body>
     <%- include("../partials/header.ejs") %>
-    <main>
-        <div class="cart">
-            <header class="cart__header">
-                <p class="cart__header--title">
-                    <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
-                    Tu carrito (2 items)
-                </p>
-                <p class="cart__header--product">Producto</p>
-                <p class="cart__header--subtotal">Subtotal</p>
-            </header>
-            <div class="cart__content">
-                <article class="cart__content--product">
-                    <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
-                    <img src="../images/milanesa.jpg" class="cart__content--product-image">
-                    <div class="cart__content--product-right-box">
-                        <div class="cart__content--product-middleblox">
-                            <div class="cart__content--product-middleblox-top">
-                                <p class="cart__content--product-middleblox-name">Milanesa</p>
+        <main>
+            <div class="cart">
+                <header class="cart__header">
+                    <p class="cart__header--title">
+                        <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
+                        Tu carrito (2 items)
+                    </p>
+                    <p class="cart__header--product">Producto</p>
+                    <p class="cart__header--subtotal">Subtotal</p>
+                </header>
+                <div class="cart__content">
+                    <article class="cart__content--product">
+                        <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+                        <img src="../images/milanesa.jpg" class="cart__content--product-image">
+                        <div class="cart__content--product-right-box">
+                            <div class="cart__content--product-middleblox">
+                                <div class="cart__content--product-middleblox-top">
+                                    <p class="cart__content--product-middleblox-name">Milanesa</p>
+                                </div>
+                                <div class="cart__content--product-middleblox-bottom">
+                                    <button onclick="decrementar(<%= 0 %>)" class="cart__content--product-middleblox-quantityMinus">-</button>
+                                    <span id="valor-<%= 0 %>" class="cart__content--product-middleblox-quantity">1</span>
+                                    <button onclick="incrementar(<%= 0 %>)" class="cart__content--product-middleblox-quantityPlus">+</button>
+                                </div>
                             </div>
-                            <div class="cart__content--product-middleblox-bottom">
-                                <button class="cart__content--product-middleblox-quantityMinus">-</button>
-                                <span class="cart__content--product-middleblox-quantity">1</span>
-                                <button class="cart__content--product-middleblox-quantityPlus">+</button>
-                            </div>
+                            <p class="cart__content--product-price">$5.000,00</p>
                         </div>
-                        <p class="cart__content--product-price">$5.000,00</p>
-                    </div>
-                </article>
-                <article class="cart__content--product">
-                    <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
-                    <img src="../images/milanesa.jpg" class="cart__content--product-image">
-                    <div class="cart__content--product-right-box">
-                        <div class="cart__content--product-middleblox">
-                            <div class="cart__content--product-middleblox-top">
-                                <p class="cart__content--product-middleblox-name">Pajarito</p>
+                    </article>
+                    <article class="cart__content--product">
+                        <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+                        <img src="../images/milanesa.jpg" class="cart__content--product-image">
+                        <div class="cart__content--product-right-box">
+                            <div class="cart__content--product-middleblox">
+                                <div class="cart__content--product-middleblox-top">
+                                    <p class="cart__content--product-middleblox-name">Pajarito</p>
+                                </div>
+                                <div class="cart__content--product-middleblox-bottom">
+                                    <button onclick="decrementar(<%= 1 %>)" class="cart__content--product-middleblox-quantityMinus">-</button>
+                                    <span id="valor-<%= 1 %>" class="cart__content--product-middleblox-quantity">1</span>
+                                    <button onclick="incrementar(<%= 1 %>)" class="cart__content--product-middleblox-quantityPlus">+</button>
+                                </div>
                             </div>
-                            <div class="cart__content--product-middleblox-bottom">
-                                <button class="cart__content--product-middleblox-quantityMinus">-</button>
-                                <span class="cart__content--product-middleblox-quantity">1</span>
-                                <button class="cart__content--product-middleblox-quantityPlus">+</button>
-                            </div>
+                            <p class="cart__content--product-price">$4.500,00</p>
                         </div>
-                        <p class="cart__content--product-price">$4.500,00</p>
-                    </div>
-                </article>
+                    </article>
+                </div>
+                <section class="cart__subtotal">
+                    <p class="cart__subtotal--text">Subtotal</p>
+                    <p class="cart__subtotal--price">$9.500,00</p>
+                </section>
             </div>
-            <section class="cart__subtotal">
-                <p class="cart__subtotal--text">Subtotal</p>
-                <p class="cart__subtotal--price">$9.500,00</p>
+            <section class="checkout">
+                <button type="submit" class="checkout-button">Finalizar compra</button>
+                <a href="/">Volver a la tienda</a>
             </section>
-        </div>
-        <section class="checkout">
-            <button type="submit" class="checkout-button">Finalizar compra</button>
-            <a href="/">Volver a la tienda</a>
-        </section>
-    </main>
-    <%- include("../partials/footer.ejs") %>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+            <script>
+                function incrementar(id) {
+                    const valorSpan = document.getElementById(`valor-${id}`);
+                    let valor = parseInt(valorSpan.innerText, 10);
+                    valor++;
+                    valorSpan.innerText = valor;
+                }
+
+                function decrementar(id) {
+                    const valorSpan = document.getElementById(`valor-${id}`);
+                    let valor = parseInt(valorSpan.innerText, 10);
+                    if (valor > 0) { // Opcional: para no permitir valores negativos
+                        valor--;
+                    }
+                    valorSpan.innerText = valor;
+                }
+            </script>
 </body>
 
 </html>

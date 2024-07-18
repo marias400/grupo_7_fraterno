@@ -33,33 +33,60 @@
                     <form>
 
                         <% for(let i=0; i<inventory[id].ingredientes.length; i++){ %>
-                            <div class="stripe__info--values">
-                                <input type="checkbox" name="cheese" id="check<%= i %>" checked>
-                                <label for="check<%= i %>">
-                                    <%= inventory[id].ingredientes[i] %>
-                                </label>
-                                <input type="button" name="minus" id="minus" value="-">
-                                <label>1</label>
-                                <input type="button" name="plus" id="plus" value="+">
-                            </div>
-                            <hr>
-                            <% } %>
+                            <% let valor=0; %>
+                                <div class="stripe__info--values">
+                                    <input type="checkbox" name="cheese" id="check<%= i %>" checked>
+                                    <label for="check<%= i %>">
+                                        <%= inventory[id].ingredientes[i] %>
+                                    </label>
 
-                                
+                                    <div class="stripe__info--values__amount">
+                                        <button type="button" onclick="decrementar(<%= i %>)">-</button>
+                                        <span id="valor-<%= i %>">
+                                            <%= valor %>
+                                        </span>
+                                        <button type="button" onclick="incrementar(<%= i %>)">+</button>
+                                    </div>
+
+                                </div>
+                                <hr>
+                                <% } %>
+
+
                     </form>
                 </div>
                 <div class="stripe__button">
-                    <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar" onclick="toCart()"">
-                    <label for="add-to-cart">$5.000</label>
+                    <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar" onclick="toCart()">
+                    <label for=" add-to-cart">$5.000</label>
                 </div>
             </div>
         </main>
+
         <%- include("../partials/footer.ejs") %>
-        <script>
-            function toCart() {
-                window.location.href = "/products/cart";
-            }
-        </script>
+
+            <script>
+
+                function toCart() {
+                    window.location.href = "/products/cart";
+                }
+
+                function incrementar(id) {
+                    const valorSpan = document.getElementById(`valor-${id}`);
+                    let valor = parseInt(valorSpan.innerText, 10);
+                    valor++;
+                    valorSpan.innerText = valor;
+                }
+
+                function decrementar(id) {
+                    const valorSpan = document.getElementById(`valor-${id}`);
+                    let valor = parseInt(valorSpan.innerText, 10);
+                    if (valor > 0) { // Opcional: para no permitir valores negativos
+                        valor--;
+                    }
+                    valorSpan.innerText = valor;
+                }
+
+            </script>
 </body>
 
 </html>
