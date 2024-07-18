@@ -1,0 +1,36 @@
+main {
+    text-align: justify;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+main img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+main h1 {
+    width: fit-content;
+    margin: 40px auto 20px;
+    text-decoration: overline underline;
+    text-align: center;
+}
+
+main p {
+    margin-bottom: 10px;
+}
+
+main h2 {
+    color: var(--orange);
+    margin: 10px 15px;
+    text-align: start;
+}
+
+main section section p {
+    margin-left: 15px;
+}
+
+.last-line {
+    margin-top: 20px;
+    font-weight: bold;
+}

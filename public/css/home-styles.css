@@ -1,0 +1,293 @@
+body {
+    background-color: var(--mayonnaise);
+    color: var(--dark-blue);
+}
+
+/* Los !important son necesarios para pisar hojas
+de estilo de Bootstrap que comprometen la unifor-
+midad del header en todas las paginas */
+p,
+ul {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 0;
+    font-weight: 900;
+    font-optical-sizing: auto;
+    padding-top: 15px;
+    font-weight: 900;
+    border-top: solid 1px var(--mustard);
+ 
+}
+
+.h__Title {
+    font-family: "Playwrite CU", cursive;
+    border-bottom: solid 1px var(--mustard);
+    margin-bottom: 10px;
+   
+}
+
+.div__gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    display: flex;
+    width: 90vw;
+    height: 430px;
+}
+
+.gallery img {
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+.gallery img:hover {
+    cursor: pointer;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%)
+}
+
+/* Logo */
+.logo-container {
+    height: 48px;
+    background-color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 76%;
+    height: 100%;
+    display: flex;
+}
+
+.logo a {
+    display: flex;
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.search-box-container {
+    width: 100%;
+    height: 85px;
+    background-color: var(--mustard);
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    width: 100%;
+    height: 85px;
+    max-width: var(--max-width-hf);
+    background-color: var(--mustard);
+    padding: 30px 60px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-box__input {
+    height: 35px;
+    max-width: 250px;
+    color: var(--dark-blue);
+    padding: 0 10px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.search-box__input::placeholder {
+    color: var(--dark-blue);
+}
+
+.search-box__input:focus {
+    outline: none;
+}
+
+.search-box button {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    color: var(--dark-blue);
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 100ms ease-out;
+    cursor: default !important;
+}
+
+.search-box button:active {
+    background-color: var(--mustard-shadow);
+}
+
+
+/* Sección de Productos */
+.container-card {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-family: "Playwrite CU", cursive;
+}
+.container-card h2 {
+    color: var(--dark-blue);
+    border-bottom: solid 1px var(--mustard);
+    border-top: solid 1px var(--mustard);
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.products-cards {
+    background-color: var(--dark-mayonnaise);
+    padding: 20px;
+    margin: 25px 10px 0px;
+    text-align: center;
+    border: 1.5px solid var(--darker-mayonnaise);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    flex: 1;
+    margin-bottom: 50px;
+}
+
+.products-cards:hover {
+    box-shadow: 0 10px 15px var(--dark-blue);
+    cursor: pointer;
+}
+
+.products-cards img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.products-cards h3 {
+    color: var(--dark-blue);
+    margin: 10px 0;
+}
+
+.products-cards p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Footer */
+
+.epc-box-container,
+.epc-box {
+    width: 100%;
+    background-color: var(--mustard);
+}
+
+.epc-box-container {
+    display: flex;
+    z-index: 500;
+    justify-content: center;
+}
+
+.epc-box {
+    max-width: var(--max-width-hf);
+    color: var(--dark-blue);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.epc {
+    text-align: center;
+    flex: 1 1 33%;
+}
+
+.epc i {
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+
+.epc:hover i {
+    color: var(--mayonnaise);
+}
+
+.epc p {
+    margin-top: 10px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+
+    .buscador-container,
+    .products {
+        flex-direction: column;
+    }
+
+    .products-cards {
+        width: 100%;
+    }
+
+    .carrusel {
+        margin: 2vh 5%;
+    }
+
+    .container-card {
+        padding: 20px 10px;
+    }
+
+    .buscador {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .epc {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    .gallery {
+        height: 350px;
+    }
+}
+
+@media (max-width: 430px) {
+    .products {
+        flex-direction: column;
+    }
+
+    .products-cards {
+        width: 100%;
+    }
+
+    .carrusel {
+        margin: 2vh 2%;
+    }
+
+    .gallery {
+        height: 250px;
+    }
+}

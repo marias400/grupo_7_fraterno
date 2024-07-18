@@ -1,0 +1,84 @@
+/*body*/
+body {
+    background-color: var(--mayonnaise);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    min-width: 375px;
+    text-align: center;
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form__text-above {
+    color: var(--dark-blue);
+    margin: 1em 0 .5em;
+    font-size: 24px;
+}
+
+.form__logo {
+    background-color: var(--dark-blue);
+    padding: 15px;
+    border-radius: 50px 0 0 50px;
+}
+
+.form input {
+    width: 100%;
+    background-color: transparent;
+    color: var (--dark-blue);
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid rgb(151, 141, 141);
+    outline: none;
+    background: none;
+}
+
+.form_submit {
+    width: 60%;
+    background-color: var(--orange) !important;
+    color: white !important;
+    padding: .8em 0;
+    font-size: 1rem;
+    font-weight: 300;
+    border: none !important;
+    border-radius: .5em;
+    box-shadow:
+        4px 4px var(--orange-shadow),
+        3px 3px var(--orange-shadow),
+        2px 2px var(--orange-shadow),
+        1px 1px var(--orange-shadow);
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
+    cursor: pointer;
+    margin-bottom: 78px;
+}
+
+.form_submit:active,
+.top-side__burguer-menu:active {
+    background-color: #ce4f24;
+    box-shadow: none;
+    position: relative;
+    transform: translate(4px, 4px);
+}
+
+.campos-form {
+    margin: 35px 0;
+    text-align: center;
+}
+
+@media (max-width: 375px) {
+    .form {
+        min-width: 90vw;
+    }
+}

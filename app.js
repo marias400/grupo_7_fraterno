@@ -2,35 +2,35 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
-let port = process.env.PORT || 8000;
+const routesHome = require("./routes/homeRoutes");
+const routesAdmin = require("./routes/adminRoutes");
+const routesUsers = require("./routes/usersRoutes");
+const routesProducts = require("./routes/productsRoutes");
 
+
+/*PUERTO (esta vez no es el 80 :D) */
+let PORT = process.env.PORT || 8000;
+
+
+/*carpeta estática de imágenes y hojas de estilo*/
 const publicPath = path.resolve('./public');
 app.use(express.static(publicPath));
- 
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/home.html"));
-});
 
-app.get("/producto", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/products/productDetail.html"));
-});
 
-app.get("/carrito", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/products/productCart.html"));
-});
+/*view engine*/
+app.set("view engine", "ejs");
 
-app.get("/ingresar", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/users/log_in.html"));
-});
 
-app.get("/registrar", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/users/register.html"));
-});
+/*rutas de paginas*/
+app.use("/", routesHome);
+app.use("/admin", routesAdmin);
+app.use("/users", routesUsers);
+app.use("/products", routesProducts);
 
-app.get("/views/productAdmin", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/productAdmin.html"));
-});
 
-app.listen(port, () => {
-    console.log(`Server online en el puerto ${port}.`);
+/*iniciador del server + error*/
+app.listen(PORT, (err) => {
+    err
+    ? console.error("Server failed. ", err.message)
+    : console.log(`Server running on http://localhost:${PORT}`);
 });

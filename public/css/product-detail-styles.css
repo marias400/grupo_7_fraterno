@@ -1,0 +1,281 @@
+/* html,
+body   {
+    height: 100%;
+} */
+
+body {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: 48px auto 48px;
+    grid-template-columns: 100%;
+}
+
+header {
+    height: 100%;
+    background-color: #4c4eaf;
+    grid-area: header;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background-color: var(--mayonnaise);
+    display: flex;
+    justify-content: center;
+    grid-area: main;
+}
+
+footer {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-blue);
+    grid-area: footer;
+    height: 48px;
+}
+
+.stripe {
+    width: 60vw;
+    min-width: 280px;
+    margin: 40px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr {
+    width: 40vw;
+    height: 1px;
+    background-color: var(--orange);
+}
+
+.stripe__tags--product-description {
+    border: 1px solid var(--orange);
+    border-radius: .5em;
+}
+
+
+.stripe__tags--product-name,
+.stripe__tags--product-description {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stripe__tags--product-name p {
+    color: var(--dark-blue);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.stripe__tags--product-description p {
+    color: var(--dark-blue);
+    font-size: small;
+    text-align: justify;
+}
+
+.stripe__info {
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.stripe__info--values :nth-child(4) {
+    background-color: var(--mayonnaise);
+    text-align: center;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.stripe__photo img {
+    border: 1px solid var(--orange);
+    border-radius: 26px 58px;
+}
+
+.stripe__photo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.stripe__photo img {
+    width: 40vw;
+    height: 100%;
+    max-height: 30vw;
+    min-height: 280px;
+    align-self: center;
+    /*wanky ass width*/
+    min-width: 280px;
+}
+
+.stripe__info form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stripe__info--values {
+    padding: 10px;
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: 20px 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+}
+
+.stripe__info--values__amount button {
+    width: 20px;
+    height: 20px;
+}
+
+.stripe__info--values__amount {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.stripe__info--values button {
+    width: 20px;
+    height: 20px;
+    background-color: var(--mustard);
+    color: var(--dark-blue);
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.stripe__button {
+    width: 150px;
+    background-color: var(--orange);
+    margin: 40px 0 40px 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(75, 75, 75);
+    display: flex;
+}
+
+.stripe__button input,
+.stripe__button label {
+    width: 50%;
+    height: 40px;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition:
+        background-color 50ms,
+        transform 10ms,
+        box-shadow 50ms;
+    cursor: pointer;
+}
+
+.stripe__button input {
+    background-color: transparent;
+    border: none;
+}
+
+.stripe__button label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stripe__button:active {
+    background-color: #ce4f24;
+    box-shadow: none;
+    position: relative;
+    transform: translate(0.4vh, 0.4vh);
+}
+
+
+/*TELEFONOS*/
+@media (max-width: 375px) {
+    .stripe__tags--product-description {
+        display: none;
+    }
+}
+
+/*TABLETS +*/
+@media (min-width: 768px) {
+    .stripe__photo img {
+        max-height: 30vw;
+    }
+
+    .stripe__tags {
+        width: 40vw;
+    }
+
+    .stripe__info {
+        width: 40vw;
+    }
+
+    hr {
+        width: 40vw;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    main {
+        height: calc(100vh - (48px * 2));
+        align-items: center;
+    }
+
+    .stripe {
+        width: 100%;
+        height: 50vh;
+        margin: 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .stripe__photo {
+        height: 50vh;
+        display: flex;
+    }
+
+    .stripe__photo img {
+        width: auto;
+        max-height: none;
+        align-items: center;
+        justify-self: center;
+    }
+
+    .stripe__tags {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .stripe__info {
+        width: 30%;
+    }
+
+    .stripe__info form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .stripe__button {
+        width: 13%;
+        margin: 0;
+        position: relative;
+        right: 10px;
+        bottom: 45%;
+        box-sizing: content-box;
+        align-self: flex-end;
+    }
+}
