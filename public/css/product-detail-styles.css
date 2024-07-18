@@ -1,5 +1,5 @@
 /* html,
-body  {
+body   {
     height: 100%;
 } */
 
@@ -126,21 +126,31 @@ hr {
 .stripe__info--values {
     padding: 10px;
     display: grid;
-    grid-template-columns: 20px 70px 20px 20px 20px;
+    flex-grow: 1;
+    grid-template-columns: 20px 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 10px;
 }
 
-.stripe__info--values input,
-.stripe__info--values label {
-    font-size: 12px;
+.stripe__info--values__amount button {
+    width: 20px;
+    height: 20px;
 }
 
-.stripe__info--values input {
+.stripe__info--values__amount {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.stripe__info--values button {
     width: 20px;
-    height: 15px;
+    height: 20px;
     background-color: var(--mustard);
     color: var(--dark-blue);
+    text-align: center;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -158,6 +168,7 @@ hr {
 .stripe__button input,
 .stripe__button label {
     width: 50%;
+    height: 40px;
     color: white;
     font-weight: 500;
     text-transform: uppercase;
@@ -166,9 +177,6 @@ hr {
         transform 10ms,
         box-shadow 50ms;
     cursor: pointer;
-    /* text-shadow: 1px 1px .5px var(--dark-blue);
-    */
-    height: 40px;
 }
 
 .stripe__button input {
