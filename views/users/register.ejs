@@ -24,37 +24,53 @@
 
             <form>
 
-                <label for="Nombre y Apellido"></label>
-                <div class="campos-form">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+                <div class="form_container">
+                    <input type="text" id="user" class="form_input" placeholder=" ">
+                    <label for="user" class="form_label">Nombre y apellido*</label>
+                    <span class="form_line"></span>
                 </div>
 
-                <label for="phone"></label>
-                <div class="campos-form">
-                    <input type="text" id="phone" name="phone" placeholder="Telefono" required>
+                <div class="form_container">
+                    <input type="text" id="user" class="form_input" placeholder=" ">
+                    <label for="user" class="form_label">Telefono*</label>
+                    <span class="form_line"></span>
                 </div>
 
-                <label for="email"></label>
-                <div class="campos-form">
-                    <input type="text" id="email" name="email" placeholder="Mail" required>
+                <div class="form_container">
+                    <input type="text" id="user" class="form_input" placeholder=" ">
+                    <label for="user" class="form_label">Email*</label>
+                    <span class="form_line"></span>
                 </div>
 
-                <label for="address"></label>
-                <div class="campos-form">
-                    <input type="text" id="address" name="address" placeholder="Direccion" required>
+                <div class="form_container">
+                    <input type="text" id="user" class="form_input" placeholder=" ">
+                    <label for="user" class="form_label">Nombre de usuario*</label>
+                    <span class="form_line"></span>
                 </div>
 
-                <label for="Nombre de Usuario"></label>
-                <div class="campos-form">
-                    <input type="text" id="name_user" name="name_user" placeholder="Nombre de Usuario" required>
+                <div class="form_container">
+                    <input type="text" id="user" class="form_input" placeholder=" ">
+                    <label for="user" class="form_label">Direccion</label>
+                    <span class="form_line"></span>
                 </div>
 
-                <label for="contrasena"></label>
-                <div class="campos-form">
-                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                <div class="form_container">
+                    <input type="password" id="pass" class="form_input" placeholder=" ">
+                    <label for="pass" class="form_label">Contraseña*</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form_container">
+                    <input type="password" id="pass" class="form_input" placeholder=" ">
+                    <label for="pass" class="form_label">Repetir contraseña*</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div>
+                    <input type="button" class="form_submit" value="Registrarse" onclick="toHome()">
+                    <p class="form_paragraph"><a href="/users/log-in" class="form_link">Ya tengo una cuenta →</a></p>
                 </div>
             </form>
-            <input type="submit" class="form_submit" value="Crear cuenta">
         </div>
 
 
