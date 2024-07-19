@@ -1,81 +1,101 @@
 <!DOCTYPE html>
 <html lang="es-AR">
-
-<head>
+  <head>
     <%- include("../partials/head.ejs") %>
-        <title>Registro | Grupo Sie7e</title>
+    <title>Registro | Grupo Sie7e</title>
 
-        <!--Hoja de estilos propia de esta página-->
-        <link rel="stylesheet" href="/css/register-styles.css">
-</head>
+    <!--Hoja de estilos propia de esta página-->
+    <link rel="stylesheet" href="/css/register-styles.css" />
+  </head>
 
-<body>
+  <body>
     <%- include("../partials/header.ejs") %>
     <main>
-        <div class="form">
-
-            <div class="form__text-above">
-                <h3>Registrate en:</h3>
-            </div>
-
-            <div class="form__logo">
-                <img src="/images/logoG7.svg" alt="">
-            </div>
-
-            <form>
-
-                <div class="form_container">
-                    <input type="text" id="user" class="form_input" placeholder=" ">
-                    <label for="user" class="form_label">Nombre y apellido*</label>
-                    <span class="form_line"></span>
-                </div>
-
-                <div class="form_container">
-                    <input type="text" id="user" class="form_input" placeholder=" ">
-                    <label for="user" class="form_label">Telefono*</label>
-                    <span class="form_line"></span>
-                </div>
-
-                <div class="form_container">
-                    <input type="text" id="user" class="form_input" placeholder=" ">
-                    <label for="user" class="form_label">Email*</label>
-                    <span class="form_line"></span>
-                </div>
-
-                <div class="form_container">
-                    <input type="text" id="user" class="form_input" placeholder=" ">
-                    <label for="user" class="form_label">Nombre de usuario*</label>
-                    <span class="form_line"></span>
-                </div>
-
-                <div class="form_container">
-                    <input type="text" id="user" class="form_input" placeholder=" ">
-                    <label for="user" class="form_label">Direccion</label>
-                    <span class="form_line"></span>
-                </div>
-
-                <div class="form_container">
-                    <input type="password" id="pass" class="form_input" placeholder=" ">
-                    <label for="pass" class="form_label">Contraseña*</label>
-                    <span class="form_line"></span>
-                </div>
-
-                <div class="form_container">
-                    <input type="password" id="pass" class="form_input" placeholder=" ">
-                    <label for="pass" class="form_label">Repetir contraseña*</label>
-                    <span class="form_line"></span>
-                </div>
-
-                <div>
-                    <input type="button" class="form_submit" value="Registrarse" onclick="toHome()">
-                    <p class="form_paragraph"><a href="/users/log-in" class="form_link">Ya tengo una cuenta →</a></p>
-                </div>
-            </form>
+      <div class="form">
+        <div class="form__text-above">
+          <h3>Registrate en:</h3>
         </div>
 
+        <div class="form__logo">
+          <img src="/images/logoG7.svg" alt="" />
+        </div>
 
+        <form>
+          <div class="form_container">
+            <input type="text" id="name" class="form_input" placeholder=" " />
+            <label for="name" class="form_label">Nombre y apellido*</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_container">
+            <input type="text" id="tel" class="form_input" placeholder=" " />
+            <label for="tel" class="form_label">Telefono*</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_container">
+            <input type="text" id="email" class="form_input" placeholder=" " />
+            <label for="email" class="form_label">Email*</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_container">
+            <input type="text" id="user" class="form_input" placeholder=" " />
+            <label for="user" class="form_label">Nombre de usuario*</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_container">
+            <input type="text" id="address" class="form_input" placeholder=" " />
+            <label for="address" class="form_label">Direccion</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_container">
+            <input
+              type="password"
+              id="pass"
+              class="form_input"
+              placeholder=" "
+            />
+            <label for="pass" class="form_label">Contraseña*</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_container">
+            <input
+              type="password"
+              id="pass-repeat"
+              class="form_input"
+              placeholder=" "
+            />
+            <label for="pass-repeat" class="form_label">Repetir contraseña*</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div>
+            <input
+              type="button"
+              class="form_submit"
+              value="Registrarse"
+              onclick="toHome()"
+            />
+            <p class="form_paragraph">
+              <a href="/users/log-in" class="form_link"
+                >Ya tengo una cuenta →</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <script>
+        function toHome() {
+          window.location.href = "/";
+        }
+      </script>
+      
     </main>
     <%- include("../partials/footer.ejs") %>
-</body>
-
+  </body>
 </html>
