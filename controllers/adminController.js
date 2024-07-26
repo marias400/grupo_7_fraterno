@@ -11,7 +11,7 @@ const adminController = {
   },
 
   productEdit: (req, res) => {
-    let id = req.body.nigeria;
+    let id = req.body.productID;
     id = id - 1;
 
     console.log(`id: ${id}`);

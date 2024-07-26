@@ -37,7 +37,7 @@
             <label>Buscar Producto:</label>
             <input type="text" name="search" placeholder="Buscar por nombre, SKU, categoría">
           
-            <select id="product-list" name="nigeria">
+            <select id="product-list" name="productID">
               <% inventory.forEach(product => { %>
                 <option value="<%= product.id %>"><%= product.name %></option>
               <% }) %>
