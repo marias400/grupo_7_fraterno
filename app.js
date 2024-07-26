@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require("method-override");
 const app = express();
 const path = require("path");
 
@@ -15,6 +16,9 @@ let PORT = process.env.PORT || 8000;
 /*carpeta estática de imágenes y hojas de estilo*/
 const publicPath = path.resolve('./public');
 app.use(express.static(publicPath));
+app.use(methodOverride("_method"));
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 
 
 /*view engine*/

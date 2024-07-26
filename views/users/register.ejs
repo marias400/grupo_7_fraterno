@@ -23,13 +23,13 @@
         <form>
           <div class="form_container">
             <input type="text" id="name" class="form_input" placeholder=" " />
-            <label for="name" class="form_label">Nombre y apellido*</label>
+            <label for="name" class="form_label">Nombre*</label>
             <span class="form_line"></span>
           </div>
 
           <div class="form_container">
-            <input type="text" id="tel" class="form_input" placeholder=" " />
-            <label for="tel" class="form_label">Telefono*</label>
+            <input type="text" id="name" class="form_input" placeholder=" " />
+            <label for="name" class="form_label">Apellido*</label>
             <span class="form_line"></span>
           </div>
 
@@ -40,14 +40,29 @@
           </div>
 
           <div class="form_container">
-            <input type="text" id="user" class="form_input" placeholder=" " />
-            <label for="user" class="form_label">Nombre de usuario*</label>
+            <input type="text" id="tel" class="form_input" placeholder=" " />
+            <label for="tel" class="form_label">Telefono*</label>
             <span class="form_line"></span>
           </div>
 
           <div class="form_container">
-            <input type="text" id="address" class="form_input" placeholder=" " />
+            <input
+              type="text"
+              id="address"
+              class="form_input"
+              placeholder=" "
+            />
             <label for="address" class="form_label">Direccion</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_container">
+            <input
+              type="file"
+              id="image"
+              class="form_input"
+            />
+            <label for="address" class="form_label">Foto perfil</label>
             <span class="form_line"></span>
           </div>
 
@@ -69,7 +84,9 @@
               class="form_input"
               placeholder=" "
             />
-            <label for="pass-repeat" class="form_label">Repetir contraseña*</label>
+            <label for="pass-repeat" class="form_label"
+              >Repetir contraseña*</label
+            >
             <span class="form_line"></span>
           </div>
 
@@ -94,7 +111,6 @@
           window.location.href = "/";
         }
       </script>
-      
     </main>
     <%- include("../partials/footer.ejs") %>
   </body>

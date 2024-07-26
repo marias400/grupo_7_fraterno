@@ -4,89 +4,88 @@
 <head>
     <%- include("../partials/head.ejs") %>
 
-        <title>Detalle de producto | Grupo Sie7e</title>
+    <title>Product Detail | Grupo Sie7e</title>
 
-        <!--Hoja de estilos propia de esta página-->
-        <link rel="stylesheet" href="/css/product-detail-styles.css">
+    <!--Hoja de estilos propia de esta página-->
+    <link rel="stylesheet" href="/css/product-detail-styles.css">
 </head>
 
 <body>
     <%- include("../partials/header.ejs") %>
-        <main>
-            <div class="stripe">
-                <div class="stripe__tags">
-                    <div class="stripe__tags--product-name">
-                        <p>
-                            <%= inventory[id].nombre %> %>
-                        </p>
-                    </div>
-                    <div class="stripe__photo">
-                        <img src="<%= inventory[id].imagen %> %>" alt="">
-                    </div>
-                    <div class="stripe__tags--product-description">
-                        <p>
-                            <%= inventory[id].descripcion %>
-                        </p>
-                    </div>
+    <main>
+        <div class="stripe">
+            <div class="stripe__tags">
+                <div class="stripe__tags--product-name">
+                    <p>
+                        <%= inventory[id].name %>
+                    </p>
                 </div>
-                <div class="stripe__info">
-                    <form>
-
-                        <% for(let i=0; i<inventory[id].ingredientes.length; i++){ %>
-                            <% let valor=1; %>
-                                <div class="stripe__info--values">
-                                    <input type="checkbox" name="cheese" id="check<%= i %>" checked>
-                                    <label for="check<%= i %>">
-                                        <%= inventory[id].ingredientes[i] %>
-                                    </label>
-
-                                    <div class="stripe__info--values__amount">
-                                        <button type="button" onclick="decrementar(<%= i %>)">-</button>
-                                        <span id="valor-<%= i %>">
-                                            <%= valor %>
-                                        </span>
-                                        <button type="button" onclick="incrementar(<%= i %>)">+</button>
-                                    </div>
-
-                                </div>
-                                <hr>
-                                <% } %>
-
-
-                    </form>
+                <div class="stripe__photo">
+                    <img src="<%= inventory[id].image %>" alt="">
                 </div>
-                <div class="stripe__button">
-                    <input type="submit" name="add-to-cart" id="add-to-cart" value="Agregar" onclick="toCart()">
-                    <label for=" add-to-cart">$5.000</label>
+                <div class="stripe__tags--product-description">
+                    <p>
+                        <%= inventory[id].description %>
+                    </p>
                 </div>
             </div>
-        </main>
+            <div class="stripe__info">
+                <form>
 
-        <%- include("../partials/footer.ejs") %>
+                    <% for(let i=0; i<inventory[id].ingredients.length; i++){ %>
+                        <% let value=1; %>
+                        <div class="stripe__info--values">
+                            <input type="checkbox" name="cheese" id="check<%= i %>" checked>
+                            <label for="check<%= i %>">
+                                <%= inventory[id].ingredients[i] %>
+                            </label>
 
-            <script>
+                            <div class="stripe__info--values__amount">
+                                <button type="button" onclick="decrement(<%= i %>)">-</button>
+                                <span id="value-<%= i %>">
+                                    <%= value %>
+                                </span>
+                                <button type="button" onclick="increment(<%= i %>)">+</button>
+                            </div>
 
-                function toCart() {
-                    window.location.href = "/products/cart";
-                }
+                        </div>
+                        <hr>
+                    <% } %>
 
-                function incrementar(id) {
-                    const valorSpan = document.getElementById(`valor-${id}`);
-                    let valor = parseInt(valorSpan.innerText, 10);
-                    valor++;
-                    valorSpan.innerText = valor;
-                }
+                </form>
+            </div>
+            <div class="stripe__button">
+                <input type="submit" name="add-to-cart" id="add-to-cart" value="Add to Cart" onclick="toCart()">
+                <label for="add-to-cart">$5,000</label>
+            </div>
+        </div>
+    </main>
 
-                function decrementar(id) {
-                    const valorSpan = document.getElementById(`valor-${id}`);
-                    let valor = parseInt(valorSpan.innerText, 10);
-                    if (valor > 0) { // Opcional: para no permitir valores negativos
-                        valor--;
-                    }
-                    valorSpan.innerText = valor;
-                }
+    <%- include("../partials/footer.ejs") %>
 
-            </script>
+    <script>
+
+        function toCart() {
+            window.location.href = "/products/cart";
+        }
+
+        function increment(id) {
+            const valueSpan = document.getElementById(`value-${id}`);
+            let value = parseInt(valueSpan.innerText, 10);
+            value++;
+            valueSpan.innerText = value;
+        }
+
+        function decrement(id) {
+            const valueSpan = document.getElementById(`value-${id}`);
+            let value = parseInt(valueSpan.innerText, 10);
+            if (value > 0) { // Optional: to avoid negative values
+                value--;
+            }
+            valueSpan.innerText = value;
+        }
+
+    </script>
 </body>
 
 </html>

@@ -3,84 +3,78 @@
 
 <head>
     <%- include("partials/head.ejs") %>
-        <title>Inicio | Grupo Sie7e</title>
+    <title>Inicio | Grupo Sie7e</title>
 
-        <!--Hoja de estilos propia de esta página-->
-        <link rel="stylesheet" href="/css/home-styles.css">
+    <!--Hoja de estilos propia de esta página-->
+    <link rel="stylesheet" href="/css/home-styles.css">
 
-        <!--Otras fuentes-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
+    <!--Otras fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
+</head>
 
 <body>
     <%- include("partials/header.ejs") %>
-        <section class="search-box-container">
-            <div class="search-box">
-                <input type="search" class="search-box__input" placeholder="Buscar">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-        </section>
-        <main>
-            <h1>BIENVENIDOS A GRUPO SIE7E</h1>
-            <h2 class="h__Title">La experiencia perfecta en sanguches</h2>
-            <div class="div__gallery">
-                <section class="gallery">
-                    <img src="/images/imagen1.png" alt="imagen1">
-                    <img src="/images/imagen2.png" alt="imagen2">
-                    <img src="/images/imagen3.png" alt="imagen3">
-                    <img src="/images/imagen4.png" alt="imagen4">
-                    <img src="/images/imagen5.png" alt="imagen5">
-                    <img src="/images/milanesa.jpg" alt="milanesa">
-                </section>
-            </div>
-        <!-- Sección de productos -->
-            <section class="container-card text-center">
-                <h2>Algunos de nuestros productos</h2>
-                <section class="products">
-
-                    <section class="products">
-
-                        <% for(let i=0; i<inventory.length; i++){ %>
-
-                            <div class="products-cards" onclick="toProductDetail(<%= i %>)">
-                                <img src="<%= inventory[i].imagen %>" alt="Producto 1" class="img-fluid">
-                                <h3>
-                                    <%= inventory[i].nombre %>
-                                </h3>
-                                <p>
-                                    <%= inventory[i].descripcion %>
-                                </p>
-                            </div>
-
-                            <% } %>
-
-                    </section>
-                </section>
+    <section class="search-box-container">
+        <div class="search-box">
+            <input type="search" class="search-box__input" placeholder="Buscar">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </section>
+    <main>
+        <h1>BIENVENIDOS A GRUPO SIE7E</h1>
+        <h2 class="h__Title">La experiencia perfecta en sanguches</h2>
+        <div class="div__gallery">
+            <section class="gallery">
+                <img src="/images/imagen1.png" alt="imagen1">
+                <img src="/images/imagen2.png" alt="imagen2">
+                <img src="/images/imagen3.png" alt="imagen3">
+                <img src="/images/imagen4.png" alt="imagen4">
+                <img src="/images/imagen5.png" alt="imagen5">
+                <img src="/images/milanesa.jpg" alt="milanesa">
             </section>
-        </main>
-        <section class="epc-box-container">
-            <div class="epc-box">
-                <div class="epc">
-                    <i class="fas fa-shipping-fast fa-3x"></i>
-                    <p>Envíos y Retiros</p>
-                </div>
-                <div class="epc">
-                    <i class="fas fa-credit-card fa-3x"></i>
-                    <p>Paga como quieras</p>
-                </div>
-                <div class="epc">
-                    <i class="fas fa-lock fa-3x"></i>
-                    <p>Compra con seguridad</p>
-                </div>
-            </div>
+        </div>
+        <!-- Sección de productos -->
+        <section class="container-card text-center">
+            <h2>Algunos de nuestros productos</h2>
+            <section class="products">
+                <% for(let i=0; i<inventory.length; i++){ %>
+                    <div class="products-cards" onclick="toProductDetail(<%= i %>)">
+                        <img src="<%= inventory[i].image %>" alt="Producto 1" class="img-fluid">
+                        <h3>
+                            <%= inventory[i].name %>
+                        </h3>
+                        <p>
+                            <%= inventory[i].description %>
+                        </p>
+                    </div>
+                <% } %>
+            </section>
         </section>
-        <%- include("partials/footer.ejs") %>
-            <script>
-                function toProductDetail(index) {
-                    window.location.href = "/products/detail/" + index;
-                }
-            </script>
+    </main>
+    <section class="epc-box-container">
+        <div class="epc-box">
+            <div class="epc">
+                <i class="fas fa-shipping-fast fa-3x"></i>
+                <p>Envíos y Retiros</p>
+            </div>
+            <div class="epc">
+                <i class="fas fa-credit-card fa-3x"></i>
+                <p>Paga como quieras</p>
+            </div>
+            <div class="epc">
+                <i class="fas fa-lock fa-3x"></i>
+                <p>Compra con seguridad</p>
+            </div>
+        </div>
+    </section>
+    <%- include("partials/footer.ejs") %>
+    <script>
+        function toProductDetail(index) {
+            window.location.href = "/products/detail/" + index;
+        }
+    </script>
 </body>
 
 </html>
