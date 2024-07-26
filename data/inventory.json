@@ -5,7 +5,7 @@
         "description": "Sanguche hecho con los mejores pollos seleccionado de nuestros especialistas en aves y del buen comer, con los agregados que vos quieras y nuestro toque especial AMOR 😉.",
         "sku": "SAN-POLLO-001",
         "ingredients": [
-            "pan de miga",
+            "pan de miga sin TACC",
             "pollo",
             "tomate",
             "lechuga",
@@ -13,7 +13,7 @@
             "mayonesa casera",
             "amor"
         ],
-        "image": "/images/imagen2.png",
+        "image": "/images/products/sanguche-pollo.png",
         "category": "sanguche",
         "suitability": {
             "vegetarian": false,
@@ -34,13 +34,14 @@
             "tomate",
             "lechuga",
             "cebolla",
+            "albahaca",
             "queso",
             "mayonesa casera",
             "ketchup",
             "amor"
         ],
-        "image": "/images/imagen3.png",
-        "category": "Sanguchito",
+        "image": "/images/products/sanguche-jyq.png",
+        "category": "sanguche",
         "suitability": {
             "vegetarian": false,
             "vegan": false,
@@ -52,7 +53,7 @@
     {
         "id": 3,
         "name": "Sanguche charcutero",
-        "description": "ara vos que sos un carnivoro voraz te traemos este sanguche charcutero con los mejores fiambres exportados del otro lado del gran charco sumandole nuestro toque especial de AMOR 😍  hacen la mejor combinacion posible del charcutero 👆.",
+        "description": "Para vos que sos un carnivoro voraz te traemos este sanguche charcutero con los mejores fiambres exportados del otro lado del gran charco sumandole nuestro toque especial de AMOR 😍  hacen la mejor combinacion posible del charcutero 👆.",
         "sku": "SAN-CHARCUTERO-003",
         "ingredients": [
             "pan frances",
@@ -66,8 +67,8 @@
             "mayonesa casera",
             "amor"
         ],
-        "image": "/images/imagen4.png",
-        "category": "Sanguchito",
+        "image": "/images/products/sanguche-charcutero.png",
+        "category": "sanguche",
         "suitability": {
             "vegetarian": false,
             "vegan": false,
@@ -88,11 +89,12 @@
             "tomate",
             "lechuga",
             "queso",
+            "huevo frito",
             "mayonesa casera",
             "amor"
         ],
-        "image": "/images/imagen5.png",
-        "category": "Sanguchito",
+        "image": "/images/products/sanguche-mila.png",
+        "category": "sanguche",
         "suitability": {
             "vegetarian": false,
             "vegan": false,
@@ -100,5 +102,123 @@
         },
         "size": "Grande",
         "price": 5000
+    },
+    {
+        "id": 5,
+        "name": "Coca Cola",
+        "description": "Refresco carbonatado clásico.",
+        "sku": "BEB-COCA-001",
+        "ingredients": [
+            "agua carbonatada",
+            "azúcar",
+            "colorante caramelo",
+            "ácido fosfórico",
+            "aromas naturales",
+            "cafeína"
+        ],
+        "image": "/images/products/bebida-cocacola.png",
+        "category": "bebidas",
+        "suitability": {
+            "vegetarian": true,
+            "vegan": true,
+            "celiac": true
+        },
+        "size": "500ml",
+        "price": 1600
+    },
+    {
+        "id": 6,
+        "name": "Papas Fritas",
+        "description": "Crujientes papas fritas.",
+        "sku": "SNACK-PAPAS-001",
+        "ingredients": [
+            "papas",
+            "aceite de girasol",
+            "sal"
+        ],
+        "image": "/images/products/snack-papas.png",
+        "category": "snacks",
+        "suitability": {
+            "vegetarian": true,
+            "vegan": true,
+            "celiac": true
+        },
+        "size": "100g",
+        "price": 2000
+    },
+    {
+        "id": 7,
+        "name": "Helado de Vainilla",
+        "description": "Delicioso helado de vainilla.",
+        "sku": "POSTRE-VAINILLA-001",
+        "ingredients": [
+            "Leche descremada rehidratada (36,5%)",
+            "azúcares añadidos (glucosa, azúcar y fructosa)",
+            "agua",
+            "grasa vegetal sin hidrogenar (6%)",
+            "estabilizantes (goma tara, goma guar y goma de algarrobo)",
+            "emulsificantes (mono, di y triglicéridos de ácidos grasos)",
+            "saborizante y colorantes artificiales (tartrazina y rojo 40)"
+        ],
+        "image": "/images/products/postre-helado.png",
+        "category": "postres",
+        "suitability": {
+            "vegetarian": true,
+            "vegan": false,
+            "celiac": true
+        },
+        "size": "250g",
+        "price": 300
+    },
+    {
+        "id": 8,
+        "name": "Ensalada Mixta",
+        "description": "Fresca ensalada mixta con ingredientes seleccionados.",
+        "sku": "COM-ENSALADA-001",
+        "ingredients": [
+            "lechuga",
+            "repollo morado",
+            "espinaca bebe",
+            "tomate",
+            "aceite de oliva",
+            "vinagre",
+            "sal"
+        ],
+        "image": "/images/products/ensalada-mixta.png",
+        "category": "comida",
+        "suitability": {
+            "vegetarian": true,
+            "vegan": true,
+            "celiac": true
+        },
+        "size": "Grande",
+        "price": 4000
+    },
+    {
+        "id": 9,
+        "name": "Sanguche Vegano",
+        "description": "Delicioso sanguche hecho con ingredientes 100% veganos y libres de gluten.",
+        "sku": "SAN-VEGANO-005",
+        "ingredients": [
+            "pan sin gluten",
+            "tofu",
+            "espinaca bebe",
+            "albahaca",
+            "ciboulette",
+            "palta",
+            "pepino",
+            "eneldo",
+            "jugo de limon",
+            "amor"
+        ],
+        "image": "/images/products/sanguche-vegano.png",
+        "category": "sanguche",
+        "suitability": {
+            "vegetarian": true,
+            "vegan": true,
+            "celiac": true
+        },
+        "size": "Mediano",
+        "price": 4000
     }
 ]
