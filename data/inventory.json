@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Sanguche de pollo",
+        "name": "Sanguche Pollo",
         "description": "Sanguche hecho con los mejores pollos seleccionado de nuestros especialistas en aves y del buen comer, con los agregados que vos quieras y nuestro toque especial AMOR 😉.",
         "sku": "SAN-POLLO-001",
         "ingredients": [
@@ -25,7 +25,7 @@
     },
     {
         "id": 2,
-        "name": "Sanguche de JyQ",
+        "name": "Sanguche JyQ",
         "description": "Un clasico de la vida al que le podes dar un toque especial a tu propio gusto y sin juzgarte sumando claramente nuestro propio sello de LOVE 🥰.",
         "sku": "SAN-JyQ-002",
         "ingredients": [
@@ -52,7 +52,7 @@
     },
     {
         "id": 3,
-        "name": "Sanguche charcutero",
+        "name": "Sanguche Charcutero",
         "description": "Para vos que sos un carnivoro voraz te traemos este sanguche charcutero con los mejores fiambres exportados del otro lado del gran charco sumandole nuestro toque especial de AMOR 😍  hacen la mejor combinacion posible del charcutero 👆.",
         "sku": "SAN-CHARCUTERO-003",
         "ingredients": [
@@ -79,7 +79,7 @@
     },
     {
         "id": 4,
-        "name": "Sanguche de Mila",
+        "name": "Sanguche Mila",
         "description": "El infaltable, el esencial, el tucumano, si asi es el sanguche de milanesa hecho con la carne de las mejores vacas de nuestra tierra, armalo como quieras total queda rico siempre y nuestro infaltable toque siempre estara 💖 de la milanga.",
         "sku": "SAN-MILA-004",
         "ingredients": [

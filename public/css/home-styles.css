@@ -152,6 +152,7 @@ h2 {
     padding-top: 15px;
     font-family: "Playwrite CU", cursive;
 }
+
 .container-card h2 {
     color: var(--dark-blue);
     border-bottom: solid 1px var(--mustard);
