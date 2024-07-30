@@ -14,12 +14,16 @@ const adminController = {
   //busca y edita producto
   async editPage(req, res) {
     this.inventory = await inventoryData.load();
-    let id = parseInt(req.params.id);
+    let id = req.params.id;
+
+    const inventoryItem = this.inventory.find((item) => {
+      return item.id === id;
+    });
 
     if (id) {
-      res.render("admin/product-editor", { id, inventory });
+      res.render("admin/product-editor", { id, inventory, inventoryItem });
     } else {
-      let id = parseInt(req.body.searchId);
+      let id = req.body.searchId;
       res.redirect(`${id}/edit`);
     }
   },
@@ -27,10 +31,7 @@ const adminController = {
   //edita producto
   async editLogic(req, res) {
     this.inventory = await inventoryData.load();
-
-    console.log(req.params);
-    console.log(this.inventory);
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     const { image } = this.inventory.find((item) => item.id === id);
 
     // Lógica para determinar la imagen de producto
@@ -97,6 +98,83 @@ const adminController = {
     await inventoryData.save(updatedInventory);
 
     res.redirect(`/admin/products/${id}/edit`);
+  },
+
+  async createPage(req, res) {
+    this.inventory = await inventoryData.load();
+    res.render("admin/product-creator", { inventory: this.inventory });
+  },
+
+  async createProduct(req, res) {
+    this.inventory = await inventoryData.load();
+
+    const {
+      name,
+      description,
+      sku,
+      ingredients,
+      category,
+      vegetarian,
+      vegan,
+      celiac,
+      size,
+      price,
+    } = req.body;
+
+    let imageFilePath;
+
+    if (req.file) {
+      imageFilePath = `/images/products/${req.file.filename}`;
+    } else {
+      imageFilePath = "/images/products/default.png";
+    }
+
+    const suitability = {
+      vegetarian: vegetarian === "on" || false ? true : false,
+      vegan: vegan === "on" || false ? true : false,
+      celiac: celiac === "on" || false ? true : false,
+    };
+
+    const id = crypto.randomUUID();
+
+    newItem = {
+      id: id,
+      name: name,
+      description: description,
+      sku: sku,
+      ingredients: ingredients.split(', '),
+      image: imageFilePath,
+      category: category,
+      suitability: suitability,
+      size: size,
+      price: price,
+    };
+
+    let updatedInventory = inventory;
+    updatedInventory.push(newItem);
+
+    await inventoryData.save(updatedInventory);
+
+    res.redirect(`/admin/products/${id}/edit`);
+  },
+
+  async deleteProduct(req, res) {
+    this.inventory = await inventoryData.load();
+    const id = req.params.id;
+
+    const { image } = this.inventory.find((item) => item.id === id);
+
+    const updatedInventory = this.inventory.filter((toModify) => {
+      return toModify.id !== id;
+    });
+
+    if (image !== "/images/products/default.png") {
+      await inventoryData.removeFile(image);
+    }
+
+    await inventoryData.save(updatedInventory);
+
+    res.redirect("/products/list");
   },
 };
 

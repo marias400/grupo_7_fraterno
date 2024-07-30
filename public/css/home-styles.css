@@ -20,41 +20,59 @@ h1 {
     padding-top: 15px;
     font-weight: 900;
     border-top: solid 1px var(--mustard);
- 
+
 }
 
 .h__Title {
     font-family: "Playwrite CU", cursive;
     border-bottom: solid 1px var(--mustard);
     margin-bottom: 10px;
-   
-}
 
-.div__gallery {
-    display: flex;
-    justify-content: center;
 }
 
 .gallery {
     display: flex;
-    width: 90vw;
-    height: 430px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.gallery img {
-    width: 0;
-    flex-grow: 1;
+.gallery__list {
+    display: flex;
+    width: calc(100% - 2rem);
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.gallery__item {
+    padding: 0;
+    flex: 1;
+    transition: flex 0.2s ease;
+}
+
+.gallery__link {
+    display: block;
+    outline-offset: 4px;
+}
+
+.gallery__image {
+    max-width: 100%;
+    width: 100%;
     object-fit: cover;
-    opacity: .8;
-    transition: .5s ease;
+    transition: all 0.2s ease;
 }
 
-.gallery img:hover {
-    cursor: pointer;
-    width: 300px;
-    opacity: 1;
-    filter: contrast(120%)
+.gallery__item:hover .gallery__image,
+.gallery__item:focus-within .gallery__image {
+    opacity: 0.7;
+    filter: grayscale(0.5);
 }
+
+.gallery__item:hover {
+    flex: 2;
+}
+
 
 /* Logo */
 .logo-container {

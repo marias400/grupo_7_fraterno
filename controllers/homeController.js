@@ -1,10 +1,16 @@
-const inventory = require("../data/inventory"); // Make sure to import the correct inventory file
+const pickRandomSanguches = require("../scripts/sanguches-randomizer")
+
 
 const homeController = {
   homePage: (req, res) => {
     // Pick 3 random "sanguches" every time the route is accessed
-    const randomSanguches = pickRandomSanguches(3); 
-    res.render("home", { inventory: randomSanguches });
+    const bottomSectionRandomSanguches = pickRandomSanguches(3);
+    // Pick 5 random "sanguches" every time the route is accessed
+    const topSectionRandomSanguches = pickRandomSanguches(5);
+    res.render("home", {
+      inventory: bottomSectionRandomSanguches,
+      topInventory: topSectionRandomSanguches,
+    });
   },
 
   aboutPage: (req, res) => {
@@ -12,16 +18,5 @@ const homeController = {
   },
 };
 
-// Function to pick random "sanguches"
-function pickRandomSanguches(amount) {
-  let pickedSanguches = [];
-  while (pickedSanguches.length < amount) {
-    let id = Math.floor(Math.random() * inventory.length);
-    if (inventory[id].category === "sanguche" && !pickedSanguches.includes(inventory[id])) {
-      pickedSanguches.push(inventory[id]);
-    }
-  }
-  return pickedSanguches;
-}
 
 module.exports = homeController;

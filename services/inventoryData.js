@@ -13,7 +13,6 @@ const datasource = {
     const jsonInventory = JSON.stringify(data);
     await fs.writeFile(this.filePath, jsonInventory, "utf-8");
   },
-
   async removeFile(filePath){
     const file = path.join(__dirname, '../public/', filePath);
     try{

@@ -11,8 +11,8 @@ const storage = multer.diskStorage({
     //imagen-xxxcodigoxxx.jpeg
     const randomString = crypto.randomBytes(8).toString("hex");
     const extention = path.extname(file.originalname);
-    const poster = "imagen-" + randomString + extention;
-    cb(null, poster);
+    const product = "imagen-" + randomString + extention;
+    cb(null, product);
   },
 });
 
