@@ -16,7 +16,7 @@ const adminController = {
     this.inventory = await inventoryData.load();
     let id = parseInt(req.params.id);
 
-    if (id) {
+    if ((typeof id ===  'number') && !isNaN(id)) {
       res.render("admin/product-editor", { id, inventory });
     } else {
       let id = parseInt(req.body.searchId);

@@ -36,7 +36,7 @@
             "ketchup",
             "amor"
         ],
-        "image": "/images/products/sanguche-jyq.png",
+        "image": "/images/products/imagen-ff3399fdd07dc975.png",
         "category": "sanguche",
         "suitability": {
             "vegetarian": false,
@@ -44,7 +44,7 @@
             "celiac": false
         },
         "size": "Mediano",
-        "price": 3800
+        "price": "3800"
     },
     {
         "id": 2,
