@@ -38,7 +38,7 @@
             <h2>Algunos de nuestros productos</h2>
             <section class="products">
                 <% for(let i=0; i<inventory.length; i++){ %>
-                    <div class="products-cards" onclick="toProductDetail(<%= i %>)">
+                    <div class="products-cards" onclick="toProductDetail(<%= inventory[i].id %>)">
                         <img src="<%= inventory[i].image %>" alt="<%= inventory[i].name %>" class="img-fluid">
                         <h3>
                             <%= inventory[i].name %>

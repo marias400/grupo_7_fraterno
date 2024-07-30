@@ -1,30 +1,26 @@
 [
     {
-        "id": 1,
-        "name": "Sanguche Pollo",
-        "description": "Sanguche hecho con los mejores pollos seleccionado de nuestros especialistas en aves y del buen comer, con los agregados que vos quieras y nuestro toque especial AMOR 😉.",
-        "sku": "SAN-POLLO-001",
+        "id": 0,
+        "name": "Sanguche Pollo RIP",
+        "description": "SIN QUERER LO NUKIE, ayuden a arreglarlo pls",
+        "sku": "SAN-GIGACHAD-001",
         "ingredients": [
-            "pan de miga sin TACC",
-            "pollo",
-            "tomate",
-            "lechuga",
-            "queso",
-            "mayonesa casera",
-            "amor"
+            "carne de caballo",
+            "colillas de cigarro",
+            "testosterona"
         ],
-        "image": "/images/products/sanguche-pollo.png",
-        "category": "sanguche",
+        "image": "/images/products/imagen-e54d7c882df5f5f5.png",
+        "category": "otros",
         "suitability": {
-            "vegetarian": false,
-            "vegan": false,
+            "vegetarian": true,
+            "vegan": true,
             "celiac": true
         },
-        "size": "Mediano",
-        "price": 3500
+        "size": "giga",
+        "price": "0"
     },
     {
-        "id": 2,
+        "id": 1,
         "name": "Sanguche JyQ",
         "description": "Un clasico de la vida al que le podes dar un toque especial a tu propio gusto y sin juzgarte sumando claramente nuestro propio sello de LOVE 🥰.",
         "sku": "SAN-JyQ-002",
@@ -51,7 +47,7 @@
         "price": 3800
     },
     {
-        "id": 3,
+        "id": 2,
         "name": "Sanguche Charcutero",
         "description": "Para vos que sos un carnivoro voraz te traemos este sanguche charcutero con los mejores fiambres exportados del otro lado del gran charco sumandole nuestro toque especial de AMOR 😍  hacen la mejor combinacion posible del charcutero 👆.",
         "sku": "SAN-CHARCUTERO-003",
@@ -78,7 +74,7 @@
         "price": 6000
     },
     {
-        "id": 4,
+        "id": 3,
         "name": "Sanguche Mila",
         "description": "El infaltable, el esencial, el tucumano, si asi es el sanguche de milanesa hecho con la carne de las mejores vacas de nuestra tierra, armalo como quieras total queda rico siempre y nuestro infaltable toque siempre estara 💖 de la milanga.",
         "sku": "SAN-MILA-004",
@@ -101,10 +97,10 @@
             "celiac": false
         },
         "size": "Grande",
-        "price": 5000
+        "price": "5000"
     },
     {
-        "id": 5,
+        "id": 4,
         "name": "Coca Cola",
         "description": "Refresco carbonatado clásico.",
         "sku": "BEB-COCA-001",
@@ -127,7 +123,7 @@
         "price": 1600
     },
     {
-        "id": 6,
+        "id": 5,
         "name": "Papas Fritas",
         "description": "Crujientes papas fritas.",
         "sku": "SNACK-PAPAS-001",
@@ -147,7 +143,7 @@
         "price": 2000
     },
     {
-        "id": 7,
+        "id": 6,
         "name": "Helado de Vainilla",
         "description": "Delicioso helado de vainilla.",
         "sku": "POSTRE-VAINILLA-001",
@@ -171,7 +167,7 @@
         "price": 300
     },
     {
-        "id": 8,
+        "id": 7,
         "name": "Ensalada Mixta",
         "description": "Fresca ensalada mixta con ingredientes seleccionados.",
         "sku": "COM-ENSALADA-001",
@@ -195,7 +191,7 @@
         "price": 4000
     },
     {
-        "id": 9,
+        "id": 8,
         "name": "Sanguche Vegano",
         "description": "Delicioso sanguche hecho con ingredientes 100% veganos y libres de gluten.",
         "sku": "SAN-VEGANO-005",

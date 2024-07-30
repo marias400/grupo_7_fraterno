@@ -14,6 +14,11 @@
     />
   </head>
   <body>
+
+    <div class="d-grid gap-2 fixed-top">
+      <a href="/products/create" class="btn btn-primary">Crear producto</a>
+    </div>
+
     <div class="row">
         <% for (let i = 0; i < inventory.length; i++) { %>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3">
@@ -22,7 +27,8 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= inventory[i].name %></h5>
                         <p class="card-text"><%= inventory[i].description %></p>
-                        <a href="/products/detail/<%= i %>" class="btn btn-primary">Ir a producto</a>
+                        <a href="../admin/products/<%= inventory[i].id %>/edit" class="btn btn-primary">Editar</a>
+                        <a href="../admin/products/detail/<%= inventory[i].id %>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Eliminar</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +43,6 @@
           object-fit: cover; /* Ajustar la imagen para cubrir el contenedor */
         }
       </style>
-    
     </div>
   </body>
 </html>
