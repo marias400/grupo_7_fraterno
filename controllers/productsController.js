@@ -1,9 +1,9 @@
-let inventory = require('../data/inventory');
+let products = require('../data/products');
 
 
 const productController = {
     detailPage: (req, res) => {
-        res.render('products/product-detail', {id: req.params.id , inventory: inventory});
+        res.render('products/product-detail', {id: req.params.id , products: products});
     },
 
     cartPage: (req, res) => {

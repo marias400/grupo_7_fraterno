@@ -17,27 +17,27 @@
             <div class="stripe__tags">
                 <div class="stripe__tags--product-name">
                     <p>
-                        <%= inventory[id].name %>
+                        <%= products[id].name %>
                     </p>
                 </div>
                 <div class="stripe__photo">
-                    <img src="<%= inventory[id].image %>" alt="">
+                    <img src="<%= products[id].image %>" alt="">
                 </div>
                 <div class="stripe__tags--product-description">
                     <p>
-                        <%= inventory[id].description %>
+                        <%= products[id].description %>
                     </p>
                 </div>
             </div>
             <div class="stripe__info">
                 <form>
 
-                    <% for(let i=0; i<inventory[id].ingredients.length; i++){ %>
+                    <% for(let i=0; i<products[id].ingredients.length; i++){ %>
                         <% let value=1; %>
                         <div class="stripe__info--values">
                             <input type="checkbox" name="cheese" id="check<%= i %>" checked>
                             <label for="check<%= i %>">
-                                <%= inventory[id].ingredients[i] %>
+                                <%= products[id].ingredients[i] %>
                             </label>
 
                             <div class="stripe__info--values__amount">

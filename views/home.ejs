@@ -37,14 +37,14 @@
         <section class="container-card">
             <h2>Algunos de nuestros productos</h2>
             <section class="products">
-                <% for(let i=3; i<inventory.length; i++){ %>
+                <% for(let i=3; i<products.length; i++){ %>
                     <div class="products-cards" onclick="toProductDetail(<%= i %>)">
-                        <img src="<%= inventory[i].image %>" alt="<%= inventory[i].name %>" class="img-fluid">
+                        <img src="<%= products[i].image %>" alt="<%= products[i].name %>" class="img-fluid">
                         <h3>
-                            <%= inventory[i].name %>
+                            <%= products[i].name %>
                         </h3>
                         <p>
-                            <%= inventory[i].description %>
+                            <%= products[i].description %>
                         </p>
                     </div>
                 <% } %>

@@ -1,32 +1,33 @@
-﻿# Retrospectiva Sprint 2 🚀
+﻿# Retrospectiva Sprint 4 🚀
+
+Un sprint hecho por Padula Jorge solo, no por voluntad suya sino por que el resto ni nos molestamos en aportar.
 
 ## 🤩 More Of
 
+- **Deadlines fijas para las tareas**
 - **Reuniones pactadas**
 - **Constancia**
 - **Prestar más atención al material desglosado en Trello**
-- **Monitorear la navegacion en general del sitio y la experiencia de usuario (UX)**
 
 ## 👍 Keep Doing
 
-- **Distribuir claramente las tareas**
-- **Investigar bien lo que necesitamos hacer**
+- **Monitorear la navegacion en general del sitio y la experiencia de usuario (UX)**
 - **Trabajar en branches de GitHub**
-- **Deadlines fijas para las tareas**
-- **Ayudarse cuando hay inconvenientes**
+- **Procurar armonia entre todas las paginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
 
 ## 💪 Start Doing
 
 - **INICIATIVA PROPIA**
-- **Procurar harmonia entre todas las paginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
 
 ## 😕 Less Off
 
 - **No notificar el progreso**
 - **No usar el canal de Discord**
+- **Hacer todo el proyecto entre 2 personas**
 
 ## 🚫 Stop Doing
 
 - **Dejar cosas a ultimo momento**
 - **Trabajo fuera de las reglas de estilo adoptadas hasta el momento**
 - **Esperar que alguien recuerde sobre las tareas, deadlines y entregas apenas comienza el sprint. Hacerlo uno mismo**
+- **Renegar con compañeros que no se molestan en aportar**

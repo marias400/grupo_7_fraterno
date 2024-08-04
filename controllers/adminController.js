@@ -1,13 +1,18 @@
-const inventory = require("../data/inventory");
+const products = require("../data/products");
 
 const adminController = {
   loginPage: (req, res) => {
     res.render("admin/log-in");
   },
 
+  loginAdmin: (req, res) => {
+    let id = 0;
+    res.render("admin/product-management", { id, products });
+  },
+
   productManagementPage: (req, res) => {
     const id = req.params.id;
-    res.render("admin/product-management", { id, inventory });
+    res.render("admin/product-management", { id, products });
   },
 
   productEdit: (req, res) => {

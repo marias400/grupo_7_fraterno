@@ -1,9 +1,9 @@
-let inventory = require('../data/inventory');
+let products = require('../data/products');
 
 const homeController = {
 
     homePage: (req, res) => {
-        res.render('home', {inventory});
+        res.render('home', {products});
     },
 
     aboutPage: (req, res) => {
