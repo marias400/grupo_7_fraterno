@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/G7favicon-admin.svg" type="image/x-icon">
+
+  <!--Iconos-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!--Fuentes (de Google Fonts)-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Verdana&display=swap" rel="stylesheet">
+
+  <title>Administración de Productos | Grupo Sie7e</title>
+
+  <!--Hoja de estilos propia de esta página-->
+  <link rel="stylesheet" href="/css/product-management-styles.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="main-header__logo">
+      <a href="/"><img src="/images/logoG7-admin.svg" alt="logoG7"></a>
+    </div>
+    <p class="main-header__title"><i class="main-header__pipe fas fa-chevron-right"></i>Administración</p>
+  </header>
+
+  <main>
+      <form action="/admin/login" method="post">
+        <h1>Iniciar Sesión</h1>
+        <label for="user">Usuario</label>
+        <input type="text" name="user" id="user">
+        <label for="pass">Contraseña</label>
+        <input type="password" name="pass" id="pass">
+        <input type="submit">
+      </form>
+  </main>
+
+  <footer class="main-footer">
+    <p class="main-footer__copyright">&copy; 2024 Grupo Sie7e y asociados. Todos los derechos reservados</p>
+  </footer>
+</body>
+
+</html>

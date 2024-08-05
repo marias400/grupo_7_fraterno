@@ -1,72 +1,33 @@
-﻿# Retrospectiva Sprint 2 🚀
+﻿# Retrospectiva Sprint 4 🚀
+
+Un sprint hecho por Padula Jorge solo, no por voluntad suya sino por que el resto ni nos molestamos en aportar.
 
 ## 🤩 More Of
 
+- **Deadlines fijas para las tareas**
 - **Reuniones pactadas**
 - **Constancia**
 - **Prestar más atención al material desglosado en Trello**
-- **Monitorear la navegacion en general del sitio y la experiencia de usuario (UX)**
 
 ## 👍 Keep Doing
 
-- **Distribuir claramente las tareas**
-- **Investigar bien lo que necesitamos hacer**
+- **Monitorear la navegacion en general del sitio y la experiencia de usuario (UX)**
 - **Trabajar en branches de GitHub**
-- **Deadlines fijas para las tareas**
-- **Ayudarse cuando hay inconvenientes**
+- **Procurar armonia entre todas las paginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
 
 ## 💪 Start Doing
 
 - **INICIATIVA PROPIA**
-- **Procurar harmonia entre todas las paginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
 
 ## 😕 Less Off
 
 - **No notificar el progreso**
 - **No usar el canal de Discord**
+- **Hacer todo el proyecto entre 2 personas**
 
 ## 🚫 Stop Doing
 
 - **Dejar cosas a ultimo momento**
 - **Trabajo fuera de las reglas de estilo adoptadas hasta el momento**
 - **Esperar que alguien recuerde sobre las tareas, deadlines y entregas apenas comienza el sprint. Hacerlo uno mismo**
-
-
-
-# Retrospectiva Sprint 3 🚀
-
-## 🤩 More Of
-
-- **Prestar más atención al material desglosado en Trello**
-- **Monitorear la navegación en general del sitio y la experiencia de usuario (UX)**
-- **Constancia**
-- **Reuniones pactadas**
-
-## 👍 Keep Doing
-
-- **Investigación exhaustiva de lo necesario**
-- **Distribuir claramente las tareas**
-- **Ayudarse cuando hay inconvenientes**
-- **Trabajar en branches de GitHub**
-- **Deadlines fijas para las tareas**
-- **Procurar armonía entre todas las páginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
-
-## 💪 Start Doing
-
-- **Iniciativa propia**
-- **Fomentar revisiones de código internas**
-
-## 😕 Less Off
-
-- **No usar el canal de Discord**
-- **No usar el grupo de whatsapp**
-- **No notificar el progreso**
-- **Saltarse reuniones sin justificación**
-- **Asumir que otros miembros del equipo completarán las tareas asignadas**
-
-## 🚫 Stop Doing
-
-- **Trabajo fuera de las reglas de estilo adoptadas hasta el momento**
-- **Esperar que alguien recuerde sobre las tareas, deadlines y entregas apenas comienza el sprint. Hacerlo uno mismo**
-- **No trabajar en equipo**
-- **No trabajar**
+- **Renegar con compañeros que no se molestan en aportar**
