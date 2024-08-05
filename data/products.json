@@ -21,28 +21,23 @@
     },
     {
         "id": "49b36523-2699-40b0-b443-0b2ca4a40088",
-        "name": "Sanguche de Milanesa",
-        "description": "La milanesa más crujiente 🍽️ y sabrosa, con todo el sabor de la cocina argentina. ¡Un verdadero festín para los paladares más exigentes!",
+        "name": "Sanguche de Milanesa Tucumano",
+        "description": "La milanesa tucumana más crujiente 🍽️ y sabrosa, con todo el sabor de la cocina argentina. ¡Un verdadero festín para los paladares más exigentes!",
         "sku": "SANG-1-MILA",
         "ingredients": [
-            "Pan",
-            "Milanesa carne",
-            "Mayonesa",
-            "Mostaza",
-            "Lechuga",
-            "Tomate",
-            "Cebolla",
-            "Jamón",
-            "Queso"
+            "pan tucumano",
+            "huevito a la plancha",
+            "lechuga",
+            "otro huevito a la plancha"
         ],
         "image": "/images/products/imagen-4afbb677e661b415.png",
         "category": "comida",
         "suitability": {
-            "vegetarian": false,
-            "vegan": false,
+            "vegetarian": true,
+            "vegan": true,
             "celiac": false
         },
-        "size": "Grande",
+        "size": "big boy",
         "price": "9000"
     },
     {
@@ -72,5 +67,24 @@
         },
         "size": "Grande",
         "price": "8000"
+    },
+    {
+        "id": "c9e2c1ad-59a3-409d-a396-2361b5ceb977",
+        "name": "Medio limon seco",
+        "description": "Un limon partido que quedo en la heladera. Esta hace una semana ahi, nadie se anima a tirarlo pero tampoco a usarlo",
+        "sku": "LIM-001SEC",
+        "ingredients": [
+            "limon",
+            "olor a heladera"
+        ],
+        "image": "/images/products/imagen-0b7a27006090d26b.jpg",
+        "category": "snacks",
+        "suitability": {
+            "vegetarian": false,
+            "vegan": false,
+            "celiac": true
+        },
+        "size": "grande como un medio limon",
+        "price": "100"
     }
 ]

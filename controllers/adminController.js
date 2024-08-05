@@ -6,7 +6,14 @@ const inventoryData = require("../services/inventoryData");
 const adminController = {
   products: null,
 
-  //aun no existe
+  async adminLogin(req, res) {
+    function isAdmin(user, pass) {
+      return user === "admin" && pass === "admin";
+    }
+
+    isAdmin(req.body.user, req.body.pass) ? res.redirect("/products/list") : res.render("admin/log-in");
+  },
+
   async loginPage(req, res) {
     res.render("admin/log-in");
   },
