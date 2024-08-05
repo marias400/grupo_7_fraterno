@@ -8,8 +8,8 @@ const homeController = {
     // Pick 5 random "sanguches" every time the route is accessed
     const topSectionRandomSanguches = pickRandomSanguches(5);
     res.render("home", {
-      inventory: bottomSectionRandomSanguches,
-      topInventory: topSectionRandomSanguches,
+      products: bottomSectionRandomSanguches,
+      topProducts: topSectionRandomSanguches,
     });
   },
 

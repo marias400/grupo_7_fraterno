@@ -4,7 +4,7 @@ const inventoryData = require("../services/inventoryData");
 //vistas administrador:
 
 const adminController = {
-  inventory: null,
+  products: null,
 
   //aun no existe
   async loginPage(req, res) {
@@ -13,15 +13,15 @@ const adminController = {
 
   //busca y edita producto
   async editPage(req, res) {
-    this.inventory = await inventoryData.load();
+    this.products = await inventoryData.load();
     let id = req.params.id;
 
-    const inventoryItem = this.inventory.find((item) => {
+    const productItem = this.products.find((item) => {
       return item.id === id;
     });
 
     if (id) {
-      res.render("admin/product-editor", { id, inventory, inventoryItem });
+      res.render("admin/product-editor", { id, products, productItem });
     } else {
       let id = req.body.searchId;
       res.redirect(`${id}/edit`);
@@ -30,9 +30,9 @@ const adminController = {
 
   //edita producto
   async editLogic(req, res) {
-    this.inventory = await inventoryData.load();
+    this.products = await inventoryData.load();
     const id = req.params.id;
-    const { image } = this.inventory.find((item) => item.id === id);
+    const { image } = this.products.find((item) => item.id === id);
 
     // Lógica para determinar la imagen de producto
     let imageFilePath;
@@ -76,7 +76,7 @@ const adminController = {
     };
 
     //modificacion a la "base de datos"
-    const updatedInventory = inventory.map((toModify) => {
+    const updatedInventory = products.map((toModify) => {
       if (toModify.id === id) {
         return {
           id,
@@ -101,12 +101,12 @@ const adminController = {
   },
 
   async createPage(req, res) {
-    this.inventory = await inventoryData.load();
-    res.render("admin/product-creator", { inventory: this.inventory });
+    this.products = await inventoryData.load();
+    res.render("admin/product-creator", { products: this.products });
   },
 
   async createProduct(req, res) {
-    this.inventory = await inventoryData.load();
+    this.products = await inventoryData.load();
 
     const {
       name,
@@ -150,7 +150,7 @@ const adminController = {
       price: price,
     };
 
-    let updatedInventory = inventory;
+    let updatedInventory = products;
     updatedInventory.push(newItem);
 
     await inventoryData.save(updatedInventory);
@@ -159,12 +159,12 @@ const adminController = {
   },
 
   async deleteProduct(req, res) {
-    this.inventory = await inventoryData.load();
+    this.products = await inventoryData.load();
     const id = req.params.id;
 
-    const { image } = this.inventory.find((item) => item.id === id);
+    const { image } = this.products.find((item) => item.id === id);
 
-    const updatedInventory = this.inventory.filter((toModify) => {
+    const updatedInventory = this.products.filter((toModify) => {
       return toModify.id !== id;
     });
 

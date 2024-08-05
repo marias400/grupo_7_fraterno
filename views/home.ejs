@@ -27,10 +27,10 @@
         <h2 class="h__Title">La experiencia perfecta en sanguches</h2>
         <div class="gallery">
             <ul class="gallery__list">
-                <% for(let i=0; i<topInventory.length; i++){ %>
+                <% for(let i=0; i<topProducts.length; i++){ %>
                     <li class="gallery__item">
-                        <a class="gallery__link" href="/products/detail/<%= topInventory[i].id %>">
-                            <img class="gallery__image" src="<%= topInventory[i].image %>" alt="<%= topInventory[i].name %>" width="500" height="500">
+                        <a class="gallery__link" href="/products/detail/<%= topProducts[i].id %>">
+                            <img class="gallery__image" src="<%= topProducts[i].image %>" alt="<%= topProducts[i].name %>" width="500" height="500">
                         </a>
                     </li>
                 <% } %>
@@ -40,10 +40,10 @@
         <section class="container-card">
             <h2>Algunos de nuestros productos</h2>
             <section class="products">
-                <% for(let i=0; i<inventory.length; i++){ %>
+                <% for(let i=0; i<products.length; i++){ %>
                     <div class="products-cards">
-                        <a href="/products/detail/<%= inventory[i].id %>">
-                            <img src="<%= inventory[i].image %>" alt="<%= inventory[i].name %>" class="img-fluid">
+                        <a href="/products/detail/<%= products[i].id %>">
+                            <img src="<%= products[i].image %>" alt="<%= products[i].name %>" class="img-fluid">
                         </a>
                         <h3>
                             <%= products[i].name %>

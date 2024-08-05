@@ -1,10 +1,11 @@
-const inventory = require("../data/inventory");
+
+const products = require("../data/products");
 
 
 // Function to pick random "sanguches"
 function pickRandomSanguches(amount) {
     // Filtra los sanguches disponibles
-    let availableSanguches = inventory.filter(
+    let availableSanguches = products.filter(
       (item) => item.category === "sanguche" || item.category === "comida"
     );
   

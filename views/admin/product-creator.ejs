@@ -37,7 +37,7 @@
     <form class="product-selection" method="post" action="/admin/products/search?_method=PUT">
       <label>Catálogo de existencias</label>
       <select name="searchId" name="searchId">
-        <% inventory.forEach(product => { %>
+        <% products.forEach(product => { %>
         <option value="<%= product.id %>"><%= product.name %></option>
         <% }) %>
       </select>
