@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/images/G7favicon-admin.svg" type="image/x-icon" />
+
+  <!--Iconos-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!--Fuentes (de Google Fonts)-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Verdana&display=swap" rel="stylesheet" />
+
+  <title>Administración de Productos | Grupo Sie7e</title>
+
+  <!--Hoja de estilos propia de esta página-->
+  <link rel="stylesheet" href="/css/product-management-styles.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="main-header__logo">
+      <a href="/"><img src="/images/logoG7-admin.svg" alt="logoG7" /></a>
+    </div>
+    <p class="main-header__title">
+      <i class="main-header__pipe fas fa-chevron-right"></i>Administración
+    </p>
+  </header>
+
+  <main>
+    <h1>Crear Producto</h1>
+
+    <!-- Buscador de Producto -->
+    <form class="product-selection" method="post" action="/admin/products/search?_method=PUT">
+      <label>Catálogo de existencias</label>
+      <select name="searchId" name="searchId">
+        <% inventory.forEach(product => { %>
+        <option value="<%= product.id %>"><%= product.name %></option>
+        <% }) %>
+      </select>
+
+      <!-- <button type="submit" class="blue-button search-button">Buscar</button> -->
+    </form>
+
+    <form class="product-form" method="post" action="/admin/products/create" enctype="multipart/form-data">
+      <!-- Sección de datos del producto -->
+      <section class="product-form__data">
+        <label for="name">Nombre del Producto:</label>
+        <input type="text" id="name" name="name" placeholder="Sanguche de milanesa" required />
+
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" placeholder="Sanguche de milanesa con tomate y lechuga, con un leve aderezo a base de mayonesa y mostaza. Un clasico de la gastronomia argentina" required></textarea>
+
+        <label for="sku">SKU:</label>
+        <input type="text" id="sku" name="sku" placeholder="MIL-001CA" required />
+
+        <label for="ingredients">Ingredientes:</label>
+        <p>separar con comas!!!</p>
+        <textarea id="ingredients" name="ingredients" placeholder="Pan, milanesa, tomate, lechuga, mayonesa, mostaza" required></textarea>
+
+        <label for="image">Imagen del Producto:</label>
+        <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)">
+        <img id="output" />
+        <script>
+          var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+              URL.revokeObjectURL(output.src) // free memory
+            }
+          };
+        </script>
+
+        <select id="category" name="category" required>
+          <option value="comida">Comida</option>
+          <option value="sanguche">Sanguchito</option>
+          <option value="bebidas">Bebidas</option>
+          <option value="snacks">Snacks</option>
+          <option value="postres">Postres</option>
+          <option value="otros">Otros</option>
+        </select>
+
+        <div class="product-form__data--checkbox-group">
+          <div class="product-form__data--checkbox-container">
+            <label for="vegetarian">Apto vegetariano</label>
+            <input type="checkbox" id="vegetarian" name="vegetarian">
+          </div>
+
+          <div class="product-form__data--checkbox-container">
+            <label for="vegan">Apto vegano</label>
+            <input type="checkbox" id="vegan" name="vegan">
+          </div>
+
+          <div class="product-form__data--checkbox-container">
+            <label for="celiac">Apto celiaco</label>
+            <input type="checkbox" id="celiac" name="celiac">
+          </div>
+        </div>
+
+        <label for="size">Tamaño:</label>
+        <input type="text" id="size" name="size" placeholder="Grande" required />
+
+        <label for="price">Precio:</label>
+        <input type="number" id="price" name="price" step="100" min="0" placeholder="$4.000" required />
+      </section>
+
+      <!-- Sección de Botones -->
+      <section class="buttons-section">
+        <button type="submit" class="blue-button">Crear</button>
+      </section>
+    </form>
+  </main>
+
+  <footer class="main-footer">
+    <p class="main-footer__copyright">
+      © Grupo Sie7e y asociados. Todos los derechos reservados
+    </p>
+  </footer>
+
+  <script>
+    document
+      .querySelector(".top-side__burguer-menu")
+      .addEventListener("click", () => {
+        document.querySelector("nav ul").classList.toggle("active");
+      });
+  </script>
+</body>
+
+</html>

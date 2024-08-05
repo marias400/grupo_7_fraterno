@@ -95,6 +95,15 @@ main {
     transform: translate(4px, 4px);
 }
 
+.form_paragraph {
+    font-weight: 300;
+}
+
+.form_link {
+    color: black;
+    font-weight: 400;
+}
+
 @media (max-width: 375px) {
     .form {
         min-width: 90vw;

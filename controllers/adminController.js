@@ -1,27 +1,180 @@
-const products = require("../data/products");
+const datasource = require("../services/inventoryData");
+const inventoryData = require("../services/inventoryData");
+
+//vistas administrador:
 
 const adminController = {
-  loginPage: (req, res) => {
+  inventory: null,
+
+  //aun no existe
+  async loginPage(req, res) {
     res.render("admin/log-in");
   },
 
-  loginAdmin: (req, res) => {
-    let id = 0;
-    res.render("admin/product-management", { id, products });
+  //busca y edita producto
+  async editPage(req, res) {
+    this.inventory = await inventoryData.load();
+    let id = req.params.id;
+
+    const inventoryItem = this.inventory.find((item) => {
+      return item.id === id;
+    });
+
+    if (id) {
+      res.render("admin/product-editor", { id, inventory, inventoryItem });
+    } else {
+      let id = req.body.searchId;
+      res.redirect(`${id}/edit`);
+    }
   },
 
-  productManagementPage: (req, res) => {
+  //edita producto
+  async editLogic(req, res) {
+    this.inventory = await inventoryData.load();
     const id = req.params.id;
-    res.render("admin/product-management", { id, products });
+    const { image } = this.inventory.find((item) => item.id === id);
+
+    // Lógica para determinar la imagen de producto
+    let imageFilePath;
+
+    if (req.file) {
+      // Si se subió una nueva imagen
+      imageFilePath = `/images/products/${req.file.filename}`;
+
+      // Si había una imagen anterior, eliminarla
+      if (image && image !== "" && image !== "/images/products/default.png") {
+        datasource.removeFile(image);
+      }
+    } else {
+      // Si no se subió una nueva imagen
+      if (image && image !== "") {
+        // Mantener la imagen anterior si existe
+        imageFilePath = image;
+      } else {
+        // Si no había imagen anterior, establecer la imagen por defecto
+        imageFilePath = "/images/products/default.png";
+      }
+    }
+
+    const {
+      name,
+      description,
+      sku,
+      ingredients,
+      category,
+      vegetarian,
+      vegan,
+      celiac,
+      size,
+      price,
+    } = req.body;
+
+    let suitability = {
+      vegetarian: vegetarian === "on" || false,
+      vegan: vegan === "on" || false,
+      celiac: celiac === "on" || false,
+    };
+
+    //modificacion a la "base de datos"
+    const updatedInventory = inventory.map((toModify) => {
+      if (toModify.id === id) {
+        return {
+          id,
+          name,
+          description,
+          sku,
+          ingredients: ingredients.split(", "),
+          image: imageFilePath,
+          category,
+          suitability,
+          size,
+          price,
+        };
+      } else {
+        return toModify;
+      }
+    });
+
+    await inventoryData.save(updatedInventory);
+
+    res.redirect(`/admin/products/${id}/edit`);
   },
 
-  productEdit: (req, res) => {
-    let id = req.body.nigeria;
-    id = id - 1;
+  async createPage(req, res) {
+    this.inventory = await inventoryData.load();
+    res.render("admin/product-creator", { inventory: this.inventory });
+  },
 
-    console.log(`id: ${id}`);
+  async createProduct(req, res) {
+    this.inventory = await inventoryData.load();
 
-    res.redirect(`products/${id}`);
+    const {
+      name,
+      description,
+      sku,
+      ingredients,
+      category,
+      vegetarian,
+      vegan,
+      celiac,
+      size,
+      price,
+    } = req.body;
+
+    let imageFilePath;
+
+    if (req.file) {
+      imageFilePath = `/images/products/${req.file.filename}`;
+    } else {
+      imageFilePath = "/images/products/default.png";
+    }
+
+    const suitability = {
+      vegetarian: vegetarian === "on" || false ? true : false,
+      vegan: vegan === "on" || false ? true : false,
+      celiac: celiac === "on" || false ? true : false,
+    };
+
+    const id = crypto.randomUUID();
+
+    newItem = {
+      id: id,
+      name: name,
+      description: description,
+      sku: sku,
+      ingredients: ingredients.split(', '),
+      image: imageFilePath,
+      category: category,
+      suitability: suitability,
+      size: size,
+      price: price,
+    };
+
+    let updatedInventory = inventory;
+    updatedInventory.push(newItem);
+
+    await inventoryData.save(updatedInventory);
+
+    res.redirect(`/admin/products/${id}/edit`);
+  },
+
+  async deleteProduct(req, res) {
+    this.inventory = await inventoryData.load();
+    const id = req.params.id;
+
+    const { image } = this.inventory.find((item) => item.id === id);
+
+    const updatedInventory = this.inventory.filter((toModify) => {
+      return toModify.id !== id;
+    });
+
+    if (image !== "/images/products/default.png") {
+      await inventoryData.removeFile(image);
+    }
+
+    await inventoryData.save(updatedInventory);
+
+    res.redirect("/products/list");
   },
 };
 

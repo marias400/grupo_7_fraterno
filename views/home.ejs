@@ -25,21 +25,26 @@
     <main>
         <h1>BIENVENIDOS A GRUPO SIE7E</h1>
         <h2 class="h__Title">La experiencia perfecta en sanguches</h2>
-        <div class="div__gallery">
-            <section class="gallery">
-                <img src="/images/imagen1.png" alt="imagen1">
-                <img src="/images/products/sanguche-pollo.png" alt="Sanguche Pollo" onclick="toProductDetail(0)" style="cursor: pointer;">
-                <img src="/images/products/sanguche-jyq.png" alt="Sanguche JyQ" onclick="toProductDetail(1)" style="cursor: pointer;">
-                <img src="/images/products/sanguche-charcutero.png" alt="Sanguche Charcutero" onclick="toProductDetail(2)" style="cursor: pointer;">
-            </section>
-        </div>
+        <div class="gallery">
+            <ul class="gallery__list">
+                <% for(let i=0; i<topInventory.length; i++){ %>
+                    <li class="gallery__item">
+                        <a class="gallery__link" href="/products/detail/<%= topInventory[i].id %>">
+                            <img class="gallery__image" src="<%= topInventory[i].image %>" alt="<%= topInventory[i].name %>" width="500" height="500">
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>           
         <!-- Sección de productos -->
         <section class="container-card">
             <h2>Algunos de nuestros productos</h2>
             <section class="products">
-                <% for(let i=3; i<products.length; i++){ %>
-                    <div class="products-cards" onclick="toProductDetail(<%= i %>)">
-                        <img src="<%= products[i].image %>" alt="<%= products[i].name %>" class="img-fluid">
+                <% for(let i=0; i<inventory.length; i++){ %>
+                    <div class="products-cards">
+                        <a href="/products/detail/<%= inventory[i].id %>">
+                            <img src="<%= inventory[i].image %>" alt="<%= inventory[i].name %>" class="img-fluid">
+                        </a>
                         <h3>
                             <%= products[i].name %>
                         </h3>
