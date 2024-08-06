@@ -63,7 +63,9 @@
 
         <label for="image">Imagen del Producto:</label>
         <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)">
-        <img id="output" />
+        <div class="product-form__data--image">
+          <img id="output" />
+        </div>
         <script>
           var loadFile = function(event) {
             var output = document.getElementById('output');

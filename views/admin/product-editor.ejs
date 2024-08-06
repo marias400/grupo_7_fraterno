@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Verdana&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
   <title>Administración de Productos | Grupo Sie7e</title>
 
@@ -27,7 +28,6 @@
     </div>
     <p class="main-header__title"><i class="main-header__pipe fas fa-chevron-right"></i>Administración</p>
   </header>
-
   <main>
     <h1>Editar Productos</h1>
 
@@ -47,20 +47,14 @@
       <button type="submit" class="blue-button search-button">Buscar</button>
     </form>
 
-<!-- arreglar estetica y funcionalmente -->
-
-    <div class="d-grid gap-2 fixed-top">
-      <a href="../create" class="btn btn-primary">Crear producto</a>
+    <div class="btn-group-vertical grid gap-3" role="group" aria-label="Vertical button group">
+      <div class="p-2 g-col-6">
+        <a href="../create" class="btn btn-primary">Ir a crear nuevo producto</a>
+      </div>
+      <div class="p-2 g-col-6">
+        <a href="../../../products/detail/<%= productItem.id %>" class="btn btn-primary">Ir a detalle <%= productItem.name %></a>
+      </div>
     </div>
-    
-<!-- ------------------------------------------- -->
-<!-- arreglar estetica y funcionalmente -->
-
-    <div class="d-grid gap-2 fixed-top">
-      <a href="../../../products/detail/<%= productItem.id %>" class="btn btn-primary">mostrar en tienda</a>
-    </div>
-
-<!-- ------------------------------------------- -->
 
     <form class="product-form" method="post" action="/admin/products/<%= id %>?_method=PUT" enctype="multipart/form-data">
       <!-- Sección de datos del producto -->
@@ -81,7 +75,7 @@
         <label for="image">Imagen del Producto:</label>
         <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)">
 
-        <div>
+        <div class="product-form__data--image">
           <img src="<%= productItem.image %>" title="<%= productItem.name %>" alt="<%= productItem.name %>" id="output">
         </div>
         <script>
@@ -131,11 +125,31 @@
       <!-- Sección de Botones -->
       <section class="buttons-section">
         <button type="submit" class="blue-button">Guardar Cambios</button>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="blue-button btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="border: none;">
+          BORRAR
+        </button>
       </section>
     </form>
-    <form class="product-form" method="post" action="/admin/products/<%= id %>?_method=DELETE">
-      <button type="submit" class="blue-button">BORRAR</button>
-    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Borrar producto</h5>
+          </div>
+          <div class="modal-body">
+            <p>Borrar un producto es irreversible, desea BORRAR?</p>
+          </div>
+          <form class="modal-footer product-form" method="post" action="/admin/products/<%= id %>?_method=DELETE">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-danger">BORRAR</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="main-footer">
@@ -147,6 +161,9 @@
       document.querySelector('nav ul').classList.toggle('active');
     });
   </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

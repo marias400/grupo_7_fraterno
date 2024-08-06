@@ -62,7 +62,6 @@ main {
 
 .main-header__logo {
     height: 60%;
-    display: flex;
     margin-right: 15px;
 }
 
