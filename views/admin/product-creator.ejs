@@ -37,7 +37,7 @@
     <form class="product-selection" method="post" action="/admin/products/search?_method=PUT">
       <label>Catálogo de existencias</label>
       <select name="searchId" name="searchId">
-        <% inventory.forEach(product => { %>
+        <% products.forEach(product => { %>
         <option value="<%= product.id %>"><%= product.name %></option>
         <% }) %>
       </select>
@@ -63,7 +63,9 @@
 
         <label for="image">Imagen del Producto:</label>
         <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)">
-        <img id="output" />
+        <div class="product-form__data--image">
+          <img id="output" />
+        </div>
         <script>
           var loadFile = function(event) {
             var output = document.getElementById('output');
@@ -104,7 +106,7 @@
         <input type="text" id="size" name="size" placeholder="Grande" required />
 
         <label for="price">Precio:</label>
-        <input type="number" id="price" name="price" step="100" min="0" placeholder="$4.000" required />
+        <input type="number" id="price" name="price" min="0" placeholder="$4.000" required />
       </section>
 
       <!-- Sección de Botones -->

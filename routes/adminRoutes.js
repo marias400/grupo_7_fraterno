@@ -4,6 +4,8 @@ const adminController = require("../controllers/adminController");
 const fileUpload = require("../services/fileUpload.js");
 
 router.get("/login", adminController.loginPage);
+router.post("/login", adminController.adminLogin);
+
 
 router.put("/products/search", adminController.editPage);
 router.get("/products/:id/edit", adminController.editPage);

@@ -2,12 +2,12 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 
 const datasource = {
-  filePath: path.resolve(__dirname, "../data/inventory.json"),
+  filePath: path.resolve(__dirname, "../data/products.json"),
 
   async load() {
     const jsonInventory = await fs.readFile(this.filePath, "");
-    const inventory = JSON.parse(jsonInventory);
-    return inventory;
+    const products = JSON.parse(jsonInventory);
+    return products;
   },
   async save(data) {
     const jsonInventory = JSON.stringify(data);

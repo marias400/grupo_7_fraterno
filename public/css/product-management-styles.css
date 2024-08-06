@@ -93,6 +93,17 @@ input[type="text"]:first-of-type {
     margin-bottom: 20px;
 }
 
+.product-form__data--image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.product-form__data--image img {
+    width: 100%;
+}
+
 .product-form__data--checkbox-group {
     display: flex;
     flex-wrap: wrap;
@@ -192,4 +203,10 @@ button.purple-button:active {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (min-width: 768px) {
+    .product-form__data--image img {
+        width: 250px;
+    }
 }
