@@ -3,6 +3,7 @@ const methodOverride = require("method-override");
 const app = express();
 const path = require("path");
 const session = require('express-session');
+const sessionMiddleware = require('./middleware/sessionMiddleware');
 
 const routesHome = require("./routes/homeRoutes");
 const routesAdmin = require("./routes/adminRoutes");
@@ -25,7 +26,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-
+app.use(sessionMiddleware);
 
 /*view engine*/
 app.set("view engine", "ejs");

@@ -7,10 +7,16 @@
             <i class="fa-solid fa-burger"></i>
         </div>
         <ul id="menu" class="menu">
-            <li class="menu-item" data-index="0"><a href="/users/login">Iniciar sesion</a></li>
+            <% if(userSession) { %>
+            <li class="menu-item" data-index="0"><a href="/"><%= userSession %></a></li>
             <li>|</li>
-            <li class="menu-item" data-index="1"><a href="/users/register">Registrarse</a></li>
-            <li>|</li>
+            <% }else{ %>
+                <li class="menu-item" data-index="0"><a href="/users/login">Iniciar sesion</a></li>
+                <li>|</li>
+                <li class="menu-item" data-index="1"><a href="/users/register">Registrarse</a></li>
+                <li>|</li>
+                
+            <% } %>
             <li class="menu-item" data-index="2"><a href="/products/list">Productos</a></li>
             <li>|</li>
             <li class="menu-item" data-index="3"><a href="/about">About</a></li>
@@ -44,8 +50,13 @@
         <nav>
             <span class="main-header__admin"><a href="/admin/login">Admin</a></span>
             <span class="main-header__products"><a href="/products/list">Productos</a></span>
-            <span class="main-header__login"><a href="/users/login">Iniciar sesión</a></span>
-            <span class="main-header__register"><a href="/users/register">Registro</a></span>
+            <% if(userSession) { %>
+            <span class="main-header__login"><a href="/"><%= userSession %></a></span>
+            <% }else{ %>
+                <span class="main-header__login"><a href="/users/login">Iniciar sesión</a></span>
+                <span class="main-header__register"><a href="/users/register">Registro</a></span>
+            <% } %>
+
         </nav>
     </div>
 </header>

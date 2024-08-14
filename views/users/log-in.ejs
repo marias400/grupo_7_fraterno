@@ -48,6 +48,11 @@
             />
             <label for="pass" class="form_label">Contraseña*</label>
             <span class="form_line"></span>
+            <% if(locals.errors){ %>
+              <% errors.forEach( error => { %>
+              <p class="form_line"><%= error.msg %></p>
+              <% }) %>
+            <% } %>
           </div>
           <div class="form_container">
             <input

@@ -1,4 +1,5 @@
 const datasource = require("../services/inventoryData");
+const { validationResult} = require('express-validator');
 
  const usersController = {
  async loginPage(req, res) {
@@ -13,18 +14,17 @@ const datasource = require("../services/inventoryData");
   async loginSuccesful(req, res){
     let {email,password} = req.body;
     let Users = await datasource.loadUsers();
-   //console.log(Users);
+    let errors = validationResult(req);
   
    let userFind = Users.find((u) => u.email === email);
-    console.log(userFind + " password " + password);
    if (userFind && userFind.password === password) {
      req.session.user = userFind.email;
-  //res.send(" usuario: " + userFind.email + password );
      res.redirect("/home"); 
    } else {
-    console.log(userFind + " email " + email );
-  res.send("contraseña incorrecta ");
-     //res.render("users/log-in", { error: "Email o contraseña incorrectos" });
+      if(!errors.isEmpty()){
+        res.render("users/log-in", { errors: errors.array() } );
+      }
+        
    }
   },
 
