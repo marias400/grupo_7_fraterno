@@ -31,16 +31,17 @@
             <span class="textlog">Google</span>
           </div>
         </section>
-        <form class="form">
+        <form class="form" method="post" action="/users/login">
           <h2 class="form_title">o usa tu dirección de email</h2>
           <div class="form_container">
-            <input type="text" id="user" class="form_input" placeholder=" " />
+            <input type="text" name="email" id="user" class="form_input" placeholder=" " />
             <label for="user" class="form_label">Usuario / Email*</label>
             <span class="form_line"></span>
           </div>
           <div class="form_container">
             <input
               type="password"
+              name="password"
               id="pass"
               class="form_input"
               placeholder=" "
@@ -50,10 +51,9 @@
           </div>
           <div class="form_container">
             <input
-              type="button"
+              type="submit"
               class="form_submit"
-              value="Entrar"
-              onclick="toHome()"
+              value="Entrar"             
             />
             <p class="form_paragraph">
               <a href="/users/register" class="form_link">Registrate →</a>
