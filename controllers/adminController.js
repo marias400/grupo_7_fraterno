@@ -6,18 +6,6 @@ const inventoryData = require("../services/inventoryData");
 const adminController = {
   products: null,
 
-  async adminLogin(req, res) {
-    function isAdmin(user, pass) {
-      return user === "admin" && pass === "admin";
-    }
-
-    isAdmin(req.body.user, req.body.pass) ? res.redirect("/products/list") : res.render("admin/log-in");
-  },
-
-  async loginPage(req, res) {
-    res.render("admin/log-in");
-  },
-
   //busca y edita producto
   async editPage(req, res) {
     this.products = await inventoryData.load();
@@ -149,7 +137,7 @@ const adminController = {
       name: name,
       description: description,
       sku: sku,
-      ingredients: ingredients.split(', '),
+      ingredients: ingredients.split(", "),
       image: imageFilePath,
       category: category,
       suitability: suitability,

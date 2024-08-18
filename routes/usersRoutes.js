@@ -1,16 +1,14 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const usersController = require('../controllers/usersController');
-const { check } = require('express-validator');
+const usersController = require("../controllers/usersController");
+const loginValidations = require("../middleware/loginValidations");
+const userActiveAuth = require("../middleware/userActiveAuth");
+const profileAuth = require("../middleware/profileAuth");
+const userInctiveAuth = require("../middleware/userInactiveAuth");
 
-const validacionesLogin = [
-    check('email').isEmail().withMessage('Email no valido'),
-    check('password').notEmpty().withMessage('El campo contraseña esta vacio'),
-    check('password').isLength({min: 8}).withMessage('La contraseña es menor a 8 caracteres')
-]
-
-router.get("/login", usersController.loginPage);
-router.get("/register", usersController.registerPage);
-router.post("/login", validacionesLogin ,usersController.loginSuccesful);
+router.get("/login", profileAuth, usersController.loginPage);
+router.post("/login", userInctiveAuth, loginValidations, usersController.loginSuccesful);
+router.get("/register", userInctiveAuth, usersController.registerPage);
+router.get("/profile", userActiveAuth, usersController.profilePage);
 
 module.exports = router;

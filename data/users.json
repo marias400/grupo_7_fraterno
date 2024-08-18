@@ -1,42 +1,56 @@
 [
   {
     "id": 1,
+    "firstName": "Admin",
+    "lastName": "Admin",
+    "email": "admin@admin.com",
+    "password": "admin",
+    "image": "/G7favicon.svg",
+    "admin": true
+  },
+  {
+    "id": 2,
     "firstName": "Juan",
     "lastName": "Pérez",
     "email": "juan.perez@example.com",
     "password": "contrasena123",
-    "image": "/G7favicon.svg"
+    "image": "/G7favicon.svg",
+    "admin": false
   },
   {
-    "id": 2,
+    "id": 3,
     "firstName": "María",
     "lastName": "González",
     "email": "maria.gonzalez@example.com",
     "password": "contrasena456",
-    "image": "/G7favicon.svg"
+    "image": "/G7favicon.svg",
+    "admin": false
   },
   {
-    "id": 3,
+    "id": 4,
     "firstName": "Carlos",
     "lastName": "Rodríguez",
     "email": "carlos.rodriguez@example.com",
     "password": "contrasena789",
-    "image": "/G7favicon.svg"
+    "image": "/G7favicon.svg",
+    "admin": false
   },
   {
-    "id": 4,
+    "id": 5,
     "firstName": "Laura",
     "lastName": "Martínez",
     "email": "laura.martinez@example.com",
     "password": "contrasena101",
-    "image": "/G7favicon.svg"
+    "image": "/G7favicon.svg",
+    "admin": false
   },
   {
-    "id": 5,
+    "id": 6,
     "firstName": "Pedro",
     "lastName": "Gutiérrez",
     "email": "pedro.gutierrez@example.com",
     "password": "contrasena112",
-    "image": "/G7favicon.svg"
+    "image": "/G7favicon.svg",
+    "admin": false
   }
 ]

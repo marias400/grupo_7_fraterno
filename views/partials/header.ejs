@@ -1,62 +1,78 @@
 <header class="main-header-container">
-    <div class="main-header">
-        <div class="main-header__logo">
-            <a href="/"><img src="/images/logoG7.svg" alt="logoG7"></a>
-        </div>
-        <div class="main-header__burguer-menu" id="menu-trigger">
-            <i class="fa-solid fa-burger"></i>
-        </div>
-        <ul id="menu" class="menu">
-            <% if(userSession) { %>
-            <li class="menu-item" data-index="0"><a href="/"><%= userSession %></a></li>
-            <li>|</li>
-            <% }else{ %>
-                <li class="menu-item" data-index="0"><a href="/users/login">Iniciar sesion</a></li>
-                <li>|</li>
-                <li class="menu-item" data-index="1"><a href="/users/register">Registrarse</a></li>
-                <li>|</li>
-                
-            <% } %>
-            <li class="menu-item" data-index="2"><a href="/products/list">Productos</a></li>
-            <li>|</li>
-            <li class="menu-item" data-index="3"><a href="/about">About</a></li>
-            <li>|</li>
-            <li class="menu-item" data-index="4"><a href="/admin/login">Admin</a></li>
-        </ul>
-        <script>
-            // JavaScript para manejar el clic y la expansión del menú
-            document.getElementById('menu-trigger').addEventListener('click', function () {
-                var menu = document.getElementById('menu');
-                menu.classList.toggle('show');
-            });
-
-            // Añadir evento de clic a los elementos del menú
-            var menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach(function (item) {
-                item.addEventListener('click', function (event) {
-                    event.stopPropagation(); // Evitar que el clic se propague al contenedor del menú
-                });
-            });
-
-            // Cerrar el menú si se hace clic fuera del menú
-            document.addEventListener('click', function (event) {
-                var menu = document.getElementById('menu');
-                var trigger = document.getElementById('menu-trigger');
-                if (!menu.contains(event.target) && !trigger.contains(event.target)) {
-                    menu.classList.remove('show');
-                }
-            });
-        </script>
-        <nav>
-            <span class="main-header__admin"><a href="/admin/login">Admin</a></span>
-            <span class="main-header__products"><a href="/products/list">Productos</a></span>
-            <% if(userSession) { %>
-            <span class="main-header__login"><a href="/"><%= userSession %></a></span>
-            <% }else{ %>
-                <span class="main-header__login"><a href="/users/login">Iniciar sesión</a></span>
-                <span class="main-header__register"><a href="/users/register">Registro</a></span>
-            <% } %>
-
-        </nav>
+  <div class="main-header">
+    <div class="main-header__logo">
+      <a href="/"><img src="/images/logoG7.svg" alt="logoG7" /></a>
     </div>
+    <div class="main-header__burguer-menu" id="menu-trigger">
+      <i class="fa-solid fa-burger"></i>
+    </div>
+    <ul id="menu" class="menu">
+      <% if(userSession) { %>
+      <li class="menu-item" data-index="0">
+        <a href="/users/profile"><%= userSession.firstName %></a>
+      </li>
+      <li>|</li>
+      <% }else{ %>
+      <li class="menu-item" data-index="0">
+        <a href="/users/login">Iniciar sesion</a>
+      </li>
+      <li>|</li>
+      <li class="menu-item" data-index="1">
+        <a href="/users/register">Registrarse</a>
+      </li>
+      <li>|</li>
+
+      <% } %>
+      <li class="menu-item" data-index="2">
+        <a href="/products/list">Productos</a>
+      </li>
+      <li>|</li>
+      <li class="menu-item" data-index="3"><a href="/about">About</a></li>
+    </ul>
+
+    <nav>
+      <span class="main-header__products"
+        ><a href="/products/list">Productos</a></span
+      >
+      <% if(userSession) { %>
+      <span class="main-header__login"
+        ><a href="/users/profile"><%= userSession.firstName %></a></span
+      >
+      <% }else{ %>
+      <span class="main-header__login"
+        ><a href="/users/login">Iniciar sesión</a></span
+      >
+      <span class="main-header__register"
+        ><a href="/users/register">Registro</a></span
+      >
+      <% } %>
+    </nav>
+
+    <script>
+      // JavaScript para manejar el clic y la expansión del menú
+      document
+        .getElementById("menu-trigger")
+        .addEventListener("click", function () {
+          var menu = document.getElementById("menu");
+          menu.classList.toggle("show");
+        });
+
+      // Añadir evento de clic a los elementos del menú
+      var menuItems = document.querySelectorAll(".menu-item");
+      menuItems.forEach(function (item) {
+        item.addEventListener("click", function (event) {
+          event.stopPropagation(); // Evitar que el clic se propague al contenedor del menú
+        });
+      });
+
+      // Cerrar el menú si se hace clic fuera del menú
+      document.addEventListener("click", function (event) {
+        var menu = document.getElementById("menu");
+        var trigger = document.getElementById("menu-trigger");
+        if (!menu.contains(event.target) && !trigger.contains(event.target)) {
+          menu.classList.remove("show");
+        }
+      });
+    </script>
+  </div>
 </header>
