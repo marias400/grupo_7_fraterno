@@ -54,6 +54,8 @@
             />
             <label for="pass" class="form_label">Contraseña*</label>
             <span class="form_line"></span>
+            <label for="remember">Recordarme</label>
+            <input type="checkbox" name="remember" id="remember">
             <% if(locals.errors){ %> <% errors.forEach( error => { %>
             <p class="form_line"><%= error.msg %></p>
             <% }) %> <% } %>

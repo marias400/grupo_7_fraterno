@@ -7,7 +7,7 @@ const usersController = {
   },
 
   async loginSuccesful(req, res) {
-    let { email, password } = req.body;
+    let { email, password, remember } = req.body;
     let Users = await datasource.loadUsers();
     let errors = validationResult(req);
 
@@ -21,7 +21,9 @@ const usersController = {
         image: userFind.image,
         admin: userFind.admin,
       };
-
+      if (remember != undefined) {
+        res.cookie("remember", req.session.user.email, { maxAge: 60000});
+      }
       res.redirect("/home");
     } else {
       if (!errors.isEmpty()) {
