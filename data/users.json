@@ -1,42 +1,43 @@
 [
-  {
-    "id": 1,
-    "firstName": "Juan",
-    "lastName": "Pérez",
-    "email": "juan.perez@example.com",
-    "password": "contrasena123",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 2,
-    "firstName": "María",
-    "lastName": "González",
-    "email": "maria.gonzalez@example.com",
-    "password": "contrasena456",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 3,
-    "firstName": "Carlos",
-    "lastName": "Rodríguez",
-    "email": "carlos.rodriguez@example.com",
-    "password": "contrasena789",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 4,
-    "firstName": "Laura",
-    "lastName": "Martínez",
-    "email": "laura.martinez@example.com",
-    "password": "contrasena101",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 5,
-    "firstName": "Pedro",
-    "lastName": "Gutiérrez",
-    "email": "pedro.gutierrez@example.com",
-    "password": "contrasena112",
-    "image": "/G7favicon.svg"
-  }
+ {
+  "id": 1,
+  "firstName": "Juan",
+  "lastName": "Pérez",
+  "email": "juan.perez@example.com",
+  "password": "contrasena123",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 2,
+  "firstName": "María",
+  "lastName": "González",
+  "email": "maria.gonzalez@example.com",
+  "password": "contrasena456",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 3,
+  "firstName": "Carlos",
+  "lastName": "Rodríguez",
+  "email": "carlos.rodriguez@example.com",
+  "password": "contrasena789",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 4,
+  "firstName": "Laura",
+  "lastName": "Martínez",
+  "email": "laura.martinez@example.com",
+  "password": "contrasena101",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 5,
+  "firstName": "Pedro",
+  "lastName": "Gutiérrez",
+  "email": "pedro.gutierrez@example.com",
+  "password": "contrasena112",
+  "image": "/G7favicon.svg"
+ }
+ 
 ]

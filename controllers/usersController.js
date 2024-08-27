@@ -1,5 +1,6 @@
 const datasource = require("../services/inventoryData");
 const { validationResult} = require('express-validator');
+const User = require('../services/User');
 
  const usersController = {
  async loginPage(req, res) {
@@ -31,6 +32,12 @@ const { validationResult} = require('express-validator');
  async registerPage(req, res) {
     res.render("users/register");
   },
+
+  async processRegister(req, res) {
+    let usuario = User.create(req.body) ;
+    res.send(usuario);
+  },
+
 };
 
 module.exports = usersController;

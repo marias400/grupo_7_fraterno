@@ -20,21 +20,21 @@
           <img src="/images/logoG7.svg" alt="" />
         </div>
 
-        <form>
+        <form method="post" action="/users/register">
           <div class="form_container">
-            <input type="text" id="name" class="form_input" placeholder=" " />
+            <input type="text" id="name" name="firstName" class="form_input" placeholder=" " />
             <label for="name" class="form_label">Nombre*</label>
             <span class="form_line"></span>
           </div>
 
           <div class="form_container">
-            <input type="text" id="name" class="form_input" placeholder=" " />
+            <input type="text" id="name" name="lastName" class="form_input" placeholder=" " />
             <label for="name" class="form_label">Apellido*</label>
             <span class="form_line"></span>
           </div>
 
           <div class="form_container">
-            <input type="text" id="email" class="form_input" placeholder=" " />
+            <input type="text" id="email" name="email" class="form_input" placeholder=" " />
             <label for="email" class="form_label">Email*</label>
             <span class="form_line"></span>
           </div>
@@ -46,12 +46,7 @@
           </div>
 
           <div class="form_container">
-            <input
-              type="text"
-              id="address"
-              class="form_input"
-              placeholder=" "
-            />
+            <input type="text" id="address"  class="form_input" placeholder=" "/>
             <label for="address" class="form_label">Direccion</label>
             <span class="form_line"></span>
           </div>
@@ -60,6 +55,7 @@
             <input
               type="file"
               id="image"
+              name="image"
               class="form_input"
             />
             <label for="address" class="form_label">Foto perfil</label>
@@ -67,12 +63,7 @@
           </div>
 
           <div class="form_container">
-            <input
-              type="password"
-              id="pass"
-              class="form_input"
-              placeholder=" "
-            />
+            <input type="password" id="pass" name="password" class="form_input" placeholder=" "/>
             <label for="pass" class="form_label">Contraseña*</label>
             <span class="form_line"></span>
           </div>
@@ -92,10 +83,9 @@
 
           <div>
             <input
-              type="button"
+              type="submit"
               class="form_submit"
               value="Registrarse"
-              onclick="toHome()"
             />
             <p class="form_paragraph">
               <a href="/users/login" class="form_link"

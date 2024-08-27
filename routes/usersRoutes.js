@@ -12,5 +12,6 @@ const validacionesLogin = [
 router.get("/login", usersController.loginPage);
 router.get("/register", usersController.registerPage);
 router.post("/login", validacionesLogin ,usersController.loginSuccesful);
+router.post("/register", usersController.processRegister);
 
 module.exports = router;
