@@ -1,42 +1,70 @@
 [
-  {
-    "id": 1,
-    "firstName": "Juan",
-    "lastName": "Pérez",
-    "email": "juan.perez@example.com",
-    "password": "contrasena123",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 2,
-    "firstName": "María",
-    "lastName": "González",
-    "email": "maria.gonzalez@example.com",
-    "password": "contrasena456",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 3,
-    "firstName": "Carlos",
-    "lastName": "Rodríguez",
-    "email": "carlos.rodriguez@example.com",
-    "password": "contrasena789",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 4,
-    "firstName": "Laura",
-    "lastName": "Martínez",
-    "email": "laura.martinez@example.com",
-    "password": "contrasena101",
-    "image": "/G7favicon.svg"
-  },
-  {
-    "id": 5,
-    "firstName": "Pedro",
-    "lastName": "Gutiérrez",
-    "email": "pedro.gutierrez@example.com",
-    "password": "contrasena112",
-    "image": "/G7favicon.svg"
-  }
+ {
+  "id": 1,
+  "firstName": "Juan",
+  "lastName": "Pérez",
+  "email": "juan.perez@example.com",
+  "password": "contrasena123",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 2,
+  "firstName": "María",
+  "lastName": "González",
+  "email": "maria.gonzalez@example.com",
+  "password": "contrasena456",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 3,
+  "firstName": "Carlos",
+  "lastName": "Rodríguez",
+  "email": "carlos.rodriguez@example.com",
+  "password": "contrasena789",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 4,
+  "firstName": "Laura",
+  "lastName": "Martínez",
+  "email": "laura.martinez@example.com",
+  "password": "contrasena101",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 5,
+  "firstName": "Pedro",
+  "lastName": "Gutiérrez",
+  "email": "pedro.gutierrez@example.com",
+  "password": "contrasena112",
+  "image": "/G7favicon.svg"
+ },
+ {
+  "id": 6,
+  "firstName": "Jesus",
+  "lastName": "Solorzano Garcia",
+  "email": "Comercial@uvo.cl",
+  "image": "/products/default.png",
+  "password": "asd"
+ },
+ {
+  "id": 7,
+  "firstName": "Jesus",
+  "lastName": "Solorzano Garcia",
+  "email": "Comercial@uvo.cl",
+  "phone": "3804558018",
+  "address": "asdsad",
+  "password": "asd",
+  "image": "imagen-0eb7c27a8507db76.png"
+ },
+ {
+  "id": 8,
+  "firstName": "maria",
+  "lastName": "solorzano",
+  "email": "Comercial@uvo.cl",
+  "phone": "3804558018",
+  "address": "asdsadsad",
+  "password": "$2a$10$GPMVL9drrpN3G2ji0j6GQuHgt18oiQzoBm98.jP/kw3nWt2rAexl.",
+  "image": "/products/default.png"
+ }
 ]

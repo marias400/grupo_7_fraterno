@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/usersController');
 const { check } = require('express-validator');
+const fileUpload = require('../services/fileUpload');
 
 const validacionesLogin = [
     check('email').isEmail().withMessage('Email no valido'),
@@ -12,5 +13,6 @@ const validacionesLogin = [
 router.get("/login", usersController.loginPage);
 router.get("/register", usersController.registerPage);
 router.post("/login", validacionesLogin ,usersController.loginSuccesful);
+router.post("/register",fileUpload.single('image'), usersController.processRegister);
 
 module.exports = router;

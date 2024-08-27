@@ -1,5 +1,7 @@
 const datasource = require("../services/inventoryData");
 const { validationResult} = require('express-validator');
+const bcrypt = require('bcryptjs');
+const User = require('../services/User');
 
  const usersController = {
  async loginPage(req, res) {
@@ -31,6 +33,20 @@ const { validationResult} = require('express-validator');
  async registerPage(req, res) {
     res.render("users/register");
   },
+
+  async processRegister(req, res) {
+   let newUser = {...req.body};
+     if(req.file){
+      newUser = {...req.body, image:req.file.filename};
+     }else{
+      newUser.image = "/products/default.png";
+     }
+     newUser.password = bcrypt.hashSync(req.body.password, 10);
+    let usuario = User.create(newUser) ;
+    res.send(usuario);
+  },
+
+
 };
 
 module.exports = usersController;
