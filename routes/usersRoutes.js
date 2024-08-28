@@ -1,18 +1,16 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const usersController = require('../controllers/usersController');
-const { check } = require('express-validator');
-const fileUpload = require('../services/fileUpload');
+const usersController = require("../controllers/usersController");
+const loginValidations = require("../middleware/loginValidations");
+const userActiveAuth = require("../middleware/userActiveAuth");
+const profileAuth = require("../middleware/profileAuth");
+const userInctiveAuth = require("../middleware/userInactiveAuth");
+const fileUploadUsers = require('../services/fileUploadUsers');
 
-const validacionesLogin = [
-    check('email').isEmail().withMessage('Email no valido'),
-    check('password').notEmpty().withMessage('El campo contraseña esta vacio'),
-    check('password').isLength({min: 8}).withMessage('La contraseña es menor a 8 caracteres')
-]
-
-router.get("/login", usersController.loginPage);
-router.get("/register", usersController.registerPage);
-router.post("/login", validacionesLogin ,usersController.loginSuccesful);
-router.post("/register",fileUpload.single('image'), usersController.processRegister);
+router.get("/login", profileAuth, usersController.loginPage);
+router.post("/login", userInctiveAuth, loginValidations, usersController.loginSuccesful);
+router.get("/register", userInctiveAuth, usersController.registerPage);
+router.post("/register",fileUploadUsers.single('image'), usersController.processRegister);
+router.get("/profile", userActiveAuth, usersController.profilePage);
 
 module.exports = router;

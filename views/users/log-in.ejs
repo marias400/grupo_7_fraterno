@@ -34,7 +34,13 @@
         <form class="form" method="post" action="/users/login">
           <h2 class="form_title">o usa tu dirección de email</h2>
           <div class="form_container">
-            <input type="text" name="email" id="user" class="form_input" placeholder=" " />
+            <input
+              type="text"
+              name="email"
+              id="user"
+              class="form_input"
+              placeholder=" "
+            />
             <label for="user" class="form_label">Usuario / Email*</label>
             <span class="form_line"></span>
           </div>
@@ -48,18 +54,14 @@
             />
             <label for="pass" class="form_label">Contraseña*</label>
             <span class="form_line"></span>
-            <% if(locals.errors){ %>
-              <% errors.forEach( error => { %>
-              <p class="form_line"><%= error.msg %></p>
-              <% }) %>
-            <% } %>
+            <label for="remember">Recordarme</label>
+            <input type="checkbox" name="remember" id="remember">
+            <% if(locals.errors){ %> <% errors.forEach( error => { %>
+            <p class="form_line"><%= error.msg %></p>
+            <% }) %> <% } %>
           </div>
           <div class="form_container">
-            <input
-              type="submit"
-              class="form_submit"
-              value="Entrar"             
-            />
+            <input type="submit" class="form_submit" value="Entrar" />
             <p class="form_paragraph">
               <a href="/users/register" class="form_link">Registrate →</a>
             </p>
