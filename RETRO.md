@@ -1,140 +1,33 @@
-﻿# Retrospectiva Sprint 2 🚀
+# Retrospectiva Sprint 5 &#x1F680;
 
-## 🤩 More Of
+## &#x1F929; More Of
 
-- **Reuniones pactadas**
 - **Constancia**
-- **Prestar más atención al material desglosado en Trello**
-- **Monitorear la navegacion en general del sitio y la experiencia de usuario (UX)**
-
-## 👍 Keep Doing
-
-- **Distribuir claramente las tareas**
-- **Investigar bien lo que necesitamos hacer**
-- **Trabajar en branches de GitHub**
-- **Deadlines fijas para las tareas**
-- **Ayudarse cuando hay inconvenientes**
-
-## 💪 Start Doing
-
-- **INICIATIVA PROPIA**
-- **Procurar harmonia entre todas las paginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
-
-## 😕 Less Off
-
-- **No notificar el progreso**
-- **No usar el canal de Discord**
-
-## 🚫 Stop Doing
-
-- **Dejar cosas a ultimo momento**
-- **Trabajo fuera de las reglas de estilo adoptadas hasta el momento**
-- **Esperar que alguien recuerde sobre las tareas, deadlines y entregas apenas comienza el sprint. Hacerlo uno mismo**
-
-
-
-# Retrospectiva Sprint 3 🚀
-
-## 🤩 More Of
-
-- **Prestar más atención al material desglosado en Trello**
-- **Monitorear la navegación en general del sitio y la experiencia de usuario (UX)**
-- **Constancia**
+- **Iniciativa propia**
 - **Reuniones pactadas**
+- **Usar el grupo de Whatsapp**
+- **Hacer todo el proyecto en equipo**
+- **Deadlines fijas para las tareas (tickets) en Trello**
 
-## 👍 Keep Doing
+## &#x1F44D; Keep Doing
 
-- **Investigación exhaustiva de lo necesario**
-- **Distribuir claramente las tareas**
-- **Ayudarse cuando hay inconvenientes**
 - **Trabajar en branches de GitHub**
-- **Deadlines fijas para las tareas**
+- **Prestar más atención al material desglosado en Trello**
+- **Trabajar acorde a las reglas de estilo adoptadas hasta el momento**
+- **Monitorear la navegación en general del sitio y garantizar al usuario la mejor experiencia (UX/UI)**
 - **Procurar armonía entre todas las páginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
 
-## 💪 Start Doing
-
-- **Iniciativa propia**
-- **Fomentar revisiones de código internas**
-
-## 😕 Less Off
-
-- **No usar el canal de Discord**
-- **No usar el grupo de whatsapp**
-- **No notificar el progreso**
-- **Saltarse reuniones sin justificación**
-- **Asumir que otros miembros del equipo completarán las tareas asignadas**
-
-## 🚫 Stop Doing
-
-- **Trabajo fuera de las reglas de estilo adoptadas hasta el momento**
-- **Esperar que alguien recuerde sobre las tareas, deadlines y entregas apenas comienza el sprint. Hacerlo uno mismo**
-- **No trabajar en equipo**
-- **No trabajar**
-
-
-
-# Retrospectiva Sprint 4 🚀
-
-Un sprint hecho por Padula Jorge solo, no por voluntad suya sino por que el resto ni nos molestamos en aportar.
-
-## 🤩 More Of
-
-- **Deadlines fijas para las tareas**
-- **Reuniones pactadas**
-- **Constancia**
-- **Prestar más atención al material desglosado en Trello**
-
-## 👍 Keep Doing
-
-- **Monitorear la navegacion en general del sitio y la experiencia de usuario (UX)**
-- **Trabajar en branches de GitHub**
-- **Procurar armonia entre todas las paginas del sitio (mismo padding, mismas fuentes, misma paleta, mismo header, etc.)**
-
-## 💪 Start Doing
-
-- **INICIATIVA PROPIA**
-
-## 😕 Less Off
-
-- **No notificar el progreso**
-- **No usar el canal de Discord**
-- **Hacer todo el proyecto entre 2 personas**
-
-## 🚫 Stop Doing
-
-- **Dejar cosas a ultimo momento**
-- **Trabajo fuera de las reglas de estilo adoptadas hasta el momento**
-- **Esperar que alguien recuerde sobre las tareas, deadlines y entregas apenas comienza el sprint. Hacerlo uno mismo**
-- **Renegar con compañeros que no se molestan en aportar**
-
-
-
-# Retrospectiva Sprint 5 🚀
-
-## 🤩 More Of
-
-- **Iniciativa propia**
-
-## 👍 Keep Doing
-
-- **Constancia**
-- **Deadlines fijas para las tareas desglosadas en Trello**
-- **Monitorear más la navegación en general del sitio y la experiencia de usuario (UX)**
-- **Saber trabajar en branches de GitHub**
-
-## 💪 Start Doing
+## &#x1F4AA; Start Doing
 
 - **Usar el canal de Discord**
-- **Comunicarse más**
-- **Iniciativa propia para -> notificar el progreso**
-- **Probar funcionalidad al unir las bases de codigos**
+- **Mantener algun canal de comunicación abierto y de retroalimentación**
 
-## 😕 Less Off
+## &#x1F4AA; Less Off
 
 - **No notificar el progreso**
 - **Dejar cosas a último momento**
+- **Hacer todo el proyecto entre 2 personas**
 
-## 🚫 Stop Doing
+## &#x1F6AB; Stop Doing
 
-- **Hacer todo el proyecto emtre 2 personas**
-- **No avisar si hay inconvenientes para aportar al proyecto**
+- **Esperar que alguien más tome tickets si quedan tickets sin tomar**
