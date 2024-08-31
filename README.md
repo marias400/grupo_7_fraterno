@@ -23,28 +23,28 @@ Nos dirigimos al público en general de la ciudad de La Rioja capital que apreci
 
 ## &#x1F465; Quiénes Somos
 
-### `Juan Manuel Biagioli`
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+### `Arias Simone Mariano`
 
-### `Daniel Zelaya`
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-
-### `Solorzano Garcia Jesus`
-
-Soy estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. Actualmente estoy cursando la carrera de Licenciatura en Sistemas, donde voy adquiriendo conocimientos fundamentales en el desarrollo y mantenimiento de sistemas informáticos. Además, he trabajado como soporte técnico, brindando asistencia y soluciones tecnológicas a los usuarios.
-
-### `Padula Lugo Jorge`
-
-Soy estudiante de Ingeniería en Sistemas de Información en la Universidad Nacional de La Rioja (UNLaR). A lo largo de mi carrera, he tenido la oportunidad de programar en una variedad de lenguajes y tecnologías, lo que me ha permitido adquirir una visión amplia y general del campo de la programación, aunque no me he especializado en un área específica.
+Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
 
 ### `Avila Braian Emanuel`
 
 Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Trabajo haciendo monitoreo en una empresa de seguridad. Tengo poca experiencia programando mas de la que me dan las clases de la facultad o viendo y aprendiendo por videos de youtube.
 
-### `Arias Simone Mariano`
+### `Juan Manuel Biagioli`
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
 
-Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
+### `Padula Lugo Jorge`
+
+Soy estudiante de Ingeniería en Sistemas de Información en la Universidad Nacional de La Rioja (UNLaR). A lo largo de mi carrera, he tenido la oportunidad de programar en una variedad de lenguajes y tecnologías, lo que me ha permitido adquirir una visión amplia y general del campo de la programación, aunque no me he especializado en un área específica.
+
+### `Solorzano Garcia Jesus`
+
+Soy estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. Actualmente estoy cursando la carrera de Licenciatura en Sistemas, donde voy adquiriendo conocimientos fundamentales en el desarrollo y mantenimiento de sistemas informáticos. Además, he trabajado como soporte técnico, brindando asistencia y soluciones tecnológicas a los usuarios.
+
+### `Daniel Zelaya`
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
 
 ### `Barros Jorge Esteban (oyente)`
 

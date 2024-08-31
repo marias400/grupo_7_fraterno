@@ -12,8 +12,8 @@ main img {
 main h1 {
     width: fit-content;
     margin: 40px auto 20px;
-    text-decoration: overline underline;
     text-align: center;
+    text-decoration: overline underline;
 }
 
 main p {
@@ -31,6 +31,6 @@ main section section p {
 }
 
 .last-line {
-    margin-top: 20px;
     font-weight: bold;
+    margin-top: 20px;
 }
