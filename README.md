@@ -23,13 +23,16 @@ Nos dirigimos al público en general de la ciudad de La Rioja capital que apreci
 
 ## &#x1F465; Quiénes Somos
 
+### `Juan Manuel Biagioli`
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+
+### `Daniel Zelaya`
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+
 ### `Solorzano Garcia Jesus`
 
 Soy estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. Actualmente estoy cursando la carrera de Licenciatura en Sistemas, donde voy adquiriendo conocimientos fundamentales en el desarrollo y mantenimiento de sistemas informáticos. Además, he trabajado como soporte técnico, brindando asistencia y soluciones tecnológicas a los usuarios.
-
-### `Barros Jorge Esteban`
-
-Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que estoy ejerciendo actualmente pero desde hace un año atras comence a introducirme en la programacion. Tengo conocimientos basicos de Diseño Ux Ui, html y css por interes propio en distintas plataformas digitales.
 
 ### `Padula Lugo Jorge`
 
@@ -42,6 +45,10 @@ Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Trabajo hacie
 ### `Arias Simone Mariano`
 
 Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Tengo formación en física y docencia. Me dedico a dar clases particulares tanto de física como de matemática. Tengo un poco de experiencia programando en algunos lenguajes populares.
+
+### `Barros Jorge Esteban (oyente)`
+
+Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que estoy ejerciendo actualmente pero desde hace un año atras comence a introducirme en la programacion. Tengo conocimientos basicos de Diseño Ux Ui, html y css por interes propio en distintas plataformas digitales.
 
 ***
 
@@ -71,6 +78,7 @@ Para desarrollar el sitio web en equipo, decidimos utilizar diferentes herramien
     + **[Sprint 3](https://trello.com/invite/b/h3RjzAnn/ATTI0bac942b14a5463d5a046397ec78be05489A3949/sprint-3)**
     + **[Sprint 4](https://trello.com/invite/b/66a2cfd6ce2e45c7592bc826/ATTI78ad0047bf0792107e5ed68508b881d7DF9DB0F3/sprint-4)**
     + **[Sprint 5](https://trello.com/invite/b/66b3959d46dfa8dce1679b54/ATTI8d57ff90f06caf3fb253c509a98925d1F0991419/sprint-5)**
+    + **[Sprint 6]()
 
 - **[Figma](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para el diseño de los wireframes del sitio.
 
