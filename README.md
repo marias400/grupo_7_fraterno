@@ -71,6 +71,7 @@ Para desarrollar el sitio web en equipo, decidimos utilizar diferentes herramien
     + **[Sprint 3](https://trello.com/invite/b/h3RjzAnn/ATTI0bac942b14a5463d5a046397ec78be05489A3949/sprint-3)**
     + **[Sprint 4](https://trello.com/invite/b/66a2cfd6ce2e45c7592bc826/ATTI78ad0047bf0792107e5ed68508b881d7DF9DB0F3/sprint-4)**
     + **[Sprint 5](https://trello.com/invite/b/66b3959d46dfa8dce1679b54/ATTI8d57ff90f06caf3fb253c509a98925d1F0991419/sprint-5)**
+    + **[Sprint 6](https://trello.com/invite/b/66d0fef956084690f599c380/ATTIccd53d16c51e790bcc8fd3dee1f7d40a49B53B84/sprint-6)**
 
 - **[Figma](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para el diseño de los wireframes del sitio.
 
