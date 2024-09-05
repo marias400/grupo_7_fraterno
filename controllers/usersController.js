@@ -1,7 +1,6 @@
-const datasource = require("../services/inventoryData");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const User = require("../services/User");
+const db = require('../database/models');
 
 const usersController = {
   async loginPage(req, res) {
@@ -9,29 +8,33 @@ const usersController = {
   },
 
   async loginSuccesful(req, res) {
-    let { email, password, remember } = req.body;
-    let Users = await datasource.loadUsers();
-    let errors = validationResult(req);
+    const { email, password, remember } = req.body;
+    const errors = validationResult(req);
 
-    let userFind = Users.find((u) => u.email === email);
-    if (userFind && bcrypt.compareSync(password, userFind.password)) {
-      req.session.user = {
-        id: userFind.id,
-        firstName: userFind.firstName,
-        lastname: userFind.lastName,
-        email: userFind.email,
-        image: userFind.image,
-        admin: userFind.admin,
-      };
-      if (remember != undefined) {
-        res.cookie("remember", req.session.user.email, { maxAge: 60000 });
+    db.User.findOne({
+      where: { email: email },
+    })
+    .then((user) => {
+      if (user && password == user.password) {        //bcrypt.compareSync(password, user.password)
+        req.session.user = {
+          id: user.id,
+          firstName: user.firstName,
+          lastname: user.lastName,
+          email: user.email,
+          image: user.image,
+          admin: user.admin,
+        };
+        if (remember != undefined) {
+          res.cookie("remember", req.session.user.email, { maxAge: 60000 });
+        }
+        console.log(req.session.user);
+        res.redirect("/home");
+      } else {
+        if (!errors.isEmpty()) {
+          res.render("users/log-in", { errors: errors.array() });
+        }
       }
-      res.redirect("/home");
-    } else {
-      if (!errors.isEmpty()) {
-        res.render("users/log-in", { errors: errors.array() });
-      }
-    }
+    });
   },
 
   async registerPage(req, res) {
@@ -43,15 +46,21 @@ const usersController = {
   },
 
   async processRegister(req, res) {
-    let newUser = { ...req.body };
     if (req.file) {
-      newUser = { ...req.body, image: `/images/users/${req.file.filename}`};
+      imageFile = `/images/users/${req.file.filename}`;
     } else {
-      newUser.image = "/images/users/G7favicon.svg";
+      imageFile = "/images/users/G7favicon.svg";
     }
-    newUser.password = bcrypt.hashSync(req.body.password, 10);
-    User.create(newUser);
-    res.redirect('/');
+    passwordEncypted = bcrypt.hashSync(req.body.password, 10);
+    db.User.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      phone: req.body.phone,
+      address: req.body.address,
+      image: imageFile,
+      password: passwordEncypted,
+    }).then(res.redirect("/"));
   },
 };
 

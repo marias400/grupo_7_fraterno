@@ -1,6 +1,6 @@
 [
     {
-        "idProduct": "03faa11e-9d5b-443e-8abe-beba1861e62d",
+        "id": "03faa11e-9d5b-443e-8abe-beba1861e62d",
         "name": "Sanguche de JyQ",
         "description": "Jamón y queso fundido 🥪 en un pan que cruje en cada mordida. ¡Todo el sabor de un clásico argentino en un solo bocado!",
         "sku": "SANG-2-MIGA",
@@ -20,7 +20,7 @@
         "price": "2500"
     },
     {
-        "idProduct": "49b36523-2699-40b0-b443-0b2ca4a40088",
+        "id": "49b36523-2699-40b0-b443-0b2ca4a40088",
         "name": "Sanguche de Milanesa Tucumano",
         "description": "La milanesa tucumana más crujiente 🍽️ y sabrosa, con todo el sabor de la cocina argentina. ¡Un verdadero festín para los paladares más exigentes!",
         "sku": "SANG-1-MILA",
@@ -41,7 +41,7 @@
         "price": "9000"
     },
     {
-        "idProduct": "fb44e5a3-68cb-4fad-b3e8-baf354c04364",
+        "id": "fb44e5a3-68cb-4fad-b3e8-baf354c04364",
         "name": "Sanguche Charcutero",
         "description": "Especialidad de la casa, a este le mandamos de todo 😎.",
         "sku": "SANG-4-CHAR",
@@ -69,7 +69,7 @@
         "price": "8000"
     },
     {
-        "idProduct": "c9e2c1ad-59a3-409d-a396-2361b5ceb977",
+        "id": "c9e2c1ad-59a3-409d-a396-2361b5ceb977",
         "name": "Medio limon seco",
         "description": "Un limon partido que quedo en la heladera. Esta hace una semana ahi, nadie se anima a tirarlo pero tampoco a usarlo",
         "sku": "LIM-001SEC",
