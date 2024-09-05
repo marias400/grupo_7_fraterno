@@ -1,6 +1,11 @@
 module.exports = (sequelize, DataType) => {
     const alias = 'Product';
     const cols = {
+            id:{
+                type: DataType.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
             name:{
                 type:DataType.STRING(45),
                 primaryKey: true,
@@ -43,6 +48,13 @@ module.exports = (sequelize, DataType) => {
     }
 
     const Product = sequelize.define(alias,cols,config);
+
+    Product.associate = (models)=>{
+        Product.hasMany(models.Cart, {
+            as: 'carts',
+            foreignKey: 'products_id'
+        })
+    }
 
     return Product;
 }
