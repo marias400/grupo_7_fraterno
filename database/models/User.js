@@ -33,6 +33,10 @@ module.exports = (sequelize, DataType) => {
             image:{
                 type: DataType.STRING(100),
                 allowNull: true
+            },
+            admin:{
+                type: DataType.BOOLEAN,
+                allowNull: false
             }
     };
     const config = {
