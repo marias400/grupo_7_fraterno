@@ -59,6 +59,7 @@ h2 {
 }
 
 .form_paragraph {
+    position: inherit !important; 
     font-weight: 300;
 }
 
@@ -75,6 +76,11 @@ h2 {
     position: relative;
 }
 
+.form_container p {
+    position: absolute;
+    bottom: 0px;
+    color: crimson;
+}
 
 .form_input {
     width: 100%;

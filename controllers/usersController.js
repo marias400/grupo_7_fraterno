@@ -10,12 +10,12 @@ const usersController = {
   async loginSuccesful(req, res) {
     const { email, password, remember } = req.body;
     const errors = validationResult(req);
-
+    
     db.User.findOne({
       where: { email: email },
-    })
-    .then((user) => {
-      if (user && password == user.password) {        //bcrypt.compareSync(password, user.password)
+    }).then((user) => {
+      if (user && password == user.password) {
+        //bcrypt.compareSync(password, user.password)
         req.session.user = {
           id: user.id,
           firstName: user.firstName,
@@ -25,42 +25,60 @@ const usersController = {
           admin: user.admin,
         };
         if (remember != undefined) {
-          res.cookie("remember", req.session.user.email, { maxAge: 60000 });
+          req.session.cookie.maxAge = 31536000000;  // 1 año en milisegundos (31536000000 ms)
         }
-        console.log(req.session.user);
         res.redirect("/home");
       } else {
         if (!errors.isEmpty()) {
-          res.render("users/log-in", { errors: errors.array() });
+          res.render("users/log-in", { errors: errors.mapped() });
         }
-      }
+      }     
     });
   },
 
   async registerPage(req, res) {
     res.render("users/register");
   },
+
   async profilePage(req, res) {
     let msg = null;
     res.render("users/profile", { msg: msg });
   },
 
-  async processRegister(req, res) {
-    if (req.file) {
-      imageFile = `/images/users/${req.file.filename}`;
-    } else {
-      imageFile = "/images/users/G7favicon.svg";
+  async userLogout(req, res) {
+    if (req.body.logout) {
+      req.session.destroy(err => {
+        if (err) {
+          res.render("users/profile", { msg: err });
+        }
+        res.clearCookie('connect.sid');
+        res.redirect('login');
+      });
     }
-    passwordEncypted = bcrypt.hashSync(req.body.password, 10);
-    db.User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      phone: req.body.phone,
-      address: req.body.address,
-      image: imageFile,
-      password: passwordEncypted,
-    }).then(res.redirect("/"));
+  },
+
+  async processRegister(req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      let oldData = req.body     
+      res.render("users/register", { errors : errors.mapped(), oldData });
+    } else {
+      if (req.file) {
+        imageFile = `/images/users/${req.file.filename}`;
+      } else {
+        imageFile = "/images/users/G7favicon.svg";
+      }
+      passwordEncypted = bcrypt.hashSync(req.body.password, 10);
+      db.User.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phone: req.body.phone,
+        address: req.body.address,
+        image: imageFile,
+        password: passwordEncypted,
+      }).then(res.redirect("/"));
+    }
   },
 };
 

@@ -4,7 +4,6 @@ const app = express();
 const path = require("path");
 const session = require("express-session");
 const sessionMiddleware = require("./middleware/sessionMiddleware");
-const rememberUserMiddleware = require("./middleware/rememberUserMiddleware");
 
 const routesHome = require("./routes/homeRoutes");
 const routesAdmin = require("./routes/adminRoutes");
@@ -18,19 +17,24 @@ let PORT = process.env.PORT || 8000;
 /*carpeta estática de imágenes y hojas de estilo*/
 const publicPath = path.resolve("./public");
 app.use(express.static(publicPath));
+
+const sessionConfig = {
+  name: "cookie",
+  secret: "califragilistico",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    httpOnly: true,
+  },
+};
+
 /*middlewares*/
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(
-  session({
-    secret: "frase secreta",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+app.use(session(sessionConfig));
 app.use(sessionMiddleware);
-app.use(rememberUserMiddleware);
 
 /*view engine*/
 app.set("view engine", "ejs");
