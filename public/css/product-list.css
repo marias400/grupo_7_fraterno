@@ -1,0 +1,80 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.deck {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cards {
+    width: 18rem;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 4px 4px var(--darker-mayonnaise);
+    background-color: var(--dark-mayonnaise);
+    cursor: default;
+}
+
+.cards__image {
+    border-radius: 15px 15px 0 0;
+    width: 100%;
+}
+
+.cards__body{
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cards__body--title{
+    font-weight: bold;
+}
+
+.cards__body--text {
+    font-size: small;
+}
+
+.card__body--buttons {
+    margin-top: 100px;
+    height: 40px;
+}
+
+.primary-button {
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: smaller;
+    color: var(--dark-blue);
+    background-color: var(--dark-mustard);
+    padding: 4px;
+}
+
+.secondary-button {
+
+}
+
+.danger-button {
+    text-decoration: none;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+    font-size: small;
+    background-color: red;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.create-product {
+    position: fixed;
+    right: 120px;
+    bottom: 65px;
+}

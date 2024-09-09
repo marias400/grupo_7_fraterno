@@ -3,13 +3,9 @@ body {
     color: var(--dark-blue);
 }
 
-/* Los !important son necesarios para pisar hojas
-de estilo de Bootstrap que comprometen la unifor-
-midad del header en todas las paginas */
-p,
-ul {
-    padding: 0 !important;
-    margin-bottom: 0 !important;
+p, ul {
+    padding: 0;
+    margin-bottom: 0;
 }
 
 h1 {
@@ -20,21 +16,19 @@ h1 {
     padding-top: 15px;
     font-weight: 900;
     border-top: solid 1px var(--mustard);
+}
 
+.main-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .h__Title {
     font-family: "Playwrite CU", cursive;
     border-bottom: solid 1px var(--mustard);
-    margin-bottom: 10px;
-
-}
-
-.gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    margin: 10px 0;
 }
 
 .gallery__list {
@@ -45,32 +39,40 @@ h1 {
     list-style-type: none;
 }
 
-.gallery__item {
+.gallery__list--item {
     padding: 0;
     flex: 1;
     transition: flex 0.2s ease;
 }
 
-.gallery__link {
+.gallery__list--link {
     display: block;
     outline-offset: 4px;
 }
 
-.gallery__image {
+.gallery__list--item:first-of-type .gallery__list--image {
+    border-radius: 20px 0 0 20px;
+}
+
+.gallery__list--image {
     max-width: 100%;
     width: 100%;
     object-fit: cover;
     transition: all 0.2s ease;
 }
 
-.gallery__item:hover .gallery__image,
-.gallery__item:focus-within .gallery__image {
+.gallery__list--item:last-of-type .gallery__list--image {
+    border-radius: 0 20px 20px 0;
+}
+
+.gallery__list--item:hover .gallery__list--image,
+.gallery__list--item:focus-within .gallery__list--image {
     opacity: 0.7;
     filter: grayscale(0.5);
 }
 
-.gallery__item:hover {
-    flex: 2;
+.gallery__list--item:hover {
+    flex: 3;
 }
 
 
