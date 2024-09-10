@@ -14,7 +14,11 @@
 </head>
 
 <body>
+    <% if(userSession) { %>
+    <%- include("../partials/admin-header.ejs") %>
+    <% }else{ %>
     <%- include("../partials/header.ejs") %>
+    <% } %>
     <main>
         <div class="stripe">
             <div class="stripe__tags">
@@ -64,7 +68,11 @@
         </div>
     </main>
 
+    <% if(userSession) { %>
+    <%- include("../partials/admin-footer.ejs") %>
+    <% }else{ %>
     <%- include("../partials/footer.ejs") %>
+    <% } %>
 
     <script>
 

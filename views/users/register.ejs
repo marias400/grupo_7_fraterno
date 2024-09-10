@@ -10,7 +10,11 @@
 </head>
 
 <body>
+  <% if(userSession) { %>
+  <%- include("../partials/admin-header.ejs") %>
+  <% }else{ %>
   <%- include("../partials/header.ejs") %>
+  <% } %>
   <main>
     <div class="form">
       <div class="form__text-above">
@@ -145,7 +149,11 @@
       }
     </script>
   </main>
+  <% if(userSession) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
   <%- include("../partials/footer.ejs") %>
+  <% } %>
 </body>
 
 </html>

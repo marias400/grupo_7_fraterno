@@ -11,7 +11,11 @@
 </head>
 
 <body>
+    <% if(userSession) { %>
+    <%- include("../partials/admin-header.ejs") %>
+    <% }else{ %>
     <%- include("../partials/header.ejs") %>
+    <% } %>
         <main>
             <div class="cart">
                 <header class="cart__header">
@@ -72,7 +76,11 @@
                 <a href="/">Volver a la tienda</a>
             </section>
         </main>
+        <% if(userSession) { %>
+        <%- include("../partials/admin-footer.ejs") %>
+        <% }else{ %>
         <%- include("../partials/footer.ejs") %>
+        <% } %>
             <script>
                 function incrementar(id) {
                     const valorSpan = document.getElementById(`valor-${id}`);

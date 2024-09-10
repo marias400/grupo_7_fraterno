@@ -15,7 +15,11 @@
 </head>
 
 <body>
+    <% if(userSession) { %>
+    <%- include("partials/admin-header.ejs") %>
+    <% }else{ %>
     <%- include("partials/header.ejs") %>
+    <% } %>
     <section class="search-box-container">
         <div class="search-box">
             <input type="search" class="search-box__input" placeholder="Buscar">
@@ -72,7 +76,11 @@
             </div>
         </div>
     </section>
+    <% if(userSession) { %>
+    <%- include("partials/admin-footer.ejs") %>
+    <% }else{ %>
     <%- include("partials/footer.ejs") %>
+    <% } %>
     <script>
         function toProductDetail(index) {
             window.location.href = "/products/detail/" + index;
