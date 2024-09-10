@@ -1,5 +1,7 @@
 const datasource = require("../services/inventoryData");
 const inventoryData = require("../services/inventoryData");
+const db = require('../database/models');
+const { Where } = require("sequelize/lib/utils");
 
 //vistas administrador:
 
@@ -7,20 +9,25 @@ const adminController = {
   products: null,
 
   //busca y edita producto
+ 
   async editPage(req, res) {
-    this.products = await inventoryData.load();
-    let id = req.params.id;
 
-    const productItem = this.products.find((item) => {
-      return item.id === id;
-    });
+    
+    let { id } = req.params;
+    let inventoryItem = db.Product.findByPk(id);
+    let products = db.Product.findAll();
 
-    if (id) {
-      res.render("admin/product-editor", { id, products, productItem });
-    } else {
-      let id = req.body.searchId;
-      res.redirect(`${id}/edit`);
-    }
+    Promise
+        .all([products, inventoryItem])
+        .then(([products,inventoryItem]) => {
+          let ingredients = inventoryItem.ingredients.split(",");
+          inventoryItem.ingredients = ingredients;
+          //console.log(inventoryItem);
+          res.render("admin/product-editor", { id, productItem: inventoryItem,products});
+
+        })
+        .catch(error => res.send(error))
+   
   },
 
   //edita producto
