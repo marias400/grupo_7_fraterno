@@ -1,15 +1,37 @@
 :root {
+    /*COLORES USUARIOS*/
     --mustard: #f7a81b;
     --mustard-shadow: #946410;
     --dark-mustard: #e49c00;
+
     --orange: #e85829;
     --orange-shadow: #6d2a14;
+
     --mayonnaise: #f9d8b8;
     --mayonnaise-shadow: #d49e67;
     --dark-mayonnaise: #f8c18a;
     --darker-mayonnaise: #e6bc92;
+
     --dark-blue: #101923;
+
     --max-width-hf: 1500px;
+
+    /*COLORES ADMINISTRACION*/
+    --azul-cobalto: #0047AB;
+    --violeta-oscuro: #4B0082;
+    --verde-azulado: #0095B6;
+    --gris-claro: #E0E0E0;
+    --blanco: #FFFFFF;
+
+    --sombra-azul-cobalto: #003a83;
+    --sombra-violeta-oscuro: #3a0070;
+    --sombra-verde-azulado: #007890;
+    --sombra-gris-claro: #B0B0B0;
+
+    --tono-claro-azul-cobalto: #4DB2FF;
+    --tono-claro-violeta-oscuro: #824BFF;
+    --tono-claro-verde-azulado: #66D9FF;
+    --tono-claro-gris-claro: #F0F0F0;
 }
 
 * {
@@ -299,6 +321,14 @@ main {
     .main-header nav .main-header__register a {
         width: fit-content;
         background-color: var(--mustard);
+        color: var(--dark-blue);
+        padding: 6px 12px;
+        border-radius: 10px;
+    }
+
+    .main-header__register--admin {
+        width: fit-content;
+        background-color: var(--sombra-verde-azulado);
         color: var(--dark-blue);
         padding: 6px 12px;
         border-radius: 10px;

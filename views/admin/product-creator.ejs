@@ -21,14 +21,11 @@
 </head>
 
 <body>
-  <header class="main-header">
-    <div class="main-header__logo">
-      <a href="/"><img src="/images/logoG7-admin.svg" alt="logoG7" /></a>
-    </div>
-    <p class="main-header__title">
-      <i class="main-header__pipe fas fa-chevron-right"></i>Administración
-    </p>
-  </header>
+  <% if(userSession) { %>
+  <%- include("../partials/admin-header.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/header.ejs") %>
+  <% } %>
 
   <main>
     <h1>Crear Producto</h1>
@@ -116,11 +113,11 @@
     </form>
   </main>
 
-  <footer class="main-footer">
-    <p class="main-footer__copyright">
-      © Grupo Sie7e y asociados. Todos los derechos reservados
-    </p>
-  </footer>
+  <% if(userSession) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/footer.ejs") %>
+  <% } %>
 
   <script>
     document

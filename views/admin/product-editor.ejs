@@ -22,15 +22,15 @@
 </head>
 
 <body>
-  <header class="main-header">
-    <div class="main-header__logo">
-      <a href="/"><img src="/images/logoG7-admin.svg" alt="logoG7"></a>
-    </div>
-    <p class="main-header__title"><i class="main-header__pipe fas fa-chevron-right"></i>Administración</p>
-  </header>
+
   <main>
     <h1>Editar Productos</h1>
 
+    <% if(userSession) { %>
+    <%- include("../partials/admin-header.ejs") %>
+    <% }else{ %>
+    <%- include("../partials/header.ejs") %>
+    <% } %>
 
     <!-- Buscador de Producto -->
     <form class="product-selection" method="post" action="/admin/products/search?_method=PUT">
@@ -152,9 +152,12 @@
     </div>
   </main>
 
-  <footer class="main-footer">
-    <p class="main-footer__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-  </footer>
+
+  <% if(userSession) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/footer.ejs") %>
+  <% } %>
 
   <script>
     document.querySelector('.top-side__burguer-menu').addEventListener('click', () => {
