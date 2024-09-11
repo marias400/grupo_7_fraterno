@@ -41,6 +41,10 @@
     box-sizing: border-box;
 }
 
+p {
+    margin-bottom: 0 !important;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -408,7 +412,7 @@ main {
     }
 
     .admin-main-header nav span a:hover{
-        color: var(--violeta-oscuro);
+        color: white;
     }
 
     .main-header nav span a:hover {
