@@ -53,6 +53,7 @@ main {
     flex-grow: 1;
 }
 
+.admin-main-header-container,
 .main-header-container {
     box-shadow: 0 2px 2px var(--dark-blue);
     position: sticky;
@@ -70,6 +71,27 @@ main {
     align-items: center;
 }
 
+.admin-main-header-container,
+.admin-main-footer-container {
+    width: 100%;
+    height: 48px;
+    background-color: var(--tono-claro-verde-azulado);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-main-header {
+    width: 100%;
+    height: 48px;
+    max-width: var(--max-width-hf);
+    background-color: var(--tono-claro-verde-azulado);
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /*inicio header*/
 .main-header {
     width: 100%;
@@ -82,18 +104,53 @@ main {
     align-items: center;
 }
 
+.admin-main-header__title {
+    margin: 10px 0 !important;
+}
+
+.admin-main-header__logo,
 .main-header__logo {
     height: 60%;
     margin-right: 15px;
 }
 
+.admin-main-header__logo img,
 .main-header__logo img {
     width: 100%;
     height: 100%;
 }
 
+.admin-main-header nav,
 .main-header nav {
     display: none;
+}
+
+.admin-main-header__burguer-menu {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    background-color: var(--verde-azulado);
+    color: var(--azul-cobalto);
+    border-radius: 5px;
+    box-shadow:
+        3px 3px var(--sombra-verde-azulado),
+        /* Genero un par de sombras   */
+        2px 2px var(--sombra-verde-azulado),
+        /* Genero un par de sombras   */
+        1px 1px var(--sombra-verde-azulado);
+    display: flex;
+    position: relative;
+    top: -1.5px;
+    justify-content: center;
+    cursor: pointer;
+    /*alinea la imagen del burguer*/
+    align-items: center;
+    /*------------*/
+    font-size: 26px;
+    /* para crear una ilusion 3D */
+    transition:
+    translate 37ms ease-in,
+    rotateZ 2s ease-out;
 }
 
 .main-header__burguer-menu {
@@ -124,6 +181,20 @@ main {
     rotateZ 2s ease-out;
 }
 
+.admin-main-header__burguer-menu:active {
+    background-color: #011630;
+    box-shadow: none;
+    position: relative;
+    transform: translate(3px, 3px);
+    .fa-solid, .fa-burger {
+        transform: rotateZ(0.25turn);
+    }
+    .admin-menu {
+        display: sticky;
+        opacity: 1;
+    }
+}
+
 .main-header__burguer-menu:active {
     background-color: #b67c00;
     box-shadow: none;
@@ -138,6 +209,7 @@ main {
     }
 }
 
+.admin-menu,
 .menu {
     width: 100vw;
     padding: 5px 0;
@@ -157,11 +229,13 @@ main {
     padding-right: 10px;
 }
 
+.admin-menu li a,
 .menu li a {
     color: var(--mayonnaise);
     text-decoration: none;
 }
 
+.admin-menu.admin-show,
 .menu.show {
     display: flex;
 }
@@ -198,6 +272,18 @@ main {
 
 /*inicio footer*/
 
+.admin-main-footer {
+    width: 100%;
+    height: 48px;
+    max-width: var(--max-width-hf);
+    background-color: var(--tono-claro-verde-azulado);
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
 .main-footer {
     width: 100%;
     height: 48px;
@@ -208,6 +294,12 @@ main {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+}
+
+.admin-main-footer__copyright {
+    color: var(--azul-cobalto);
+    font-size: 0.5rem;
+    text-align: center;
 }
 
 .main-footer__copyright {
@@ -255,6 +347,8 @@ main {
 /*fin footer*/
 @media (min-width: 375px) {
 
+    .admin-main-footer,
+    .admin-main-header,
     .main-header,
     .main-footer {
         padding: 0 40px;
@@ -262,6 +356,11 @@ main {
 
     .floating-cart-button {
         right: 33px;
+    }
+
+    .admin-main-footer__copyright {
+        font-size: 0.72rem;
+        text-align: left;
     }
 
     .main-footer__copyright {
@@ -275,16 +374,25 @@ main {
 }
 
 @media (min-width: 768px) {
+    .admin-main-header__burguer-menu,
     .main-header__burguer-menu {
         display: none;
     }
 
+    .admin-main-header nav,
     .main-header nav {
         display: flex;
         justify-content: end;
         align-items: center;
         flex-grow: 1;
         gap: 15px;
+    }
+
+    .admin-main-header nav span a{
+        width: 100%;
+        height: 100%;
+        color: var(--azul-cobalto);
+        text-decoration: none;
     }
 
     .main-header nav span a {
@@ -294,41 +402,43 @@ main {
         text-decoration: none;
     }
 
-    .main-header__admin {
-        margin-right: 20px;
-    }
-
-    .main-header__admin a {
-        color: var(--orange) !important;
-    }
-
-    .main-header__admin a:hover {
-        color: #0095B6 !important;
-    }
-
+    .admin-main-header__products,
     .main-header__products {
         margin-right: 10px;
+    }
+
+    .admin-main-header nav span a:hover{
+        color: var(--violeta-oscuro);
     }
 
     .main-header nav span a:hover {
         color: var(--mayonnaise);
     }
 
+    .admin-main-header__login,
     .main-header__login {
         width: 110px;
     }
 
-    .main-header nav .main-header__register a {
+    .admin-main-header__register--admin {
         width: fit-content;
-        background-color: var(--mustard);
+        background-color: var(--sombra-verde-azulado);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 10px;
+    }
+
+    .admin-main-header nav .admin-main-header__register a {
+        width: fit-content;
+        background-color: var(--blanco);
         color: var(--dark-blue);
         padding: 6px 12px;
         border-radius: 10px;
     }
 
-    .main-header__register--admin {
+    .main-header nav .main-header__register a {
         width: fit-content;
-        background-color: var(--sombra-verde-azulado);
+        background-color: var(--mustard);
         color: var(--dark-blue);
         padding: 6px 12px;
         border-radius: 10px;

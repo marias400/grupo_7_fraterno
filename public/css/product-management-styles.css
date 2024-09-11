@@ -29,15 +29,6 @@ body {
     margin: 0;
 }
 
-.main-header {
-    width: 100%;
-    background-color: var(--tono-claro-verde-azulado);
-    padding: 0px 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
 .main-header__logo {
     margin: 10px 0;
 }
@@ -55,7 +46,7 @@ body {
 }
 
 .main-header__title {
-    margin: 10px 0;
+    margin: 10px 0 !important;
     color: var(--azul-cobalto);
     font-size: larger;
     font-weight: bolder;

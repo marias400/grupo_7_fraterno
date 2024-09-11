@@ -1,3 +1,7 @@
+p {
+    margin-bottom: 0 !important;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -50,15 +54,11 @@ main {
 
 .primary-button {
     text-decoration: none;
-    border-radius: 2px;
+    border-radius: 6px;
     font-size: smaller;
     color: var(--dark-blue);
     background-color: var(--dark-mustard);
     padding: 4px;
-}
-
-.secondary-button {
-
 }
 
 .danger-button {
@@ -75,6 +75,11 @@ main {
 
 .create-product {
     position: fixed;
-    right: 120px;
+    right: 60px;
     bottom: 65px;
+    text-decoration: none;
+    background-color: var(--sombra-verde-azulado);
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
 }

@@ -31,10 +31,12 @@
           <div class="cards__body">
             <h5 class="cards__body--title"><%= inventory[i].name %></h5>
             <p class="cards__body--text"><%= inventory[i].description %></p>
-            <div class="cards_body--buttons">
-              <a href="../admin/products/<%= inventory[i].id %>/edit" class="primary-button">Editar</a>
-              <button type="button" class="danger-button" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= inventory[i].id %>">Borrar</button>
-            </div>
+            <% if(userSession) { %>
+              <div class="cards_body--buttons">
+                <a href="../admin/products/<%= inventory[i].id %>/edit" class="primary-button">Editar</a>
+                <button type="button" class="danger-button" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= inventory[i].id %>">Borrar</button>
+              </div>
+            <% } %>
           </div>
       </div>
       <% } %>
@@ -71,11 +73,11 @@
         });
       });
     </script>
-
+    <% if(userSession) { %>
     <div class="create-product">
       <a href="../admin/products/create" class="create-product">Crear producto</a>
     </div>
-
+    <% } %>
     <style>
       .card-img-top {
         width: 100%;
