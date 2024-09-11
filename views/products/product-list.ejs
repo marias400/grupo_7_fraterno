@@ -35,17 +35,13 @@
           <div class="cards__body">
             <h5 class="cards__body--title"><%= inventory[i].name %></h5>
             <p class="cards__body--text"><%= inventory[i].description %></p>
+            <div class="cards_body--buttons">
             <% if(userSession) { %>
-              <div class="cards_body--buttons">
                 <a href="../admin/products/<%= inventory[i].id %>/edit" class="primary-button">Editar</a>
                 <button type="button" class="danger-button" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= inventory[i].id %>">Borrar</button>
-              </div>
             <% } %>
-            <div class="cards_body--buttons">
-              <a href="../admin/products/<%= inventory[i].id %>/edit" class="primary-button">Editar</a>
-              <a href="/products/detail/<%= inventory[i].id %>" class="primary-button">Detalles</a>
-              <button type="button" class="danger-button" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= inventory[i].id %>">Borrar</button>
-            </div>
+            <a href="/products/detail/<%= inventory[i].id %>" class="primary-button">Detalles</a>
+          </div>
           </div>
       </div>
       <% } %>
