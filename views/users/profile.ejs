@@ -2,7 +2,12 @@
 <html lang="en">
 
 <head>
+  <% if(userSession) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
   <%- include("../partials/head.ejs") %>
+  <% } %>
+
   <title>Perfil | Grupo Sie7e</title>
 
   <!-- Hoja de estilos propia de esta página -->

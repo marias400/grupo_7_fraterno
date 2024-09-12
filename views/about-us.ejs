@@ -2,11 +2,16 @@
 <html lang="es">
 
 <head>
+    <% if(userSession) { %>
+    <%- include("partials/admin-head.ejs") %>
+    <% }else{ %>
     <%- include("partials/head.ejs") %>
-        <title>Nosotros | Grupo Sie7e</title>
+    <% } %>
+    
+    <title>Nosotros | Grupo Sie7e</title>
 
-        <!--Hoja de estilos propia de esta página-->
-        <link rel="stylesheet" href="/css/about-us.css">
+    <!--Hoja de estilos propia de esta página-->
+    <link rel="stylesheet" href="/css/about-us.css">
 </head>
 
 <body>

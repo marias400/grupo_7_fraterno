@@ -2,7 +2,11 @@
 <html lang="es-AR">
 
 <head>
+  <% if(userSession) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
   <%- include("../partials/head.ejs") %>
+  <% } %>
 
   <title>Iniciar sesión | Grupo Sie7e</title>
 

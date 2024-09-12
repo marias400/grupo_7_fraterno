@@ -2,8 +2,11 @@
 <html lang="es-AR">
 
 <head>
-
+  <% if(userSession) { %>
   <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/head.ejs") %>
+  <% } %>
 
   <title>Administración de Productos | Grupo Sie7e</title>
 
