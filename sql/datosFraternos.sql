@@ -1,15 +1,15 @@
-INSERT INTO `users` (`firstName`, `lastName`, `email`, `phone`, `address`, `password`, `image`)
+INSERT INTO `users` (`firstName`, `lastName`, `email`, `phone`, `address`, `password`, `image`, `isAdmin`)
 VALUES
-('Mateo', 'Díaz', 'mateo.diaz@example.com', '1234567890', 'Calle Falsa 123', 'password123', 'mateo.jpg'),
-('Camila', 'Suárez', 'camila.suarez@example.com', '0987654321', 'Avenida Siempre Viva 456', 'password456', 'camila.jpg'),
-('Lucas', 'Pereira', 'lucas.pereira@example.com', '1122334455', 'Boulevard de los Sueños 789', 'password789', 'lucas.jpg'),
-('Sofía', 'Gómez', 'sofia.gomez@example.com', '5566778899', 'Plaza de la Constitución 101', 'password101', 'sofia.jpg'),
-('Valentín', 'Rossi', 'valentin.rossi@example.com', '6677889900', 'Paseo de la Reforma 202', 'password202', 'valentin.jpg'),
-('Martina', 'López', 'martina.lopez@example.com', '7788990011', 'Camino Real 303', 'password303', 'martina.jpg'),
-('Tomás', 'Fernández', 'tomas.fernandez@example.com', '8899001122', 'Calle de la Paz 404', 'password404', 'tomas.jpg'),
-('Florencia', 'Martínez', 'florencia.martinez@example.com', '9900112233', 'Callejón del Beso 505', 'password505', 'florencia.jpg'),
-('Nicolás', 'Ramírez', 'nicolas.ramirez@example.com', '1010101010', 'Camino al Cielo 606', 'password606', 'nicolas.jpg'),
-('Isabella', 'Sánchez', 'isabella.sanchez@example.com', '1212121212', 'Avenida del Sol 707', 'password707', 'isabella.jpg');
+('Mateo', 'Díaz', 'mateo.diaz@example.com', '1234567890', 'Calle Falsa 123', 'password123', 'mateo.jpg', 1),
+('Camila', 'Suárez', 'camila.suarez@example.com', '0987654321', 'Avenida Siempre Viva 456', 'password456', 'camila.jpg', 1),
+('Lucas', 'Pereira', 'lucas.pereira@example.com', '1122334455', 'Boulevard de los Sueños 789', 'password789', 'lucas.jpg', 0),
+('Sofía', 'Gómez', 'sofia.gomez@example.com', '5566778899', 'Plaza de la Constitución 101', 'password101', 'sofia.jpg', 0),
+('Valentín', 'Rossi', 'valentin.rossi@example.com', '6677889900', 'Paseo de la Reforma 202', 'password202', 'valentin.jpg', 0),
+('Martina', 'López', 'martina.lopez@example.com', '7788990011', 'Camino Real 303', 'password303', 'martina.jpg', 0),
+('Tomás', 'Fernández', 'tomas.fernandez@example.com', '8899001122', 'Calle de la Paz 404', 'password404', 'tomas.jpg', 0),
+('Florencia', 'Martínez', 'florencia.martinez@example.com', '9900112233', 'Callejón del Beso 505', 'password505', 'florencia.jpg', 0),
+('Nicolás', 'Ramírez', 'nicolas.ramirez@example.com', '1010101010', 'Camino al Cielo 606', 'password606', 'nicolas.jpg', 0),
+('Isabella', 'Sánchez', 'isabella.sanchez@example.com', '1212121212', 'Avenida del Sol 707', 'password707', 'isabella.jpg', 0);
 
 
 INSERT INTO `products` (`name`, `description`, `price`, `category`, `size`, `ingredients`, `image`, `suitability`, `stock`)
