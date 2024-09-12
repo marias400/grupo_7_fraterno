@@ -31,7 +31,7 @@
             "otro huevito a la plancha"
         ],
         "image": "/images/products/imagen-4afbb677e661b415.png",
-        "category": "comida",
+        "category": "sanguche",
         "suitability": {
             "vegetarian": true,
             "vegan": true,
@@ -85,6 +85,6 @@
             "celiac": true
         },
         "size": "grande como un medio limon",
-        "price": "7"
+        "price": "100"
     }
 ]

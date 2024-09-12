@@ -2,18 +2,11 @@
 <html lang="es-AR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/images/G7favicon-admin.svg" type="image/x-icon">
-
-  <!--Iconos-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <!--Fuentes (de Google Fonts)-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Verdana&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/head.ejs") %>
+  <% } %>
 
   <title>Administración de Productos | Grupo Sie7e</title>
 
@@ -22,16 +15,11 @@
 </head>
 
 <body>
-  <header class="main-header">
-    <div class="main-header__logo">
-      <a href="/"><img src="/images/logoG7-admin.svg" alt="logoG7"></a>
-    </div>
-    <p class="main-header__title"><i class="main-header__pipe fas fa-chevron-right"></i>Administración</p>
-  </header>
+
   <main>
+    <%- include("../partials/admin-header.ejs") %>
+
     <h1>Editar Productos</h1>
-
-
     <!-- Buscador de Producto -->
     <form class="product-selection" method="post" action="/admin/products/search?_method=PUT">
 
@@ -66,11 +54,11 @@
         <textarea id="description" name="description" placeholder="Sanguche de milanesa con tomate y lechuga, con un leve aderezo a base de mayonesa y mostaza. Un clasico de la gastronomia argentina" required><%= productItem.description %></textarea>
 
         <label for="sku">SKU:</label>
-        <input type="text" id="sku" name="sku" placeholder="MIL-001CA" value="<%= productItem.sku %>" required>
+        <input type="text" id="sku" name="sku" placeholder="MIL-001CA" value="<%= productItem.sku %>">
 
         <label for="ingredients">Ingredientes:</label>
         <p>separar con comas!!!</p>
-        <textarea id="ingredients" name="ingredients" placeholder="Pan, milanesa, tomate, lechuga, mayonesa, mostaza" required><%= productItem.ingredients.join(', ')%></textarea>
+        <textarea id="ingredients" name="ingredients" placeholder="Pan, milanesa, tomate, lechuga, mayonesa, mostaza" required><%= productItem.ingredients%></textarea>
 
         <label for="image">Imagen del Producto:</label>
         <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)">
@@ -99,20 +87,22 @@
 
         <div class="product-form__data--checkbox-group">
 
+          <!--  (productItem.suitability.vegan) checked  produce error al crear un producto -->
           <div class="product-form__data--checkbox-container">
             <label for="vegetarian">Apto vegetariano</label>
-            <input type="checkbox" id="vegetarian" name="vegetarian" <% if (productItem.suitability.vegetarian) { %> checked <% } %>>
+            <input type="checkbox" id="vegetarian" name="vegetarian" >
           </div>
 
           <div class="product-form__data--checkbox-container">
             <label for="vegan">Apto vegano</label>
-            <input type="checkbox" id="vegan" name="vegan" <% if (productItem.suitability.vegan) { %> checked <% } %>>
+            <input type="checkbox" id="vegan" name="vegan" >
           </div>
 
           <div class="product-form__data--checkbox-container">
             <label for="celiac">Apto celiaco</label>
-            <input type="checkbox" id="celiac" name="celiac" <% if (productItem.suitability.celiac) { %> checked <% } %>>
+            <input type="checkbox" id="celiac" name="celiac">
           </div>
+
         </div>
 
         <label for="size">Tamaño:</label>
@@ -143,7 +133,7 @@
           <div class="modal-body">
             <p>Borrar un producto es irreversible, desea BORRAR?</p>
           </div>
-          <form class="modal-footer product-form" method="post" action="/admin/products/<%= id %>?_method=DELETE">
+          <form class="modal-footer product-form" method="post" action="/admin/products/<%= productItem.id %>?_method=DELETE">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-danger">BORRAR</button>
           </form>
@@ -152,9 +142,7 @@
     </div>
   </main>
 
-  <footer class="main-footer">
-    <p class="main-footer__copyright">© Grupo Sie7e y asociados. Todos los derechos reservados</p>
-  </footer>
+  <%- include("../partials/admin-footer.ejs") %>
 
   <script>
     document.querySelector('.top-side__burguer-menu').addEventListener('click', () => {

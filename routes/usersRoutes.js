@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const usersController = require("../controllers/usersController");
-const loginValidations = require("../middleware/loginValidations");
-const userActiveAuth = require("../middleware/userActiveAuth");
-const profileAuth = require("../middleware/profileAuth");
-const userInctiveAuth = require("../middleware/userInactiveAuth");
+//middlewares
+const auth = require('../middleware/auth')
+const validations = require('../middleware/validations')
 const fileUploadUsers = require('../services/fileUploadUsers');
 
-router.get("/login", profileAuth, usersController.loginPage);
-router.post("/login", userInctiveAuth, loginValidations, usersController.loginSuccesful);
-router.get("/register", userInctiveAuth, usersController.registerPage);
-router.post("/register",fileUploadUsers.single('image'), usersController.processRegister);
-router.get("/profile", userActiveAuth, usersController.profilePage);
+router.get("/login", auth.profileAuth, usersController.loginPage);
+router.post("/login", auth.userInctiveAuth, validations.login, usersController.loginSuccesful);
+router.get("/register", auth.userInctiveAuth, usersController.registerPage);
+router.post("/register", fileUploadUsers.single('image'), validations.register, usersController.processRegister);
+router.get("/profile", auth.userActiveAuth, usersController.profilePage);
+router.post("/profile", auth.userActiveAuth, usersController.userLogout);
 
 module.exports = router;

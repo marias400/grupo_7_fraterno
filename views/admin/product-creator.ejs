@@ -2,17 +2,12 @@
 <html lang="es-AR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="/images/G7favicon-admin.svg" type="image/x-icon" />
 
-  <!--Iconos-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
-  <!--Fuentes (de Google Fonts)-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Verdana&display=swap" rel="stylesheet" />
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/head.ejs") %>
+  <% } %>
 
   <title>Administración de Productos | Grupo Sie7e</title>
 
@@ -21,14 +16,11 @@
 </head>
 
 <body>
-  <header class="main-header">
-    <div class="main-header__logo">
-      <a href="/"><img src="/images/logoG7-admin.svg" alt="logoG7" /></a>
-    </div>
-    <p class="main-header__title">
-      <i class="main-header__pipe fas fa-chevron-right"></i>Administración
-    </p>
-  </header>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-header.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/header.ejs") %>
+  <% } %>
 
   <main>
     <h1>Crear Producto</h1>
@@ -55,7 +47,7 @@
         <textarea id="description" name="description" placeholder="Sanguche de milanesa con tomate y lechuga, con un leve aderezo a base de mayonesa y mostaza. Un clasico de la gastronomia argentina" required></textarea>
 
         <label for="sku">SKU:</label>
-        <input type="text" id="sku" name="sku" placeholder="MIL-001CA" required />
+        <input type="text" id="sku" name="sku" placeholder="MIL-001CA" />
 
         <label for="ingredients">Ingredientes:</label>
         <p>separar con comas!!!</p>
@@ -116,11 +108,11 @@
     </form>
   </main>
 
-  <footer class="main-footer">
-    <p class="main-footer__copyright">
-      © Grupo Sie7e y asociados. Todos los derechos reservados
-    </p>
-  </footer>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/footer.ejs") %>
+  <% } %>
 
   <script>
     document

@@ -2,16 +2,24 @@
 <html lang="es-AR">
 
 <head>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../partials/admin-head.ejs") %>
+    <% }else{ %>
     <%- include("../partials/head.ejs") %>
+    <% } %>
 
-        <title>Carrito de compras | Grupo Sie7e</title>
+    <title>Carrito de compras | Grupo Sie7e</title>
 
-        <!--Hoja de estilos propia de esta página-->
-        <link rel="stylesheet" href="/css/product-cart-styles.css">
+    <!--Hoja de estilos propia de esta página-->
+    <link rel="stylesheet" href="/css/product-cart-styles.css">
 </head>
 
 <body>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../partials/admin-header.ejs") %>
+    <% }else{ %>
     <%- include("../partials/header.ejs") %>
+    <% } %>
         <main>
             <div class="cart">
                 <header class="cart__header">
@@ -72,7 +80,11 @@
                 <a href="/">Volver a la tienda</a>
             </section>
         </main>
+        <% if(userSession && userSession.isAdmin) { %>
+        <%- include("../partials/admin-footer.ejs") %>
+        <% }else{ %>
         <%- include("../partials/footer.ejs") %>
+        <% } %>
             <script>
                 function incrementar(id) {
                     const valorSpan = document.getElementById(`valor-${id}`);

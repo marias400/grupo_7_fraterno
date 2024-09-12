@@ -1,19 +1,26 @@
-const inventoryData = require("../services/inventoryData");
+const db = require("../database/models");
 
 const productController = {
   inventory: null,
 
   //pagina: detalle del producto (vista usuario)
   async detailPage(req, res) {
-    this.inventory = await inventoryData.load();
     let { id } = req.params;
+    let inventoryItem = db.Product.findByPk(id);
+    let products = db.Product.findAll();
 
-    const inventoryItem = this.inventory.find((item) => {
-      return item.id === id;
-    });
+    Promise
+        .all([products, inventoryItem])
+        .then(([products,inventoryItem]) => {
+          let ingredients = inventoryItem.ingredients.split(",");
+          inventoryItem.ingredients = ingredients;
+          // console.log(inventoryItem);
+          res.render("products/product-detail", { id, inventoryItem,products});
+        })
+        .catch(error => res.send(error))
 
-    res.render("products/product-detail", { id, inventoryItem });
   },
+   
 
   //pagina: carrito de compras (vista usuario)
   async cartPage(req, res) {
@@ -22,8 +29,11 @@ const productController = {
 
   //pagina: lista de productos (vista usuario)
   async listPage(req, res) {
-    this.inventory = await inventoryData.load();
-    res.render("products/product-list", { inventory });
+    db.Product.findAll().then((products) => {
+      // console.log(products);
+      res.render("products/product-list", { inventory: products });
+      //res.json(products);
+    });
   },
 };
 

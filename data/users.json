@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "idUser": 1,
         "firstName": "admin",
         "lastName": "admin",
         "email": "admin@admin.com",
@@ -11,103 +11,32 @@
         "admin": true
     },
     {
-        "id": 2,
-        "firstName": "María",
-        "lastName": "González",
-        "email": "maria.gonzalez@example.com",
-        "password": "contrasena456",
-        "image": "/images/users/G7favicon.svg"
+        "idUser": 1,
+        "firstName": "admin2",
+        "lastName": "admin2",
+        "email": "admin2@admin.com",
+        "phone": "0110000101100100011011010110100101101110",
+        "address": "admin2 house",
+        "password": "$2a$10$Wex74fZowSX/8FZsjFIfG..gUqwIjODjvx/6pkv.WNkrlKRmXYGdC",
+        "image": "/images/users/imagen-329a668d62d9d70e.png",
+        "admin": true
     },
     {
-        "id": 3,
-        "firstName": "Carlos",
-        "lastName": "Rodríguez",
-        "email": "carlos.rodriguez@example.com",
-        "password": "contrasena789",
-        "image": "/images/users/G7favicon.svg"
-    },
-    {
-        "id": 4,
-        "firstName": "Laura",
-        "lastName": "Martínez",
-        "email": "laura.martinez@example.com",
-        "password": "contrasena101",
-        "image": "/images/users/G7favicon.svg"
-    },
-    {
-        "id": 5,
-        "firstName": "Pedro",
-        "lastName": "Gutiérrez",
-        "email": "pedro.gutierrez@example.com",
-        "password": "contrasena112",
-        "image": "/images/users/G7favicon.svg"
-    },
-    {
-        "id": 6,
-        "firstName": "Jesus",
-        "lastName": "Solorzano Garcia",
-        "email": "Comercial@uvo.cl",
+        "idUser": 2,
+        "firstName": "Mariano",
+        "lastName": "Arias Simone",
+        "email": "nano.arias12@gmail.com",
+        "password": "asdasd123",
         "image": "/images/users/G7favicon.svg",
-        "password": "asd"
+        "admin": false
     },
     {
-        "id": 7,
-        "firstName": "Jesus",
-        "lastName": "Solorzano Garcia",
-        "email": "Comercial@uvo.cl",
-        "phone": "3804558018",
-        "address": "asdsad",
-        "password": "asd",
-        "image": "/images/users/G7favicon.svg"
-    },
-    {
-        "id": 8,
-        "firstName": "maria",
-        "lastName": "solorzano",
-        "email": "Comercial@uvo.cl",
-        "phone": "3804558018",
-        "address": "asdsadsad",
-        "password": "$2a$10$GPMVL9drrpN3G2ji0j6GQuHgt18oiQzoBm98.jP/kw3nWt2rAexl.",
-        "image": "/images/users/G7favicon.svg"
-    },
-    {
-        "id": 9,
-        "firstName": "Kerry",
-        "lastName": "Castilla",
-        "email": "kc@hotmail.com",
-        "phone": "2132132131231",
-        "address": "adasdasdasdasd123123123",
-        "password": "$2a$10$9UTgSoEl/HBdge1AcbEaKexRBDW.FQsCapTTIqhKiKZD466GROFLu",
-        "image": "/images/users/imagen-de2c97810801da22.jpg"
-    },
-    {
-        "id": 10,
-        "firstName": "juan",
-        "lastName": "paula",
-        "email": "jp@h.com",
-        "phone": "123123123123",
-        "address": "asdasqdwiejqwoejqwjeqwe",
-        "password": "$2a$10$0AZqY9CTPQbvQEFIZqbISOw3dk74y5ntKjaoJrhRHrhzPRIQw/GOa",
-        "image": "/images/users/imagen-0116cf227aef1650.jpg"
-    },
-    {
-        "id": 11,
-        "firstName": "don",
-        "lastName": "nadie",
-        "email": "nadie@nada.com",
-        "phone": "231321231",
-        "address": "adasdasdasdasd",
-        "password": "$2a$10$yRYvsVhh6d0ygyL/elMgte2.HMogepACwAQPoTHNnSiXHZ7bFd39a",
-        "image": "/images/users/G7favicon.svg"
-    },
-    {
-        "id": 12,
-        "firstName": "miguel",
-        "lastName": "angelo",
-        "email": "mg@yahoo.com",
-        "phone": "213214564654",
-        "address": "asdasdq12312312wadasdasd",
-        "password": "$2a$10$qQF8wtOkoYQ9oybx5BS/B.xzUxIlmIOqc.oRlwlQVAWH/hk6SDbpe",
-        "image": "/images/users/G7favicon.svg"
+        "idUser": 3,
+        "firstName": "Juan Manuel",
+        "lastName": "Biagioli",
+        "email": "biagiolijuan@gmail.com",
+        "password": "asdasd123",
+        "image": "/images/users/G7favicon.svg",
+        "admin": false
     }
 ]

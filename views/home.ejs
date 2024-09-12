@@ -2,7 +2,12 @@
 <html lang="es-AR">
 
 <head>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("partials/admin-head.ejs") %>
+    <% }else{ %>
     <%- include("partials/head.ejs") %>
+    <% } %>
+    
     <title>Inicio | Grupo Sie7e</title>
 
     <!--Hoja de estilos propia de esta página-->
@@ -15,7 +20,11 @@
 </head>
 
 <body>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("partials/admin-header.ejs") %>
+    <% }else{ %>
     <%- include("partials/header.ejs") %>
+    <% } %>
     <section class="search-box-container">
         <div class="search-box">
             <input type="search" class="search-box__input" placeholder="Buscar">
@@ -23,19 +32,19 @@
         </div>
     </section>
     <main>
-        <h1>BIENVENIDOS A GRUPO SIE7E</h1>
-        <h2 class="h__Title">La experiencia perfecta en sanguches</h2>
-        <div class="gallery">
+        <section class="main-top">
+            <h1>BIENVENIDOS A GRUPO SIE7E</h1>
+            <h2 class="h__Title">La experiencia perfecta en sanguches</h2>
             <ul class="gallery__list">
                 <% for(let i=0; i<topProducts.length; i++){ %>
-                    <li class="gallery__item">
-                        <a class="gallery__link" href="/products/detail/<%= topProducts[i].id %>">
-                            <img class="gallery__image" src="<%= topProducts[i].image %>" alt="<%= topProducts[i].name %>" width="500" height="500">
+                    <li class="gallery__list--item">
+                        <a class="gallery__list--link" href="/products/detail/<%= topProducts[i].id %>">
+                            <img class="gallery__list--image" src="<%= topProducts[i].image %>" alt="<%= topProducts[i].name %>" width="500" height="500">
                         </a>
                     </li>
                 <% } %>
             </ul>
-        </div>           
+        </section>     
         <!-- Sección de productos -->
         <section class="container-card">
             <h2>Algunos de nuestros productos</h2>
@@ -72,7 +81,11 @@
             </div>
         </div>
     </section>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("partials/admin-footer.ejs") %>
+    <% }else{ %>
     <%- include("partials/footer.ejs") %>
+    <% } %>
     <script>
         function toProductDetail(index) {
             window.location.href = "/products/detail/" + index;

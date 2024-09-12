@@ -78,3 +78,4 @@
 - **[Figma](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para el diseño de los wireframes del sitio.
 
 - **Un canal de Discord y un grupo de WhatsApp** para comunicarnos.
+- 

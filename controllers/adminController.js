@@ -1,175 +1,130 @@
-const datasource = require("../services/inventoryData");
-const inventoryData = require("../services/inventoryData");
+const db = require('../database/models');
 
 //vistas administrador:
-
 const adminController = {
-  products: null,
+  //Envia un producto al formulario de edicion y carga los productos en un selector.
 
-  //busca y edita producto
   async editPage(req, res) {
-    this.products = await inventoryData.load();
-    let id = req.params.id;
-
-    const productItem = this.products.find((item) => {
-      return item.id === id;
-    });
+    let { id } = req.params;
+    let inventoryItem = db.Product.findByPk(id);
+    let products = db.Product.findAll();
 
     if (id) {
-      res.render("admin/product-editor", { id, products, productItem });
+      Promise.all([products, inventoryItem])
+        .then(
+        ([products, inventoryItem]) => {
+          let ingredients = inventoryItem.ingredients.split(",");
+          inventoryItem.ingredients = ingredients;
+          // console.log(inventoryItem);
+          res.render("admin/product-editor", {
+            id,
+            productItem: inventoryItem,
+            products,
+          });
+        }
+      );
     } else {
       let id = req.body.searchId;
       res.redirect(`${id}/edit`);
     }
   },
 
-  //edita producto
+  //Guardar la edicion de un producto
+
   async editLogic(req, res) {
-    this.products = await inventoryData.load();
-    const id = req.params.id;
-    const { image } = this.products.find((item) => item.id === id);
-
-    // Lógica para determinar la imagen de producto
-    let imageFilePath;
-
-    if (req.file) {
-      // Si se subió una nueva imagen
-      imageFilePath = `/images/products/${req.file.filename}`;
-
-      // Si había una imagen anterior, eliminarla
-      if (image && image !== "" && image !== "/images/products/default.png") {
-        datasource.removeFile(image);
-      }
-    } else {
-      // Si no se subió una nueva imagen
-      if (image && image !== "") {
-        // Mantener la imagen anterior si existe
-        imageFilePath = image;
+    //  this.products = await inventoryData.load();
+    let { id } = req.params;
+    db.Product.findByPk(id).then((product) => {
+      if (product === null) {
+        console.log("Producto no encontrado!");
       } else {
-        // Si no había imagen anterior, establecer la imagen por defecto
-        imageFilePath = "/images/products/default.png";
-      }
-    }
+        let newImage = "";
+        if (req.file) {
+          // Si se sube una nueva imagen, borra la anterior y guarda el path de la nueva
+          if (product.image != "/images/products/default.png") {
+            datasource.removeFile(product.image);
+          }
+          newImage = `/images/products/${req.file.filename}`;
+        } else {
+          // Sino mantiene la imagen vieja o sino contiene un path valido setea una por defecto
+          newImage = product.image;
+          if (!product.image.includes("/images/products/")) {
+            newImage = "/images/products/default.png";
+          }
+        }
 
-    const {
-      name,
-      description,
-      sku,
-      ingredients,
-      category,
-      vegetarian,
-      vegan,
-      celiac,
-      size,
-      price,
-    } = req.body;
-
-    let suitability = {
-      vegetarian: vegetarian === "on" || false,
-      vegan: vegan === "on" || false,
-      celiac: celiac === "on" || false,
-    };
-
-    //modificacion a la "base de datos"
-    const updatedInventory = products.map((toModify) => {
-      if (toModify.id === id) {
-        return {
-          id,
-          name,
-          description,
-          sku,
-          ingredients: ingredients.split(", "),
-          image: imageFilePath,
-          category,
-          suitability,
-          size,
-          price,
+        let editedProduct = {
+          name: req.body.name,
+          description: req.body.description,
+          ingredients: req.body.ingredients,
+          image: newImage,
+          category: req.body.category,
+          suitability: req.body.suitability,
+          size: req.body.size,
+          price: req.body.price,
+          // faltaria Stock en la vista (formulario)
         };
-      } else {
-        return toModify;
+        db.Product.update(editedProduct, { where: { id } }).then(
+          (resultado) => {
+            //console.log(resultado);
+            res.redirect(`/admin/products/${id}/edit`);
+            // res.render("admin/product-editor", { productItem: products});
+          }
+        );
       }
     });
 
-    await inventoryData.save(updatedInventory);
-
-    res.redirect(`/admin/products/${id}/edit`);
+    // faltaria suitability mostrar y tomar el valor de checks (retirados)
   },
 
   async createPage(req, res) {
-    this.products = await inventoryData.load();
-    res.render("admin/product-creator", { products: this.products });
+    db.Product.findAll()
+      .then((products) => {
+        res.render("admin/product-creator", { products });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
   async createProduct(req, res) {
-    this.products = await inventoryData.load();
-
-    const {
-      name,
-      description,
-      sku,
-      ingredients,
-      category,
-      vegetarian,
-      vegan,
-      celiac,
-      size,
-      price,
-    } = req.body;
-
-    let imageFilePath;
-
+    let newImage = "";
     if (req.file) {
-      imageFilePath = `/images/products/${req.file.filename}`;
+      // Si se sube una nueva imagen
+      newImage = `/images/products/${req.file.filename}`;
     } else {
-      imageFilePath = "/images/products/default.png";
+      // setea una por defecto
+      newImage = "/images/products/default.png";
     }
 
-    const suitability = {
-      vegetarian: vegetarian === "on" || false ? true : false,
-      vegan: vegan === "on" || false ? true : false,
-      celiac: celiac === "on" || false ? true : false,
+    let newProduct = {
+      name: req.body.name,
+      description: req.body.description,
+      ingredients: req.body.ingredients,
+      image: newImage,
+      category: req.body.category,
+      suitability: req.body.suitability,
+      size: req.body.size,
+      price: req.body.price,
+      // faltaria Suitabilitys y Stock en la vista (formulario)
     };
 
-    const id = crypto.randomUUID();
-
-    newItem = {
-      id: id,
-      name: name,
-      description: description,
-      sku: sku,
-      ingredients: ingredients.split(", "),
-      image: imageFilePath,
-      category: category,
-      suitability: suitability,
-      size: size,
-      price: price,
-    };
-
-    let updatedInventory = products;
-    updatedInventory.push(newItem);
-
-    await inventoryData.save(updatedInventory);
-
-    res.redirect(`/admin/products/${id}/edit`);
+    db.Product.create(newProduct).then((resultado) => {
+      // console.log(resultado);
+      res.redirect(`/admin/products/${resultado.id}/edit`);
+      // res.render("admin/product-editor", { productItem: resultado});
+    });
   },
 
   async deleteProduct(req, res) {
-    this.products = await inventoryData.load();
-    const id = req.params.id;
-
-    const { image } = this.products.find((item) => item.id === id);
-
-    const updatedInventory = this.products.filter((toModify) => {
-      return toModify.id !== id;
+    let id = req.params.id;
+    db.Product.destroy({
+      where: { id },
+    }).then((result) => {
+      if (result != 0) {
+        res.redirect("/products/list");
+      }
     });
-
-    if (image !== "/images/products/default.png") {
-      await inventoryData.removeFile(image);
-    }
-
-    await inventoryData.save(updatedInventory);
-
-    res.redirect("/products/list");
   },
 };
 

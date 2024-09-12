@@ -1,103 +1,164 @@
 <!DOCTYPE html>
 <html lang="es-AR">
-  <head>
-    <%- include("../partials/head.ejs") %>
-    <title>Registro | Grupo Sie7e</title>
 
-    <!--Hoja de estilos propia de esta página-->
-    <link rel="stylesheet" href="/css/register-styles.css" />
-  </head>
+<head>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/head.ejs") %>
+  <% } %>
 
-  <body>
-    <%- include("../partials/header.ejs") %>
-    <main>
-      <div class="form">
-        <div class="form__text-above">
-          <h3>Registrate en:</h3>
-        </div>
+  <title>Registro | Grupo Sie7e</title>
 
-        <div class="form__logo">
-          <img src="/images/logoG7.svg" alt="" />
-        </div>
+  <!--Hoja de estilos propia de esta página-->
+  <link rel="stylesheet" href="/css/register-styles.css" />
+</head>
 
-        <form method="post" action="/users/register" enctype="multipart/form-data">
-          <div class="form_container">
-            <input type="text" id="name" name="firstName" class="form_input" placeholder=" " />
-            <label for="name" class="form_label">Nombre*</label>
-            <span class="form_line"></span>
-          </div>
-
-          <div class="form_container">
-            <input type="text" id="name" name="lastName" class="form_input" placeholder=" " />
-            <label for="name" class="form_label">Apellido*</label>
-            <span class="form_line"></span>
-          </div>
-
-          <div class="form_container">
-            <input type="text" id="email" name="email" class="form_input" placeholder=" " />
-            <label for="email" class="form_label">Email*</label>
-            <span class="form_line"></span>
-          </div>
-
-          <div class="form_container">
-            <input type="text" id="tel" name="phone" class="form_input" placeholder=" " />
-            <label for="tel" class="form_label">Telefono*</label>
-            <span class="form_line"></span>
-          </div>
-
-          <div class="form_container">
-            <input type="text" id="address" name="address" class="form_input" placeholder=" "/>
-            <label for="address" class="form_label">Direccion</label>
-            <span class="form_line"></span>
-          </div>
-
-          <div class="form_container">
-            <input type="file" id="image" name="image" class="form_input"/>
-            <label for="address" class="form_label">Foto perfil</label>
-            <span class="form_line"></span>
-          </div>
-
-          <div class="form_container">
-            <input type="password" id="pass" name="password" class="form_input" placeholder=" "/>
-            <label for="pass" class="form_label">Contraseña*</label>
-            <span class="form_line"></span>
-          </div>
-
-          <div class="form_container">
-            <input
-              type="password"
-              id="pass-repeat"
-              class="form_input"
-              placeholder=" "
-            />
-            <label for="pass-repeat" class="form_label"
-              >Repetir contraseña*</label
-            >
-            <span class="form_line"></span>
-          </div>
-
-          <div>
-            <input
-              type="submit"
-              type="submit"
-              class="form_submit"
-              value="Registrarse"
-            />
-            <p class="form_paragraph">
-              <a href="/users/login" class="form_link"
-                >Ya tengo una cuenta →</a
-              >
-            </p>
-          </div>
-        </form>
+<body>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-header.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/header.ejs") %>
+  <% } %>
+  <main>
+    <div class="form">
+      <div class="form__text-above">
+        <h3>Registrate en:</h3>
       </div>
 
-      <script>
-        function toHome() {
-          window.location.href = "/";
-        }
-      </script>
-    </main>
-    <%- include("../partials/footer.ejs") %>
-  </body>
+      <div class="form__logo">
+        <img src="/images/logoG7.svg" alt="" />
+      </div>
+
+      <form method="post" action="/users/register" enctype="multipart/form-data">
+
+        <div class="form_container">
+          <input 
+          type="text" 
+          id="name" 
+          name="firstName"
+          class="form_input"
+          placeholder=" "
+          value="<%= locals.oldData && locals.oldData.firstName ? locals.oldData.firstName: null %>"/>
+
+          <label for="name" class="form_label">Nombre*</label>
+          <span class="form_line"></span>
+          <% if (locals.errors && locals.errors.firstName) { %>
+            <p><%= locals.errors.firstName.msg %></p>
+          <% } %>
+        </div>
+
+        <div class="form_container">
+          <input 
+          type="text" 
+          id="name" 
+          name="lastName" 
+          class="form_input" 
+          placeholder=" " 
+          value="<%= locals.oldData && locals.oldData.lastName ? locals.oldData.lastName: null %>"/>
+          <label for="name" class="form_label">Apellido*</label>
+          <span class="form_line"></span>
+          <% if (locals.errors && locals.errors.lastName) { %>
+            <p><%= locals.errors.lastName.msg %></p>
+          <% } %>
+        </div>
+
+        <div class="form_container">
+          <input 
+          type="text" 
+          id="email" 
+          name="email" 
+          class="form_input" 
+          placeholder=" " 
+          value="<%= locals.oldData && locals.oldData.email ? locals.oldData.email: null %>"/>
+          <label for="email" class="form_label">Email*</label>
+          <span class="form_line"></span>
+          <% if (locals.errors && locals.errors.email) { %>
+            <p><%= locals.errors.email.msg %></p>
+          <% } %>
+        </div>
+
+        <div class="form_container">
+          <input 
+          type="text" 
+          id="tel" 
+          name="phone" 
+          class="form_input" 
+          placeholder=" "
+          value="<%= locals.oldData && locals.oldData.phone ? locals.oldData.phone: null %>"/>
+          <label for="tel" class="form_label">Telefono*</label>
+          <span class="form_line"></span>
+          <% if (locals.errors && locals.errors.phone) { %>
+            <p><%= locals.errors.phone.msg %></p>
+          <% } %>
+        </div>
+
+        <div class="form_container">
+          <input 
+          type="text" 
+          id="address" 
+          name="address" 
+          class="form_input" 
+          placeholder=" "
+          value="<%= locals.oldData && locals.oldData.address ? locals.oldData.address: null %>"/>
+          <label for="address" class="form_label">Direccion</label>
+          <span class="form_line"></span>
+        </div>
+
+        <div class="form_container">
+          <input type="file" id="image" name="image" class="form_input" />
+          <label for="address" class="form_label">Foto perfil</label>
+          <span class="form_line"></span>
+        </div>
+
+        <div class="form_container">
+          <input 
+          type="password"
+          id="pass" 
+          name="password" 
+          class="form_input" 
+          placeholder=" "/>
+          <label for="pass" class="form_label">Contraseña*</label>
+          <span class="form_line"></span>
+          <% if (locals.errors && locals.errors.password) { %>
+            <p><%= locals.errors.password.msg %></p>
+          <% } %>
+        </div>
+
+        <div class="form_container">
+          <input 
+          type="password" 
+          id="pass-repeat" 
+          name="password_repeat" 
+          class="form_input" 
+          placeholder=" "/>
+          <label for="pass-repeat" class="form_label">Repetir contraseña*</label>
+          <span class="form_line"></span>
+          <% if (locals.errors && locals.errors.password_repeat) { %>
+            <p><%= locals.errors.password_repeat.msg %></p>
+          <% } %>
+        </div>
+
+        <div>
+          <input type="submit" type="submit" class="form_submit" value="Registrarse" />
+          <p class="form_paragraph">
+            <a href="/users/login" class="form_link">Ya tengo una cuenta →</a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function toHome() {
+        window.location.href = "/";
+      }
+    </script>
+  </main>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/footer.ejs") %>
+  <% } %>
+</body>
+
 </html>
