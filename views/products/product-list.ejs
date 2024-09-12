@@ -38,7 +38,7 @@
             <div class="cards_body--buttons">
             <% if(userSession && userSession.isAdmin) { %>
                 <a href="../admin/products/<%= inventory[i].id %>/edit" class="primary-button">Editar</a>
-                <button type="button" class="danger-button" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= inventory[i].id %>">Borrar</button>
+                <button type="button" class="danger-button delete-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= inventory[i].id %>">Borrar</button>
             <% } %>
             <a href="/products/detail/<%= inventory[i].id %>" class="primary-button">Detalles</a>
           </div>

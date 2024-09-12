@@ -133,7 +133,7 @@
           <div class="modal-body">
             <p>Borrar un producto es irreversible, desea BORRAR?</p>
           </div>
-          <form class="modal-footer product-form" method="post" action="/admin/products/<%= id %>?_method=DELETE">
+          <form class="modal-footer product-form" method="post" action="/admin/products/<%= productItem.id %>?_method=DELETE">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-danger">BORRAR</button>
           </form>

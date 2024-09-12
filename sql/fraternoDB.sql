@@ -14,7 +14,6 @@ CREATE TABLE `products` (
   `stock` INT ,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
-
 CREATE TABLE `users` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `firstName` VARCHAR(45) NOT NULL,
@@ -24,26 +23,23 @@ CREATE TABLE `users` (
   `address` VARCHAR(45) ,
   `password` VARCHAR(100) NOT NULL,
   `image` VARCHAR(100) NULL DEFAULT NULL,
-  `isAdmin` INT NOT NULL,
+  `admin` INT NOT NULL,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
 CREATE TABLE `cart` (
   `id` INT  PRIMARY KEY NOT NULL AUTO_INCREMENT   ,
-  `products_id` INT NOT NULL,
-  `users_id` INT NOT NULL,
-  `amount` INT NOT NULL,
+  `products_id` INT,
+  `users_id` INT,
+  `amount` INT,
   INDEX `fk_cart_products_idx` (`products_id` ASC) VISIBLE,
   INDEX `fk_cart_users1_idx` (`users_id` ASC) VISIBLE,
   CONSTRAINT `fk_cart_products`
     FOREIGN KEY (`products_id`)
     REFERENCES `fraterno`.`products` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_cart_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `fraterno`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-
-
-
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)

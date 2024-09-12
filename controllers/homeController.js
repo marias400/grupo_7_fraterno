@@ -1,22 +1,35 @@
-const pickRandomSanguches = require("../scripts/sanguches-randomizer")
-
+const db = require('../database/models');
+const { Op, Sequelize } = require("sequelize");
 
 const homeController = {
-  homePage: (req, res) => {
-    // Pick 3 random "sanguches" every time the route is accessed
-    const bottomSectionRandomSanguches = pickRandomSanguches(3);
-    // Pick 5 random "sanguches" every time the route is accessed
-    const topSectionRandomSanguches = pickRandomSanguches(5);
-    res.render("home", {
-      products: bottomSectionRandomSanguches,
-      topProducts: topSectionRandomSanguches,
-    });
+  homePage: async (req, res) => {
+    try {
+      const bottomSectionRandomSanguches = await pickRandomSanguches(3);
+      const topSectionRandomSanguches = await pickRandomSanguches(5);
+
+      async function pickRandomSanguches(amount) {
+        const items = await db.Product.findAll({
+          order: Sequelize.fn('RAND'),
+          limit: amount,
+          where: {
+            [Op.or]: [{ category: "sanguches" }, { category: "comida" }]
+          }
+        });
+        return items.map(item => item.dataValues);
+      }
+      res.render("home", {
+        products: bottomSectionRandomSanguches,
+        topProducts: topSectionRandomSanguches,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error en el servidor");
+    }
   },
 
   aboutPage: (req, res) => {
     res.render("about-us");
   },
 };
-
 
 module.exports = homeController;
