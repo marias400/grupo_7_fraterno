@@ -17,40 +17,11 @@
     --tono-claro-gris-claro: #F0F0F0;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Verdana', sans-serif;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--tono-claro-gris-claro);
-    margin: 0;
-}
-
-.main-header__logo {
-    margin: 10px 0;
-}
-
-.main-header__logo,
-.main-header__logo img {
-    height: 28px;
-}
-
 .main-header__pipe {
     color: var(--azul-cobalto);
     margin: 0 7px 0 25px;
     font-size: 20px;
     font-weight: bold;
-}
-
-.main-header__title {
-    margin: 10px 0 !important;
-    color: var(--azul-cobalto);
-    font-size: larger;
-    font-weight: bolder;
-    flex-grow: 1;
 }
 
 main {
@@ -164,12 +135,13 @@ button.purple-button {
 }
 
 .buttons-section {
-    background-color: var(--tono-claro-gris-claro);
+    background-color: var(--mayonnaise);
     padding: 0;
     margin: 0;
     box-shadow: none;
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 button.blue-button:active {

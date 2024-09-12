@@ -77,7 +77,7 @@ main {
 
 .admin-main-header-container,
 .admin-main-footer-container {
-    width: 100%;
+    width: 100% !important;
     height: 48px;
     background-color: var(--tono-claro-verde-azulado);
     display: flex;
