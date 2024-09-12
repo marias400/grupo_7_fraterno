@@ -55,7 +55,7 @@
 
         <label for="ingredients">Ingredientes:</label>
         <p>separar con comas!!!</p>
-        <textarea id="ingredients" name="ingredients" placeholder="Pan, milanesa, tomate, lechuga, mayonesa, mostaza" required><%= productItem.ingredients.join(', ')%></textarea>
+        <textarea id="ingredients" name="ingredients" placeholder="Pan, milanesa, tomate, lechuga, mayonesa, mostaza" required><%= productItem.ingredients%></textarea>
 
         <label for="image">Imagen del Producto:</label>
         <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)">
@@ -84,20 +84,22 @@
 
         <div class="product-form__data--checkbox-group">
 
+          <!--  (productItem.suitability.vegan) checked  produce error al crear un producto -->
           <div class="product-form__data--checkbox-container">
             <label for="vegetarian">Apto vegetariano</label>
-            <input type="checkbox" id="vegetarian" name="vegetarian" <% if (productItem.suitability.vegetarian) { %> checked <% } %>>
+            <input type="checkbox" id="vegetarian" name="vegetarian" >
           </div>
 
           <div class="product-form__data--checkbox-container">
             <label for="vegan">Apto vegano</label>
-            <input type="checkbox" id="vegan" name="vegan" <% if (productItem.suitability.vegan) { %> checked <% } %>>
+            <input type="checkbox" id="vegan" name="vegan" >
           </div>
 
           <div class="product-form__data--checkbox-container">
             <label for="celiac">Apto celiaco</label>
-            <input type="checkbox" id="celiac" name="celiac" <% if (productItem.suitability.celiac) { %> checked <% } %>>
+            <input type="checkbox" id="celiac" name="celiac">
           </div>
+
         </div>
 
         <label for="size">Tamaño:</label>
