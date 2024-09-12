@@ -8,7 +8,7 @@
       <i class="fa-solid fa-burger"></i>
     </div>
     <ul id="admin-menu" class="admin-menu">
-      <% if(userSession) { %>
+      <% if(userSession && userSession.isAdmin) { %>
         <li class="admin-menu-item" data-index="0">
           <a href="/users/profile">
             <%= userSession.firstName %>
@@ -35,7 +35,7 @@
 
     <nav>
       <span class="admin-main-header__products"><a href="/products/list">Productos</a></span>
-      <% if(userSession) { %>
+      <% if(userSession && userSession.isAdmin) { %>
         <span class="admin-main-header__register--admin"><a href="/users/profile">
             <%= userSession.firstName %>
           </a></span>

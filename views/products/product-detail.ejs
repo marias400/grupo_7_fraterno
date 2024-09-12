@@ -2,7 +2,7 @@
 <html lang="es-AR">
 
 <head>
-    <% if(userSession) { %>
+    <% if(userSession && userSession.isAdmin) { %>
     <%- include("../partials/admin-head.ejs") %>
     <% }else{ %>
     <%- include("../partials/head.ejs") %>
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <% if(userSession) { %>
+    <% if(userSession && userSession.isAdmin) { %>
     <%- include("../partials/admin-header.ejs") %>
     <% }else{ %>
     <%- include("../partials/header.ejs") %>
@@ -72,7 +72,7 @@
         </div>
     </main>
 
-    <% if(userSession) { %>
+    <% if(userSession && userSession.isAdmin) { %>
     <%- include("../partials/admin-footer.ejs") %>
     <% }else{ %>
     <%- include("../partials/footer.ejs") %>

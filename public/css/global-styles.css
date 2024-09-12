@@ -206,7 +206,7 @@ main {
     transform: translate(3px, 3px);
     .fa-solid, .fa-burger {
         transform: rotateZ(0.25turn);
-    }
+    };
     .menu {
         display: sticky;
         opacity: 1;
