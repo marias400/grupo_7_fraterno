@@ -1,15 +1,15 @@
 INSERT INTO `users` (`firstName`, `lastName`, `email`, `phone`, `address`, `password`, `image`, `admin`)
 VALUES
-('Mateo', 'Díaz', 'mateo.diaz@example.com', '1234567890', 'Calle Falsa 123', 'password123', 'G7favicon.svg', 1),
-('Camila', 'Suárez', 'camila.suarez@example.com', '0987654321', 'Avenida Siempre Viva 456', 'password456', 'G7favicon.svg', 1),
-('Lucas', 'Pereira', 'lucas.pereira@example.com', '1122334455', 'Boulevard de los Sueños 789', 'password789', 'G7favicon.svg', 0),
-('Sofía', 'Gómez', 'sofia.gomez@example.com', '5566778899', 'Plaza de la Constitución 101', 'password101', 'G7favicon.svg', 0),
-('Valentín', 'Rossi', 'valentin.rossi@example.com', '6677889900', 'Paseo de la Reforma 202', 'password202', 'G7favicon.svg', 0),
-('Martina', 'López', 'martina.lopez@example.com', '7788990011', 'Camino Real 303', 'password303', 'G7favicon.svg', 0),
-('Tomás', 'Fernández', 'tomas.fernandez@example.com', '8899001122', 'Calle de la Paz 404', 'password404', 'G7favicon.svg', 0),
-('Florencia', 'Martínez', 'florencia.martinez@example.com', '9900112233', 'Callejón del Beso 505', 'password505', 'G7favicon.svg', 0),
-('Nicolás', 'Ramírez', 'nicolas.ramirez@example.com', '1010101010', 'Camino al Cielo 606', 'password606', 'G7favicon.svg', 0),
-('Isabella', 'Sánchez', 'isabella.sanchez@example.com', '1212121212', 'Avenida del Sol 707', 'password707', 'G7favicon.svg', 0);
+('Mateo', 'Díaz', 'mateo.diaz@example.com', '1234567890', 'Calle Falsa 123', 'password123', '/images/users/G7favicon.svg', 1),
+('Camila', 'Suárez', 'camila.suarez@example.com', '0987654321', 'Avenida Siempre Viva 456', 'password456', '/images/users/G7favicon.svg', 1),
+('Lucas', 'Pereira', 'lucas.pereira@example.com', '1122334455', 'Boulevard de los Sueños 789', 'password789', '/images/users/G7favicon.svg', 0),
+('Sofía', 'Gómez', 'sofia.gomez@example.com', '5566778899', 'Plaza de la Constitución 101', 'password101', '/images/users/G7favicon.svg', 0),
+('Valentín', 'Rossi', 'valentin.rossi@example.com', '6677889900', 'Paseo de la Reforma 202', 'password202', '/images/users/G7favicon.svg', 0),
+('Martina', 'López', 'martina.lopez@example.com', '7788990011', 'Camino Real 303', 'password303', '/images/users/G7favicon.svg', 0),
+('Tomás', 'Fernández', 'tomas.fernandez@example.com', '8899001122', 'Calle de la Paz 404', 'password404', '/images/users/G7favicon.svg', 0),
+('Florencia', 'Martínez', 'florencia.martinez@example.com', '9900112233', 'Callejón del Beso 505', 'password505', '/images/users/G7favicon.svg', 0),
+('Nicolás', 'Ramírez', 'nicolas.ramirez@example.com', '1010101010', 'Camino al Cielo 606', 'password606', '/images/users/G7favicon.svg', 0),
+('Isabella', 'Sánchez', 'isabella.sanchez@example.com', '1212121212', 'Avenida del Sol 707', 'password707', '/images/users/G7favicon.svg', 0);
 
 INSERT INTO `products` (`name`, `description`, `price`, `category`, `size`, `ingredients`, `image`, `suitability`, `stock`)
 VALUES

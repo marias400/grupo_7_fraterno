@@ -23,7 +23,7 @@ CREATE TABLE `users` (
   `address` VARCHAR(45) ,
   `password` VARCHAR(100) NOT NULL,
   `image` VARCHAR(100) NULL DEFAULT NULL,
-  `admin` INT NOT NULL,
+  `admin` INT NOT NULL DEFAULT 0,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
 CREATE TABLE `cart` (
