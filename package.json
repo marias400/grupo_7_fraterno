@@ -5,6 +5,7 @@
   "description": "![Grupo Sie7e](https://i.ibb.co/vVHKNpv/logoG7.png)",
   "main": "app.js",
   "scripts": {
+    "test": "nodemon app.js",
     "dev": "nodemon app.js",
     "start": "node app"
   },
