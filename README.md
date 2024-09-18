@@ -31,7 +31,7 @@
 &nbsp;&nbsp;&nbsp;Estudiante de Ingeniería en Sistemas de Información en la UNLaR. Trabajo haciendo monitoreo en una empresa de seguridad. Tengo poca experiencia programando mas de la que me dan las clases de la facultad o viendo y aprendiendo por videos de youtube.
 
 ### `Biagioli Juan Manuel`
-&nbsp;&nbsp;&nbsp;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+&nbsp;&nbsp;&nbsp;Estudiante en IT desde hace 2 años, comence en cursos de programación como Argentina Programa y CodoACodo, el año pasado termine uno de la Universidad de La Punta, sobre Java, y decidí meterme de lleno con programación, planificando entrar el año que viene en Ingenieria de Sistemas o hacer la Tecnicatura.
 
 ### `Padula Lugo Jorge`
 &nbsp;&nbsp;&nbsp;Soy estudiante de Ingeniería en Sistemas de Información en la Universidad Nacional de La Rioja (UNLaR). A lo largo de mi carrera, he tenido la oportunidad de programar en una variedad de lenguajes y tecnologías, lo que me ha permitido adquirir una visión amplia y general del campo de la programación, aunque no me he especializado en un área específica.
