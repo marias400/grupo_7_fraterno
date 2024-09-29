@@ -25,7 +25,7 @@ VALUES
 ('Sanguche de Mortadela', 'Mortadela con queso provolone, rúcula y tomate en pan de campo', 550, 'Sanguches', 'Grande', 'Mortadela, Queso Provolone, Rúcula, Tomate, Pan de Campo', '/images/products/sanguche_mortadela.jpg', 'Carnívoro', 30);
 
 
-INSERT INTO `cart` (`products_id`, `users_id`, `amount`)
+INSERT INTO `carts` (`products_id`, `users_id`, `amount`)
 VALUES
 (1, 1, 2),
 (2, 2, 1),

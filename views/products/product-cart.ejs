@@ -2,124 +2,89 @@
 <html lang="es-AR">
 
 <head>
-    <% if(userSession && userSession.isAdmin) { %>
-    <%- include("../partials/admin-head.ejs") %>
-    <% }else{ %>
-    <%- include("../partials/head.ejs") %>
-    <% } %>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/head.ejs") %>
+  <% } %>
 
-    <title>Carrito de compras | Grupo Sie7e</title>
+  <title>Carrito de compras | Grupo Sie7e</title>
 
-    <!--Hoja de estilos propia de esta página-->
-    <link rel="stylesheet" href="/css/product-cart-styles.css">
+  <!--Hoja de estilos propia de esta página-->
+  <link rel="stylesheet" href="/css/product-cart-styles.css">
+
+  <!-- script de comportamiento en js -->
+  <script defer src="/js/cart.js"></script>
+
 </head>
 
 <body>
-    <% if(userSession && userSession.isAdmin) { %>
-    <%- include("../partials/admin-header.ejs") %>
-    <% }else{ %>
-    <%- include("../partials/header.ejs") %>
-    <% } %>
-        <main>
-            <div class="cart">
-                <header class="cart__header">
-                    <p class="cart__header--title">
-                        <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
-                        Tu carrito (2 items)
-                    </p>
-                </header>
-                <div class="cart__content">
-                    <article class="cart__content--product">
-                        <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
-                        <img src="../images/milanesa.jpg" class="cart__content--product-image">
-                        <div class="cart__content--product-right-box">
-                            <div class="cart__content--product-middleblox">
-                                <div class="cart__content--product-middleblox-top">
-                                    <p class="cart__content--product-middleblox-name">Milanesa</p>
-                                </div>
-                                <div class="cart__content--product-middleblox-bottom">
-                                    <button onclick="decrementar(1)"
-                                        class="cart__content--product-middleblox-quantityMinus">-</button>
-                                    <span id="valor-1"
-                                        class="cart__content--product-middleblox-quantity">1</span>
-                                    <button onclick="incrementar(1)"
-                                        class="cart__content--product-middleblox-quantityPlus">+</button>
-                                </div>
-                            </div>
-                            <p class="cart__content--product-price">$4,999.99</p>
-                        </div>
-                    </article>
-                    <article class="cart__content--product">
-                        <i class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
-                        <img src="../images/milanesa.jpg" class="cart__content--product-image">
-                        <div class="cart__content--product-right-box">
-                            <div class="cart__content--product-middleblox">
-                                <div class="cart__content--product-middleblox-top">
-                                    <p class="cart__content--product-middleblox-name">Pajarito</p>
-                                </div>
-                                <div class="cart__content--product-middleblox-bottom">
-                                    <button onclick="decrementar(2)"
-                                        class="cart__content--product-middleblox-quantityMinus">-</button>
-                                    <span id="valor-2"
-                                        class="cart__content--product-middleblox-quantity">1</span>
-                                    <button onclick="incrementar(2)"
-                                        class="cart__content--product-middleblox-quantityPlus">+</button>
-                                </div>
-                            </div>
-                            <p class="cart__content--product-price">$4,500.00</p>
-                        </div>
-                    </article>
-                </div>
-                <section class="cart__subtotal">
-                    <p class="cart__subtotal--text">Subtotal</p>
-                    <p id="subtotal" class="cart__subtotal--price">$9,499.99</p>
-                </section>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-header.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/header.ejs") %>
+  <% } %>
+  <main>
+    <div class="cart">
+      <header class="cart__header">
+        <p class="cart__header--title">
+          <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
+          Tu carrito (2 items)
+        </p>
+      </header>
+      <div class="cart__content">
+        <% if (cartContent) { %>
+        <% for( let i = 0; i < cartContent.length; i++ ) { %>
+        <article data-id="<%= i %>" class="cart__content--product">
+          <i data-id="<%= i %>" data-uniqueId="<%= cartContent[i].uniqueId %>" class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+          <img src=<%= cartContent[i].image %> class="cart__content--product-image">
+          <div class="cart__content--product-right-box">
+            <div class="cart__content--product-middleblox">
+              <div class="cart__content--product-middleblox-top">
+                <p class="cart__content--product-middleblox-name"><%= cartContent[i].name %></p>
+              </div>
+              <div class="cart__content--product-middleblox-bottom">
+                <button data-id="<%= i %>" class="cart__content--product-middleblox-quantityMinus">-</button>
+                <span data-id="<%= i %>" class="cart__content--product-middleblox-quantity">1</span>
+                <button data-id="<%= i %>" class="cart__content--product-middleblox-quantityPlus">+</button>
+              </div>
             </div>
-            <section class="checkout">
-                <button type="submit" class="checkout-button">Finalizar compra</button>
-                <a href="/">Volver a la tienda</a>
-            </section>
-        </main>
-        <% if(userSession && userSession.isAdmin) { %>
-        <%- include("../partials/admin-footer.ejs") %>
-        <% }else{ %>
-        <%- include("../partials/footer.ejs") %>
+            <p data-id="<%= i %>" class="cart__content--product-price">$<%= cartContent[i].price %></p>
+          </div>
+        </article>
         <% } %>
-            <script>
-                function incrementar(id) {
-                    const valorSpan = document.getElementById(`valor-${id}`);
-                    let valor = parseInt(valorSpan.innerText, 10);
-                    valor++;
-                    valorSpan.innerText = valor;
-                    calcularSubtotal();
-                }
+        <% } else { %>
+        <article class="cart__content--product">
+          <div class="cart__content--product-right-box">
+            <div class="cart__content--product-middleblox">
+              <p class="cart__content--product-middleblox-name">Vacio</p>
+              <a href="/">
+                <p>Seguir comprando</p>
+              </a>
+            </div>
+          </div>
+        </article>
+        <% } %>
+      </div>
 
-                function decrementar(id) {
-                    const valorSpan = document.getElementById(`valor-${id}`);
-                    let valor = parseInt(valorSpan.innerText, 10);
-                    if (valor > 0) { // Opcional: para no permitir valores negativos
-                        valor--;
-                    }
-                    valorSpan.innerText = valor;
-                    calcularSubtotal();
-                }
+      <% if (total) { %>
+      <section class="cart__subtotal">
+        <p class="cart__subtotal--text">Subtotal</p>
+        <p id="subtotal" class="cart__subtotal--price">$<%= total %></p>
+      </section>
+      <% } %>
+    </div>
 
-                function calcularSubtotal() {
-                    // Formateador de monedas
-                    const formatter = new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                    // These options are needed to round to whole numbers if that's what you want.
-                    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-                    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-                    });
-
-                    console.log(formatter.format(2500));
-                    const valorSpan = document.getElementById(`subtotal`);
-                    const valor = 4999.99 * parseFloat(document.getElementById(`valor-1`).innerText, 10) + 4500 * parseFloat(document.getElementById(`valor-2`).innerText, 10);
-                    valorSpan.innerText = formatter.format(valor);
-                }
-            </script>
+    <section class="checkout">
+      <button type="submit" class="checkout-button">Finalizar compra</button>
+      <a href="/">Volver a la tienda</a>
+    </section>
+  </main>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/footer.ejs") %>
+  <% } %>
 </body>
 
 </html>

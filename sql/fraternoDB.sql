@@ -5,7 +5,7 @@ CREATE TABLE `products` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(200) ,
-  `price` INT NOT NULL,
+  `price` DECIMAL(10, 2) NOT NULL,
   `category` VARCHAR(45) ,
   `size` VARCHAR(45) ,
   `ingredients` VARCHAR(200) ,
@@ -24,6 +24,7 @@ CREATE TABLE `users` (
   `password` VARCHAR(100) NOT NULL,
   `image` VARCHAR(100) NULL DEFAULT NULL,
   `admin` INT NOT NULL DEFAULT 0,
+  UNIQUE (email),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
 CREATE TABLE `cart` (

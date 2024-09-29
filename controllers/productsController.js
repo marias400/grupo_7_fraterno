@@ -9,22 +9,19 @@ const productController = {
     let inventoryItem = db.Product.findByPk(id);
     let products = db.Product.findAll();
 
-    Promise
-        .all([products, inventoryItem])
-        .then(([products,inventoryItem]) => {
-          let ingredients = inventoryItem.ingredients.split(",");
-          inventoryItem.ingredients = ingredients;
-          // console.log(inventoryItem);
-          res.render("products/product-detail", { id, inventoryItem,products});
-        })
-        .catch(error => res.send(error))
-
-  },
-   
-
-  //pagina: carrito de compras (vista usuario)
-  async cartPage(req, res) {
-    res.render("products/product-cart");
+    Promise.all([products, inventoryItem])
+      .then(([products, inventoryItem]) => {
+        let product = inventoryItem.dataValues;
+        let ingredients = product.ingredients.split(",");
+        product.ingredients = ingredients;
+        console.log(product);
+        res.render("products/product-detail", {
+          id,
+          inventoryItem: product,
+          products,
+        });
+      })
+      .catch((error) => res.send(error));
   },
 
   //pagina: lista de productos (vista usuario)
