@@ -1,26 +1,19 @@
-async function addToCart() {
-  const productName = document.querySelector(".stripe__tags--product-name p");
-  let randomKey = "id" + Math.random().toString(16).slice(2);
-  sessionStorage.setItem(randomKey, productName.innerText);
+function sendData() {
+  const localStorageObject = {};
 
-  window.confirm("Producto agregado al carrito!");
-
-  const sessionStorageObject = {};
-
-  for (let i = 0; i < sessionStorage.length; i++) {
-    const key = sessionStorage.key(i);
-    sessionStorageObject[key] = sessionStorage.getItem(key);
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    localStorageObject[key] = localStorage.getItem(key);
   }
 
-  const sessionStorageString = JSON.stringify(sessionStorageObject);
-
+  const localStorageString = JSON.stringify(localStorageObject);
 
   fetch("/cart/test", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: sessionStorageString,
+    body: localStorageString,
   })
     .then((response) => {
       if (!response.ok) {
@@ -31,6 +24,19 @@ async function addToCart() {
     .then((responseData) => {
       console.log("Datos enviados correctamente:", responseData);
     });
+}
+
+//envio inicial del contenido de memoria local a carrito
+sendData();
+
+async function addToCart() {
+  const productName = document.querySelector(".stripe__tags--product-name p");
+  let randomKey = "id" + Math.random().toString(16).slice(2);
+  localStorage.setItem(randomKey, productName.innerText);
+
+  window.confirm("Producto agregado al carrito!");
+
+  sendData();
 }
 
 function increment(id) {

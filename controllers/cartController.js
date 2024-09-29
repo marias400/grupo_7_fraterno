@@ -40,7 +40,7 @@ const cartController = {
   cartPage(req, res) {
     let cart = req.session.cart;
     let total = 0;
-
+    
     if (cart) {
       // Crear un array de promesas
       let promises = Object.entries(cart).map(([key, value]) => {
@@ -56,7 +56,6 @@ const cartController = {
               let newItem = response.dataValues;
               newItem["uniqueId"] = key;
               total += newItem.price;
-              console.log(newItem)
               return newItem; // Retornar el producto para después incluirlo en el carrito
             }
           })

@@ -9,6 +9,37 @@ const deleteIcons = document.querySelectorAll(
 );
 const subtotalElement = document.getElementById("subtotal");
 
+function sendData() {
+  const localStorageObject = {};
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    localStorageObject[key] = localStorage.getItem(key);
+  }
+
+  const localStorageString = JSON.stringify(localStorageObject);
+
+  fetch("/cart/test", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: localStorageString,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      console.log("Datos enviados correctamente:", responseData);
+    });
+}
+
+//envio inicial de productos en memoria local
+sendData();
+
 // Función para actualizar el subtotal
 const updateSubtotal = () => {
   let newSubtotal = 0;
@@ -70,9 +101,10 @@ deleteIcons.forEach((icon) => {
     const articleToDelete = document.querySelector(
       `.cart__content--product[data-id="${id}"]`
     );
-    sessionStorage.removeItem(e.target.dataset.uniqueid)
+    localStorage.removeItem(e.target.dataset.uniqueid);
     articleToDelete.remove();
     updateSubtotal();
-    window.location.href = "/cart";
+
+    sendData();
   });
 });
