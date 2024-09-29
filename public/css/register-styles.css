@@ -93,6 +93,11 @@ main {
     margin: 78px 0;
 }
 
+.image-error {
+    color: crimson;
+    text-align: left;
+}
+
 .form_submit:active,
 .top-side__burguer-menu:active {
     background-color: #ce4f24;

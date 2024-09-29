@@ -110,6 +110,9 @@
           <label for="address" class="form_label">Foto perfil</label>
           <span class="form_line"></span>
         </div>
+        <% if (locals.errors && locals.errors.image) { %>
+          <p class="image-error"><%= locals.errors.image.msg %></p>
+        <% } %>
 
         <div class="form_container">
           <input 
