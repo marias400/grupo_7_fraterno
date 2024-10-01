@@ -8,6 +8,10 @@ const deleteIcons = document.querySelectorAll(
   ".cart__content--product-delete-icon"
 );
 const subtotalElement = document.getElementById("subtotal");
+const undoBtn = document.querySelector(".undoBtn");
+undoBtn.addEventListener("click", undoHandler);
+
+let recentDelete = {};
 
 function sendData() {
   const localStorageObject = {};
@@ -16,10 +20,9 @@ function sendData() {
     const key = localStorage.key(i);
     localStorageObject[key] = localStorage.getItem(key);
   }
-
   const localStorageString = JSON.stringify(localStorageObject);
 
-  fetch("/cart/test", {
+  fetch("/cart/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,6 +37,9 @@ function sendData() {
     })
     .then((responseData) => {
       console.log("Datos enviados correctamente:", responseData);
+    })
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -101,10 +107,41 @@ deleteIcons.forEach((icon) => {
     const articleToDelete = document.querySelector(
       `.cart__content--product[data-id="${id}"]`
     );
+
+    undoBtn.classList.remove("hidden");
+
+    recentDelete = {
+      key: localStorage.getItem(e.target.dataset.uniqueid),
+      name: e.target.dataset.uniqueid,
+    };
+
+    console.log(recentDelete);
+
     localStorage.removeItem(e.target.dataset.uniqueid);
     articleToDelete.remove();
     updateSubtotal();
-
     sendData();
   });
 });
+
+function undoHandler(e) {
+  e.preventDefault();
+  undoBtn.classList.add("hidden");
+
+  localStorage.setItem(recentDelete.name, recentDelete.key);
+  recentDelete = {};
+  sendData();
+  updatePage(window.location.href);
+}
+
+async function updatePage(url) {
+  await fetch(url, {
+    headers: {
+      Pragma: "no-cache",
+      Expires: "-1",
+      "Cache-Control": "no-cache",
+    },
+  });
+  window.location.href = url;
+  window.location.reload();
+}

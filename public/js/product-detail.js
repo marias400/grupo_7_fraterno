@@ -8,7 +8,7 @@ function sendData() {
 
   const localStorageString = JSON.stringify(localStorageObject);
 
-  fetch("/cart/test", {
+  fetch("/cart/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,6 +34,7 @@ async function addToCart() {
   let randomKey = "id" + Math.random().toString(16).slice(2);
   localStorage.setItem(randomKey, productName.innerText);
 
+  //cambiar por mejor feedback al usuario!!!
   window.confirm("Producto agregado al carrito!");
 
   sendData();

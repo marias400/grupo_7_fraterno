@@ -229,6 +229,15 @@ main {
     display: none;
 }
 
+.hidden {
+    display: none;
+}
+
+.undoBtn {
+    position: fixed;
+    left: 10px;
+    bottom: 48px;
+}
 
 /*TELEFONOS*/
 @media (min-width: 375px) {
