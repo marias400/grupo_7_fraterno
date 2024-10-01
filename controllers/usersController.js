@@ -80,6 +80,13 @@ const usersController = {
       }).then(res.redirect("/"));
     }
   },
+
+  async editProfile(req, res) {
+    if (req.body.edit) {
+      console.log(req.body.edit);
+      res.render("users/EditProfile");
+    }
+  },
 };
 
 module.exports = usersController;

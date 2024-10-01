@@ -2,14 +2,22 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../partials/admin-head.ejs") %>
+    <% }else{ %>
+    <%- include("../partials/head.ejs") %>
+    <% } %>
     <title>Editar Perfil</title>
-    <link rel="stylesheet" href="/public/css/EditProfile.css">
+    <link rel="stylesheet" href="/css/EditProfile.css">
 </head>
 
 <body>
-    <div class="edit-profile-container">
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../partials/admin-header.ejs") %>
+    <% }else{ %>
+    <%- include("../partials/header.ejs") %>
+    <% } %>
+    <main class="edit-profile-container">
         <h1>Editar Información de Usuario</h1>
 
         <form action="#">
@@ -49,7 +57,12 @@
                 <button type="button" class="cancel-btn" href='#'">Cancelar</button>
             </div>
         </form>
-    </div>
+    </main>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../partials/admin-footer.ejs") %>
+    <% }else{ %>
+    <%- include("../partials/footer.ejs") %>
+    <% } %>
 </body>
 
 </html>

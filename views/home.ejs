@@ -50,10 +50,8 @@
             <h2>Algunos de nuestros productos</h2>
             <section class="products">
                 <% for(let i=0; i<products.length; i++){ %>
-                    <div class="products-cards">
-                        <a href="/products/detail/<%= products[i].id %>">
-                            <img src="<%= products[i].image %>" alt="<%= products[i].name %>" class="img-fluid">
-                        </a>
+                    <div class="products-cards" onclick="toProductDetail(<%= products[i].id %>)">
+                        <img src="<%= products[i].image %>" alt="<%= products[i].name %>" class="img-fluid">
                         <h3>
                             <%= products[i].name %>
                         </h3>
