@@ -38,6 +38,7 @@
 
         <div class="form_container">
           <input 
+          autofocus
           type="text" 
           id="firstName" 
           name="firstName"
@@ -90,7 +91,7 @@
           class="form_input" 
           placeholder=" "
           value="<%= locals.oldData && locals.oldData.phone ? locals.oldData.phone: null %>"/>
-          <label for="phone" class="form_label">Telefono*</label>
+          <label for="phone" class="form_label">Telefono</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.phone) { %>
             <p><%= locals.errors.phone.msg %></p>

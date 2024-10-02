@@ -28,11 +28,13 @@ const usersController = {
           req.session.cookie.maxAge = 31536000000;  // 1 año en milisegundos (31536000000 ms)
         }
         res.redirect("/home");
-      } else {
-        if (!errors.isEmpty()) {
+      } else if (!errors.isEmpty()) {
           res.render("users/log-in", { errors: errors.mapped() });
-        }
-      }     
+      } else if (!user) { // Si el usuario o la contraseña no coinciden
+          res.render("users/log-in", { dbErrorEmail : '* Email no se encuentra registrado'});
+      } else if (bcrypt.compare(password, user.password)){
+          res.render("users/log-in", { dbErrorPassword : '* La contraseña es incorrecta' });
+      }
     });
   },
 

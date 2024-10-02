@@ -48,31 +48,37 @@
         <h2 class="form_title">o usa tu dirección de email</h2>
         <div class="form_container">
           <input type="text" name="email" id="email" class="form_input" placeholder=" " autofocus/>
-          <label for="email" class="form_label">Usuario / Email*</label>
+          <label for="email" class="form_label">Email</label>
           <span class="form_line"></span>
           <div style="position: relative; top: -20px;" class="error-message"></div>
           <% if (locals.errors && locals.errors.email) { %>
-          <p class="error-message"><%= locals.errors.email.msg %></p>
+          <p><%= locals.errors.email.msg %></p>
+          <% } %>
+          <% if (locals.dbErrorEmail) { %>
+          <p><%= locals.dbErrorEmail %></p>
           <% } %>
         </div>
         <div class="form_container">
           <input type="password" name="password" id="password" class="form_input" placeholder=" " />
-          <label for="password" class="form_label">Contraseña*</label>
+          <label for="password" class="form_label">Contraseña</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.password) { %>
           <p><%= locals.errors.password.msg %></p>
           <% } %>
+          <% if (locals.dbErrorPassword) { %>
+          <p><%= locals.dbErrorPassword %></p>
+          <% } %>
         </div>
-        <div class="form_container">
-          <label for="remember">Recordarme</label>
+        <div id="remember-box">
           <input type="checkbox" name="remember" id="remember">
+          <label for="remember" id="p-remember">Recordarme</label>
         </div>
         <div class="form_container">
           <input type="submit" class="form_submit" value="Entrar" />
-          <p class="form_paragraph">
-            <a href="/users/register" class="form_link">Registrate →</a>
-          </p>
         </div>
+        <p class="form_paragraph">
+          <a href="/users/register" class="form_link">Registrate →</a>
+        </p>
       </form>
     </div>
   </main>

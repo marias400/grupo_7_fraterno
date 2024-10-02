@@ -115,6 +115,12 @@ main {
     font-weight: 400;
 }
 
+.just-validate-error-label{
+    text-align: left;
+    font-size: small;
+    color: red !important;
+}
+
 @media (max-width: 375px) {
     .form {
         min-width: 90vw;

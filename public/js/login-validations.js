@@ -1,24 +1,32 @@
-const loginFormValidation = new JustValidate("#login-form");
+const loginFormValidation = new JustValidate("#login-form", {
+  validateOnEvent: true,
+});
 
 loginFormValidation
   .addField("#email", [
     {
       rule: "required",
-      errorMessage: "Debe ingresar un Email",
+      errorMessage: "* Ingrese un email",
     },
     {
       rule: "email",
-      errorMessage: "Debe ser un Email válido",
+      errorMessage: "* Ingrese un email válido",
     },
-    //que el email este en la db
   ])
   .addField("#password", [
     {
       rule: "required",
-      errorMessage: "Ingrese una contraseña",
+      errorMessage: "* Ingrese una contraseña",
     },
   ])
   .onSuccess((e) => {
     e.target.submit();
-  })
+  });
 
+document.getElementById('email').addEventListener('blur', ()=>{
+  loginFormValidation.revalidateField('#email');
+});
+
+document.getElementById('password').addEventListener('blur', ()=>{
+  loginFormValidation.revalidateField('#password');
+});

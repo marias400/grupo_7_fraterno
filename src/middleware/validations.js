@@ -36,9 +36,9 @@ const register = [
 ]
 
 const login = [
-    check('email').isEmpty().withMessage('Ingrese un Email').bail()
-        .isEmail().withMessage('Email no valido'),
-    check('password').notEmpty().withMessage('El campo contraseña esta vacio'),
+    check('email').notEmpty().withMessage('* Ingrese un email').bail()
+        .isEmail().withMessage('* Ingrese un email válido'),
+    check('password').notEmpty().withMessage('* Ingrese una contraseña'),
 ]
 
 
