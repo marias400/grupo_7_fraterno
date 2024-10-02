@@ -234,9 +234,16 @@ main {
 }
 
 .undoBtn {
-    position: fixed;
-    left: 10px;
-    bottom: 48px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--dark-mustard);
+    color: white;
+    font-size: 30px;
+    border: 7px solid var(--dark-mayonnaise);
+    border-radius: 50%;
+    position: relative;
+    top: -20px;
+    cursor: pointer;
 }
 
 /*TELEFONOS*/
@@ -335,6 +342,11 @@ main {
         justify-content: space-between;
         align-items: center;
     }
+
+    .undoBtn {
+        top: -50px;
+        right: 260px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -342,4 +354,8 @@ main {
         max-width: 700px;
     }
 
+    .undoBtn {
+        top: -50px;
+        right: 350px;
+    }
 }

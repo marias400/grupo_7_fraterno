@@ -75,13 +75,12 @@
       <% } %>
     </div>
 
+    <button class="undoBtn hidden"><i class="fa-solid fa-rotate-left"></i></button>
+
     <section class="checkout">
       <button type="submit" class="checkout-button">Finalizar compra</button>
       <a href="/">Volver a la tienda</a>
     </section>
-    <div class="undoBtn hidden">
-      <button>Deshacer eliminar</button>
-    </div>
   </main>
   <% if(userSession && userSession.isAdmin) { %>
   <%- include("../partials/admin-footer.ejs") %>
