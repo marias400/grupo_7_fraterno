@@ -12,6 +12,10 @@
 
   <!--Hoja de estilos propia de esta página-->
   <link rel="stylesheet" href="/css/register-styles.css" />
+  <!-- just validate -->
+  <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+  <!-- just validate script src -->
+  <script defer src="/js/register-validations.js"></script>
 </head>
 
 <body>
@@ -21,7 +25,7 @@
   <%- include("../partials/header.ejs") %>
   <% } %>
   <main>
-    <div class="form">
+    <div class="form" id="register-form">
       <div class="form__text-above">
         <h3>Registrate en:</h3>
       </div>
@@ -35,13 +39,13 @@
         <div class="form_container">
           <input 
           type="text" 
-          id="name" 
+          id="firstName" 
           name="firstName"
           class="form_input"
           placeholder=" "
           value="<%= locals.oldData && locals.oldData.firstName ? locals.oldData.firstName: null %>"/>
 
-          <label for="name" class="form_label">Nombre*</label>
+          <label for="firstName" class="form_label">Nombre*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.firstName) { %>
             <p><%= locals.errors.firstName.msg %></p>
@@ -51,12 +55,12 @@
         <div class="form_container">
           <input 
           type="text" 
-          id="name" 
+          id="lastName" 
           name="lastName" 
           class="form_input" 
           placeholder=" " 
           value="<%= locals.oldData && locals.oldData.lastName ? locals.oldData.lastName: null %>"/>
-          <label for="name" class="form_label">Apellido*</label>
+          <label for="lastName" class="form_label">Apellido*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.lastName) { %>
             <p><%= locals.errors.lastName.msg %></p>
@@ -81,12 +85,12 @@
         <div class="form_container">
           <input 
           type="text" 
-          id="tel" 
+          id="phone" 
           name="phone" 
           class="form_input" 
           placeholder=" "
           value="<%= locals.oldData && locals.oldData.phone ? locals.oldData.phone: null %>"/>
-          <label for="tel" class="form_label">Telefono*</label>
+          <label for="phone" class="form_label">Telefono*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.phone) { %>
             <p><%= locals.errors.phone.msg %></p>
@@ -107,7 +111,7 @@
 
         <div class="form_container">
           <input type="file" id="image" name="image" class="form_input" />
-          <label for="address" class="form_label">Foto perfil</label>
+          <label for="image" class="form_label">Foto perfil</label>
           <span class="form_line"></span>
         </div>
         <% if (locals.errors && locals.errors.image) { %>
@@ -117,11 +121,11 @@
         <div class="form_container">
           <input 
           type="password"
-          id="pass" 
+          id="password" 
           name="password" 
           class="form_input" 
           placeholder=" "/>
-          <label for="pass" class="form_label">Contraseña*</label>
+          <label for="password" class="form_label">Contraseña*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.password) { %>
             <p><%= locals.errors.password.msg %></p>
@@ -131,11 +135,11 @@
         <div class="form_container">
           <input 
           type="password" 
-          id="pass-repeat" 
+          id="repassword" 
           name="password_repeat" 
           class="form_input" 
           placeholder=" "/>
-          <label for="pass-repeat" class="form_label">Repetir contraseña*</label>
+          <label for="repassword" class="form_label">Repetir contraseña*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.password_repeat) { %>
             <p><%= locals.errors.password_repeat.msg %></p>

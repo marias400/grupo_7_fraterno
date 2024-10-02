@@ -12,6 +12,10 @@
 
   <!--Hoja de estilos propia de esta página-->
   <link rel="stylesheet" href="/css/log-in-styles.css" />
+  <!-- just validate -->
+  <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+  <!-- just validate script src -->
+  <script defer src="/js/login-validations.js"></script>
 </head>
 
 <body>
@@ -40,22 +44,23 @@
           <span class="textlog">Google</span>
         </div>
       </section>
-      <form class="form" method="post" action="/users/login">
+      <form class="form" id="login-form" method="post" action="/users/login">
         <h2 class="form_title">o usa tu dirección de email</h2>
         <div class="form_container">
-          <input type="text" name="email" id="user" class="form_input" placeholder=" " />
-          <label for="user" class="form_label">Usuario / Email*</label>
+          <input type="text" name="email" id="email" class="form_input" placeholder=" " autofocus/>
+          <label for="email" class="form_label">Usuario / Email*</label>
           <span class="form_line"></span>
+          <div style="position: relative; top: -20px;" class="error-message"></div>
           <% if (locals.errors && locals.errors.email) { %>
-            <p><%= locals.errors.email.msg %></p>
+          <p class="error-message"><%= locals.errors.email.msg %></p>
           <% } %>
         </div>
         <div class="form_container">
-          <input type="password" name="password" id="pass" class="form_input" placeholder=" " />
-          <label for="pass" class="form_label">Contraseña*</label>
+          <input type="password" name="password" id="password" class="form_input" placeholder=" " />
+          <label for="password" class="form_label">Contraseña*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.password) { %>
-            <p><%= locals.errors.password.msg %></p>
+          <p><%= locals.errors.password.msg %></p>
           <% } %>
         </div>
         <div class="form_container">

@@ -11,6 +11,6 @@ router.post("/login", auth.userInctiveAuth, validations.login, usersController.l
 router.get("/register", auth.userInctiveAuth, usersController.registerPage);
 router.post("/register", fileUploadUsers.single('image'), validations.register, usersController.processRegister);
 router.get("/profile", auth.userActiveAuth, usersController.profilePage);
-router.post("/profile", auth.userActiveAuth, usersController.editProfile, usersController.userLogout);
+router.post("/profile", auth.userActiveAuth, usersController.userLogout);
 
 module.exports = router;
