@@ -15,7 +15,7 @@ const routesCarts = require("./routes/cartRoutes");
 let PORT = process.env.PORT || 8000;
 
 /*carpeta estática de imágenes y hojas de estilo*/
-const publicPath = path.resolve("./public");
+const publicPath = path.resolve(path.join(__dirname, '../public'));
 app.use(express.static(publicPath));
 
 const sessionConfig = {
@@ -38,6 +38,7 @@ app.use(sessionMiddleware);
 
 /*view engine*/
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 
 /*rutas de paginas*/
 app.use("/", routesHome);

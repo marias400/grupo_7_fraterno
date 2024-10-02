@@ -5,9 +5,9 @@
   "description": "![Grupo Sie7e](https://i.ibb.co/vVHKNpv/logoG7.png)",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js",
-    "dev": "nodemon app.js",
-    "start": "node app"
+    "test": "nodemon src/app.js",
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "G7",
