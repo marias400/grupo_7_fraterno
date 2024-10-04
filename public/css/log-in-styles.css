@@ -158,8 +158,8 @@ h2 {
     color: red !important;
 }
 
-.error {
-    
+.hidden {
+    display: none !important;
 }
 
 /*UN MEDIAQUERI SOLO PORQUE ME DA TOC EN UN PARTE XD*/

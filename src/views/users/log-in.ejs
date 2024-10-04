@@ -52,10 +52,10 @@
           <span class="form_line"></span>
           <div style="position: relative; top: -20px;" class="error-message"></div>
           <% if (locals.errors && locals.errors.email) { %>
-          <p><%= locals.errors.email.msg %></p>
+          <p id="backendErrorEmail"><%= locals.errors.email.msg %></p>
           <% } %>
           <% if (locals.dbErrorEmail) { %>
-          <p><%= locals.dbErrorEmail %></p>
+          <p id="dbErrorEmail"><%= locals.dbErrorEmail %></p>
           <% } %>
         </div>
         <div class="form_container">
@@ -63,10 +63,10 @@
           <label for="password" class="form_label">Contraseña</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.password) { %>
-          <p><%= locals.errors.password.msg %></p>
+          <p id="backendErrorPassword"><%= locals.errors.password.msg %></p>
           <% } %>
           <% if (locals.dbErrorPassword) { %>
-          <p><%= locals.dbErrorPassword %></p>
+          <p id="dbErrorPassword"><%= locals.dbErrorPassword %></p>
           <% } %>
         </div>
         <div id="remember-box">

@@ -30,10 +30,6 @@ const usersController = {
         res.redirect("/home");
       } else if (!errors.isEmpty()) {
           res.render("users/log-in", { errors: errors.mapped() });
-      } else if (!user) { // Si el usuario o la contraseña no coinciden
-          res.render("users/log-in", { dbErrorEmail : '* Email no se encuentra registrado'});
-      } else if (bcrypt.compare(password, user.password)){
-          res.render("users/log-in", { dbErrorPassword : '* La contraseña es incorrecta' });
       }
     });
   },
