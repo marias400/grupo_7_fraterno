@@ -51,17 +51,18 @@ const updateSubtotal = () => {
   let newSubtotal = 0;
 
   // Recorremos todos los productos para calcular el subtotal
-  document.querySelectorAll(".cart__content--product").forEach((product) => {
-    const quantity = parseInt(
-      product.querySelector(".cart__content--product-middleblox-quantity")
-        .textContent,
-      10
+  const cartProduct = document.querySelectorAll(".cart__content--product");
+  cartProduct.forEach((product) => {
+    let innerValue = product.querySelector(
+      ".cart__content--product-middleblox-quantity"
     );
-    const price = parseFloat(
-      product
-        .querySelector(".cart__content--product-price")
-        .textContent.replace("$", "")
-    );
+    let innerPrice = product.querySelector(".cart__content--product-price");
+    let quantity = 0;
+    let price = 0;
+    if (innerValue !== null) {
+      quantity = parseInt(innerValue.textContent, 10);
+      price = parseFloat(innerPrice.textContent.replace("$", ""));
+    }
     newSubtotal += quantity * price;
   });
 
@@ -107,18 +108,19 @@ deleteIcons.forEach((icon) => {
     const articleToDelete = document.querySelector(
       `.cart__content--product[data-id="${id}"]`
     );
+    let name = localStorage.getItem(e.target.dataset.uniqueid);
+    let key = e.target.dataset.uniqueid;
+    recentDelete[key] = name;
+    localStorage.removeItem(key);
 
-    undoBtn.classList.remove("hidden");
+    // undo button 2.0
+    const undoButton = document.createElement("button");
+    undoButton.dataset.uniqueid = key;
+    undoButton.innerText = "Deshacer";
+    undoButton.addEventListener("click", undoHandler);
+    articleToDelete.replaceChildren(undoButton);
+    // undo button 2.0
 
-    recentDelete = {
-      key: localStorage.getItem(e.target.dataset.uniqueid),
-      name: e.target.dataset.uniqueid,
-    };
-
-    console.log(recentDelete);
-
-    localStorage.removeItem(e.target.dataset.uniqueid);
-    articleToDelete.remove();
     updateSubtotal();
     sendData();
   });
@@ -126,10 +128,14 @@ deleteIcons.forEach((icon) => {
 
 function undoHandler(e) {
   e.preventDefault();
-  undoBtn.classList.add("hidden");
+  let uniqueid = e.target.dataset.uniqueid;
 
-  localStorage.setItem(recentDelete.name, recentDelete.key);
-  recentDelete = {};
+  for (const id in recentDelete) {
+    if (id === uniqueid) {
+      localStorage.setItem(id, recentDelete[id]);
+      delete recentDelete[uniqueid];
+    }
+  }
   sendData();
   updatePage(window.location.href);
 }

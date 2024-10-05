@@ -35,7 +35,7 @@
       <div class="cart__content">
         <% if (cartContent) { %>
         <% for( let i = 0; i < cartContent.length; i++ ) { %>
-        <article data-id="<%= i %>" class="cart__content--product">
+        <article data-id="<%= i %>" data-uniqueId="<%= cartContent[i].uniqueId %>" class="cart__content--product">
           <i data-id="<%= i %>" data-uniqueId="<%= cartContent[i].uniqueId %>" class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
           <img src=<%= cartContent[i].image %> class="cart__content--product-image">
           <div class="cart__content--product-right-box">
