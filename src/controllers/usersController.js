@@ -38,16 +38,31 @@ const usersController = {
     res.render("users/register");
   },
 
+  async supportPage(req, res) {
+    let msg = null;
+    res.render("users/profile/support", { msg: msg });
+  },
+
   async profilePage(req, res) {
     let msg = null;
-    res.render("users/profile", { msg: msg });
+    res.render("users/profile/profile", { msg: msg });
+  },
+
+  async infoPage(req, res) {
+    let msg = null;
+    res.render("users/profile/personal-info", { msg: msg });
+  },
+
+  async ordersPage(req, res) {
+    let msg = null;
+    res.render("users/profile/order-history", { msg: msg });
   },
 
   async userLogout(req, res) {
     if (req.body.logout) {
       req.session.destroy(err => {
         if (err) {
-          res.render("users/profile", { msg: err });
+          res.render("users/profile/profile", { msg: err });
         }
         res.clearCookie('connect.sid');
         res.redirect('login');
@@ -76,13 +91,6 @@ const usersController = {
         image: imageFile,
         password: passwordEncypted,
       }).then(res.redirect("/"));
-    }
-  },
-
-  async editProfile(req, res) {
-    if (req.body.edit) {
-      console.log(req.body.edit);
-      res.render("users/EditProfile");
     }
   },
 };

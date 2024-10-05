@@ -14,4 +14,12 @@ router.post("/register", fileUploadUsers.single('image'), validations.register, 
 router.get("/profile", auth.userActiveAuth, usersController.profilePage);
 router.post("/profile", auth.userActiveAuth, usersController.userLogout);
 
+router.get("/support", auth.userActiveAuth, usersController.supportPage);
+
+router.get("/profile/info", auth.userActiveAuth, usersController.infoPage);
+
+router.get("/profile/orders", auth.userActiveAuth, usersController.ordersPage);
+
+
+
 module.exports = router;

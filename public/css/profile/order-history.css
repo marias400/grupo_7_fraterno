@@ -5,12 +5,6 @@
     font-family: Arial, sans-serif;
 }
 
-body {
-    background-color: #f9d8b8;
-    padding: 20px;
-    color: #101923;
-}
-
 .orders-container {
     max-width: 1200px;
     margin: 0 auto;

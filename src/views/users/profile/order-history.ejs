@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-head.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/head.ejs") %>
+    <% } %>
+
+    <title>Historial de pedidos | Grupo Sie7e</title>
+
+    <!-- Hoja de estilos propia de esta página -->
+    <link rel="stylesheet" href="/css/profile/order-history.css">
+</head>
+
+<body>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-header.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/header.ejs") %>
+    <% } %>
+    <main>
+        <div class="orders-container">
+            <header class="orders-header">
+                <h1>Mis Pedidos</h1>
+            </header>
+            <section class="order-item">
+                <div class="product-image">
+                    <img src="SANGUCHE-2.jpg" alt="Sanguchardo Vegetariano">
+                </div>
+                <div class="order-details">
+                    <h3><i class="fas fa-truck"></i> Sanguchardo Vegetariano</h3>
+                    <p class="order-id">Pedido #001235</p>
+                    <p><strong>Fecha:</strong> 20 de Septiembre 22:55, 2024</p>
+                    <p><strong>Total:</strong> $999.999</p>
+                    <p class="order-status in-transit"><i class="fas fa-hourglass-half"></i> En camino, estimado el 20 de
+                        Septiembre 23:10, 2024</p>
+                </div>
+            </section>
+
+            <section class="order-item">
+                <div class="product-image">
+                    <img src="SANGUCHE-2.jpg" alt="Sanguchardo de Pollo a la Parrilla">
+                </div>
+                <div class="order-details">
+                    <h3><i class="fas fa-check-circle"></i> Sanguchardo de Pollo a la Parrilla</h3>
+                    <p class="order-id">Pedido #001234</p>
+                    <p><strong>Fecha:</strong> 17 de Septiembre 18:10, 2024</p>
+                    <p><strong>Total:</strong> $7.000</p>
+                    <p class="order-status delivered"><i class="fas fa-check"></i> Entregado el 17 de Septiembre 18:30, 2024
+                    </p>
+                </div>
+            </section>
+
+            <section class="order-item">
+                <div class="product-image">
+                    <img src="SANGUCHE-2.jpg" alt="Sanguchardo de Jamon y Queso">
+                </div>
+                <div class="order-details">
+                    <h3><i class="fas fa-times-circle"></i> Sanguchardo de Jamón y Queso</h3>
+                    <p class="order-id">Pedido #001236</p>
+                    <p><strong>Fecha:</strong> 15 de Septiembre 21:22, 2024</p>
+                    <p><strong>Total:</strong> $5.000</p>
+                    <p class="order-status cancelled"><i class="fas fa-times"></i> Cancelado el 16 de Septiembre 21:30, 2024
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-footer.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/footer.ejs") %>
+    <% } %>
+</body>
+
+</html>

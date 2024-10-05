@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-head.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/head.ejs") %>
+    <% } %>
+
+    <title>Contacto | Grupo Sie7e</title>
+
+    <!-- Hoja de estilos propia de esta página -->
+    <link rel="stylesheet" href="/css/profile/support.css">
+</head>
+
+<body>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-header.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/header.ejs") %>
+    <% } %>
+    <main>
+        <div class="contact-container">
+            <div class="header">
+                <h2>Contáctanos</h2>
+            </div>
+            <form class="contact-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-footer.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/footer.ejs") %>
+    <% } %>
+</body>
+
+</html>

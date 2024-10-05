@@ -7,7 +7,7 @@ function areEmailAndPassInDB(req, res, next) {
         where: { email: email },
     }).then((user) => {
         if (!user) {
-            res.render("users/log-in", { dbErrorEmail: '* Email no se encuentra registrado' });
+            res.render("users/log-in", { dbErrorEmail: '* El email no se encuentra registrado' });
         } else if (password != user.password) {
             res.render("users/log-in", { dbErrorPassword: '* La contraseña es incorrecta' });
         } else {

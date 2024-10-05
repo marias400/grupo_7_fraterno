@@ -71,7 +71,6 @@ body {
 .cancel-btn {
     background-color: #e85829;
     color: white;
-    border: 2px solid #cc332d;
 }
 
 .cancel-btn:hover {
