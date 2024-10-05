@@ -6,7 +6,7 @@
 
 ## &#x1F37D; Productos y Servicios
 
-&nbsp;&nbsp;&nbsp;Nuestro sitio web de venta de comida ofrece una escueta carta de sánguches (y una mitad de limón seco que no sabemos donde poner). Deberías poder navegar por nuestro catálogo de productos y próximamente vas a poder agregarlos a un carrito de compras para realizar un pedido. 
+&nbsp;&nbsp;&nbsp;Nuestro sitio web de venta de comida ofrece una variada carta de sánguches. Se puede navegar por nuestro catálogo de productos y agregarlos a un carrito de compras para realizar un pedido. 
 
 
 
@@ -80,4 +80,3 @@
 - **[Figma](https://www.figma.com/team_invite/redeem/Brz2yNVsUCI4XHMNDppA7V)** para el diseño de los wireframes del sitio.
 
 - **Un canal de Discord y un grupo de WhatsApp** para comunicarnos.
-- 
