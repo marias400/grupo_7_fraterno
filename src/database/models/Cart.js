@@ -8,17 +8,17 @@ module.exports = (sequelize, DataType) => {
         },
         products_id: {
             type: DataType.INTEGER,
-            allowNull: false,  // Asumir que debe tener un producto
+            allowNull: false,
             references: {
-                model: 'products',  // Asegúrate que coincida con la tabla de productos
+                model: 'products',
                 key: 'id'
             }
         },
         users_id: {
             type: DataType.INTEGER,
-            allowNull: false,  // Asumir que debe tener un usuario
+            allowNull: false,
             references: {
-                model: 'users',  // Asegúrate que coincida con la tabla de usuarios
+                model: 'users',
                 key: 'id'
             }
         },
@@ -36,11 +36,11 @@ module.exports = (sequelize, DataType) => {
 
     Cart.associate = (models) => {
         Cart.belongsTo(models.User, {
-            as: 'user',           // Singular porque un carrito pertenece a un solo usuario
+            as: 'user',
             foreignKey: 'users_id'
         });
         Cart.belongsTo(models.Product, {
-            as: 'product',        // Singular porque un carrito pertenece a un solo producto
+            as: 'product',
             foreignKey: 'products_id'
         });
     };

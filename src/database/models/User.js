@@ -16,8 +16,8 @@ module.exports = (sequelize, DataType) => {
         },
         email: {
             type: DataType.STRING(45),
-            allowNull: false,  // Hacer que el email sea obligatorio
-            unique: true        // Agregar restricción de unicidad
+            allowNull: false,
+            unique: true
         },
         phone: {
             type: DataType.STRING(45),
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataType) => {
         },
         password: {
             type: DataType.STRING(100),
-            allowNull: false    // Hacer que la contraseña sea obligatoria
+            allowNull: false
         },
         image: {
             type: DataType.STRING(100),
@@ -37,8 +37,8 @@ module.exports = (sequelize, DataType) => {
         },
         admin: {
             type: DataType.BOOLEAN,
-            allowNull: false,   // Asegurarse de que no sea nulo
-            defaultValue: false // Por defecto, no es admin
+            allowNull: false,
+            defaultValue: false
         }
     };
     
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataType) => {
     User.associate = (models) => {
         User.hasMany(models.Cart, {
             as: 'cart',
-            foreignKey: 'users_id'  // Asegurarse que el foreignKey coincida con el de Cart
+            foreignKey: 'users_id'
         });
     };
 

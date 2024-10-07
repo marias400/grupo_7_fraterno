@@ -1,14 +1,13 @@
-function sendData() {
+function sendData(url) {
   const localStorageObject = {};
 
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     localStorageObject[key] = localStorage.getItem(key);
   }
-
   const localStorageString = JSON.stringify(localStorageObject);
 
-  fetch("/cart/add", {
+  fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,11 +22,11 @@ function sendData() {
     })
     .then((responseData) => {
       console.log("Datos enviados correctamente:", responseData);
+    })
+    .catch((error) => {
+      console.error(error);
     });
 }
-
-//envio inicial del contenido de memoria local a carrito
-sendData();
 
 async function addToCart() {
   const productName = document.querySelector(".stripe__tags--product-name p");
@@ -37,7 +36,8 @@ async function addToCart() {
   //cambiar por mejor feedback al usuario!!!
   window.confirm("Producto agregado al carrito!");
 
-  sendData();
+  const url = "/cart/add";
+  sendData(url);
 }
 
 function increment(id) {
