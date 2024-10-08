@@ -27,7 +27,7 @@ CREATE TABLE `users` (
   UNIQUE (email),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
-CREATE TABLE `cart` (
+CREATE TABLE `carts` (
   `id` INT  PRIMARY KEY NOT NULL AUTO_INCREMENT   ,
   `products_id` INT,
   `users_id` INT,
