@@ -179,10 +179,18 @@ main {
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    font-weight: bold;
+}
+
+.cart__subtotal--text{
+    font-size: 14px;
 }
 
 .cart__subtotal--price {
     font-weight: bold;
+    color: #ffff;
+    font-size: larger;
+
 }
 
 .checkout {
