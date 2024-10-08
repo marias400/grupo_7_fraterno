@@ -29,7 +29,11 @@
       <header class="cart__header">
         <p class="cart__header--title">
           <i class="cart__header--icon fa-solid fa-cart-shopping"></i>
-          Tu carrito (2 items)
+          <% if (cartContent.length == 1) { %>
+          Tu carrito (1 ítem)
+          <% } else { %>
+          Tu carrito (<%= cartContent.length %> ítems)
+          <% } %>
         </p>
       </header>
       <div class="cart__content">
@@ -57,7 +61,7 @@
         <article class="cart__content--product">
           <div class="cart__content--product-right-box">
             <div class="cart__content--product-middleblox">
-              <p class="cart__content--product-middleblox-name">Vacio</p>
+              <p class="cart__content--product-middleblox-name">Vacío</p>
               <a href="/">
                 <p>Seguir comprando</p>
               </a>
