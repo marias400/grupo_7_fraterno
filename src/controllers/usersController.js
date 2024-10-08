@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const db = require('../database/models');
+const db = require("../database/models");
 
 const usersController = {
   async loginPage(req, res) {
@@ -10,7 +10,7 @@ const usersController = {
   async loginSuccesful(req, res) {
     const { email, password, remember } = req.body;
     const errors = validationResult(req);
-    
+
     db.User.findOne({
       where: { email: email },
     }).then((user) => {
@@ -25,11 +25,35 @@ const usersController = {
           admin: user.admin,
         };
         if (remember != undefined) {
-          req.session.cookie.maxAge = 31536000000;  // 1 año en milisegundos (31536000000 ms)
+          req.session.cookie.maxAge = 31536000000; // 1 año en milisegundos (31536000000 ms)
         }
-        res.redirect("/home");
+        db.Cart.findAll({
+          include: [
+            {
+              association: "product",
+            },
+          ],
+          where: {
+            users_id: user.id,
+          },
+        })
+          .then((cartItems) => {
+            if(cartItems){
+              req.session.cart = {}
+            }
+            cartItems.forEach((element) => {
+              const productName = element.dataValues.product.dataValues.name;
+              console.log(productName)
+              const randomKey = "id" + Math.random().toString(16).slice(2);
+              req.session.cart[randomKey] = productName;
+            });
+            res.redirect("/home");
+          })
+          .catch((error) => {
+            res.status(500).json({ error: `${error}` });
+          });
       } else if (!errors.isEmpty()) {
-          res.render("users/log-in", { errors: errors.mapped() });
+        res.render("users/log-in", { errors: errors.mapped() });
       }
     });
   },
@@ -60,12 +84,12 @@ const usersController = {
 
   async userLogout(req, res) {
     if (req.body.logout) {
-      req.session.destroy(err => {
+      req.session.destroy((err) => {
         if (err) {
           res.render("users/profile/profile", { msg: err });
         }
-        res.clearCookie('connect.sid');
-        res.redirect('login');
+        res.clearCookie("connect.sid");
+        res.redirect("login");
       });
     }
   },
@@ -73,8 +97,8 @@ const usersController = {
   async processRegister(req, res) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      let oldData = req.body     
-      res.render("users/register", { errors : errors.mapped(), oldData });
+      let oldData = req.body;
+      res.render("users/register", { errors: errors.mapped(), oldData });
     } else {
       if (req.file) {
         imageFile = `/images/users/${req.file.filename}`;

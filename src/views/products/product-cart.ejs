@@ -15,7 +15,7 @@
 
   <!-- script de comportamiento en js -->
   <script defer src="/js/cart.js"></script>
-
+  
 </head>
 
 <body>
@@ -81,10 +81,10 @@
 
     <button class="undoBtn hidden"><i class="fa-solid fa-rotate-left"></i></button>
 
-    <section class="checkout">
+    <form class="checkout" method="post" action="/cart/checkout">
       <button type="submit" class="checkout-button">Finalizar compra</button>
       <a href="/">Volver a la tienda</a>
-    </section>
+    </form>
   </main>
   <% if(userSession && userSession.isAdmin) { %>
   <%- include("../partials/admin-footer.ejs") %>

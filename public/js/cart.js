@@ -11,64 +11,10 @@ const subtotalElement = document.getElementById("subtotal");
 const undoBtn = document.querySelector(".undoBtn");
 undoBtn.addEventListener("click", undoHandler);
 
+const checkoutForm = document.querySelector(".checkout");
+checkoutForm.addEventListener("submit", checkoutHandler);
+
 let recentDelete = {};
-
-function sendData() {
-  const localStorageObject = {};
-
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    localStorageObject[key] = localStorage.getItem(key);
-  }
-  const localStorageString = JSON.stringify(localStorageObject);
-
-  fetch("/cart/add", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: localStorageString,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor");
-      }
-      return response.json();
-    })
-    .then((responseData) => {
-      console.log("Datos enviados correctamente:", responseData);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-
-//envio inicial de productos en memoria local
-sendData();
-
-// Función para actualizar el subtotal
-const updateSubtotal = () => {
-  let newSubtotal = 0;
-
-  // Recorremos todos los productos para calcular el subtotal
-  const cartProduct = document.querySelectorAll(".cart__content--product");
-  cartProduct.forEach((product) => {
-    let innerValue = product.querySelector(
-      ".cart__content--product-middleblox-quantity"
-    );
-    let innerPrice = product.querySelector(".cart__content--product-price");
-    let quantity = 0;
-    let price = 0;
-    if (innerValue !== null) {
-      quantity = parseInt(innerValue.textContent, 10);
-      price = parseFloat(innerPrice.textContent.replace("$", ""));
-    }
-    newSubtotal += quantity * price;
-  });
-
-  // Actualizamos el subtotal en el DOM
-  subtotalElement.innerText = `$${newSubtotal.toFixed(2)}`;
-};
 
 plusButtons.forEach((button) => {
   button.addEventListener("click", function () {
@@ -108,8 +54,8 @@ deleteIcons.forEach((icon) => {
     const articleToDelete = document.querySelector(
       `.cart__content--product[data-id="${id}"]`
     );
-    let name = localStorage.getItem(e.target.dataset.uniqueid);
     let key = e.target.dataset.uniqueid;
+    let name = localStorage.getItem(key);
     recentDelete[key] = name;
     localStorage.removeItem(key);
 
@@ -122,22 +68,93 @@ deleteIcons.forEach((icon) => {
     // undo button 2.0
 
     updateSubtotal();
-    sendData();
+    const url = "/cart/delete";
+    const fetchMethod = "DELETE";
+    sendData(url, fetchMethod, key);
   });
 });
 
+function sendData(url, fetchMethod, id) {
+  let method = "POST";
+  let localStorageObject = {};
+  let localStorageString;
+
+  if (fetchMethod) {
+    method = fetchMethod;
+  }
+
+  if (id && recentDelete[id]) {
+    let toDelete = {};
+    toDelete[id] = recentDelete[id];
+    localStorageString = JSON.stringify(toDelete);
+  } else {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      localStorageObject[key] = localStorage.getItem(key);
+    }
+    console.log(localStorageObject);
+    localStorageString = JSON.stringify(localStorageObject);
+  }
+  fetch(url, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: localStorageString,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      console.log("Datos enviados correctamente:", responseData);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+// Función para actualizar el subtotal
+const updateSubtotal = () => {
+  let newSubtotal = 0;
+
+  // Recorremos todos los productos para calcular el subtotal
+  const cartProduct = document.querySelectorAll(".cart__content--product");
+  cartProduct.forEach((product) => {
+    let innerValue = product.querySelector(
+      ".cart__content--product-middleblox-quantity"
+    );
+    let innerPrice = product.querySelector(".cart__content--product-price");
+    let quantity = 0;
+    let price = 0;
+    if (innerValue !== null) {
+      quantity = parseInt(innerValue.textContent, 10);
+      price = parseFloat(innerPrice.textContent.replace("$", ""));
+    }
+    newSubtotal += quantity * price;
+  });
+
+  // Actualizamos el subtotal en el DOM
+  subtotalElement.innerText = `$${newSubtotal.toFixed(2)}`;
+};
+
 function undoHandler(e) {
+  const url = "/cart/add";
   e.preventDefault();
   let uniqueid = e.target.dataset.uniqueid;
-
   for (const id in recentDelete) {
     if (id === uniqueid) {
       localStorage.setItem(id, recentDelete[id]);
+      sendData(url);
       delete recentDelete[uniqueid];
     }
   }
-  sendData();
-  updatePage(window.location.href);
+
+  const undoBtn = document.querySelector(`button[data-uniqueid="${uniqueid}"]`);
+  undoBtn.classList.add("hidden");
+  sendData(url);
 }
 
 async function updatePage(url) {
@@ -150,4 +167,9 @@ async function updatePage(url) {
   });
   window.location.href = url;
   window.location.reload();
+}
+
+function checkoutHandler(e) {
+  const url = "/cart/checkout";
+  sendData(url);
 }

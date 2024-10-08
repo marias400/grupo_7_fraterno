@@ -1,30 +1,52 @@
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 const db = require("../database/models");
 
 const cartController = {
-  // test(req, res) {
-  //   db.Cart.findAll({
-  //     include: [
-  //       {
-  //         association: "user",
-  //         attributes: { exclude: ["password"] },
-  //       },
-  //       {
-  //         association: "product",
-  //       },
-  //     ],
-  //   })
-  //     .then((cart) => {
-  //       res.status(200).json(cart);
-  //     })
-  //     .catch((error) => {
-  //       res.status(500).json({ error: `${error}` });
-  //     });
-  // },
+  cartCheckout(req, res) {
+    const user = req.session.user;
+    const cartContent = req.session.cart;
+    req.session.cart = {};
+
+    if (user) {
+      for (const key in cartContent) {
+        db.Product.findOne({
+          where: {
+            name: cartContent[key],
+          },
+        }).then((product) => {
+          const productId = product.dataValues.id;
+          const userId = user.id;
+          db.Cart.create({
+            users_id: userId,
+            products_id: productId,
+            amount: 1,
+          });
+        });
+      }
+      res.redirect("/");
+    } else {
+      res.redirect("/users/login");
+    }
+  },
+
+  cartItems(req, res) {
+    if (req.session.cart) {
+      res.send(req.session.cart);
+    } else {
+      console.error("no hay naranja en la session");
+    }
+  },
 
   cartAddItem(req, res) {
-    let cartContent = req.body;
-    req.session.cart = cartContent;
+    if (req.session.cart) {
+      const cartContent = req.body;
+      for (const key in cartContent) {
+        req.session.cart[key] = cartContent[key];
+      }
+    } else {
+      const cartContent = req.body;
+      req.session.cart = cartContent;
+    }
 
     //forzar a la sesion a guardarse, por que al ser uan peticion POST
     //no lo hace automaticamente (tarde demasiado en darme cuenta T.T)
@@ -37,10 +59,29 @@ const cartController = {
     });
   },
 
+  cartDeleteItem(req, res) {
+    if (req.session.cart) {
+      const cartContent = req.body;
+      for (const key in cartContent) {
+        delete req.session.cart[key];
+      }
+    } else {
+      return res
+        .status(400)
+        .send("No se pudo eliminar, el carrito está vacío.");
+    }
+    req.session.save((err) => {
+      if (err) {
+        return res.status(500).send("Error al guardar la sesión.");
+      }
+      res.send(req.session.cart);
+    });
+  },
+
   cartPage(req, res) {
     let cart = req.session.cart;
     let total = 0;
-    
+
     if (cart) {
       // Crear un array de promesas
       let promises = Object.entries(cart).map(([key, value]) => {
