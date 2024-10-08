@@ -41,8 +41,32 @@ const login = [
     check('password').notEmpty().withMessage('* Ingrese una contraseña'),
 ]
 
+const product = [
+    check('name').notEmpty().withMessage(' * Debe ingresar un nombre o titulo para el producto').bail()
+    .isLength({min: 5, max: 45}).withMessage(' * El nombre debe ser entre 5 y 45 caracteres'),
+    check('description').notEmpty().withMessage(' * Debe ingresar una descripcion breve').bail()
+    .isLength({min: 20, max: 200}).withMessage(' * La descripcion debe ser entre 20 y 200 caracteres'),
+    check('ingredients').notEmpty().withMessage(' * Debe ingresar al menos un ingrediente').bail()
+    .isLength({min: 3, max: 45}).withMessage(' * Los ingredientes deben estar separados por "," , tener una palabra de minimo 3 caracteres y no superar los 45 caracteres'),
+    check('category').notEmpty().withMessage(' * Debe seleccionar una categoria'),
+    check('image')
+    .custom((value, { req }) => {
+        if (req.file == undefined) {
+            throw new Error(' * Debe subir una imagen con extension JPEG, JPG, PNG o GIF.')
+        }
+        return true;
+  }),
+    check('size').notEmpty().withMessage(' * Debe ingresar el tamaño').bail()
+    .isLength({min: 3, max: 45}).withMessage(' * Debe ingresar una o más palabras para definir el tamaño del producto, entre 3 y 45 caracteres'),
+    check('price').notEmpty().withMessage(' * Debe ingresar el precio').bail()
+    .isNumeric().withMessage(' * Debe ingresar un numero entero sin punto ni coma'),
+    check('stock').notEmpty().withMessage(' * Debe ingresar el stock').bail()
+    .isNumeric().withMessage(' * Debe ingresar un numero entero sin punto ni coma')
+]
+
 
 module.exports = {
     login,
-    register
+    register,
+    product
 }

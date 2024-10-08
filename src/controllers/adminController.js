@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const { validationResult } = require('express-validator');
 
 //vistas administrador:
 const adminController = {
@@ -15,11 +16,19 @@ const adminController = {
         ([products, inventoryItem]) => {
           let ingredients = inventoryItem.ingredients.split(",");
           inventoryItem.ingredients = ingredients;
+ 
+          let restrictions = inventoryItem.suitability.split(',').map(item => item.trim()); 
+          
+          if (!Array.isArray(restrictions)) { //si selecciona solo un check el string lo defino como array
+            restrictions = [restrictions];
+          }
+          
           // console.log(inventoryItem);
           res.render("admin/product-editor", {
             id,
             productItem: inventoryItem,
             products,
+            suitabilityArray: restrictions
           });
         }
       );
@@ -88,6 +97,7 @@ const adminController = {
   },
 
   async createProduct(req, res) {
+    let errors = validationResult(req);
     let newImage = "";
     if (req.file) {
       // Si se sube una nueva imagen
@@ -97,27 +107,41 @@ const adminController = {
       newImage = "/images/products/default.png";
     }
 
+    let restrictions = req.body.suitability; 
+
+    if (!Array.isArray(restrictions)) { //si selecciona solo un check el string lo defino como array
+      restrictions = [restrictions];
+    }
+
+    const restrictionsString = restrictions.join(', '); // Concateno los valores seleccionados en un solo string
+
+
     let newProduct = {
       name: req.body.name,
       description: req.body.description,
       ingredients: req.body.ingredients,
       image: newImage,
       category: req.body.category,
-      suitability: req.body.suitability,
+      suitability: restrictionsString,
       size: req.body.size,
       price: req.body.price,
-      // faltaria Suitabilitys y Stock en la vista (formulario)
+      stock: req.body.stock
     };
 
-    db.Product.create(newProduct).then((resultado) => {
-      // console.log(resultado);
-      res.redirect(`/admin/products/${resultado.id}/edit`);
-      // res.render("admin/product-editor", { productItem: resultado});
-    });
+    if (errors.isEmpty()) {
+      db.Product.create(newProduct).then((resultado) => {
+        res.redirect(`/admin/products/${resultado.id}/edit`);
+      });
+    }else{
+      let latestDataForm = {...newProduct};
+      res.render("admin/product-creator", { errors: errors.mapped(), data : latestDataForm, suitabilityArray: restrictions  });
+    }
+
   },
 
   async deleteProduct(req, res) {
     let id = req.params.id;
+    // Falta borrar la imagen asociada a ese producto
     db.Product.destroy({
       where: { id },
     }).then((result) => {

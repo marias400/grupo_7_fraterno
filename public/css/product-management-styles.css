@@ -109,6 +109,12 @@ select:focus {
     border-color: var(--azul-cobalto);
 }
 
+.error-message{
+    color: crimson;
+    font-size: 13px;
+    font-style: italic;
+}
+
 button {
     background-color: var(--tono-claro-violeta-oscuro);
     color: white;
