@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       {
         rule: 'minLength',
-        value: 3,
-        errorMessage: 'El nombre debe tener al menos 3 caracteres',
+        value: 5,
+        errorMessage: 'El nombre debe tener al menos 5 caracteres',
       },
       {
         rule: 'maxLength',
-        value: 50,
-        errorMessage: 'El nombre no debe tener más de 50 caracteres',
+        value: 45,
+        errorMessage: 'El nombre no debe tener más de 45 caracteres',
       },
     ])
     
@@ -27,33 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       {
         rule: 'minLength',
-        value: 10,
-        errorMessage: 'La descripción debe tener al menos 10 caracteres',
+        value: 20,
+        errorMessage: 'La descripción debe tener al menos 20 caracteres',
       },
       {
         rule: 'maxLength',
-        value: 300,
-        errorMessage: 'La descripción no debe tener más de 300 caracteres',
+        value: 200,
+        errorMessage: 'La descripción no debe tener más de 200 caracteres',
       },
     ])
     
-    // Validación del SKU
-    .addField('#sku', [
-      {
-        rule: 'required',
-        errorMessage: 'El SKU es obligatorio',
-      },
-      {
-        rule: 'minLength',
-        value: 3,
-        errorMessage: 'El SKU debe tener al menos 3 caracteres',
-      },
-      {
-        rule: 'maxLength',
-        value: 10,
-        errorMessage: 'El SKU no debe tener más de 10 caracteres',
-      },
-    ])
     
     // Validación de los ingredientes
     .addField('#ingredients', [
@@ -71,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Validación de la imagen (opcional)
     
     .addField('#image', [
-       
         {
           rule: 'files',
           value: {
@@ -80,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
               types: ['image/jpg', 'image/jpeg','image/png','image/gif']
             },
           },
-          errorMessage: 'Debes poner una foto con la extencion correcta',
+          errorMessage: 'Debes poner una foto con la extension correcta',
         },
       ])
     
@@ -97,6 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         rule: 'required',
         errorMessage: 'El tamaño es obligatorio',
+      },
+      {
+        rule: 'minLength',
+        value: 3,
+        errorMessage: 'El tamaño debe tener al menos 3 caracteres',
       },
     ])
     
@@ -116,6 +103,18 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage: 'El precio debe ser mayor a 0',
       },
     ])
+
+       // Validación del stock
+       .addField('#stock', [
+        {
+          rule: 'required',
+          errorMessage: 'El stock es obligatorio',
+        },
+        {
+          rule: 'number',
+          errorMessage: 'El stock debe ser un número válido',
+        },
+      ])
 
       .onSuccess((event) => {
         event.preventDefault();

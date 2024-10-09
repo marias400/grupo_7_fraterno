@@ -78,6 +78,7 @@
           };
           
         </script>
+        <div class="input-wrapper">
 
 <select id="category" name="category" >
   <option value="" <%= !locals.data || !locals.data.category ? 'selected' : '' %> >
@@ -90,6 +91,7 @@
   <option value="postres" <%= locals.data && locals.data.category === 'postres' ? 'selected' : '' %>>Postres</option>
   <option value="otros" <%= locals.data && locals.data.category === 'otros' ? 'selected' : '' %>>Otros</option>
 </select>
+        </div>
         <% if (locals.errors && locals.errors.category) { %>
           <p class="error-message"><%= errors.category.msg  %></p>
         <% } %>
@@ -131,10 +133,12 @@
         </div>
 
         <label for="stock">Stock:</label>
+        <div class="input-wrapper">
         <input type="number" id="stock" name="stock" min="0" placeholder="0" value="<%= locals.data && locals.data.stock ? locals.data.stock : '' %>"  />
         <% if (locals.errors && locals.errors.stock) { %>
           <p class="error-message"><%= errors.stock.msg  %></p>
         <% } %>
+        </div>
 
 
       </section>
