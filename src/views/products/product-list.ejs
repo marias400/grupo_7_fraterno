@@ -29,22 +29,22 @@
   <main>
     <h1 class="main-title">Catálogo de productos</h1>
     <section class="deck">
-      <% for (let i = 0; i < inventory.length; i++) { %>
-        <div class="cards" onclick="toProductDetail(<%= i+1 %>)">
-          <img src="<%= inventory[i].image %>" class="cards__image" alt="<%= inventory[i].name %>">
+      <% inventory.forEach(product => { %>
+        <div class="cards" onclick="toProductDetail(<%= product.id %>)">
+          <img src="<%= product.image %>" class="cards__image" alt="<%= product.name %>">
           <div class="cards__body">
-            <h5 class="cards__body--title"><%= inventory[i].name %></h5>
-            <p class="cards__body--text"><%= inventory[i].description %></p>
+            <h5 class="cards__body--title"><%= product.name %></h5>
+            <p class="cards__body--text"><%= product.description %></p>
             <div class="cards_body--buttons">
             <% if(userSession && userSession.isAdmin) { %>
-                <a href="../admin/products/<%= inventory[i].id %>/edit" class="primary-button">Editar</a>
-                <button type="button" class="danger-button delete-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= inventory[i].id %>">Borrar</button>
+                <a href="../admin/products/<%= product.id %>/edit" class="primary-button">Editar</a>
+                <button type="button" class="danger-button delete-btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="<%= product.id %>">Borrar</button>
             <% } %>
-            <a href="/products/detail/<%= inventory[i].id %>" class="primary-button">Detalles</a>
+            <a href="/products/detail/<%= product.id %>" class="primary-button">Detalles</a>
           </div>
           </div>
       </div>
-      <% } %>
+      <% }) %>
     </section>
 
     <!-- Modal -->

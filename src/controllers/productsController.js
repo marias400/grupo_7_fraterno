@@ -14,7 +14,6 @@ const productController = {
         let product = inventoryItem.dataValues;
         let ingredients = product.ingredients.split(",");
         product.ingredients = ingredients;
-        console.log(product);
         res.render("products/product-detail", {
           id,
           inventoryItem: product,
@@ -27,9 +26,7 @@ const productController = {
   //pagina: lista de productos (vista usuario)
   async listPage(req, res) {
     db.Product.findAll().then((products) => {
-      // console.log(products);
       res.render("products/product-list", { inventory: products });
-      //res.json(products);
     });
   },
 };
