@@ -11,6 +11,7 @@ router.get("/login", auth.profileAuth, usersController.loginPage);
 router.post("/login", auth.userInctiveAuth, validations.login, areEmailAndPassInDB.login, usersController.loginSuccesful);
 router.get("/register", auth.userInctiveAuth, usersController.registerPage);
 router.post("/register", fileUploadUsers.single('image'), validations.register, usersController.processRegister);
+
 router.get("/profile", auth.userActiveAuth, usersController.profilePage);
 router.post("/profile", auth.userActiveAuth, usersController.userLogout);
 
@@ -22,7 +23,7 @@ router.post("/profile/info", auth.userActiveAuth, areEmailAndPassInDB.editProfil
 router.get("/profile/orders", auth.userActiveAuth, usersController.ordersPage);
 
 router.get("/profile/password", auth.userActiveAuth, usersController.passwordPage);
-router.post("/profile/password", auth.userActiveAuth, usersController.passwordUpdate);
+router.post("/profile/password", auth.userActiveAuth, validations.changePassword, usersController.passwordUpdate);
 
 
 module.exports = router;

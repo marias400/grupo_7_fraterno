@@ -44,6 +44,36 @@ const login = [
     check('password').notEmpty().withMessage('* Ingresar una contraseña'),
 ]
 
+const editProfile = [
+    check('firstName').notEmpty().withMessage('* Ingresar su nombre').bail()
+        .isLength({min: 2}).withMessage('* Debe tener mínimo 2 caracteres'),
+    check('lastName').notEmpty().withMessage('* Ingresar su apellido').bail()
+        .isLength({min: 2}).withMessage('* Debe tener mínimo 2 caracteres'),
+    check('address').notEmpty().withMessage('* Ingresar una dirección').bail()
+        .isLength({min: 5}).withMessage('* Debe tener mínimo 5 caracteres'),
+    check('phone').optional({ checkFalsy: true })
+        .isInt().withMessage('* No ingresar caracteres especiales').bail()
+        .isLength({ min: 10, max: 15 }).withMessage('* El número debe tener entre 10 y 15 dígitos'),
+    check('email').isEmail().withMessage('* Ingresar un email válido'),
+]
+
+const changePassword = [
+    check('currentPassword').notEmpty().withMessage('* Ingresar su contraseña actual').bail(),
+    check('password').notEmpty().withMessage('* Ingresar una nueva contraseña').bail()
+        .isLength({ min: 8 }).withMessage('* Debe tener un mínimo de 8 caracteres').bail()
+        .matches(/[A-Z]/).withMessage('* Debe contener al menos una letra mayúscula').bail()
+        .matches(/[a-z]/).withMessage('* Debe contener al menos una letra minúscula').bail()
+        .matches(/[0-9]/).withMessage('* Debe contener al menos un número').bail()
+        .matches(/[\W_]/).withMessage('* Debe contener al menos un carácter especial (por ejemplo: @, !, #, $, etc.)'),
+    check('repassword').notEmpty().withMessage('* Repita la nueva contraseña.').bail()
+        .custom((value, { req }) => {
+            if (value !== req.body.repassword) {
+                throw new Error('* Las contraseñas no coinciden.');
+            }
+            return true;
+        }),
+]
+
 const product = [
     check('name').notEmpty().withMessage('* Debe ingresar un nombre o titulo para el producto').bail()
     .isLength({min: 5, max: 45}).withMessage('* El nombre debe ser entre 5 y 45 caracteres'),
@@ -71,5 +101,7 @@ const product = [
 module.exports = {
     login,
     register,
+    editProfile,
+    changePassword,
     product
 }

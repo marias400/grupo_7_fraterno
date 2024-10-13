@@ -153,17 +153,23 @@ const usersController = {
   },
 
   async passwordUpdate(req, res) {
-    const userInSession = req.session.user;
-    if(userInSession){
-      const passwordEncypted = bcrypt.hashSync(req.body.password, 10);
-      await db.User.update(
-        {
-          password: passwordEncypted 
-        },
-        {
-          where: { email: userInSession.email },
-        }
-      );
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log(errors.mapped());
+      res.render("users/profile/change-password", { errors: errors.mapped() });
+    } else {
+      const userInSession = req.session.user;
+      if(userInSession){
+        const passwordEncypted = bcrypt.hashSync(req.body.password, 10);
+        await db.User.update(
+          {
+            password: passwordEncypted 
+          },
+          {
+            where: { email: userInSession.email },
+          }
+        );
+      }
     }
   },
 

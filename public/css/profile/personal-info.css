@@ -15,6 +15,12 @@
     margin-bottom: 20px;
 }
 
+.form_container p {
+    color: blue;
+    font-size: small;
+    text-align: left;
+}
+
 /* Stylish de los campos de formulario */
 .form-group {
     margin-bottom: 15px;
