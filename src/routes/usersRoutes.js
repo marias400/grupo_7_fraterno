@@ -17,10 +17,11 @@ router.post("/profile", auth.userActiveAuth, usersController.userLogout);
 router.get("/support", auth.userActiveAuth, usersController.supportPage);
 
 router.get("/profile/info", auth.userActiveAuth, usersController.infoPage);
+router.post("/profile/info", auth.userActiveAuth, usersController.infoUpdate);
 
 router.get("/profile/orders", auth.userActiveAuth, usersController.ordersPage);
 
-router.get("/profile/password", auth.userActiveAuth, usersController.supportPage);
+router.get("/profile/password", auth.userActiveAuth, usersController.passwordPage);
 
 
 module.exports = router;
