@@ -15,10 +15,16 @@
     margin-bottom: 20px;
 }
 
-.form_container p {
+form p {
     color: blue;
     font-size: small;
     text-align: left;
+}
+
+.just-validate-error-label{
+    text-align: left;
+    font-size: small;
+    color: red !important;
 }
 
 /* Stylish de los campos de formulario */

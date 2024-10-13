@@ -18,7 +18,7 @@ router.post("/profile", auth.userActiveAuth, usersController.userLogout);
 router.get("/support", auth.userActiveAuth, usersController.supportPage);
 
 router.get("/profile/info", auth.userActiveAuth, usersController.infoPage);
-router.post("/profile/info", auth.userActiveAuth, areEmailAndPassInDB.editProfile, usersController.infoUpdate);
+router.post("/profile/info", auth.userActiveAuth, areEmailAndPassInDB.editProfile, validations.editProfile, usersController.infoUpdate);
 
 router.get("/profile/orders", auth.userActiveAuth, usersController.ordersPage);
 
