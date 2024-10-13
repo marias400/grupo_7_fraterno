@@ -159,11 +159,11 @@ const usersController = {
       res.render("users/profile/change-password", { errors: errors.mapped() });
     } else {
       const userInSession = req.session.user;
-      if(userInSession){
+      if (userInSession) {
         const passwordEncypted = bcrypt.hashSync(req.body.password, 10);
         await db.User.update(
           {
-            password: passwordEncypted 
+            password: passwordEncypted,
           },
           {
             where: { email: userInSession.email },
@@ -171,18 +171,34 @@ const usersController = {
         );
       }
     }
+    res.redirect("/users/profile");
   },
 
   async userLogout(req, res) {
     if (req.body.logout) {
       req.session.destroy((err) => {
         if (err) {
-          res.render("users/profile/profile", { msg: err });
+          res.render("users/profile", { msg: err });
         }
         res.clearCookie("connect.sid");
         res.redirect("login");
       });
     }
+  },
+
+  async deleteUser(req, res) {
+    const user = req.session.user;
+    
+    await db.User.destroy({
+      where: { email: user.email },
+    });
+    req.session.destroy((err) => {
+      if (err) {
+        res.render("users/profile", { msg: err });
+      }
+      res.clearCookie("connect.sid");
+      res.redirect("login");
+    });
   },
 
   async processRegister(req, res) {

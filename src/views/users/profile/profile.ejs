@@ -2,86 +2,88 @@
 <html lang="es-AR">
 
 <head>
-    <% if(userSession && userSession.isAdmin) { %>
-    <%- include("../../partials/admin-head.ejs") %>
-    <% }else{ %>
-    <%- include("../../partials/head.ejs") %>
-    <% } %>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../../partials/head.ejs") %>
+  <% } %>
 
-    <title>Perfil de usuario | Grupo Sie7e</title>
-    <script defer src="/js/sendData.js"></script>
-    <!-- Hoja de estilos propia de esta página -->
-    <link rel="stylesheet" href="/css/profile/profile.css">
+  <title>Perfil de usuario | Grupo Sie7e</title>
+  <script defer src="/js/sendData.js"></script>
+  <!-- Hoja de estilos propia de esta página -->
+  <link rel="stylesheet" href="/css/profile/profile.css">
 </head>
 
 <body>
-    <% if(userSession && userSession.isAdmin) { %>
-    <%- include("../../partials/admin-header.ejs") %>
-    <% }else{ %>
-    <%- include("../../partials/header.ejs") %>
-    <% } %>
-    <main>
-        <div class="profile-container">
-            <div class="profile-header">
-                <img src=<%= userSession.image %> alt="Foto de perfil">
-                <h2>¡Hola, <%= userSession.lastName %> <%= userSession.firstName %>!</h2>
-            </div>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../../partials/admin-header.ejs") %>
+  <% }else{ %>
+  <%- include("../../partials/header.ejs") %>
+  <% } %>
+  <main>
+    <div class="profile-container">
+      <div class="profile-header">
+        <img src=<%= userSession.image %> alt="Foto de perfil">
+        <h2>¡Hola, <%= userSession.lastName %> <%= userSession.firstName %>!</h2>
+      </div>
 
-            <div class="profile-cards">
-                <a href="/users/profile/info">
-                    <div class="card">
-                        <h3>Editar perfil</h3>
-                        <p>Modifica tu información personal.</p>
-                    </div>
-                 </a>
+      <div class="profile-cards">
+        <a href="/users/profile/info">
+          <div class="card">
+            <h3>Editar perfil</h3>
+            <p>Modifica tu información personal.</p>
+          </div>
+        </a>
 
-                 <a href="/users/profile/password">
-                    <div class="card">
-                        <h3>Cambiar contraseña</h3>
-                        <p>Cambia tu anterior contraseña por una nueva.</p>
-                    </div>
-                </a>
+        <a href="/users/profile/password">
+          <div class="card">
+            <h3>Cambiar contraseña</h3>
+            <p>Cambia tu anterior contraseña por una nueva.</p>
+          </div>
+        </a>
 
-                 <a href="/users/profile/orders">
-                    <div class="card">
-                        <h3>Historial de Pedidos</h3>
-                        <p>Consulta tus pedidos recientes.</p>
-                    </div>
-                </a>
+        <a href="/users/profile/orders">
+          <div class="card">
+            <h3>Historial de Pedidos</h3>
+            <p>Consulta tus pedidos recientes.</p>
+          </div>
+        </a>
 
-                <a href="#">
-                    <div class="card">
-                        <h3>Métodos de Pago</h3>
-                        <p>Administra tus métodos de pago.</p>
-                    </div>
-                </a>
+        <a href="#">
+          <div class="card">
+            <h3>Métodos de Pago</h3>
+            <p>Administra tus métodos de pago.</p>
+          </div>
+        </a>
 
-                <a href="#">
-                    <div class="card">
-                        <h3>Direcciones</h3>
-                        <p>Gestiona tus direcciones de envío.</p>
-                    </div>
-                </a>
+        <a href="#">
+          <div class="card">
+            <h3>Direcciones</h3>
+            <p>Gestiona tus direcciones de envío.</p>
+          </div>
+        </a>
 
-                <a href="/users/support">
-                    <div class="card">
-                        <h3>Atención al Cliente</h3>
-                        <p>Contacta con atención al cliente.</p>
-                    </div>
-                </a>
-            </div>
+        <a href="/users/support">
+          <div class="card">
+            <h3>Atención al Cliente</h3>
+            <p>Contacta con atención al cliente.</p>
+          </div>
+        </a>
+      </div>
 
-            <form class="profile-actions" method="post" action="/users/profile">
-                <input type="submit" class="logout-btn" name="logout" value="Cerrar sesión">
-                <input type="submit" class="delete-btn" name="delete" value="Eliminar cuenta">
-            </div>
-        </div>
-    </main>
-    <% if(userSession && userSession.isAdmin) { %>
-    <%- include("../../partials/admin-footer.ejs") %>
-    <% }else{ %>
-    <%- include("../../partials/footer.ejs") %>
-    <% } %>
+      <form class="profile-actions" method="post" action="/users/profile">
+        <input type="submit" class="logout-btn" name="logout" value="Cerrar sesión">
+      </form>
+      <form class="profile-actions" method="post" action="/users/profile?_method=DELETE">
+        <input type="submit" class="delete-btn" name="delete" value="Eliminar cuenta">
+      </form>
+    </div>
+  </main>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../../partials/footer.ejs") %>
+  <% } %>
 </body>
 
 </html>
