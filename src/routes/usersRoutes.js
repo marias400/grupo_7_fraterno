@@ -22,6 +22,7 @@ router.post("/profile/info", auth.userActiveAuth, usersController.infoUpdate);
 router.get("/profile/orders", auth.userActiveAuth, usersController.ordersPage);
 
 router.get("/profile/password", auth.userActiveAuth, usersController.passwordPage);
+router.post("/profile/password", auth.userActiveAuth, usersController.passwordUpdate);
 
 
 module.exports = router;

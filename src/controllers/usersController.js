@@ -152,6 +152,21 @@ const usersController = {
     res.render("users/profile/change-password", { msg: msg });
   },
 
+  async passwordUpdate(req, res) {
+    const userInSession = req.session.user;
+    if(userInSession){
+      const passwordEncypted = bcrypt.hashSync(req.body.password, 10);
+      await db.User.update(
+        {
+          password: passwordEncypted 
+        },
+        {
+          where: { email: userInSession.email },
+        }
+      );
+    }
+  },
+
   async userLogout(req, res) {
     if (req.body.logout) {
       req.session.destroy((err) => {
