@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const db = require("../database/models");
+const { where } = require("sequelize");
 
 const usersController = {
   async loginPage(req, res) {
@@ -20,9 +21,11 @@ const usersController = {
         req.session.user = {
           id: user.id,
           firstName: user.firstName,
-          lastname: user.lastName,
+          lastName: user.lastName,
           email: user.email,
           image: user.image,
+          phone: user.phone,
+          address: user.address,
           admin: user.admin,
         };
         if (remember != undefined) {
@@ -39,12 +42,12 @@ const usersController = {
           },
         })
           .then((cartItems) => {
-            if(cartItems){
-              req.session.cart = {}
+            if (cartItems) {
+              req.session.cart = {};
             }
             cartItems.forEach((element) => {
               const productName = element.dataValues.product.dataValues.name;
-              console.log(productName)
+              console.log(productName);
               const randomKey = "id" + Math.random().toString(16).slice(2);
               req.session.cart[randomKey] = productName;
             });
@@ -78,12 +81,73 @@ const usersController = {
     res.render("users/profile/personal-info", { msg: msg });
   },
 
+  async infoUpdate(req, res) {
+    const updatedUserInfo = req.body;
+    const userInSession = req.session.user;
+
+    if (updatedUserInfo.email === userInSession.email) {
+      await db.User.update(
+        {
+          firstName: updatedUserInfo.firstName,
+          lastName: updatedUserInfo.lastName,
+          address: updatedUserInfo.address,
+          phone: updatedUserInfo.phone,
+        },
+        {
+          where: { email: updatedUserInfo.email },
+        }
+      );
+    }
+
+    db.User.findOne({
+      where: { email: updatedUserInfo.email },
+    }).then((user) => {
+      //user && password == user.password
+      //bcrypt.compareSync(password, user.password)
+      req.session.user = {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        image: user.image,
+        phone: user.phone,
+        address: user.address,
+        admin: user.admin,
+      };
+      db.Cart.findAll({
+        include: [
+          {
+            association: "product",
+          },
+        ],
+        where: {
+          users_id: user.id,
+        },
+      })
+        .then((cartItems) => {
+          if (cartItems) {
+            req.session.cart = {};
+          }
+          cartItems.forEach((element) => {
+            const productName = element.dataValues.product.dataValues.name;
+            console.log(productName);
+            const randomKey = "id" + Math.random().toString(16).slice(2);
+            req.session.cart[randomKey] = productName;
+          });
+          res.redirect("/home");
+        })
+        .catch((error) => {
+          res.status(500).json({ error: `${error}` });
+        });
+    });
+  },
+
   async ordersPage(req, res) {
     let msg = null;
     res.render("users/profile/order-history", { msg: msg });
   },
 
-  async ordersPage(req, res) {
+  async passwordPage(req, res) {
     let msg = null;
     res.render("users/profile/change-password", { msg: msg });
   },
