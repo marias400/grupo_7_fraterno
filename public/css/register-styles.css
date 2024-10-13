@@ -31,9 +31,10 @@ main {
 }
 
 .form_container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     margin-top: 1em;
-    gap: 1.5em;
+    gap: 0.5em;
     padding-top: 10px;
     position: relative;
 }

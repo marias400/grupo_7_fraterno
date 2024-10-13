@@ -98,7 +98,7 @@ select {
     padding: 10px;
     border: 1px solid var(--sombra-gris-claro);
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 input[type="text"]:focus,
@@ -172,6 +172,12 @@ button.purple-button:active {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.just-validate-error-label{
+    text-align: left;
+    font-size: small;
+    color: red !important;
 }
 
 @media (min-width: 768px) {

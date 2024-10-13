@@ -8,7 +8,7 @@ const areEmailAndPassInDB = require('../middleware/areEmailAndPassInDB');
 const fileUploadUsers = require('../services/fileUploadUsers');
 
 router.get("/login", auth.profileAuth, usersController.loginPage);
-router.post("/login", auth.userInctiveAuth, validations.login, usersController.loginSuccesful);
+router.post("/login", auth.userInctiveAuth, validations.login, areEmailAndPassInDB, usersController.loginSuccesful);
 router.get("/register", auth.userInctiveAuth, usersController.registerPage);
 router.post("/register", fileUploadUsers.single('image'), validations.register, usersController.processRegister);
 router.get("/profile", auth.userActiveAuth, usersController.profilePage);
