@@ -27,6 +27,10 @@ form p {
     color: red !important;
 }
 
+#email {
+    background-color: rgb(216, 216, 216);
+}
+
 /* Stylish de los campos de formulario */
 .form-group {
     margin-bottom: 15px;
