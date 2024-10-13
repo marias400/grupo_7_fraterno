@@ -14,7 +14,8 @@ const usersController = {
     db.User.findOne({
       where: { email: email },
     }).then((user) => {
-      if (user && password == user.password) {
+      if (bcrypt.compareSync(password, user.password)) {
+        //user && password == user.password
         //bcrypt.compareSync(password, user.password)
         req.session.user = {
           id: user.id,
@@ -82,6 +83,11 @@ const usersController = {
     res.render("users/profile/order-history", { msg: msg });
   },
 
+  async ordersPage(req, res) {
+    let msg = null;
+    res.render("users/profile/change-password", { msg: msg });
+  },
+
   async userLogout(req, res) {
     if (req.body.logout) {
       req.session.destroy((err) => {
@@ -96,6 +102,7 @@ const usersController = {
 
   async processRegister(req, res) {
     const errors = validationResult(req);
+    console.log(req.body);
     if (!errors.isEmpty()) {
       let oldData = req.body;
       res.render("users/register", { errors: errors.mapped(), oldData });

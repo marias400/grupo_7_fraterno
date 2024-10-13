@@ -11,21 +11,20 @@ CREATE TABLE `products` (
   `ingredients` VARCHAR(200) ,
   `image` VARCHAR(45) ,
   `suitability` VARCHAR(200) ,
-  `stock` INT ,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+  `stock` INT 
+  );
 
 CREATE TABLE `users` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) UNIQUE,
-  `phone` VARCHAR(45) UNIQUE ,
+  `phone` VARCHAR(45),
   `address` VARCHAR(45) ,
   `password` VARCHAR(100) NOT NULL,
   `image` VARCHAR(100) NULL DEFAULT NULL,
-  `admin` INT NOT NULL DEFAULT 0,
-  UNIQUE (email),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+  `admin` INT NOT NULL DEFAULT 0
+  );
 
 CREATE TABLE `carts` (
   `id` INT  PRIMARY KEY NOT NULL AUTO_INCREMENT   ,

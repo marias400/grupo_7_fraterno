@@ -4,40 +4,45 @@ registerFormValidation
   .addField("#firstName", [
     {
       rule: "required",
+      errorMessage: "El nombre es obligatorio",
     },
     {
       rule: "minLength",
       value: 2,
+      errorMessage: "Debe tener al menos 2 caracteres",
     },
-    //agregar mensajes de error
   ])
   .addField("#lastName", [
     {
       rule: "required",
+      errorMessage: "El apellido es obligatorio",
     },
-    {
-      rule: "minLength",
-      value: 2,
-    },
-    //agregar mensajes de error
   ])
   .addField("#email", [
     {
       rule: "required",
+      errorMessage: "El correo electrónico es obligatorio",
     },
     {
       rule: "email",
+      errorMessage: "El correo electrónico no es válido",
     },
-    //que el email no se repita en la db
   ])
-  .addField("#password", [
+  .addField("#phone", [
     {
-      rule: "required",
+      rule: "number",
+      errorMessage: "El teléfono debe ser un número",
     },
     {
-      rule: "strongPassword",
+      rule: "minLength",
+      value: 10,
+      errorMessage: "El número debe tener al menos 10 dígitos",
     },
-    //agregar mensajes de error
+    {
+      rule: "maxLength",
+      value: 15,
+      errorMessage: "El número no puede tener más de 15 dígitos",
+    },
   ])
   .addField("#image", [
     {
@@ -47,16 +52,37 @@ registerFormValidation
           extensions: ["jpeg", "jpg", "png", "gif"],
         },
       },
-      //agregar mensajes de error
+      errorMessage: "Solo se permiten archivos JPEG, JPG, PNG o GIF",
     },
   ])
-  .addField("#phone", [
+  .addField("#password", [
     {
-      rule: "customRegexp",
-      value: /^\+?\d{10,15}$/,
-      errorMessage: "Número de telefono inválido",
+      rule: "required",
+      errorMessage: "La contraseña es obligatoria",
+    },
+    {
+      rule: "strongPassword",
+      errorMessage:
+        "Debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial",
+    },
+    {
+      rule: "minLength",
+      value: 8,
+      errorMessage: "Debe tener al menos 8 caracteres",
+    },
+  ])
+  .addField("#repassword", [
+    {
+      rule: "required",
+      errorMessage: "Debe repetir la contraseña",
+    },
+    {
+      validator: (value, fields) => {
+        return value === fields["#password"].elem.value;
+      },
+      errorMessage: "Las contraseñas no coinciden",
     },
   ])
   .onSuccess((e) => {
     e.target.submit();
-  })
+  });
