@@ -19,7 +19,7 @@ router.delete("/profile", auth.userActiveAuth, usersController.deleteUser);
 router.get("/support", auth.userActiveAuth, usersController.supportPage);
 
 router.get("/profile/info", auth.userActiveAuth, usersController.infoPage);
-router.post("/profile/info", auth.userActiveAuth, areEmailAndPassInDB.editProfile, validations.editProfile, usersController.infoUpdate);
+router.post("/profile/info", auth.userActiveAuth, validations.editProfile, usersController.infoUpdate);
 
 router.get("/profile/orders", auth.userActiveAuth, usersController.ordersPage);
 
