@@ -84,6 +84,8 @@ const usersController = {
   async infoUpdate(req, res) {
     const updatedUserInfo = req.body;
     const userInSession = req.session.user;
+    const errors = validationResult(req);
+    
     if (!errors.isEmpty()) {
       res.render("users/profile/personal-info", { errors: errors.mapped() });
     } else if (updatedUserInfo.email === userInSession.email) {

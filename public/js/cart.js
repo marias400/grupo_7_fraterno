@@ -14,6 +14,11 @@ undoBtn.addEventListener("click", undoHandler);
 const checkoutForm = document.querySelector(".checkout");
 checkoutForm.addEventListener("submit", checkoutHandler);
 
+document.addEventListener("DOMContentLoaded", function () {
+  updateSubtotal();
+});
+
+
 let recentDelete = {};
 
 plusButtons.forEach((button) => {
@@ -116,11 +121,9 @@ function sendData(url, fetchMethod, id) {
     });
 }
 
-// Función para actualizar el subtotal
 const updateSubtotal = () => {
   let newSubtotal = 0;
 
-  // Recorremos todos los productos para calcular el subtotal
   const cartProduct = document.querySelectorAll(".cart__content--product");
   cartProduct.forEach((product) => {
     let innerValue = product.querySelector(
@@ -129,14 +132,23 @@ const updateSubtotal = () => {
     let innerPrice = product.querySelector(".cart__content--product-price");
     let quantity = 0;
     let price = 0;
-    if (innerValue !== null) {
-      quantity = parseInt(innerValue.textContent, 10);
-      price = parseFloat(innerPrice.textContent.replace("$", ""));
+    if (innerValue !== null && innerPrice !== null) {
+      let priceText = innerPrice.textContent
+        .trim()
+        .replace("$", "")
+        .replace(",", "");
+      quantity = parseInt(innerValue.textContent.trim(), 10);
+      price = parseFloat(priceText);
+
+      if (isNaN(price)) {
+        console.error(
+          `El valor del precio no es válido: ${innerPrice.textContent}`
+        );
+        price = 0;
+      }
     }
     newSubtotal += quantity * price;
   });
-
-  // Actualizamos el subtotal en el DOM
   subtotalElement.innerText = `$${newSubtotal.toFixed(2)}`;
 };
 
