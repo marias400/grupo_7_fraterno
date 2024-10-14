@@ -29,16 +29,17 @@ function login(req, res, next) {
 }
 
 function editProfile(req, res, next) {
-  const { password } = req.body;
-  const { email } = res.session.user;
+  const { currentPassword } = req.body;
+  const { email } = req.session.user;
 
   db.User.findOne({
     where: { email: email },
   })
     .then((user) => {
-      const isMatch = bcrypt.compareSync(password, user.password);
+      const dbPassword = user.dataValues.password;
+      const isMatch = bcrypt.compareSync(currentPassword, dbPassword);
       if (!isMatch) {
-        return res.render("users/profile/password", {
+        return res.render("users/profile/change-password", {
           error: "* La contraseña es incorrecta",
         });
       }

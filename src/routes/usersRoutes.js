@@ -14,6 +14,7 @@ router.post("/register", fileUploadUsers.single('image'), validations.register, 
 
 router.get("/profile", auth.userActiveAuth, usersController.profilePage);
 router.post("/profile", auth.userActiveAuth, usersController.userLogout);
+router.delete("/profile", auth.userActiveAuth, usersController.deleteUser);
 
 router.get("/support", auth.userActiveAuth, usersController.supportPage);
 
@@ -23,7 +24,7 @@ router.post("/profile/info", auth.userActiveAuth, areEmailAndPassInDB.editProfil
 router.get("/profile/orders", auth.userActiveAuth, usersController.ordersPage);
 
 router.get("/profile/password", auth.userActiveAuth, usersController.passwordPage);
-router.post("/profile/password", auth.userActiveAuth, validations.changePassword, usersController.passwordUpdate);
+router.post("/profile/password", auth.userActiveAuth, areEmailAndPassInDB.editProfile, validations.changePassword, usersController.passwordUpdate);
 
 
 module.exports = router;
