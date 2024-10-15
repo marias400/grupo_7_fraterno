@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   updateSubtotal();
 });
 
-
 let recentDelete = {};
 
 plusButtons.forEach((button) => {

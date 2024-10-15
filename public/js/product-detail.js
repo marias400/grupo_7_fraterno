@@ -38,6 +38,22 @@ async function addToCart() {
 
   const url = "/cart/add";
   sendData(url);
+
+  fetch("/cart/items/footer")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      const cartLength = responseData.cartLength;
+      const cartAmount = document.getElementById("cart-shopping");
+      cartAmount.innerText = cartLength;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 function increment(id) {

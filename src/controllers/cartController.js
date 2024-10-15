@@ -37,6 +37,16 @@ const cartController = {
     }
   },
 
+  cartLength(req, res) {
+    const cart = req.session.cart;
+    if (cart) {
+      const cartLength = Object.keys(cart).length;
+      res.send({ cartLength: cartLength });
+    } else {
+      res.send({ cartLength: null });
+    }
+  },
+
   cartAddItem(req, res) {
     if (req.session.cart) {
       const cartContent = req.body;
