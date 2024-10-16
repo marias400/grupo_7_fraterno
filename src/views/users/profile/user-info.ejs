@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-head.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/head.ejs") %>
+    <% } %>
+
+    <title>Información Personal</title>
+
+    <!-- Hoja de estilos propia de esta página -->
+    <link rel="stylesheet" href="/public/css/profile/user-info.css">
+</head>
+
+<body>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-header.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/header.ejs") %>
+    <% } %>
+    <main>
+        <div class="profile-container">
+            <h1>Información Personal</h1>
+            <div class="info-header">
+                <h2>¡Hola, Panajordan!</h2>
+                <p>Email: usuario@correo.com</p>
+            </div>
+
+            <div class="info-details">
+                <h3>Detalles Personales</h3>
+                <p><strong>Nombre Completo:</strong> Panajoa Pérez</p>
+                <p><strong>Dirección de Entrega:</strong> Casa de Pano</p>
+                <p><strong>Teléfono:</strong> (123) 456-7890</p>
+            </div>
+
+            <div class="info-actions">
+                <button class="edit-btn">Editar Información</button>
+                <button class="delete-btn">Eliminar Cuenta</button>
+            </div>
+        </div>
+    </main>
+    <% if(userSession && userSession.isAdmin) { %>
+    <%- include("../../partials/admin-footer.ejs") %>
+    <% }else{ %>
+    <%- include("../../partials/footer.ejs") %>
+    <% } %>
+</body>
+
+</html>

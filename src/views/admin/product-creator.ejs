@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/head.ejs") %>
+  <% } %>
+
+  <title>Crear Producto | Grupo Sie7e</title>
+  <script defer src="/js/sendData.js"></script>
+
+  <!--Hoja de estilos propia de esta página-->
+  <link rel="stylesheet" href="/css/product-management-styles.css" />
+
+  <!-- just validate -->
+  <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+
+  <!-- just validate script src -->
+  <script defer src="/js/product-validations.js"></script>
+</head>
+
+<body>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-header.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/header.ejs") %>
+  <% } %>
+
+  <main>
+    <h1>Crear Producto</h1>
+
+    <form class="product-form" id="product-validation" method="post" action="/admin/products/create" enctype="multipart/form-data">
+      <!-- Sección de datos del producto -->
+      <section class="product-form__data">
+      
+        <label for="name">Nombre del Producto:</label>
+
+        <div class="input-wrapper">
+        <input type="text" id="name" name="name" placeholder="Sanguche de milanesa"  value="<%= locals.data && locals.data.name ? locals.data.name : '' %>"/>
+        <% if (locals.errors && locals.errors.name) { %>
+          <p class="error-message"><%= errors.name.msg  %></p>
+        <% } %>
+        </div>
+
+        <label for="description">Descripción:</label>
+        <div class="input-wrapper">
+        <textarea id="description" name="description" placeholder="Sanguche de milanesa con tomate y lechuga, con un leve aderezo a base de mayonesa y mostaza. Un clasico de la gastronomia argentina" ><%= locals.data && locals.data.description ? locals.data.description : '' %></textarea>
+        <% if (locals.errors && locals.errors.description) { %>
+          <p class="error-message"><%= errors.description.msg  %></p>
+        <% } %>
+        </div>
+
+        <label for="ingredients">Ingredientes:</label>
+        <div class="input-wrapper">
+          <textarea id="ingredients" name="ingredients" placeholder="Pan, milanesa, tomate, lechuga, mayonesa, mostaza" ><%= locals.data && locals.data.ingredients ? locals.data.ingredients : '' %></textarea>
+        <% if (locals.errors && locals.errors.ingredients) { %>
+          <p class="error-message"><%= errors.ingredients.msg  %></p>
+        <% } %>
+        </div>
+
+        <label for="image">Imagen del Producto:</label>
+        <div class="input-wrapper">
+          <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)">
+        <% if (locals.errors && locals.errors.image) { %>
+          <p class="error-message"><%= errors.image.msg  %></p>
+        <% } %>
+        </div>
+        <div class="product-form__data--image">
+          <img id="output" />
+        </div>
+        <script>
+          var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+              URL.revokeObjectURL(output.src) // free memory
+            }
+          };
+          
+        </script>
+        <div class="input-wrapper">
+
+<select id="category" name="category" >
+  <option value="" <%= !locals.data || !locals.data.category ? 'selected' : '' %> >
+    - Seleccione la categoria -
+  </option>
+  <option value="comida" <%= locals.data && locals.data.category === 'comida' ? 'selected' : '' %>>Comida</option>
+  <option value="sanguche" <%= locals.data && locals.data.category === 'sanguche' ? 'selected' : '' %>>Sanguchito</option>
+  <option value="bebidas" <%= locals.data && locals.data.category === 'bebidas' ? 'selected' : '' %>>Bebidas</option>
+  <option value="snacks" <%= locals.data && locals.data.category === 'snacks' ? 'selected' : '' %>>Snacks</option>
+  <option value="postres" <%= locals.data && locals.data.category === 'postres' ? 'selected' : '' %>>Postres</option>
+  <option value="otros" <%= locals.data && locals.data.category === 'otros' ? 'selected' : '' %>>Otros</option>
+</select>
+        </div>
+        <% if (locals.errors && locals.errors.category) { %>
+          <p class="error-message"><%= errors.category.msg  %></p>
+        <% } %>
+
+        <div class="product-form__data--checkbox-group">
+          <div class="product-form__data--checkbox-container">
+            <label for="vegetarian">Apto vegetariano</label>
+            <input type="checkbox" id="vegetarian" name="suitability" value="vegetarian"
+            <%= locals && locals.suitabilityArray && suitabilityArray.includes('vegetarian') ? 'checked' : '' %>>
+          </div>
+      
+          <div class="product-form__data--checkbox-container">
+            <label for="vegan">Apto vegano</label>
+            <input type="checkbox" id="vegan" name="suitability" value="vegan"
+            <%= locals && locals.suitabilityArray && suitabilityArray.includes('vegan') ? 'checked' : '' %>>
+          </div>
+      
+          <div class="product-form__data--checkbox-container">
+            <label for="celiac">Apto celiaco</label>
+            <input type="checkbox" id="celiac" name="suitability" value="celiac"
+            <%= locals && locals.suitabilityArray && suitabilityArray.includes('celiac') ? 'checked' : '' %>>
+          </div>
+        </div>
+
+        <label for="size">Tamaño:</label>
+        <div class="input-wrapper">
+          <input type="text" id="size" name="size" placeholder="Grande" value="<%= locals.data && locals.data.size ? locals.data.size : '' %>" />
+        <% if (locals.errors && locals.errors.size) { %>
+          <p class="error-message"><%= errors.size.msg  %></p>
+        <% } %>
+        </div>
+
+        <label for="price">Precio:</label>
+        <div class="input-wrapper">
+          <input type="number" id="price" name="price" min="0" placeholder="4000" value="<%= locals.data && locals.data.price ? locals.data.price : '' %>"  />
+        <% if (locals.errors && locals.errors.price) { %>
+          <p class="error-message"><%= errors.price.msg  %></p>
+        <% } %>
+        </div>
+
+        <label for="stock">Stock:</label>
+        <div class="input-wrapper">
+        <input type="number" id="stock" name="stock" min="0" placeholder="0" value="<%= locals.data && locals.data.stock ? locals.data.stock : '' %>"  />
+        <% if (locals.errors && locals.errors.stock) { %>
+          <p class="error-message"><%= errors.stock.msg  %></p>
+        <% } %>
+        </div>
+
+
+      </section>
+
+      <!-- Sección de Botones -->
+      <section class="buttons-section">
+        <button type="submit" class="blue-button">Crear</button>
+      </section>
+    </form>
+  </main>
+
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/footer.ejs") %>
+  <% } %>
+
+  <script>
+    document
+      .querySelector(".top-side__burguer-menu")
+      .addEventListener("click", () => {
+        document.querySelector("nav ul").classList.toggle("active");
+      });
+  </script>
+</body>
+
+</html>

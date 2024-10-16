@@ -1,0 +1,48 @@
+<div class="floating-cart-button" onclick="toCart()">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <p id="cart-shopping"></p>
+</div>
+<footer class="main-footer-container">
+  <div class="main-footer">
+    <p class="main-footer__copyright">&copy; 2024 Grupo Sie7e y asociados. Todos los derechos reservados</p>
+    <div class="main-footer__socials">
+      <a href="/about" class="main-footer__about-us">
+        <p">About us
+      </a></p>
+      <a href="https://www.instagram.com" target="_blank" class="social-icon-ig">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com" target="_blank" class="social-icon-fb">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.twitter.com" target="_blank" class="social-icon-tw">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.youtube.com" target="_blank" class="social-icon-yt">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </div>
+  <script defer>
+    function toCart() {
+      window.location.href = "/cart";
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("/cart/items/footer")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Error en la respuesta del servidor");
+          }
+          return response.json();
+        })
+        .then((responseData) => {
+          const cartLength = responseData.cartLength;
+          const cartAmount = document.getElementById("cart-shopping");
+          cartAmount.innerText = cartLength;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    })
+  </script>
+</footer>

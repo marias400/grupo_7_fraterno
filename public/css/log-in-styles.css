@@ -70,16 +70,16 @@ h2 {
 
 .form_container {
     display: grid;
-    margin-top: 1em;
-    gap: 1.5em;
+    margin-top: 20px;
+    gap: 2px;
     padding-top: 10px;
     position: relative;
 }
 
 .form_container p {
-    position: absolute;
-    bottom: 0px;
-    color: crimson;
+    color: blue;
+    font-size: small;
+    text-align: left;
 }
 
 .form_input {
@@ -107,6 +107,18 @@ h2 {
     left: 0;
     transform: translateY(10px);
     transition: transform .5s, color .3s;
+}
+
+#remember-box {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+#p-remember {
+    font-size: small;
 }
 
 .form_submit {
@@ -138,6 +150,16 @@ h2 {
 
 .form_container:last-of-type {
     margin-bottom: 41px;
+}
+
+.just-validate-error-label{
+    text-align: left;
+    font-size: small;
+    color: red !important;
+}
+
+.hidden {
+    display: none !important;
 }
 
 /*UN MEDIAQUERI SOLO PORQUE ME DA TOC EN UN PARTE XD*/

@@ -179,10 +179,18 @@ main {
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    font-weight: bold;
+}
+
+.cart__subtotal--text{
+    font-size: 14px;
 }
 
 .cart__subtotal--price {
     font-weight: bold;
+    color: #ffff;
+    font-size: larger;
+
 }
 
 .checkout {
@@ -229,6 +237,22 @@ main {
     display: none;
 }
 
+.hidden {
+    display: none;
+}
+
+.undoBtn {
+    width: 60px;
+    height: 60px;
+    background-color: var(--dark-mustard);
+    color: white;
+    font-size: 30px;
+    border: 7px solid var(--dark-mayonnaise);
+    border-radius: 50%;
+    position: relative;
+    top: -20px;
+    cursor: pointer;
+}
 
 /*TELEFONOS*/
 @media (min-width: 375px) {
@@ -326,6 +350,11 @@ main {
         justify-content: space-between;
         align-items: center;
     }
+
+    .undoBtn {
+        top: -50px;
+        right: 260px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -333,4 +362,8 @@ main {
         max-width: 700px;
     }
 
+    .undoBtn {
+        top: -50px;
+        right: 350px;
+    }
 }

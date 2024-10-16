@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-head.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/head.ejs") %>
+  <% } %>
+
+  <title>Iniciar sesión | Grupo Sie7e</title>
+  <script defer src="/js/sendData.js"></script>
+
+  <!--Hoja de estilos propia de esta página-->
+  <link rel="stylesheet" href="/css/log-in-styles.css" />
+
+  <!-- just validate -->
+  <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+  
+  <!-- just validate script src -->
+  <script defer src="/js/login-validations.js"></script>
+</head>
+
+<body>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-header.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/header.ejs") %>
+  <% } %>
+  <main>
+    <div class="container">
+      <section class="title">
+        <h2>Iniciar Sesion</h2>
+        <span>con</span>
+      </section>
+      <section class="icon_log">
+        <div class="Log_externo">
+          <i class="fa-brands fa-apple"></i>
+          <span class="textlog">Apple ID</span>
+        </div>
+        <div class="Log_externo">
+          <i class="fa-brands fa-facebook-f"></i>
+          <span class="textlog">Facebook</span>
+        </div>
+        <div class="Log_externo">
+          <i class="fa-brands fa-google"></i>
+          <span class="textlog">Google</span>
+        </div>
+      </section>
+      <form class="form" id="login-form" method="post" action="/users/login">
+        <h2 class="form_title">o usa tu dirección de email</h2>
+        <div class="form_container">
+          <input type="text" name="email" id="email" class="form_input" placeholder=" " autofocus/>
+          <label for="email" class="form_label">Email</label>
+          <span class="form_line"></span>
+          <div style="position: relative; top: -20px;" class="error-message"></div>
+          <% if (locals.errors && locals.errors.email) { %>
+          <p id="backendErrorEmail"><%= locals.errors.email.msg %></p>
+          <% } %>
+          <% if (locals.dbErrorEmail) { %>
+          <p id="dbErrorEmail"><%= locals.dbErrorEmail %></p>
+          <% } %>
+        </div>
+        <div class="form_container">
+          <input type="password" name="password" id="password" class="form_input" placeholder=" " />
+          <label for="password" class="form_label">Contraseña</label>
+          <span class="form_line"></span>
+          <% if (locals.errors && locals.errors.password) { %>
+          <p id="backendErrorPassword"><%= locals.errors.password.msg %></p>
+          <% } %>
+          <% if (locals.dbErrorPassword) { %>
+          <p id="dbErrorPassword"><%= locals.dbErrorPassword %></p>
+          <% } %>
+        </div>
+        <div id="remember-box">
+          <input type="checkbox" name="remember" id="remember">
+          <label for="remember" id="p-remember">Recordarme</label>
+        </div>
+        <div class="form_container">
+          <input type="submit" class="form_submit" value="Entrar" />
+        </div>
+        <p class="form_paragraph">
+          <a href="/users/register" class="form_link">Registrate →</a>
+        </p>
+      </form>
+    </div>
+  </main>
+  <% if(userSession && userSession.isAdmin) { %>
+  <%- include("../partials/admin-footer.ejs") %>
+  <% }else{ %>
+  <%- include("../partials/footer.ejs") %>
+  <% } %>
+  <script>
+    function toHome() {
+      window.location.href = "/";
+    }
+  </script>
+</body>
+
+</html>

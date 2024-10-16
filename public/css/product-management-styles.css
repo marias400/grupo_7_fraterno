@@ -98,7 +98,7 @@ select {
     padding: 10px;
     border: 1px solid var(--sombra-gris-claro);
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 input[type="text"]:focus,
@@ -107,6 +107,12 @@ input[type="file"]:focus,
 textarea:focus,
 select:focus {
     border-color: var(--azul-cobalto);
+}
+
+.error-message{
+    color: crimson;
+    font-size: 13px;
+    font-style: italic;
 }
 
 button {
@@ -166,6 +172,12 @@ button.purple-button:active {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.just-validate-error-label{
+    text-align: left;
+    font-size: small;
+    color: red !important;
 }
 
 @media (min-width: 768px) {

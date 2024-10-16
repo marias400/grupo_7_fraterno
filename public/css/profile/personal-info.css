@@ -1,0 +1,96 @@
+.edit-profile-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8c18a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.edit-profile-container h1 {
+    text-align: center;
+    color: #101923;
+    margin-bottom: 20px;
+}
+
+form p {
+    color: blue;
+    font-size: small;
+    text-align: left;
+}
+
+.just-validate-error-label{
+    text-align: left;
+    font-size: small;
+    color: red !important;
+}
+
+#email {
+    background-color: rgb(216, 216, 216);
+}
+
+/* Stylish de los campos de formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #101923;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* botones */
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.save-btn,
+.cancel-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.save-btn {
+    background-color: #e49c00;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #946410;
+    transform: translateY(-2px);
+}
+
+.cancel-btn {
+    background-color: #e85829;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #cc332d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Query para pantallas más grandes */
+@media (min-width: 768px) {
+    .edit-profile-container {
+        padding: 30px;
+    }
+}

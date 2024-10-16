@@ -24,7 +24,6 @@ main {
     border-radius: 15px;
     box-shadow: 4px 4px var(--darker-mayonnaise);
     background-color: var(--dark-mayonnaise);
-    cursor: default;
 }
 
 .cards__image {
