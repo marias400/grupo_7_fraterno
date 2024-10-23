@@ -1,42 +1,85 @@
+:root {
+  /*COLORES USUARIOS*/
+  --mustard: #f7a81b;
+  --mustard-shadow: #946410;
+  --dark-mustard: #e49c00;
+
+  --orange: #e85829;
+  --orange-shadow: #6d2a14;
+
+  --mayonnaise: #f9d8b8;
+  --mayonnaise-shadow: #d49e67;
+  --dark-mayonnaise: #f8c18a;
+  --darker-mayonnaise: #e6bc92;
+
+  --dark-blue: #101923;
+
+  --max-width-hf: 1500px;
+
+  /*COLORES ADMINISTRACION*/
+  --azul-cobalto: #0047AB;
+  --violeta-oscuro: #4B0082;
+  --verde-azulado: #0095B6;
+  --gris-claro: #E0E0E0;
+  --blanco: #FFFFFF;
+
+  --sombra-azul-cobalto: #003a83;
+  --sombra-violeta-oscuro: #3a0070;
+  --sombra-verde-azulado: #007890;
+  --sombra-gris-claro: #B0B0B0;
+
+  --tono-claro-azul-cobalto: #4DB2FF;
+  --tono-claro-violeta-oscuro: #824BFF;
+  --tono-claro-verde-azulado: #66D9FF;
+  --tono-claro-gris-claro: #F0F0F0;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--mayonnaise);
+}
+
+.tab {
+  background-color: var(--dark-mayonnaise);
+  margin: 25px 10px 0px;
   text-align: center;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  flex: 1;
+  margin-bottom: 50px;
+  width: 80%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.tab:hover {
+  box-shadow: 0 10px 15px var(--dark-blue);
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tab-title {
+  background-color: var(--dark-mustard);
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+  margin-bottom: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.tab-title,
+.tab-content {
+  padding-bottom: 1.5rem;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.tab-content p,
+.tab-title h3 {
+  color: var(--dark-blue);
 }

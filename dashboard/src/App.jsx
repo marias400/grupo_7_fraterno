@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <UserTab></UserTab>
+      <UserTab/>
     </>
   )
 }
