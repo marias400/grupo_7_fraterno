@@ -4,18 +4,21 @@ const app = express();
 const path = require("path");
 const session = require("express-session");
 const sessionMiddleware = require("./middleware/sessionMiddleware");
+const cors = require("cors");
+const config = require("./config");
 
 const routesHome = require("./routes/homeRoutes");
 const routesAdmin = require("./routes/adminRoutes");
 const routesUsers = require("./routes/usersRoutes");
 const routesProducts = require("./routes/productsRoutes");
 const routesCarts = require("./routes/cartRoutes");
+const userApi = require("./routes/api/userApi");
 
 /*PUERTO (esta vez no es el 80 :D) */
 let PORT = process.env.PORT || 8000;
 
 /*carpeta estática de imágenes y hojas de estilo*/
-const publicPath = path.resolve(path.join(__dirname, '../public'));
+const publicPath = path.resolve(path.join(__dirname, "../public"));
 app.use(express.static(publicPath));
 
 const sessionConfig = {
@@ -29,6 +32,9 @@ const sessionConfig = {
   },
 };
 
+// cors
+app.use(cors(config));
+
 /*middlewares*/
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
@@ -38,7 +44,7 @@ app.use(sessionMiddleware);
 
 /*view engine*/
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, 'views'));
+app.set("views", path.join(__dirname, "views"));
 
 /*rutas de paginas*/
 app.use("/", routesHome);
@@ -46,6 +52,7 @@ app.use("/admin", routesAdmin);
 app.use("/users", routesUsers);
 app.use("/products", routesProducts);
 app.use("/cart", routesCarts);
+app.use("/api", userApi);
 
 /*iniciador del server + error*/
 app.listen(PORT, (err) => {
