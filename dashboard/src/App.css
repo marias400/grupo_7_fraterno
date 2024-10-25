@@ -83,3 +83,12 @@ body {
 .tab-title h3 {
   color: var(--dark-blue);
 }
+
+.tab-content img{
+  width: 70%;
+}
+
+.tab-content {
+  display: grid;
+  justify-items: center;
+}
