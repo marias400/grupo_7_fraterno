@@ -161,7 +161,7 @@ Un sprint hecho por Padula Jorge solo, no por voluntad suya sino por que el rest
 
 ## 😕 Less Off
 
-- **No desaparecese**
+- **No desaparecerse**
 
 ## 🚫 Stop Doing
 

@@ -6,6 +6,7 @@ const auth = require("../middleware/auth");
 const validations = require("../middleware/validations.js");
 
 router.put("/products/search", auth.adminAuth, adminController.editPage);
+
 router.get("/products/:id/edit", auth.adminAuth, adminController.editPage);
 router.put(
   "/products/:id",
@@ -13,6 +14,7 @@ router.put(
   auth.adminAuth,
   adminController.editLogic
 );
+
 router.get("/products/create", auth.adminAuth, adminController.createPage);
 router.post(
   "/products/create",
@@ -21,6 +23,7 @@ router.post(
   validations.product,
   adminController.createProduct
 );
+
 router.delete("/products/:id", auth.adminAuth, adminController.deleteProduct);
 
 module.exports = router;

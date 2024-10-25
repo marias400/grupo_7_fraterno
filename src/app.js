@@ -12,7 +12,7 @@ const routesAdmin = require("./routes/adminRoutes");
 const routesUsers = require("./routes/usersRoutes");
 const routesProducts = require("./routes/productsRoutes");
 const routesCarts = require("./routes/cartRoutes");
-const userApi = require("./routes/api/userApi");
+const routesApi = require("./routes/api/routesApi");
 
 /*PUERTO (esta vez no es el 80 :D) */
 let PORT = process.env.PORT || 8000;
@@ -52,7 +52,7 @@ app.use("/admin", routesAdmin);
 app.use("/users", routesUsers);
 app.use("/products", routesProducts);
 app.use("/cart", routesCarts);
-app.use("/api", userApi);
+app.use("/api", routesApi);
 
 /*iniciador del server + error*/
 app.listen(PORT, (err) => {

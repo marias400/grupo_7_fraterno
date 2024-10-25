@@ -12,7 +12,7 @@ const homeController = {
           order: Sequelize.fn('RAND'),
           limit: amount,
           where: {
-            [Op.or]: [{ category: "sanguches" }, { category: "comida" }]
+            [Op.or]: [{ category: "sanguche" }, { category: "comida" }]
           }
         });
         return items.map(item => item.dataValues);

@@ -87,11 +87,11 @@
     - Seleccione la categoria -
   </option>
   <option value="comida" <%= locals.data && locals.data.category === 'comida' ? 'selected' : '' %>>Comida</option>
-  <option value="sanguche" <%= locals.data && locals.data.category === 'sanguche' ? 'selected' : '' %>>Sanguchito</option>
-  <option value="bebidas" <%= locals.data && locals.data.category === 'bebidas' ? 'selected' : '' %>>Bebidas</option>
-  <option value="snacks" <%= locals.data && locals.data.category === 'snacks' ? 'selected' : '' %>>Snacks</option>
-  <option value="postres" <%= locals.data && locals.data.category === 'postres' ? 'selected' : '' %>>Postres</option>
-  <option value="otros" <%= locals.data && locals.data.category === 'otros' ? 'selected' : '' %>>Otros</option>
+  <option value="sanguche" <%= locals.data && locals.data.category === 'sanguche' ? 'selected' : '' %>>Sanguche</option>
+  <option value="bebida" <%= locals.data && locals.data.category === 'bebida' ? 'selected' : '' %>>Bebida</option>
+  <option value="snack" <%= locals.data && locals.data.category === 'snack' ? 'selected' : '' %>>Snack</option>
+  <option value="postre" <%= locals.data && locals.data.category === 'postre' ? 'selected' : '' %>>Postre</option>
+  <option value="otro" <%= locals.data && locals.data.category === 'otro' ? 'selected' : '' %>>Otro</option>
 </select>
         </div>
         <% if (locals.errors && locals.errors.category) { %>

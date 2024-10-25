@@ -9,6 +9,7 @@ const fileUploadUsers = require('../services/fileUploadUsers');
 
 router.get("/login", auth.profileAuth, usersController.loginPage);
 router.post("/login", auth.userInctiveAuth, validations.login, areEmailAndPassInDB.login, usersController.loginSuccesful);
+
 router.get("/register", auth.userInctiveAuth, usersController.registerPage);
 router.post("/register", fileUploadUsers.single('image'), validations.register, usersController.processRegister);
 

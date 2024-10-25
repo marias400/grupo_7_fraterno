@@ -26,6 +26,11 @@
 
 main {
     padding: 0 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
 h1 {
@@ -35,7 +40,7 @@ h1 {
 }
 
 form {
-    width: 100%;
+    width: 80%;
 }
 
 form section {
