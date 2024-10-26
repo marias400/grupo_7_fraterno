@@ -42,7 +42,6 @@ const userApi = {
         })
       }
     }).catch(error => {
-      console.log(error);
       return res.status(500).json({
         status: 500,
         error: "Hubo un error al obtener el usuario"

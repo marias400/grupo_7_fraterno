@@ -1,7 +1,6 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const db = require("../database/models");
-const { where } = require("sequelize");
 
 const usersController = {
   async loginPage(req, res) {
@@ -16,8 +15,6 @@ const usersController = {
       where: { email: email },
     }).then((user) => {
       if (bcrypt.compareSync(password, user.password)) {
-        //user && password == user.password
-        //bcrypt.compareSync(password, user.password)
         req.session.user = {
           id: user.id,
           firstName: user.firstName,
@@ -104,8 +101,6 @@ const usersController = {
     db.User.findOne({
       where: { email: updatedUserInfo.email },
     }).then((user) => {
-      //user && password == user.password
-      //bcrypt.compareSync(password, user.password)
       req.session.user = {
         id: user.id,
         firstName: user.firstName,
@@ -190,7 +185,6 @@ const usersController = {
 
   async deleteUser(req, res) {
     const user = req.session.user;
-    
     await db.User.destroy({
       where: { email: user.email },
     });
@@ -205,11 +199,10 @@ const usersController = {
 
   async processRegister(req, res) {
     const errors = validationResult(req);
-    console.log(req.body);
     if (!errors.isEmpty()) {
       let oldData = req.body;
       res.render("users/register", { errors: errors.mapped(), oldData });
-    } else {
+    }  else {
       if (req.file) {
         imageFile = `/images/users/${req.file.filename}`;
       } else {
@@ -224,7 +217,14 @@ const usersController = {
         address: req.body.address,
         image: imageFile,
         password: passwordEncypted,
-      }).then(res.redirect("/"));
+      })
+        .then(res.redirect("/"))
+        .catch((error) => {
+          return res.status(500).json({
+            status: 500,
+            error: error,
+          });
+        });
     }
   },
 };

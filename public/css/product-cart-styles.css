@@ -254,6 +254,32 @@ main {
     cursor: pointer;
 }
 
+.undo-individual {
+    padding: 10px 15px;
+    background-color: var(--dark-mustard);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid var(--dark-mayonnaise);
+    border-radius: 12px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px var(--mayonnaise-shadow);
+    cursor: pointer;
+    transition: background-color 150ms ease, transform 50ms ease;
+    white-space: nowrap;
+}
+
+.undo-individual:active {
+    transform: scale(0.95);
+    background-color: #ce4f24;
+}
+
+.hidden {
+    display: none !important;
+}
+
 /*TELEFONOS*/
 @media (min-width: 375px) {
     .cart {

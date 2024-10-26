@@ -39,12 +39,6 @@ main {
     position: relative;
 }
 
-.form_container p {
-    position: absolute;
-    bottom: 0px;
-    color: crimson;
-}
-
 .form_input {
     width: 100%;
     background-color: transparent;
@@ -120,6 +114,14 @@ main {
     text-align: left;
     font-size: small;
     color: red !important;
+}
+
+.error-msg {
+    text-align: left;
+    font-size: small;
+    color: red !important;
+    padding-bottom: 1rem;
+    bottom: 0px;
 }
 
 @media (max-width: 375px) {

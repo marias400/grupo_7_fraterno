@@ -41,10 +41,15 @@ footer {
     align-items: center;
 }
 
+.stripe__info--values {
+    padding: 1rem;
+}
+
 hr {
     width: 40vw;
     height: 1px;
     background-color: var(--orange);
+    margin: 0px !important;
 }
 
 .stripe__tags--product-description {
@@ -81,13 +86,6 @@ hr {
     flex-wrap: wrap;
 }
 
-.stripe__info--values :nth-child(4) {
-    background-color: var(--mayonnaise);
-    text-align: center;
-    border-radius: 5px;
-    background-color: white;
-}
-
 .stripe__photo img {
     border: 1px solid var(--orange);
     border-radius: 26px 58px;
@@ -118,39 +116,6 @@ hr {
     align-items: center;
 }
 
-.stripe__info--values {
-    padding: 10px;
-    display: grid;
-    flex-grow: 1;
-    grid-template-columns: 20px 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 10px;
-}
-
-.stripe__info--values__amount button {
-    width: 20px;
-    height: 20px;
-}
-
-.stripe__info--values__amount {
-    width: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.stripe__info--values button {
-    width: 20px;
-    height: 20px;
-    background-color: var(--mustard);
-    color: var(--dark-blue);
-    text-align: center;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
 .stripe__button {
     width: 150px;
     background-color: var(--orange);
@@ -158,9 +123,10 @@ hr {
     border-radius: 5px;
     box-shadow: 2px 2px 2px rgb(75, 75, 75);
     display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
-.stripe__button input,
 .stripe__button label {
     width: 50%;
     height: 40px;
@@ -174,11 +140,6 @@ hr {
     cursor: pointer;
 }
 
-.stripe__button input {
-    background-color: transparent;
-    border: none;
-}
-
 .stripe__button label {
     display: flex;
     justify-content: center;
@@ -190,6 +151,18 @@ hr {
     box-shadow: none;
     position: relative;
     transform: translate(0.4vh, 0.4vh);
+}
+
+.confirmation-message {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--orange);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
 }
 
 

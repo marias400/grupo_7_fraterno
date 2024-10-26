@@ -33,8 +33,14 @@ async function addToCart() {
   let randomKey = "id" + Math.random().toString(16).slice(2);
   localStorage.setItem(randomKey, productName.innerText);
 
-  //cambiar por mejor feedback al usuario!!!
-  window.confirm("Producto agregado al carrito!");
+  const confirmationMessage = document.createElement('div');
+  confirmationMessage.classList.add('confirmation-message');
+  confirmationMessage.innerText = 'Producto agregado al carrito!';
+  document.body.appendChild(confirmationMessage);
+
+  setTimeout(() => {
+    confirmationMessage.remove();
+  }, 3000);
 
   const url = "/cart/add";
   sendData(url);

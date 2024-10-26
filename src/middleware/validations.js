@@ -1,12 +1,25 @@
 const { check } = require('express-validator');
 const path = require("path");
+const db = require("../database/models");
 
 const register = [
     check('firstName').notEmpty().withMessage('* Ingresar su nombre').bail()
         .isLength({min: 2}).withMessage('* Debe tener mínimo 2 caracteres'),
     check('lastName').notEmpty().withMessage('* Ingresar su apellido').bail()
         .isLength({min: 2}).withMessage('* Debe tener mínimo 2 caracteres'),
-    check('email').isEmail().withMessage('* Ingresar un email válido'),
+        check('email')
+            .isEmail().withMessage('* Ingresar un email válido')
+            .custom(async (value, { req }) => {
+            if (req.body.email) {
+                const user = await db.User.findOne({
+                where: { email: req.body.email },
+                });
+                if (user) {
+                throw new Error('* El email ya está en uso');
+                }
+            }
+          return true;
+        }),      
     check('phone').optional({ checkFalsy: true })
         .isInt().withMessage('* No ingresar caracteres especiales').bail()
         .isLength({ min: 10, max: 15 }).withMessage('* El número debe tener entre 10 y 15 dígitos'),

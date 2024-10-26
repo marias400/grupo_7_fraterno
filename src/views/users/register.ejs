@@ -49,7 +49,7 @@
           <label for="firstName" class="form_label">Nombre*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.firstName) { %>
-            <p><%= locals.errors.firstName.msg %></p>
+            <p class="error-msg"><%= locals.errors.firstName.msg %></p>
           <% } %>
         </div>
 
@@ -64,7 +64,7 @@
           <label for="lastName" class="form_label">Apellido*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.lastName) { %>
-            <p><%= locals.errors.lastName.msg %></p>
+            <p class="error-msg"><%= locals.errors.lastName.msg %></p>
           <% } %>
         </div>
 
@@ -79,7 +79,7 @@
           <label for="email" class="form_label">Email*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.email) { %>
-            <p><%= locals.errors.email.msg %></p>
+            <p class="error-msg"><%= locals.errors.email.msg %></p>
           <% } %>
         </div>
 
@@ -94,7 +94,7 @@
           <label for="phone" class="form_label">Telefono</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.phone) { %>
-            <p><%= locals.errors.phone.msg %></p>
+            <p class="error-msg"><%= locals.errors.phone.msg %></p>
           <% } %>
         </div>
 
@@ -129,7 +129,7 @@
           <label for="password" class="form_label">Contraseña*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.password) { %>
-            <p><%= locals.errors.password.msg %></p>
+            <p class="error-msg"><%= locals.errors.password.msg %></p>
           <% } %>
         </div>
 
@@ -143,7 +143,7 @@
           <label for="repassword" class="form_label">Repetir contraseña*</label>
           <span class="form_line"></span>
           <% if (locals.errors && locals.errors.password_repeat) { %>
-            <p><%= locals.errors.password_repeat.msg %></p>
+            <p class="error-msg"><%= locals.errors.password_repeat.msg %></p>
           <% } %>
         </div>
 

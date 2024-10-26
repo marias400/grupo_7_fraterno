@@ -9,74 +9,77 @@ const deleteIcons = document.querySelectorAll(
 );
 const subtotalElement = document.getElementById("subtotal");
 const undoBtn = document.querySelector(".undoBtn");
-undoBtn.addEventListener("click", undoHandler);
-
-const checkoutForm = document.querySelector(".checkout");
-checkoutForm.addEventListener("submit", checkoutHandler);
-
-document.addEventListener("DOMContentLoaded", function () {
-  updateSubtotal();
-});
 
 let recentDelete = {};
 
-plusButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const id = this.getAttribute("data-id");
-    const quantityElement = document.querySelector(
-      `.cart__content--product-middleblox-quantity[data-id="${id}"]`
-    );
+undoBtn.addEventListener("click", undoAllHandler);
 
-    let quantity = parseInt(quantityElement.textContent, 10);
-    quantityElement.textContent = quantity + 1;
+document
+  .querySelector(".cart__content")
+  .addEventListener("click", function (e) {
+    if (e.target.classList.contains("cart__content--product-delete-icon")) {
+      const id = e.target.getAttribute("data-id");
+      const articleToDelete = document.querySelector(
+        `.cart__content--product[data-id="${id}"]`
+      );
+      let key = e.target.dataset.uniqueid;
+      let name = localStorage.getItem(key);
 
-    // Actualizar el subtotal después de cambiar la cantidad
-    updateSubtotal();
-  });
-});
+      if (!recentDelete[key]) {
+        recentDelete[key] = name;
+        localStorage.removeItem(key);
 
-minusButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const id = this.getAttribute("data-id");
-    const quantityElement = document.querySelector(
-      `.cart__content--product-middleblox-quantity[data-id="${id}"]`
-    );
+        const undoButton = document.createElement("button");
+        undoButton.dataset.uniqueid = key;
+        undoButton.innerText = "Deshacer";
+        undoButton.classList.add("undo-individual");
+        undoButton.addEventListener("click", undoHandler);
+        articleToDelete.replaceChildren(undoButton);
 
-    let quantity = parseInt(quantityElement.textContent, 10);
-    if (quantity > 1) {
-      quantityElement.textContent = quantity - 1;
+        undoBtn.classList.remove("hidden");
+
+        const url = "/cart/delete";
+        const fetchMethod = "DELETE";
+        sendData(url, fetchMethod, key);
+        updateSubtotal();
+      }
     }
-
-    // Actualizar el subtotal después de cambiar la cantidad
-    updateSubtotal();
   });
+
+document.addEventListener("DOMContentLoaded", function () {
+  updateSubtotal();
+  setButtonListeners();
 });
 
-deleteIcons.forEach((icon) => {
-  icon.addEventListener("click", function (e) {
-    const id = this.getAttribute("data-id");
-    const articleToDelete = document.querySelector(
-      `.cart__content--product[data-id="${id}"]`
-    );
-    let key = e.target.dataset.uniqueid;
-    let name = localStorage.getItem(key);
-    recentDelete[key] = name;
-    localStorage.removeItem(key);
+function setButtonListeners() {
+  plusButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const id = this.getAttribute("data-id");
+      const quantityElement = document.querySelector(
+        `.cart__content--product-middleblox-quantity[data-id="${id}"]`
+      );
 
-    // undo button 2.0
-    const undoButton = document.createElement("button");
-    undoButton.dataset.uniqueid = key;
-    undoButton.innerText = "Deshacer";
-    undoButton.addEventListener("click", undoHandler);
-    articleToDelete.replaceChildren(undoButton);
-    // undo button 2.0
-
-    updateSubtotal();
-    const url = "/cart/delete";
-    const fetchMethod = "DELETE";
-    sendData(url, fetchMethod, key);
+      let quantity = parseInt(quantityElement.textContent, 10);
+      quantityElement.textContent = quantity + 1;
+      updateSubtotal();
+    });
   });
-});
+
+  minusButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const id = this.getAttribute("data-id");
+      const quantityElement = document.querySelector(
+        `.cart__content--product-middleblox-quantity[data-id="${id}"]`
+      );
+
+      let quantity = parseInt(quantityElement.textContent, 10);
+      if (quantity > 1) {
+        quantityElement.textContent = quantity - 1;
+      }
+      updateSubtotal();
+    });
+  });
+}
 
 function sendData(url, fetchMethod, id) {
   let method = "POST";
@@ -96,7 +99,6 @@ function sendData(url, fetchMethod, id) {
       const key = localStorage.key(i);
       localStorageObject[key] = localStorage.getItem(key);
     }
-    console.log(localStorageObject);
     localStorageString = JSON.stringify(localStorageObject);
   }
   fetch(url, {
@@ -118,6 +120,142 @@ function sendData(url, fetchMethod, id) {
     .catch((error) => {
       console.error(error);
     });
+}
+
+async function undoHandler(e) {
+  let data;
+  let url = "/cart/add";
+  e.preventDefault();
+  const uniqueid = e.target.dataset.uniqueid;
+
+  if (recentDelete[uniqueid]) {
+    localStorage.setItem(uniqueid, recentDelete[uniqueid]);
+    sendData(url);
+    delete recentDelete[uniqueid];
+  }
+
+  e.target.classList.add("hidden");
+  if (Object.keys(recentDelete).length === 0) {
+    undoBtn.classList.add("hidden");
+  }
+
+  const articleToDelete = document.querySelector(
+    `.cart__content--product[data-uniqueid="${uniqueid}"]`
+  );
+  const id = articleToDelete.dataset.id;
+  articleToDelete.remove();
+
+  await fetch(`/api/products/${id}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      data = responseData;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  const newProduct = document.createElement("article");
+  newProduct.dataset.id = data.id;
+  newProduct.dataset.uniqueid = uniqueid;
+  newProduct.classList.add("cart__content--product");
+  newProduct.innerHTML = `
+  <i data-id="${data.id}" data-uniqueId="${uniqueid}" class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+  <img src="${data.image}" class="cart__content--product-image">
+  <div class="cart__content--product-right-box">
+    <div class="cart__content--product-middleblox">
+      <div class="cart__content--product-middleblox-top">
+        <p class="cart__content--product-middleblox-name">${data.name}</p>
+      </div>
+      <div class="cart__content--product-middleblox-bottom">
+        <button data-id="${data.id}" class="cart__content--product-middleblox-quantityMinus">-</button>
+        <span data-id="${data.id}" class="cart__content--product-middleblox-quantity">1</span>
+        <button data-id="${data.id}" class="cart__content--product-middleblox-quantityPlus">+</button>
+      </div>
+    </div>
+    <p data-id="${data.id}" class="cart__content--product-price">$${data.price}</p>
+  </div>
+  `;
+
+  document.querySelector(".cart__content").appendChild(newProduct);
+  setButtonListeners();
+  updateSubtotal();
+}
+
+async function undoAllHandler(e) {
+  e.preventDefault();
+  const url = "/cart/add";
+
+  for (const id in recentDelete) {
+    localStorage.setItem(id, recentDelete[id]);
+
+    // Find the corresponding undo button and article
+    const undoButton = document.querySelector(`button[data-uniqueid="${id}"]`);
+    const articleToDelete = undoButton.parentElement;
+
+    // Remove the undo button and article
+    articleToDelete.remove();
+
+    // Fetch product data
+    let data;
+    await fetch(`/api/products/${articleToDelete.dataset.id}`, {
+      method: "GET",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la respuesta del servidor");
+        }
+        return response.json();
+      })
+      .then((responseData) => {
+        data = responseData;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    // Create a new product element
+    const newProduct = document.createElement("article");
+    newProduct.dataset.id = data.id;
+    newProduct.dataset.uniqueid = id;
+    newProduct.classList.add("cart__content--product");
+    newProduct.innerHTML = `
+      <i data-id="${data.id}" data-uniqueId="${id}" class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
+      <img src="${data.image}" class="cart__content--product-image">
+      <div class="cart__content--product-right-box">
+        <div class="cart__content--product-middleblox">
+          <div class="cart__content--product-middleblox-top">
+            <p class="cart__content--product-middleblox-name">${data.name}</p>
+          </div>
+          <div class="cart__content--product-middleblox-bottom">
+            <button data-id="${data.id}" class="cart__content--product-middleblox-quantityMinus">-</button>
+            <span data-id="${data.id}" class="cart__content--product-middleblox-quantity">1</span>
+            <button data-id="${data.id}" class="cart__content--product-middleblox-quantityPlus">+</button>
+          </div>
+        </div>
+        <p data-id="${data.id}" class="cart__content--product-price">$${data.price}</p>
+      </div>
+    `;
+
+    // Append the new product element to the cart
+    document.querySelector(".cart__content").appendChild(newProduct);
+  }
+
+  // Reset recentDelete, hide undo buttons, and update UI
+  recentDelete = {};
+  undoBtn.classList.add("hidden");
+  const individualUndoButtons = document.querySelectorAll(".undo-individual");
+  individualUndoButtons.forEach((button) => button.classList.add("hidden"));
+
+  sendData(url);
+  setButtonListeners();
+  updateSubtotal();
 }
 
 const updateSubtotal = () => {
@@ -148,39 +286,7 @@ const updateSubtotal = () => {
     }
     newSubtotal += quantity * price;
   });
-  subtotalElement.innerText = `$${newSubtotal.toFixed(2)}`;
-};
-
-function undoHandler(e) {
-  const url = "/cart/add";
-  e.preventDefault();
-  let uniqueid = e.target.dataset.uniqueid;
-  for (const id in recentDelete) {
-    if (id === uniqueid) {
-      localStorage.setItem(id, recentDelete[id]);
-      sendData(url);
-      delete recentDelete[uniqueid];
-    }
+  if (subtotalElement) {
+    subtotalElement.innerText = `$${newSubtotal.toFixed(2)}`;
   }
-
-  const undoBtn = document.querySelector(`button[data-uniqueid="${uniqueid}"]`);
-  undoBtn.classList.add("hidden");
-  sendData(url);
-}
-
-async function updatePage(url) {
-  await fetch(url, {
-    headers: {
-      Pragma: "no-cache",
-      Expires: "-1",
-      "Cache-Control": "no-cache",
-    },
-  });
-  window.location.href = url;
-  window.location.reload();
-}
-
-function checkoutHandler(e) {
-  const url = "/cart/checkout";
-  sendData(url);
-}
+};
