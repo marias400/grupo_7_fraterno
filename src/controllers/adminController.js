@@ -41,49 +41,62 @@ const adminController = {
   //Guardar la edicion de un producto
 
   async editLogic(req, res) {
-    //  this.products = await inventoryData.load();
+    let errors = validationResult(req);
     let { id } = req.params;
-    db.Product.findByPk(id).then((product) => {
+
+    let product = await db.Product.findByPk(id);
+    let products = await db.Product.findAll();
+
       if (product === null) {
         console.log("Producto no encontrado!");
-      } else {
-        let newImage = "";
-        if (req.file) {
-          // Si se sube una nueva imagen, borra la anterior y guarda el path de la nueva
-          if (product.image != "/images/products/default.png") {
-            datasource.removeFile(product.image);
+        return res.redirect('/admin/products');
+      }
+
+      // Ruta de la imagen actual del producto en la base de datos
+      let currentImage = product.image;
+
+      let newImage = currentImage;
+      if (req.file) {
+      // Si se sube una nueva imagen, borra la anterior y guarda el path de la nueva
+          if (currentImage !== "/images/products/default.png") {
+              datasource.removeFile(currentImage);
           }
           newImage = `/images/products/${req.file.filename}`;
-        } else {
-          // Sino mantiene la imagen vieja o sino contiene un path valido setea una por defecto
-          newImage = product.image;
-          if (!product.image.includes("/images/products/")) {
-            newImage = "/images/products/default.png";
-          }
-        }
+      } 
 
-        let editedProduct = {
-          name: req.body.name,
-          description: req.body.description,
-          ingredients: req.body.ingredients,
-          image: newImage,
-          category: req.body.category,
-          suitability: req.body.suitability,
-          size: req.body.size,
-          price: req.body.price,
-          // faltaria Stock en la vista (formulario)
-        };
+      let restrictions = req.body.suitability; 
+
+      if (!Array.isArray(restrictions)) { //si selecciona solo un check el string lo defino como array
+        restrictions = [restrictions];
+      }
+  
+      const restrictionsString = restrictions.join(', '); // Concateno los valores seleccionados en un solo string
+  
+
+      let editedProduct = {
+        name: req.body.name,
+        description: req.body.description,
+        ingredients: req.body.ingredients,
+        image: newImage,
+        category: req.body.category,
+        suitability: restrictionsString,
+        size: req.body.size,
+        price: req.body.price,
+        stock: req.body.stock
+      };
+
+      if (errors.isEmpty()) {
         db.Product.update(editedProduct, { where: { id } }).then(
           (resultado) => {
             //console.log(resultado);
             res.redirect(`/admin/products/${id}/edit`);
-            // res.render("admin/product-editor", { productItem: products});
           }
         );
+      }else{
+        let latestDataForm = {...editedProduct};
+        res.render(`admin/product-editor`, { errors: errors.mapped(), data : latestDataForm, suitabilityArray: restrictions, productItem: product, products });
       }
-    });
 
-    // faltaria suitability mostrar y tomar el valor de checks (retirados)
   },
 
   async createPage(req, res) {

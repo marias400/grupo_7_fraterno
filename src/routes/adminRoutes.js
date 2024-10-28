@@ -12,6 +12,7 @@ router.put(
   "/products/:id",
   fileUpload.single("image"),
   auth.adminAuth,
+  validations.product,
   adminController.editLogic
 );
 
