@@ -16,7 +16,8 @@ const productApi = {
                 sanguche: 0,
                 bebida: 0,
                 snack: 0,
-                postre: 0
+                postre: 0,
+                otro: 0
             };
 
             productsArray.forEach((product) => {

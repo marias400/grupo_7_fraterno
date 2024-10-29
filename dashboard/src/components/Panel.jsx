@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Panel.css'
 import { useFetch } from '../hooks/useFetch';
 
-export default function Panel({icon,title,endpoint,dataprop}){
+export default function Panel({icon,title,endpoint,dataprop,children}){
     const { data, isLoading } = useFetch(`${endpoint}`)
 
     if (isLoading) {
@@ -19,10 +19,10 @@ export default function Panel({icon,title,endpoint,dataprop}){
 
     // const count = data[dataprop]
 
-    if (!count) {
+    if (!count && !children) {
         return <p>No fue posible obtener la cantidad</p>;
     }
-    // console.log(count)
+    console.log(count)
     return (
         <>
         <div className="panel">
@@ -30,8 +30,8 @@ export default function Panel({icon,title,endpoint,dataprop}){
                 {icon && <FontAwesomeIcon icon={icon} size='xl' className='panel-icon' fixedWidth/>}
                 <h3>{title}</h3>
             </div>
-            <div className="panel-content">
-                {count}
+            <div className="panel-content">   
+                {count?count:children}
             </div>
         </div>
         </>

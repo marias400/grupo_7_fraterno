@@ -10,7 +10,9 @@ function App() {
     <>
       <Panel title="Total Usuarios" icon={faUser} endpoint="api/users" dataprop="count"/>
       <Panel title="Total Productos" icon={faUtensils} endpoint="api/products" dataprop="count"/>
-      {/* <Panel title="Total Categorias" icon={faClipboard} endpoint="api/products" dataprop="countByCategory"/> */}
+      <Panel title="Total Categorias" icon={faClipboard} endpoint="api/products" dataprop="CountByCategory.sanguche">
+      6
+      </Panel>
         
       <UserTab/>
     </>
