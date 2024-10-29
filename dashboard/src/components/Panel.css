@@ -1,0 +1,40 @@
+.panel {
+    width: 100%;
+    max-width: 400px;
+
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  .panel-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #f1a90f;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .panel-icon {
+    margin-right: 8px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .panel-content {
+    padding: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #f8c471;
+    /* background: linear-gradient(135deg, #f1a90f, #f4b860); */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .panel:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+  }
+  
