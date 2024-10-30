@@ -1,18 +1,26 @@
 .panel {
     width: 100%;
     max-width: 400px;
-
     border-radius: 10px;
+    transition: box-shadow 0.50s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
   }
+  .panel:hover {
+    box-shadow: 0 6px 10px var(--dark-blue);
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
   
   .panel-title {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px;
-    background-color: #f1a90f;
+    
+    background: linear-gradient(150deg, var(--dark-mustard), #f4b860);
+    /* background-color: #f1a90f; */
     color: #333;
     font-weight: bold;
   }
@@ -27,14 +35,10 @@
     padding: 20px;
     font-size: 1.2rem;
     text-align: center;
-    background-color: #f8c471;
+    background-color: var(--dark-mayonnaise);
     /* background: linear-gradient(135deg, #f1a90f, #f4b860); */
     color: white;
     font-weight: bold;
   }
   
-  .panel:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s ease-in-out;
-  }
-  
+ 

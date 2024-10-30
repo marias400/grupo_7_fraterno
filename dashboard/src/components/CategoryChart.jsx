@@ -1,6 +1,6 @@
 import { PieChart } from "@mui/x-charts/PieChart";
-
 import { useFetch } from "../hooks/useFetch";
+import "./CategoryChart.css";
 
 export default function CategoryChart() {
   const { data, isLoading } = useFetch("api/products");
@@ -22,11 +22,11 @@ let allCategory =[]
   
 console.log(allCategory)
 
-  return (    <div className="tab">
-      <div className="tab-title">
+  return (    <div className="category">
+      <div className="category-title">
         <h3>Categoria de Productos</h3>
       </div>
-      <ul className="tab-content">
+      <ul className="category-content">
         <p>{category.comida}</p>
       </ul>
 

@@ -51,45 +51,4 @@ body {
   background-color: var(--mayonnaise);
 }
 
-.tab {
-  background-color: var(--dark-mayonnaise);
-  margin: 25px 10px 0px;
-  text-align: center;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  flex: 1;
-  margin-bottom: 50px;
-  width: 80%;
-}
-
-.tab:hover {
-  box-shadow: 0 10px 15px var(--dark-blue);
-  cursor: pointer;
-}
-
-.tab-title {
-  background-color: var(--dark-mustard);
-  border-radius: 10px 10px 0px 0px;
-  padding: 20px;
-  margin-bottom: 1.5rem;
-}
-
-.tab-title,
-.tab-content {
-  padding-bottom: 1.5rem;
-}
-
-.tab-content p,
-.tab-title h3 {
-  color: var(--dark-blue);
-}
-
-.tab-content img {
-  width: 70%;
-}
-
-.tab-content {
-  display: grid;
-  justify-items: center;
-}
 

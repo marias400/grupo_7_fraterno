@@ -1,5 +1,5 @@
 import { useFetch } from "../hooks/useFetch"
-
+import "./UserTab.css"
 export default function UserTab() {
     const { data, isLoading } = useFetch("api/users")
 
@@ -14,11 +14,11 @@ export default function UserTab() {
     }
     console.log(user)
     return (
-        <div className="tab">
-            <div className="tab-title">
+        <div className="userTab">
+            <div className="userTab-title">
                 <h3>Último usuario registrado</h3>
             </div>
-            <div className="tab-content">
+            <div className="userTab-content">
                 <p>Id {user.id}</p>
                 <p>{user.name}</p>
                 <p>{user.email}</p>

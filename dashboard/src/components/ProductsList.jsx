@@ -1,4 +1,5 @@
 import { useFetch } from "../hooks/useFetch"
+import "./productList.css"
 
 export default function ProductsList() {
     const { data, isLoading } = useFetch("api/products")
@@ -14,11 +15,11 @@ export default function ProductsList() {
     }
     
     return (
-        <div className="tab">
-            <div className="tab-title">
+        <div className="productList">
+            <div className="productList-title">
                 <h3>Listado de Productos</h3>
             </div>
-            <ul className="tab-content">
+            <ul className="productList-content">
                 {products.map((product)=>{
                     return <li key={product.id}>{product.name}</li>
                     
