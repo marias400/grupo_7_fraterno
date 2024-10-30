@@ -17,21 +17,21 @@
   --max-width-hf: 1500px;
 
   /*COLORES ADMINISTRACION*/
-  --azul-cobalto: #0047AB;
-  --violeta-oscuro: #4B0082;
-  --verde-azulado: #0095B6;
-  --gris-claro: #E0E0E0;
-  --blanco: #FFFFFF;
+  --azul-cobalto: #0047ab;
+  --violeta-oscuro: #4b0082;
+  --verde-azulado: #0095b6;
+  --gris-claro: #e0e0e0;
+  --blanco: #ffffff;
 
   --sombra-azul-cobalto: #003a83;
   --sombra-violeta-oscuro: #3a0070;
   --sombra-verde-azulado: #007890;
-  --sombra-gris-claro: #B0B0B0;
+  --sombra-gris-claro: #b0b0b0;
 
-  --tono-claro-azul-cobalto: #4DB2FF;
-  --tono-claro-violeta-oscuro: #824BFF;
-  --tono-claro-verde-azulado: #66D9FF;
-  --tono-claro-gris-claro: #F0F0F0;
+  --tono-claro-azul-cobalto: #4db2ff;
+  --tono-claro-violeta-oscuro: #824bff;
+  --tono-claro-verde-azulado: #66d9ff;
+  --tono-claro-gris-claro: #f0f0f0;
 }
 
 #root {
@@ -84,7 +84,7 @@ body {
   color: var(--dark-blue);
 }
 
-.tab-content img{
+.tab-content img {
   width: 70%;
 }
 
@@ -92,3 +92,4 @@ body {
   display: grid;
   justify-items: center;
 }
+

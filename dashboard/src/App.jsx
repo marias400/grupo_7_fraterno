@@ -2,6 +2,8 @@ import './App.css'
 import Panel from './components/Panel'
 import { faUser, faClipboard, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import UserTab from './components/userTab'
+import ProductsList from './components/ProductsList';
+import CategoryChart from './components/CategoryChart';
 
 function App() {
 
@@ -13,6 +15,8 @@ function App() {
       <Panel title="Total Categorias" icon={faClipboard} endpoint="api/products" dataprop="CountByCategory.sanguche">
       6
       </Panel>
+      <ProductsList/>
+      <CategoryChart/>
         
       <UserTab/>
     </>
