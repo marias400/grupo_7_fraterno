@@ -4,7 +4,8 @@
     text-align: center;
     border-radius: 10px;
     transition: box-shadow 0.50s ease;
-   
+    grid-area: extra2;
+    
     width: 100%;
     min-height: 300px;
     max-height: 500px;   

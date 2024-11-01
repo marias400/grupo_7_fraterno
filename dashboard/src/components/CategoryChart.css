@@ -1,13 +1,17 @@
 .category {
+    
+    
     background-color: var(--dark-mayonnaise);
     margin: 25px auto; /* Centra el componente horizontalmente */
     text-align: center;
     border-radius: 10px;
     transition: box-shadow 0.50s ease;
-    width: 100%;
+    width: auto;
     min-height: 300px;
     max-height: 500px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    grid-area: chart;
+       
 }
 
 .category:hover {
@@ -29,14 +33,13 @@
 }
 
 .category-content {
-    list-style: none;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     max-height: 400px; /* Limita la altura para el scroll interno */
-    overflow-y: auto; /* Agrega scroll solo en la lista */
+    
 }
-
 
 
 

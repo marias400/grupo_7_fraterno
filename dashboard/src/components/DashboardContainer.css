@@ -1,7 +1,11 @@
 .dashboard-container {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    gap: 40px; 
-    
-  }
-  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Tres columnas iguales */
+  grid-template-rows: auto auto auto; /* Tres filas ajustadas al contenido */
+  gap: 40px;
+  grid-template-areas:
+    "panel1 panel2 panel3"
+    "chart chart chart"
+    " . extra2 extra3";
+}
+

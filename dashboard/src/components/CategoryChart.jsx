@@ -16,31 +16,31 @@ export default function CategoryChart() {
   }
 
 let allCategory =[] 
-  Object.keys(category).forEach(function(key) {
-    allCategory.push({name:key , amount:category[key]});
+  Object.keys(category).forEach(function(key,i) {
+    allCategory.push({id:i,label:key , value:category[key]});
   });
+
   
-console.log(allCategory)
+//console.log(allCategory)
 
   return (    <div className="category">
       <div className="category-title">
         <h3>Categoria de Productos</h3>
       </div>
-      <ul className="category-content">
-        <p>{category.comida}</p>
-      </ul>
-
-      <PieChart
+      
+    <div className="category-content">
+      <PieChart 
         series={[
           {
             data: allCategory
-             
-            ,
+            
+            
           },
         ]}
-        width={400}
+        width={500}
         height={200}
-      />
+        />
     </div>
+        </div>
   );
 }
