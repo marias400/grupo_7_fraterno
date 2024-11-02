@@ -1,11 +1,26 @@
+
+.dashboard-container {
+  width: 100%;
+  padding: 1rem;
+}
+
+@media (min-width: 1260px) { /* Vista Desktop */
 .dashboard-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Tres columnas iguales */
-  grid-template-rows: auto auto auto; /* Tres filas ajustadas al contenido */
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto; 
   gap: 40px;
   grid-template-areas:
-    "panel1 panel2 panel3"
-    "chart chart chart"
-    " . extra2 extra3";
+    "panel panel panel"
+    "product chart user";
+    justify-items: center;
+}
+}
+
+@media (max-width: 1260px) { /* Vista Mobile */
+  .dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+   }
 }
 

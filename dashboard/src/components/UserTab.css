@@ -1,10 +1,9 @@
 .userTab {
     background-color: var(--dark-mayonnaise);
-    margin: 25px auto;
     text-align: center;
     border-radius: 10px;
     transition: box-shadow 0.50s ease;
-    grid-area: extra2;
+    grid-area: user;
     
     width: 100%;
     min-height: 300px;
@@ -47,11 +46,16 @@
   }
   
   .userTab-content img {
-    width: 50%;
+    width: 20%;
     margin: 10px 0;
+    
 }
-  
-  
+
+@media (max-width: 1260px) {
+  .userTab {
+      margin-top: 20px ; 
+  }
+}
  
   
   

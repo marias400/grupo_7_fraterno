@@ -36,8 +36,6 @@
 
 #root {
   width: 100%;
-  display: grid;
-  justify-items: center;
 }
 
 * {

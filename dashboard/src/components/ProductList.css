@@ -1,6 +1,5 @@
 .productList {
     background-color: var(--dark-mayonnaise);
-    margin: 25px auto; /* Centra el componente horizontalmente */
     text-align: center;
     border-radius: 10px;
     transition: box-shadow 0.50s ease;
@@ -8,7 +7,7 @@
     min-height: 300px;
     max-height: 500px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    grid-area: extra3;
+    grid-area: product;
    
 }
 
@@ -48,6 +47,9 @@
 }
 
 
-
-
+@media (max-width: 1260px) {
+    .productList {
+        margin-top: 20px ; 
+    }
+}
 
