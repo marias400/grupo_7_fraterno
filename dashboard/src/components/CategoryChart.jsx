@@ -17,7 +17,7 @@ export default function CategoryChart() {
 
 let allCategory =[] 
   Object.keys(category).forEach(function(key,i) {
-    allCategory.push({id:i,label:key , value:category[key]});
+    allCategory.push({id:i,label:key.charAt(0).toUpperCase() + key.slice(1) , value:category[key]});
   });
 
   
@@ -32,13 +32,29 @@ let allCategory =[]
       <PieChart 
         series={[
           {
-            data: allCategory
-            
+            data: allCategory,
+            cornerRadius: 5,
+            highlightScope: { fade: 'global', highlight: 'item' },
+            faded: { innerRadius: 20, additionalRadius: -20, color: 'gray' },
+        
             
           },
         ]}
-        width={500}
-        height={200}
+        margin={{ top: 10, bottom: 10, left: 10, right:10 }}
+        // width={500}
+        height={300}
+        slotProps={{
+          legend: {
+            direction: 'row',
+            position: { vertical: 'bottom', horizontal: 'middle' },
+            padding: {top: 0},
+            itemMarkWidth: 20,
+            itemMarkHeight: 2,
+            markGap: 5,
+            itemGap: 10,
+            hidden: true,
+          },
+        }}
         />
     </div>
         </div>
