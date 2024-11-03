@@ -40,7 +40,7 @@
 &nbsp;&nbsp;&nbsp;Soy estudiante de Licenciatura en Sistemas con experiencia en soporte técnico. Actualmente estoy cursando la carrera de Licenciatura en Sistemas, donde voy adquiriendo conocimientos fundamentales en el desarrollo y mantenimiento de sistemas informáticos. Además, he trabajado como soporte técnico, brindando asistencia y soluciones tecnológicas a los usuarios.
 
 ### `Zelaya Daniel`
-&nbsp;&nbsp;&nbsp;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+&nbsp;&nbsp;&nbsp;Soy Ingeniero Electrónico (UTN La Rioja), Especialista en Ingenieria Gerencial.Me dediqué a desarrollar tecnología para las perforaciones de agua subterranea.Hace un año que estoy aprendiendo desarrollo web como Trainee, en un Hospital de niños de mi provincia. Soy docente voluntario y coordinador de un club de robotica y programación llamado Code Club La Rioja.
 
 ### `Barros Jorge Esteban`
 &nbsp;&nbsp;&nbsp;Me recibi de Lic. en Kinesiologia y Fisioterapia en el año 2020, profesion que estoy ejerciendo actualmente pero desde hace un año atras comence a introducirme en la programacion. Tengo conocimientos basicos de Diseño Ux Ui, html y css por interes propio en distintas plataformas digitales.
