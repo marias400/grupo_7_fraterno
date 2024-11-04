@@ -5,11 +5,15 @@ import UserTab from './components/userTab'
 import ProductsList from './components/ProductsList';
 import CategoryChart from './components/CategoryChart';
 import DashboardContainer from './components/DashboardContainer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
 
 
   return (
+  <>
+    <Header/>
     <DashboardContainer>
       <Panel title="Total Usuarios" icon={faUser} endpoint="api/users" dataprop="count"/>
       <Panel title="Total Productos" icon={faUtensils} endpoint="api/products" dataprop="count"/>
@@ -20,6 +24,8 @@ function App() {
       <CategoryChart/>
       <UserTab/>
       </DashboardContainer>
+    <Footer />
+  </>
   )
 }
 

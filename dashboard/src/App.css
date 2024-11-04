@@ -49,4 +49,7 @@ body {
   background-color: var(--mayonnaise);
 }
 
+a:hover {
+  color: var(--orange);
+}
 
