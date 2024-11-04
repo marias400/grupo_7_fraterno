@@ -29,13 +29,45 @@ function sendData(url) {
 }
 
 async function addToCart() {
-  const productName = document.querySelector(".stripe__tags--product-name p");
-  let randomKey = "id" + Math.random().toString(16).slice(2);
-  localStorage.setItem(randomKey, productName.innerText);
+  const productName = document.querySelector(
+    ".stripe__tags--product-name p"
+  ).innerText;
 
-  const confirmationMessage = document.createElement('div');
-  confirmationMessage.classList.add('confirmation-message');
-  confirmationMessage.innerText = 'Producto agregado al carrito!';
+  let existingProductKey = null;
+  let existingProductQuantity = 0;
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const storedProduct = JSON.parse(localStorage.getItem(key));
+    if (storedProduct.name === productName) {
+      existingProductKey = key;
+      existingProductQuantity = storedProduct.quantity;
+      break;
+    }
+  }
+
+  if (existingProductKey) {
+    localStorage.setItem(
+      existingProductKey,
+      JSON.stringify({
+        name: productName,
+        quantity: existingProductQuantity + 1,
+      })
+    );
+  } else {
+    let randomKey = "id" + Math.random().toString(16).slice(2);
+    localStorage.setItem(
+      randomKey,
+      JSON.stringify({
+        name: productName,
+        quantity: 1,
+      })
+    );
+  }
+
+  const confirmationMessage = document.createElement("div");
+  confirmationMessage.classList.add("confirmation-message");
+  confirmationMessage.innerText = "Producto agregado al carrito!";
   document.body.appendChild(confirmationMessage);
 
   setTimeout(() => {

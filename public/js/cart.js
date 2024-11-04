@@ -19,18 +19,27 @@ document
   .addEventListener("click", function (e) {
     if (e.target.classList.contains("cart__content--product-delete-icon")) {
       const id = e.target.getAttribute("data-id");
+      const uniqueId = e.target.getAttribute("data-uniqueid");
       const articleToDelete = document.querySelector(
         `.cart__content--product[data-id="${id}"]`
       );
-      let key = e.target.dataset.uniqueid;
-      let name = localStorage.getItem(key);
+      const articleToDeleteQuantity = parseInt(
+        document.querySelector(
+          `.cart__content--product-middleblox-quantity[data-id="${id}"]`
+        ).innerText
+      );
 
-      if (!recentDelete[key]) {
-        recentDelete[key] = name;
-        localStorage.removeItem(key);
+      let name = localStorage.getItem(uniqueId);
+
+      if (!recentDelete[uniqueId]) {
+        recentDelete[uniqueId] = JSON.stringify({
+          name,
+          quantity: articleToDeleteQuantity,
+        });
+        localStorage.removeItem(uniqueId);
 
         const undoButton = document.createElement("button");
-        undoButton.dataset.uniqueid = key;
+        undoButton.dataset.uniqueid = uniqueId;
         undoButton.innerText = "Deshacer";
         undoButton.classList.add("undo-individual");
         undoButton.addEventListener("click", undoHandler);
@@ -40,7 +49,7 @@ document
 
         const url = "/cart/delete";
         const fetchMethod = "DELETE";
-        sendData(url, fetchMethod, key);
+        sendData(url, fetchMethod, uniqueId);
         updateSubtotal();
       }
     }
@@ -55,12 +64,19 @@ function setButtonListeners() {
   plusButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const id = this.getAttribute("data-id");
+      const uniqueId = this.dataset.uniqueid;
       const quantityElement = document.querySelector(
         `.cart__content--product-middleblox-quantity[data-id="${id}"]`
       );
 
       let quantity = parseInt(quantityElement.textContent, 10);
       quantityElement.textContent = quantity + 1;
+
+      if (localStorage.getItem(uniqueId)) {
+        let item = JSON.parse(localStorage.getItem(uniqueId));
+        item.quantity += 1;
+        localStorage.setItem(uniqueId, JSON.stringify(item));
+      }
       updateSubtotal();
     });
   });
@@ -68,6 +84,7 @@ function setButtonListeners() {
   minusButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const id = this.getAttribute("data-id");
+      const uniqueId = this.dataset.uniqueid;
       const quantityElement = document.querySelector(
         `.cart__content--product-middleblox-quantity[data-id="${id}"]`
       );
@@ -75,20 +92,21 @@ function setButtonListeners() {
       let quantity = parseInt(quantityElement.textContent, 10);
       if (quantity > 1) {
         quantityElement.textContent = quantity - 1;
+
+        if (localStorage.getItem(uniqueId)) {
+          let item = JSON.parse(localStorage.getItem(uniqueId));
+          item.quantity -= 1;
+          localStorage.setItem(uniqueId, JSON.stringify(item));
+        }
+        updateSubtotal();
       }
-      updateSubtotal();
     });
   });
 }
 
-function sendData(url, fetchMethod, id) {
-  let method = "POST";
+async function sendData(url, fetchMethod = "POST", id = null) {
   let localStorageObject = {};
   let localStorageString;
-
-  if (fetchMethod) {
-    method = fetchMethod;
-  }
 
   if (id && recentDelete[id]) {
     let toDelete = {};
@@ -101,36 +119,35 @@ function sendData(url, fetchMethod, id) {
     }
     localStorageString = JSON.stringify(localStorageObject);
   }
-  fetch(url, {
-    method: method,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: localStorageString,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor");
-      }
-      return response.json();
-    })
-    .then((responseData) => {
-      console.log("Datos enviados correctamente:", responseData);
-    })
-    .catch((error) => {
-      console.error(error);
+
+  try {
+    const response = await fetch(url, {
+      method: fetchMethod,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: localStorageString,
     });
+
+    if (!response.ok) {
+      throw new Error("Error en la respuesta del servidor");
+    }
+
+    const responseData = await response.json();
+    console.log("Datos enviados correctamente:", responseData);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function undoHandler(e) {
-  let data;
-  let url = "/cart/add";
   e.preventDefault();
   const uniqueid = e.target.dataset.uniqueid;
-
+  const productData = JSON.parse(recentDelete[uniqueid])
   if (recentDelete[uniqueid]) {
-    localStorage.setItem(uniqueid, recentDelete[uniqueid]);
-    sendData(url);
+    const toRestore = JSON.parse(recentDelete[uniqueid])
+    localStorage.setItem(uniqueid, toRestore.name);
+    sendData("/cart/add");
     delete recentDelete[uniqueid];
   }
 
@@ -142,50 +159,77 @@ async function undoHandler(e) {
   const articleToDelete = document.querySelector(
     `.cart__content--product[data-uniqueid="${uniqueid}"]`
   );
+
+  if (!articleToDelete) return;
   const id = articleToDelete.dataset.id;
   articleToDelete.remove();
 
-  await fetch(`/api/products/${id}`, {
-    method: "GET",
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor");
-      }
-      return response.json();
-    })
-    .then((responseData) => {
-      data = responseData;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  try {
+    const response = await fetch(`/api/products/${id}`);
+    if (!response.ok) throw new Error("Error en la respuesta del servidor");
+    const data = await response.json();
 
-  const newProduct = document.createElement("article");
-  newProduct.dataset.id = data.id;
-  newProduct.dataset.uniqueid = uniqueid;
-  newProduct.classList.add("cart__content--product");
-  newProduct.innerHTML = `
-  <i data-id="${data.id}" data-uniqueId="${uniqueid}" class="cart__content--product-delete-icon fa-regular fa-trash-can"></i>
-  <img src="${data.image}" class="cart__content--product-image">
-  <div class="cart__content--product-right-box">
-    <div class="cart__content--product-middleblox">
-      <div class="cart__content--product-middleblox-top">
-        <p class="cart__content--product-middleblox-name">${data.name}</p>
-      </div>
-      <div class="cart__content--product-middleblox-bottom">
-        <button data-id="${data.id}" class="cart__content--product-middleblox-quantityMinus">-</button>
-        <span data-id="${data.id}" class="cart__content--product-middleblox-quantity">1</span>
-        <button data-id="${data.id}" class="cart__content--product-middleblox-quantityPlus">+</button>
-      </div>
-    </div>
-    <p data-id="${data.id}" class="cart__content--product-price">$${data.price}</p>
-  </div>
-  `;
+    const newProduct = document.createElement("article");
+    newProduct.dataset.id = data.id;
+    newProduct.dataset.uniqueid = uniqueid;
+    newProduct.classList.add("cart__content--product");
 
-  document.querySelector(".cart__content").appendChild(newProduct);
-  setButtonListeners();
-  updateSubtotal();
+    const deleteIcon = document.createElement("i");
+    deleteIcon.dataset.id = data.id;
+    deleteIcon.dataset.uniqueid = uniqueid;
+    deleteIcon.className =
+      "cart__content--product-delete-icon fa-regular fa-trash-can";
+
+    const img = document.createElement("img");
+    img.src = data.image;
+    img.classList.add("cart__content--product-image");
+
+    const rightBox = document.createElement("div");
+    rightBox.classList.add("cart__content--product-right-box");
+
+    const middleblox = document.createElement("div");
+    middleblox.classList.add("cart__content--product-middleblox");
+
+    const middlebloxTop = document.createElement("div");
+    middlebloxTop.classList.add("cart__content--product-middleblox-top");
+    const productName = document.createElement("p");
+    productName.className = "cart__content--product-middleblox-name";
+    productName.textContent = data.name;
+    middlebloxTop.appendChild(productName);
+
+    const middlebloxBottom = document.createElement("div");
+    middlebloxBottom.classList.add("cart__content--product-middleblox-bottom");
+    const minusButton = document.createElement("button");
+    minusButton.dataset.id = data.id;
+    minusButton.className = "cart__content--product-middleblox-quantityMinus";
+    minusButton.textContent = "-";
+    const quantitySpan = document.createElement("span");
+    quantitySpan.dataset.id = data.id;
+    quantitySpan.className = "cart__content--product-middleblox-quantity";
+    quantitySpan.textContent = productData.quantity;
+    const plusButton = document.createElement("button");
+    plusButton.dataset.id = data.id;
+    plusButton.className = "cart__content--product-middleblox-quantityPlus";
+    plusButton.textContent = "+";
+
+    middlebloxBottom.append(minusButton, quantitySpan, plusButton);
+    middleblox.append(middlebloxTop, middlebloxBottom);
+    rightBox.append(middleblox);
+
+    const priceElement = document.createElement("p");
+    priceElement.dataset.id = data.id;
+    priceElement.className = "cart__content--product-price";
+    priceElement.textContent = `$${data.price}`;
+
+    rightBox.appendChild(priceElement);
+    newProduct.append(deleteIcon, img, rightBox);
+
+    document.querySelector(".cart__content").appendChild(newProduct);
+    setButtonListeners();
+    updateSubtotal();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function undoAllHandler(e) {
@@ -193,7 +237,8 @@ async function undoAllHandler(e) {
   const url = "/cart/add";
 
   for (const id in recentDelete) {
-    localStorage.setItem(id, recentDelete[id]);
+    const toRestore = JSON.parse(recentDelete[id])
+    localStorage.setItem(id, toRestore.name);
 
     // Find the corresponding undo button and article
     const undoButton = document.querySelector(`button[data-uniqueid="${id}"]`);
@@ -258,35 +303,19 @@ async function undoAllHandler(e) {
   updateSubtotal();
 }
 
-const updateSubtotal = () => {
-  let newSubtotal = 0;
+function updateSubtotal() {
+  const prices = document.querySelectorAll(".cart__content--product-price");
+  const quantities = document.querySelectorAll(
+    ".cart__content--product-middleblox-quantity"
+  );
 
-  const cartProduct = document.querySelectorAll(".cart__content--product");
-  cartProduct.forEach((product) => {
-    let innerValue = product.querySelector(
-      ".cart__content--product-middleblox-quantity"
-    );
-    let innerPrice = product.querySelector(".cart__content--product-price");
-    let quantity = 0;
-    let price = 0;
-    if (innerValue !== null && innerPrice !== null) {
-      let priceText = innerPrice.textContent
-        .trim()
-        .replace("$", "")
-        .replace(",", "");
-      quantity = parseInt(innerValue.textContent.trim(), 10);
-      price = parseFloat(priceText);
+  let subtotal = 0;
 
-      if (isNaN(price)) {
-        console.error(
-          `El valor del precio no es válido: ${innerPrice.textContent}`
-        );
-        price = 0;
-      }
-    }
-    newSubtotal += quantity * price;
+  prices.forEach((priceElement, index) => {
+    const price = parseFloat(priceElement.textContent.replace("$", ""));
+    const quantity = parseInt(quantities[index].textContent, 10);
+    subtotal += price * quantity;
   });
-  if (subtotalElement) {
-    subtotalElement.innerText = `$${newSubtotal.toFixed(2)}`;
-  }
-};
+
+  subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+}

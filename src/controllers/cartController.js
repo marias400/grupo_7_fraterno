@@ -91,14 +91,21 @@ const cartController = {
   cartPage(req, res) {
     let cart = req.session.cart;
     let total = 0;
-
+  
     if (cart) {
-      // Crear un array de promesas
       let promises = Object.entries(cart).map(([key, value]) => {
+        let parsedValue;
+        try {
+          parsedValue = JSON.parse(value);
+        } catch (error) {
+          console.error(`Error al parsear el valor de ${key}:`, error);
+          return Promise.resolve(null);
+        }
+  
         return db.Product.findOne({
           where: {
             name: {
-              [Op.like]: value,
+              [Op.like]: parsedValue.name,
             },
           },
         })
@@ -106,23 +113,36 @@ const cartController = {
             if (response) {
               let newItem = response.dataValues;
               newItem["uniqueId"] = key;
-              total += newItem.price;
-              return newItem; // Retornar el producto para después incluirlo en el carrito
+              newItem["quantity"] = parsedValue.quantity;
+              total += newItem.price * parsedValue.quantity;
+              return newItem;
             }
+            return null;
           })
           .catch((error) => {
             console.error(error);
-            return null; // En caso de error, retornar null o manejar el error adecuadamente
+            return null;
           });
       });
-
-      // Ejecutar todas las promesas en paralelo y luego renderizar
+  
       Promise.all(promises).then((cartContent) => {
-        // Filtrar productos null en caso de errores
         cartContent = cartContent.filter((item) => item !== null);
-
+  
+        let consolidatedCart = [];
+        let cartMap = new Map();
+  
+        cartContent.forEach((item) => {
+          if (cartMap.has(item.name)) {
+            let existingItem = cartMap.get(item.name);
+            existingItem.quantity += item.quantity;
+          } else {
+            cartMap.set(item.name, item);
+            consolidatedCart.push(item);
+          }
+        });
+  
         res.render("products/product-cart", {
-          cartContent: cartContent,
+          cartContent: consolidatedCart,
           total: total,
         });
       });
@@ -133,6 +153,7 @@ const cartController = {
       });
     }
   },
+  
 };
 
 module.exports = cartController;

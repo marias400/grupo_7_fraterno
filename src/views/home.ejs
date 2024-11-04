@@ -17,6 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
+    <!-- javascript para barra de busqueda -->
+     <script defer src="js/home.js"></script>
 </head>
 
 <body>
@@ -27,10 +29,12 @@
     <% } %>
     <section class="search-box-container">
         <div class="search-box">
-            <input type="search" class="search-box__input" placeholder="Buscar">
+            <input type="search" class="search-box__input" placeholder="Buscar" id="search-input">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <ul class="suggestions-list" id="suggestionsList"></ul>
         </div>
     </section>
+    
     <main>
         <section class="main-top">
             <h1>BIENVENIDOS A GRUPO SIE7E</h1>

@@ -259,6 +259,34 @@ h2 {
     margin-top: 10px;
 }
 
+.search-box {
+    position: relative;
+}
+
+.suggestions-list {
+    position: relative;
+    top: 100%;
+    left: -226px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    z-index: 1000;
+}
+
+.suggestions-list li {
+    width: 226px;
+    padding: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.suggestions-list li:hover {
+    background-color: #f0f0f0;
+}
+
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
 
