@@ -36,7 +36,7 @@
     text-align: center;
     background-color: var(--dark-mayonnaise);
     /* background: linear-gradient(135deg, #f1a90f, #f4b860); */
-    color: white;
+    color: #333;
     font-weight: bold;
   }
   
