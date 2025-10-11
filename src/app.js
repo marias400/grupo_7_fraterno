@@ -15,7 +15,7 @@ const routesCarts = require("./routes/cartRoutes");
 const routesApi = require("./routes/api/routesApi");
 
 /*PUERTO (esta vez no es el 80 :D) */
-let PORT = process.env.PORT || 8000;
+let PORT = process.env.PORT || 8080;
 
 /*carpeta estática de imágenes y hojas de estilo*/
 const publicPath = path.resolve(path.join(__dirname, "../public"));
