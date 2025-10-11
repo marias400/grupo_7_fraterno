@@ -70,3 +70,22 @@
 [2025-10-11T18:13:45.868Z] GET /cart/items - IP: ::1
 [2025-10-11T18:13:45.961Z] GET /cart/items/footer - IP: ::ffff:127.0.0.1
 [2025-10-11T18:13:45.966Z] GET /api/products/ - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.443Z] GET / - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.583Z] GET /images/products/sanguche_pastrami.jpg - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.631Z] GET /css/global-styles.css - IP: ::1
+[2025-10-11T18:20:36.647Z] GET /images/products/sanguche_milanesa.jpg - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.649Z] GET /js/home.js - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.651Z] GET /images/logoG7.svg - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.653Z] GET /js/sendData.js - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.654Z] GET /css/home-styles.css - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.770Z] POST /cart/add - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.771Z] GET /cart/items - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.798Z] GET /api/products/ - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.800Z] GET /cart/items/footer - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.925Z] GET /images/products/sanguche_caprese.jpg - IP: ::ffff:127.0.0.1
+[2025-10-11T18:20:36.927Z] GET /images/products/sanguche_lomito.jpg - IP: ::1
+[2025-10-11T18:20:36.978Z] GET /images/products/sanguche_bondiola.jpg - IP: ::1
+[2025-10-11T18:20:36.980Z] GET /images/products/sanguche_atun.jpg - IP: ::ffff:127.0.0.1
+[2025-10-11T18:22:58.811Z] Server running on http://localhost:8000
+[2025-10-11T18:23:01.722Z] GET / - IP: ::ffff:127.0.0.1
+[2025-10-11T18:25:49.125Z] Server running on http://localhost:8000
